@@ -15,4 +15,8 @@ public class BusinessController {
 	    public String solution() {
 	        return "solution"; 
 	    }
+	 @GetMapping("/consulting") //컨설팅 controller
+	    public String consulting() {
+	        return "consulting"; 
+	    }
 }
