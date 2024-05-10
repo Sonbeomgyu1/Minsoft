@@ -15,10 +15,17 @@ public class BusinessController {
 	    public String solution() {
 	        return "solution"; 
 	    }
+
 		
 	@GetMapping("/itoutsourcingpage") //IT 아웃소싱 controller 
 		public String itoutsourcingpage() { 
 		return "itoutsourcing";
 		}
 		 
+
+	 @GetMapping("/consulting") //컨설팅 controller
+	    public String consulting() {
+	        return "consulting"; 
+	    }
+
 }
