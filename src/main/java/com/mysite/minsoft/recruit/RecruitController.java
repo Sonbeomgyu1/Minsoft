@@ -5,14 +5,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
 public class RecruitController {
-
-	 @GetMapping("/")
-	    public String Company() {
-	        return "index"; 
-	    }
 	 
 	 @GetMapping("/recruitmentinfomation") //채용안내 controller
-	    public String certification() {
+	    public String recruitmentinfomation() {
 	        return "recruitmentinfomation"; 
 	    }
 }
