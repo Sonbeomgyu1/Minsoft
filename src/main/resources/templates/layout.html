@@ -21,6 +21,7 @@
 	<title>
 		Soft UI Design System PRO by Creative Tim
 	</title>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 	<!--     Fonts and icons     -->
 	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
 	<!-- Nucleo Icons -->
@@ -313,16 +314,16 @@
 						<div class="container">
 							<div class="row">
 								<div class="col-lg-12 my-auto">
-									
-									<h1 class="text-white fadeIn2 fadeInBottom" >기술인증</h1>
-									
+
+									<h1 class="text-white fadeIn2 fadeInBottom">기술인증</h1>
+
 								</div>
 							</div>
 						</div>
 					</div>
 
 				</div>
-			<!--		<div class="carousel-item">
+				<!--		<div class="carousel-item">
 					<div class="page-header min-vh-75 m-3 border-radius-xl"
 						style="background-image: url('https://raw.githubusercontent.com/creativetimofficial/public-assets/master/soft-ui-design-system/assets/img/meeting.jpg');">
 						<span class="mask bg-gradient-dark"></span>
@@ -340,7 +341,7 @@
 						</div>
 					</div>
 			</div> -->
-			<!--	<div class="carousel-item">
+				<!--	<div class="carousel-item">
 					<div class="page-header min-vh-75 m-3 border-radius-xl"
 						style="background-image: url('https://raw.githubusercontent.com/creativetimofficial/public-assets/master/soft-ui-design-system/assets/img/meeting.jpg');">
 						<span class="mask bg-gradient-dark"></span>
@@ -374,6 +375,13 @@
 	</header>
 	<!-- -------- END HEADER 11 w/ carousel ------- -->
 	<main>
+		<div class="mainbutton">
+			<a href="/consulting" class="btn btn-light">사업내용</a>
+			<a href="/consulting" class="btn btn-light">IT 아웃소싱</a>
+			<a href="/business" class="btn btn-light">SI / SM</a>
+			<a href="/consulting" class="btn btn-light">컨설팅</a>
+			<a href="/consulting" class="btn btn-light">솔루션</a>
+		</div>
 		<h2>내용내용내용</h2>
 		<h2>내용내용내용</h2>
 		<h2>내용내용내용</h2>
@@ -463,21 +471,58 @@
 </body>
 <style>
 	/*헤더 부분 css 시작*/
-.text-white {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 50vh; /* Adjust as needed */
-    margin: 0; /* Remove any default margin */
-    
-}
+	.text-white {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		height: 50vh;
+		/* Adjust as needed */
+		margin: 0;
+		/* Remove any default margin */
 
+	}
+
+	.btn {
+		/*배너 사진밑에 버튼 CSS*/
+
+		padding: 10px 50px;
+		/* 버튼의 내부 여백을 조정합니다. */
+		margin: 50px;
+		/* 버튼 사이의 간격을 설정합니다. */
+		color: black;
+		background-color: white;
+		font-size: 30px;
+		font-weight: 500;
+		/* 글자를 굵게 설정합니다. */
+	}
+
+	.mainbutton {
+		/*배너 아래 버튼 마진 css*/
+		text-align: center;
+		margin-bottom: 70px;
+
+	}
+
+	.btn-light:hover {
+		/*버튼 호버 색상 변경*/
+		color: white;
+		/* 호버시 텍스트 색상 변경 */
+		background-color: lightgrey;
+		/* 호버시 배경색 변경 */
+		border-color: blue;
+		/* 호버시 테두리 색상 변경 */
+	}
+
+	.mainbutton .btn {
+		border: none;
+		/* 버튼 테두리를 없앱니다 */
+	}
 
 
 	/*헤더 부분 css 끝*/
-	
+
 	/*main시작 css*/
-	
+
 	/*main css 끝*/
 	/*푸터 css 시작 */
 	.min {
