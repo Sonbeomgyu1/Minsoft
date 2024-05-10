@@ -20,5 +20,8 @@ public class BusinessController {
 	    public String consulting() {
 	        return "consulting"; 
 	    }
-
+	 @GetMapping("/sism") //SI/SM controller
+	    public String sism() {
+	        return "sism"; 
+	    }
 }
