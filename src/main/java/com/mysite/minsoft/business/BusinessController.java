@@ -14,8 +14,11 @@ public class BusinessController {
 	 @GetMapping("/solution") //사업내용 controller
 	    public String solution() {
 	        return "solution"; 
+	    }	 
+
+	 @GetMapping("/consulting") //컨설팅 controller
+	    public String consulting() {
+	        return "consulting"; 
 	    }
-	 
-	
-	 
+
 }
