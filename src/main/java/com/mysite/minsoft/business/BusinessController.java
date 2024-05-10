@@ -15,4 +15,7 @@ public class BusinessController {
 	    public String solution() {
 	        return "solution"; 
 	    }
+	 
+	
+	 
 }
