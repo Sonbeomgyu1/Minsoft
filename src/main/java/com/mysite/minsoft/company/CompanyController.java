@@ -11,7 +11,7 @@ public class CompanyController {
 	        return "index"; 
 	    }
 	 
-	 @GetMapping("/certification")
+	 @GetMapping("/certification") //기술인증 controller
 	    public String certification() {
 	        return "certification"; 
 	    }
