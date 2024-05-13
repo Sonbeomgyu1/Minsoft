@@ -19,8 +19,8 @@ public class CompanyController {
 	    public String presentation() {
 	        return "presentation"; 
 	    }
-	 @GetMapping("/greeting") //인사말 controller
+	 @GetMapping("/greetingpage") //인사말 controller
 	 	public String greeting() {
-		 	return "greeting";
+		 	return "greetingpage";
 	 }
 }
