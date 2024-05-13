@@ -15,4 +15,5 @@ public class MainController {
 	public String Main() {
 		return "main";
 	}
+	
 }
