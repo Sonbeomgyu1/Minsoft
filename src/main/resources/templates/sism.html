@@ -38,7 +38,7 @@
 	<!-- Navbar Light -->
 	<nav class="navbar navbar-expand-lg navbar-light bg-white py-3">
 		<div class="container">
-			<a class="navbar-brand font-weight-bold" href="#">
+			<a class="navbar-brand font-weight-bold" href="/">
 				<img src="/images/logo.jpg" alt="Soft UI PRO" style="max-width: 300px; height: 45PX;">
 			</a>
 
@@ -529,134 +529,133 @@
 		<!--그림 코드 끝-->
 		<!--질문 코드-->
 		<section class="py-lg-5 mt-lg-5">
-			<div class="container">
-				<div class="row my-5">
-					<div class="col-md-6 mx-auto text-center">
-						<h2 id="progress-heading" class="animate-on-scroll" style="font-size: 50px;">진행절차</h2>
-						<p id="detail-text" class="animate-on-scroll" style="font-size: 20px;">세부내용</p>
-					</div>
-				</div>
+    <div class="container">
+        <div class="row my-5">
+            <div class="col-md-6 mx-auto text-center">
+                <h2 id="progress-heading" class="animate-on-scroll" style="font-size: 50px;">진행절차</h2>
+                <p id="detail-text" class="animate-on-scroll" style="font-size: 20px;">세부내용</p>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-10 mx-auto">
+            <div class="accordion" id="accordionRental">
+                <div class="accordion-item mb-3">
+                    <h5 class="accordion-header" id="headingOne">
+                        <button class="accordion-button border-bottom font-weight-bold text-start" type="button"
+                            data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false"
+                            aria-controls="collapseOne">
+                            프로젝트 팀 구성
+                            <i class="collapse-close fa fa-plus text-xs pt-1 position-absolute end-0 me-3"></i>
+                            <i class="collapse-open fa fa-minus text-xs pt-1 position-absolute end-0 me-3"></i>
+                        </button>
+                    </h5>
+                    <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne"
+                        data-bs-parent="#accordionRental">
+                        <div class="accordion-body text-sm opacity-8">
+                            적절한 능력을 가진 개발자 2배수 이상 선정 → 면접을 통해 개발자 선정 → 팀 구성
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item mb-3">
+                    <h5 class="accordion-header" id="headingTwo">
+                        <button class="accordion-button border-bottom font-weight-bold text-start" type="button"
+                            data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false"
+                            aria-controls="collapseTwo">
+                            프로젝트 개발 관리
+                            <i class="collapse-close fa fa-plus text-xs pt-1 position-absolute end-0 me-3"></i>
+                            <i class="collapse-open fa fa-minus text-xs pt-1 position-absolute end-0 me-3"></i>
+                        </button>
+                    </h5>
+                    <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
+                        data-bs-parent="#accordionRental">
+                        <div class="accordion-body text-sm opacity-8">
+                            프로젝트 관리자가 인력 및 스케줄 관리 → 프로젝트 개발 PM이 개발의 전반적 책임을 지고 관리하며,<br>
+                            그와 별도로 프로젝트 관리 PM이 개발 프로젝트 일정, 진행사항, 프로젝트 진행 시 문제점 파악 등 관리<br>
+                            → 프로젝트의 원활한 진행
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item mb-3">
+                    <h5 class="accordion-header" id="headingThree">
+                        <button class="accordion-button border-bottom font-weight-bold text-start" type="button"
+                            data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false"
+                            aria-controls="collapseThree">
+                            프로젝트 Report
+                            <i class="collapse-close fa fa-plus text-xs pt-1 position-absolute end-0 me-3"></i>
+                            <i class="collapse-open fa fa-minus text-xs pt-1 position-absolute end-0 me-3"></i>
+                        </button>
+                    </h5>
+                    <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree"
+                        data-bs-parent="#accordionRental">
+                        <div class="accordion-body text-sm opacity-8">
+                            1. 프로젝트 진행 시 진행단계에 따른 결과물 제출<br>
+                            → 중간 산출물의 검증<br>
+                            2. 프로젝트 결과물 제출 : 중간 산출물, 소스, 매뉴얼, 최종 결과물 Report 등 CD로 제출<br>
+                            3. 사용자 교육 : 프로젝트 관련 매뉴얼 작성 및 사용자 교육 실시
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item mb-3">
+                    <h5 class="accordion-header" id="headingFour">
+                        <button class="accordion-button border-bottom font-weight-bold text-start" type="button"
+                            data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false"
+                            aria-controls="collapseFour">
+                            Feedback
+                            <i class="collapse-close fa fa-plus text-xs pt-1 position-absolute end-0 me-3"></i>
+                            <i class="collapse-open fa fa-minus text-xs pt-1 position-absolute end-0 me-3"></i>
+                        </button>
+                    </h5>
+                    <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour"
+                        data-bs-parent="#accordionRental">
+                        <div class="accordion-body text-sm opacity-8">
+                            1. 프로젝트 결과에 따른 Feedback : 프로젝트 진행 시 문제점, 결과물에 대한 평가 실시<br>
+                            → Feedback 결과는 차후 프로젝트 진행 시 반영<br>
+                            → 기술력과 책임감 있는 엔지니어들에게 더 많은 프로젝트 참여 기회 부여
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item mb-3">
+                    <h5 class="accordion-header" id="headingFifth">
+                        <button class="accordion-button border-bottom font-weight-bold text-start" type="button"
+                            data-bs-toggle="collapse" data-bs-target="#collapseFifth" aria-expanded="false"
+                            aria-controls="collapseFifth">
+                            Featured title
+                            <i class="collapse-close fa fa-plus text-xs pt-1 position-absolute end-0 me-3"></i>
+                            <i class="collapse-open fa fa-minus text-xs pt-1 position-absolute end-0 me-3"></i>
+                        </button>
+                    </h5>
+                    <div id="collapseFifth" class="accordion-collapse collapse" aria-labelledby="headingFifth"
+                        data-bs-parent="#accordionRental">
+                        <div class="accordion-body text-sm opacity-8">
+                            1. 프로젝트 완료 후 유지보수 계약 체결
+                            → 문제점 발생 시 즉시 조치
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item mb-3">
+                    <h5 class="accordion-header" id="headingSix">
+                        <button class="accordion-button border-bottom font-weight-bold text-start" type="button"
+                            data-bs-toggle="collapse" data-bs-target="#collapseSix" aria-expanded="false"
+                            aria-controls="collapseSix">
+                            사업 사례
+                            <i class="collapse-close fa fa-plus text-xs pt-1 position-absolute end-0 me-3"></i>
+                            <i class="collapse-open fa fa-minus text-xs pt-1 position-absolute end-0 me-3"></i>
+                        </button>
+                    </h5>
+                    <div id="collapseSix" class="accordion-collapse collapse" aria-labelledby="headingSix"
+                        data-bs-parent="#accordionRental">
+                        <div class="accordion-body text-sm opacity-8">
+                            군인들이 주로 사용하는 나라사랑 카드 관련 홈페이지로 e-머니 충전, 나라사랑카드 관련 정보, 커뮤니티 등 제공<br>
+                            전문가 컬럼 메뉴에서는 중국 경제관련 국내, 국외 전문가들의 컬럼을 접하여 정보를 얻을 수 있도록 구성
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
-			</div>
-			<div class="row">
-				<div class="col-md-10 mx-auto">
-					<div class="accordion" id="accordionRental">
-						<div class="accordion-item mb-3">
-							<h5 class="accordion-header" id="headingOne">
-								<button class="accordion-button border-bottom font-weight-bold text-start" type="button"
-									data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true"
-									aria-controls="collapseOne">
-									프로젝트 팀 구성
-									<i class="collapse-close fa fa-plus text-xs pt-1 position-absolute end-0 me-3"></i>
-									<i class="collapse-open fa fa-minus text-xs pt-1 position-absolute end-0 me-3"></i>
-								</button>
-							</h5>
-							<div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
-								data-bs-parent="#accordionRental">
-								<div class="accordion-body text-sm opacity-8">
-									적절한 능력을 가진 개발자 2배수 이상 선정 → 면접을 통해 개발자 선정 → 팀 구성
-								</div>
-							</div>
-						</div>
-						<div class="accordion-item mb-3">
-							<h5 class="accordion-header" id="headingTwo">
-								<button class="accordion-button border-bottom font-weight-bold text-start" type="button"
-									data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false"
-									aria-controls="collapseTwo">
-									프로젝트 개발 관리
-									<i class="collapse-close fa fa-plus text-xs pt-1 position-absolute end-0 me-3"></i>
-									<i class="collapse-open fa fa-minus text-xs pt-1 position-absolute end-0 me-3"></i>
-								</button>
-							</h5>
-							<div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
-								data-bs-parent="#accordionRental">
-								<div class="accordion-body text-sm opacity-8">
-									프로젝트 관리자가 인력 및 스케줄 관리 → 프로젝트 개발 PM이 개발의 전반적 책임을 지고 관리하며,<br>
-									그와 별도로 프로젝트 관리 PM이 개발 프로젝트 일정, 진행사항, 프로젝트 진행 시 문제점 파악 등 관리<br>
-									→ 프로젝트의 원활한 진행
-								</div>
-							</div>
-						</div>
-						<div class="accordion-item mb-3">
-							<h5 class="accordion-header" id="headingThree">
-								<button class="accordion-button border-bottom font-weight-bold text-start" type="button"
-									data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false"
-									aria-controls="collapseThree">
-									프로젝트 Report
-									<i class="collapse-close fa fa-plus text-xs pt-1 position-absolute end-0 me-3"></i>
-									<i class="collapse-open fa fa-minus text-xs pt-1 position-absolute end-0 me-3"></i>
-								</button>
-							</h5>
-							<div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree"
-								data-bs-parent="#accordionRental">
-								<div class="accordion-body text-sm opacity-8">
-									1. 프로젝트 진행 시 진행단계에 따른 결과물 제출<br>
-									→ 중간 산출물의 검증<br>
-									2. 프로젝트 결과물 제출 : 중간 산출물, 소스, 매뉴얼, 최종 결과물 Report 등 CD로 제출<br>
-									3. 사용자 교육 : 프로젝트 관련 매뉴얼 작성 및 사용자 교육 실시
-								</div>
-							</div>
-						</div>
-						<div class="accordion-item mb-3">
-							<h5 class="accordion-header" id="headingFour">
-								<button class="accordion-button border-bottom font-weight-bold text-start" type="button"
-									data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false"
-									aria-controls="collapseFour">
-									Feedback
-									<i class="collapse-close fa fa-plus text-xs pt-1 position-absolute end-0 me-3"></i>
-									<i class="collapse-open fa fa-minus text-xs pt-1 position-absolute end-0 me-3"></i>
-								</button>
-							</h5>
-							<div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour"
-								data-bs-parent="#accordionRental">
-								<div class="accordion-body text-sm opacity-8">
-									1. 프로젝트 결과에 따른 Feedback : 프로젝트 진행 시 문제점, 결과물에 대한 평가 실시<br>
-									→ Feedback 결과는 차후 프로젝트 진행 시 반영<br>
-									→ 기술력과 책임감 있는 엔지니어들에게 더 많은 프로젝트 참여 기회 부여
-								</div>
-							</div>
-						</div>
-						<div class="accordion-item mb-3">
-							<h5 class="accordion-header" id="headingFifth">
-								<button class="accordion-button border-bottom font-weight-bold text-start" type="button"
-									data-bs-toggle="collapse" data-bs-target="#collapseFifth" aria-expanded="false"
-									aria-controls="collapseFifth">
-									Featured title
-									<i class="collapse-close fa fa-plus text-xs pt-1 position-absolute end-0 me-3"></i>
-									<i class="collapse-open fa fa-minus text-xs pt-1 position-absolute end-0 me-3"></i>
-								</button>
-							</h5>
-							<div id="collapseFifth" class="accordion-collapse collapse" aria-labelledby="headingFifth"
-								data-bs-parent="#accordionRental">
-								<div class="accordion-body text-sm opacity-8">
-									1. 프로젝트 완료 후 유지보수 계약 체결
-									→ 문제점 발생 시 즉시 조치
-								</div>
-							</div>
-						</div>
-						<div class="accordion-item mb-3">
-							<h5 class="accordion-header" id="headingSix">
-								<button class="accordion-button border-bottom font-weight-bold text-start" type="button"
-									data-bs-toggle="collapse" data-bs-target="#collapseSix" aria-expanded="false"
-									aria-controls="collapseSix">
-									사업 사례
-									<i class="collapse-close fa fa-plus text-xs pt-1 position-absolute end-0 me-3"></i>
-									<i class="collapse-open fa fa-minus text-xs pt-1 position-absolute end-0 me-3"></i>
-								</button>
-							</h5>
-							<div id="collapseSix" class="accordion-collapse collapse" aria-labelledby="headingSix"
-								data-bs-parent="#accordionRental">
-								<div class="accordion-body text-sm opacity-8">
-									군인들이 주로 사용하는 나라사랑 카드 관련 홈페이지로 e-머니 충전, 나라사랑카드 관련 정보, 커뮤니티 등 제공<br>
-									전문가 컬럼 메뉴에서는 중국 경제관련 국내, 국외 전문가들의 컬럼을 접하여 정보를 얻을 수 있도록 구성
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			</div>
-		</section>
 		<!--질문 끝-->
 
 	</main>
