@@ -11,9 +11,10 @@ public class BusinessController {
 	        return "businessdetails"; 
 	    }
 	 
-	 @GetMapping("/solution") //사업내용 controller
+	 @GetMapping("/solution") //솔루션 controller
 	    public String solution() {
 	        return "solution"; 
+
 	    }
 
 		
@@ -23,9 +24,19 @@ public class BusinessController {
 		}
 		 
 
+
+
+
 	 @GetMapping("/consulting") //컨설팅 controller
 	    public String consulting() {
 	        return "consulting"; 
+	    }
+
+
+
+	 @GetMapping("/sism") //SI/SM controller
+	    public String sism() {
+	        return "sism"; 
 	    }
 
 }

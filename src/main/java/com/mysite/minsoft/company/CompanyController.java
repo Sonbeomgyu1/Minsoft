@@ -6,10 +6,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 public class CompanyController {
 
-	 @GetMapping("/")
-	    public String Company() {
-	        return "index"; 
-	    }
+	 
 	 
 	 @GetMapping("/certification") //기술인증 controller
 	    public String certification() {
