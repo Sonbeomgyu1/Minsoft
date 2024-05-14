@@ -645,7 +645,7 @@
                     </h5>
                     <div id="collapseSix" class="accordion-collapse collapse" aria-labelledby="headingSix"
                         data-bs-parent="#accordionRental">
-                        <div class="accordion-body text-sm opacity-8">
+                        <div class="accordion-body text-sm opacity-8 " style="font-size: 18px;">
                             군인들이 주로 사용하는 나라사랑 카드 관련 홈페이지로 e-머니 충전, 나라사랑카드 관련 정보, 커뮤니티 등 제공<br>
                             전문가 컬럼 메뉴에서는 중국 경제관련 국내, 국외 전문가들의 컬럼을 접하여 정보를 얻을 수 있도록 구성
                         </div>
@@ -995,7 +995,12 @@
 		font-size: 24px;
 		/* 텍스트의 크기를 조정합니다 */
 	}
-
+	.accordion-body {  /*아코디언 글자 크기 바꾸기 */
+        font-size: 30px;
+    }
+     #accordionRental .accordion-body { /*아코디언 글자 크기 바꾸기 */
+            font-size: 20px !important; /* Adjust the size as needed */
+        }
 
 	/*푸터 css 시작 */
 	.min {
