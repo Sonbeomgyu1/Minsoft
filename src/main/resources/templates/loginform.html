@@ -317,67 +317,37 @@
 
 						</div>
 					</li>
-					
 				</ul>
 
 			</div>
-			 <button type="button" class="btn bg-gradient-white btn-custom-small w-auto me-4">admin</button>
-
 		</div>
 	</nav>
 	<!-- End Navbar -->
 	<!-- -------- START HEADER 11 w/ carousel ------- -->
 	<header>
-		<div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
-			<div class="carousel-inner">
-				<div class="carousel-item active">
-					<div class="page-header min-vh-45  border-xl"
-						style="background-image: url('/images/business/sismmain.jpg');">
-						<span class="mask bg-gradient-dark" style="opacity: 0.5;"></span>
-						<div class="container">
-							<div class="row">
-								<div class="col-lg-12 my-auto">
-									<h1 class="text-white fadeIn2">SI / SM</h1>
-								</div>
-							</div>
-						</div>
-					</div>
-
-
-				</div>
-
-			</div>
-		</div>
+	
 	</header>
 	<!-- -------- END HEADER 11 w/ carousel ------- -->
 	<main>
-		<div class="mainbutton">
-			<a href="/consulting" class="btn btn-light">사업내용</a>
-			<a href="/consulting" class="btn btn-light">IT 아웃소싱</a>
-			<a href="/business" class="btn btn-light">SI / SM</a>
-			<a href="/consulting" class="btn btn-light">컨설팅</a>
-			<a href="/consulting" class="btn btn-light">솔루션</a>
+<div class="container">
+			<form class="login-form">
+				<div class="mb-3 d-flex align-items-center">
+					<img src="images/Mn.png" alt="Login Image" class="login-image me-3" width="80" height="45">
+					<h1 class="mb-0 align-self-center">Login</h1>
+				</div>
+				<div class="mb-3">
+					<label for="username" class="form-label">ID</label>
+					<input type="text" class="form-control" id="username" placeholder="Enter userId">
+				</div>
+				<div class="mb-3">
+					<label for="password" class="form-label">Password</label>
+					<input type="password" class="form-control" id="password" placeholder="Enter password">
+				</div>
+				<div class="d-grid gap-2">
+					<button type="submit" class="btn btn-secondary">Login</button>
+				</div>
+			</form>
 		</div>
-		<h2>내용내용내용</h2>
-		<h2>내용내용내용</h2>
-		<h2>내용내용내용</h2>
-		<h2>내용내용내용</h2>
-		<h2>내용내용내용</h2>
-		<h2>내용내용내용</h2>
-		<h2>내용내용내용</h2>
-		<h2>내용내용내용</h2>
-		<h2>내용내용내용</h2>
-		<h2>내용내용내용</h2>
-		<h2>내용내용내용</h2>
-		<h2>내용내용내용</h2>
-		<h2>내용내용내용</h2>
-		<h2>내용내용내용</h2>
-		<h2>내용내용내용</h2>
-		<h2>내용내용내용</h2>
-		<h2>내용내용내용</h2>
-		<h2>내용내용내용</h2>
-		<h2>내용내용내용</h2>
-
 	</main>
 	<footer id="footer">
 		<div class="row text">
@@ -458,54 +428,41 @@
 
 	}
 
-	.btn {
-		/*배너 사진밑에 버튼 CSS*/
-
-		padding: 10px 50px;
-		/* 버튼의 내부 여백을 조정합니다. */
-		margin: 50px;
-		/* 버튼 사이의 간격을 설정합니다. */
-		color: black;
-		background-color: white;
-		font-size: 30px;
-		font-weight: 500;
-		/* 글자를 굵게 설정합니다. */
-	}
-
-	.mainbutton {
-		/*배너 아래 버튼 마진 css*/
-		text-align: center;
-		margin-bottom: 70px;
-
-	}
-
-	.btn-light:hover {
-		/*버튼 호버 색상 변경*/
-		color: white;
-		/* 호버시 텍스트 색상 변경 */
-		background-color: lightgrey;
-		/* 호버시 배경색 변경 */
-		border-color: blue;
-		/* 호버시 테두리 색상 변경 */
-	}
-
-	.mainbutton .btn {
-		border: none;
-		/* 버튼 테두리를 없앱니다 */
-	}
-  .btn-custom-small {
-        padding: 0.25rem 0.5rem;
-        font-size: 0.875rem;
-    }
-    .btn-more-right {
-        margin-right: 2rem; /* Adjust the value as needed */
-    }
-
 	/*헤더 부분 css 끝*/
 
-	/*main시작 css*/
+/*-------------------Main css 시작*/
+		body {
+			background-color: #f8f9fa;
+			/* 배경색 지정 */
+		}
 
-	/*main css 끝*/
+		.login-form {
+			max-width: 500px;
+			/* 로그인 폼 너비 지정 */
+			
+			margin: auto;
+			/* 가운데 정렬 */
+			margin-top: 100px;
+			/* 위쪽 여백 지정 */
+			margin-bottom: 100px;
+			/* 위쪽 여백 지정 */
+			padding: 20px;
+			/* 내부 여백 지정 */
+			background-color: #fff;
+			/* 폼 배경색 지정 */
+			border-radius: 10px;
+			/* 폼 테두리 둥글게 지정 */
+			box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+			/* 그림자 효과 지정 */
+		}
+
+		.login-form h1 {
+			/*로그인 텍스트 위치 이동*/
+			margin-left: 10%;
+		}
+
+
+		/* -------------------main css 끝*/
 	/*푸터 css 시작 */
 	.min {
 		/*밑에 저작권문구 위치조정*/
