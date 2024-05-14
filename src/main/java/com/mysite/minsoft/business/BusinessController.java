@@ -11,6 +11,12 @@ public class BusinessController {
 	        return "businessdetails"; 
 	    }
 	 
+
+	 @GetMapping("/solutions") //솔루션 controller
+	    public String solutions() {
+	        return "solutions"; 
+	    }	 
+
 	 @GetMapping("/solution") //솔루션 controller
 	    public String solution() {
 	        return "solution"; 
