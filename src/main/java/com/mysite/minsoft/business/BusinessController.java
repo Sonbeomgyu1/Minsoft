@@ -11,9 +11,9 @@ public class BusinessController {
 	        return "businessdetails"; 
 	    }
 	 
-	 @GetMapping("/solution") //솔루션 controller
-	    public String solution() {
-	        return "solution"; 
+	 @GetMapping("/solutions") //솔루션 controller
+	    public String solutions() {
+	        return "solutions"; 
 	    }	 
 
 	 @GetMapping("/consulting") //컨설팅 controller
