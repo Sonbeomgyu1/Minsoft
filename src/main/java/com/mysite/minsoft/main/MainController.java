@@ -10,10 +10,14 @@ public class MainController {
     public String layout() {
         return "layout"; 
     }
+
+
+
 	//메인페이지
 	@GetMapping("/")
 	public String Main() {
 		return "main";
 	}
 	
+
 }

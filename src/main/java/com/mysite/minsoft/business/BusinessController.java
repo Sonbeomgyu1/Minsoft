@@ -14,14 +14,29 @@ public class BusinessController {
 	 @GetMapping("/solution") //솔루션 controller
 	    public String solution() {
 	        return "solution"; 
-	    }	 
+
+	    }
+
+		
+	@GetMapping("/itoutsourcingpage") //IT 아웃소싱 controller 
+		public String itoutsourcingpage() { 
+		return "itoutsourcingpage";
+		}
+		 
+
+
+
 
 	 @GetMapping("/consulting") //컨설팅 controller
 	    public String consulting() {
 	        return "consulting"; 
 	    }
+
+
+
 	 @GetMapping("/sism") //SI/SM controller
 	    public String sism() {
 	        return "sism"; 
 	    }
+
 }
