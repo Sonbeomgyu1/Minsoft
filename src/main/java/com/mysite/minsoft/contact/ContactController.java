@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class ContactController {
 
 	
-	 @GetMapping("/contact") //사업내용 controller
+	 @GetMapping("/contact") //오시는길 controller
 	    public String contact() {
 	        return "contact"; 
 	    }
