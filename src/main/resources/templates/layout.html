@@ -319,9 +319,9 @@
 					</li>
 					
 				</ul>
-
+		<a href="/loginform"><button class="styled-button">Admin</button></a>
 			</div>
-			 <button type="button" class="btn bg-gradient-white btn-custom-small w-auto me-4">admin</button>
+			
 
 		</div>
 	</nav>
@@ -504,6 +504,39 @@
 	/*헤더 부분 css 끝*/
 
 	/*main시작 css*/
+/*admin 버튼 css*/
+	
+.styled-button {
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+    
+    background-color: black;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 12px;
+    transition: background-color 0.3s, box-shadow 0.3s, color 0.3s;
+}
+
+.styled-button:hover {
+    background-color: darkgray;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.styled-button:active {
+    background-color: white; /* White background on click */
+    color: black; /* Black text on click */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    transform: translateY(-50%) translateY(2px);
+}
 
 	/*main css 끝*/
 	/*푸터 css 시작 */
