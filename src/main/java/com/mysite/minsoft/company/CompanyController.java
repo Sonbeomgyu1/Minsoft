@@ -17,4 +17,9 @@ public class CompanyController {
 	 	public String greeting() {
 		 	return "greetingpage";
 	 }
+	 
+	 @GetMapping("/history") //회사연혁 controller
+	 	public String history() {
+		 	return "history";
+	 }
 }
