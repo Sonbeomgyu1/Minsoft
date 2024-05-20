@@ -473,11 +473,7 @@
                 </div>
                 <ul class="timeline">
                     <li>
-                         <div class="timeline-image" style="background-image: url('/images/main/3988.jpg'); background-size: cover; background-position: center; width: 190px; height: 177px; position: relative;">
-    <div class="image-text" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -170%); font-weight: bold; color: black; text-align: center; font-size: 24px;  ">
-        2024
-    </div>
-</div>
+                        <div class="timeline-image"><img class="rounded-circle img-fluid" src="/images/main/102581.jpg" alt="..." style="margin-top: 0px; width: 200px; height: 157px;" /></div>
                         <div class="timeline-panel">
                             <div class="timeline-heading">
                                 <h4>2024</h4>
@@ -487,25 +483,17 @@
                         </div>
                     </li>
                     <li class="timeline-inverted">
-                        <div class="timeline-image">
-    <div class="image-text">
-        2023
-    </div>
-</div>
+                        <div class="timeline-image"><img class="rounded-circle img-fluid" src="/images/main/2150010138.jpg" alt="..." style="margin-top: 0px; width: 200px; height: 157px;" /></div>
                         <div class="timeline-panel">
                             <div class="timeline-heading">
                                 <h4>2023</h4>
                                 <h4 class="subheading">도약기</h4>
                             </div>
-                            <div class="timeline-body"><p class="text-muted">삼성전자 MIS 1차사 등록<br>강소기업 선정</p></div>
+                            <div class="timeline-body"><p class="text-muted">삼성전자 MIS 1차사등록<br>강소기업 선정</p></div>
                         </div>
                     </li>
                     <li>
-                        <div class="timeline-image">
-    <div class="image-text" style="margin-top: 20%;">
-        2022<br>2019
-    </div>
-</div>
+                        <div class="timeline-image"><img class="rounded-circle img-fluid" src="/images/main/16311.jpg" alt="..." style="margin-top: 0px; width: 200px; height: 157px;" /></div>
                         <div class="timeline-panel">
                             <div class="timeline-heading">
                                 <h4>2019-2022</h4>
@@ -515,14 +503,9 @@
                         </div>
                     </li>
                     <li class="timeline-inverted">
-                        <div class="timeline-image" id="circle-text">
-							
-							<img class="rounded-circle img-fluid" src="/images/main/3988.jpg" alt="..." style="margin-top: 0px; width: 200px; height: 157px;" />
-							<div class="centered-text">2015<br>2018</div>
-							</div>
+                        <div class="timeline-image"><img class="rounded-circle img-fluid" src="/images/main/3988.jpg" alt="..." style="margin-top: 0px; width: 200px; height: 157px;" /></div>
                         <div class="timeline-panel">
                             <div class="timeline-heading">
-								
                                 <h4>2015-2018</h4>
                                 <h4 class="subheading">성장기</h4>
                             </div>
@@ -531,14 +514,15 @@
                     </li>
                     <li class="timeline-inverted">
                         <div class="timeline-image"><img class="rounded-circle img-fluid" src="/images/main/74804.jpg" alt="..." style="margin-top: 0px; width: 200px; height: 157px;" /></div>
-                     		 <div class="timeline-panel" style="float: left;">
+                     	 <div class="timeline-panel left-panel" style="float: left;  width: 41%;
+    padding: 0 20px 20px 30px;
+    text-align: right;">
                             <div class="timeline-heading">
                                 <h4>2014</h4>
-                                <h4 class="subheading">2014.02 법인설립</h4>
+                                <h4 class="subheading">성장기</h4>
                             </div>
-                            <div class="timeline-body"><p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p></div>
-                        </div>
-                     		                      
+                            <div class="timeline-body"><p class="text-muted">2014.02 법인설립</p></div>
+                        </div>                  
                     </li>
                 </ul>
             </div>
@@ -588,7 +572,10 @@
             
             <!--복지제도 템플릿-->
             <!-- Section with four info areas left & one card right with image and waves -->
-<section class="py-6" style="margin-top: 15%;">
+<div class="section-divider"></div>            
+            
+<section class="py-6" style="margin-top: 10%;">
+	<p class="underline"></p>
   <div class="container">
     <div class="row align-items-center">
       <div class="col-lg-6">
@@ -801,7 +788,9 @@
 				<p class="col-lg-8 mx-auto lead" style="margin-top: 20px; font-size: 3em; color: white;">
 					Thank you for visiting. have a good day.
 				</p>
+				<a href="/contact">
 				<button style="background-color: black; color: white; margin-top: 70px;">CONTACT US</button>
+				</a>
 			</div>
 		</div>
 
@@ -1217,6 +1206,18 @@
      background-position: center;
    
 }
+/*섹션사이에 밑줄*/
+.section-divider {
+    width: 100%;
+    height: 1px; /* 밑줄의 두께 */
+    background-color: lightgray; /* 밑줄의 색상 */
+    margin-top: 15%;
+}
+/*아이콘 위아래 마진*/
+.row .justify-content-start{
+	margin-top: 25px;
+}
+
 /*복지제도 끝*/
 
 /*새로운비즈니스css*/
@@ -1646,21 +1647,17 @@
     padding: 0 100px 20px 20px;
   }
 }
+/*맨마지막 동그라미 텍스트 왼쪽 정렬 (css 적용안되서 div에 직접 스타일 넣음)
+.timeline-panel.left-panel {
+    float: left;
+    width: 41%;
+    padding: 0 20px 20px 30px;
+    text-align: right;
+}*/
 
-/*동그라미 텍스트*/
-      .timeline-image {
-        text-align: center; /* 텍스트를 가운데 정렬합니다. */
-       
-    }
+   /*연혁css끝*/
 
-    .image-text {
-        font-weight: bold; /* 텍스트를 굵게 표시합니다. */
-        margin-top: 50px;
-        font-size: 25px;
-    }
-/*동그라미 이미지에 텍스트*/
-
-   /*연혁css끝*/	
+   /*-------------*/
 </style>
 
 </html>
