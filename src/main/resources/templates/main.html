@@ -473,7 +473,7 @@
                 </div>
                 <ul class="timeline">
                     <li>
-                        <div class="timeline-image"><img class="rounded-circle img-fluid" src="/images/main/102581.jpg" alt="..." style="margin-top: 0px; width: 200px; height: 157px;" /></div>
+                        <div class="timeline-image" id="click1"><img class="rounded-circle img-fluid" src="/images/main/102581.jpg" alt="..." style="margin-top: 0px; width: 200px; height: 157px;" /></div>
                         <div class="timeline-panel">
                             <div class="timeline-heading">
                                 <h4>2024</h4>
@@ -485,7 +485,7 @@
                         </div>
                     </li>
                     <li class="timeline-inverted">
-                        <div class="timeline-image "><img class="rounded-circle img-fluid" src="/images/main/2150010138.jpg" alt="..." style="margin-top: 0px; width: 200px; height: 157px;" /></div>
+                        <div class="timeline-image" id="click1"><img class="rounded-circle img-fluid" src="/images/main/2150010138.jpg" alt="..." style="margin-top: 0px; width: 200px; height: 157px;" /></div>
                         <div class="timeline-panel">
                             <div class="timeline-heading">
                                 <h4>2023</h4>
@@ -514,7 +514,7 @@
 							</p>
 							
 							<p class="text-muted" style="font-weight: bold; margin-left: 50px;">2020
-							<br>사무실 이전 (마곡)<br>삼성반도체 DS부문 원가시스템 구축 외 14건<br><br>
+							<br>삼성반도체 DS부문 원가시스템 구축 외 14건<br><br>
 							</p>
 							
 							<p class="text-muted" style="font-weight: bold; margin-left: 50px;">2019
@@ -556,7 +556,7 @@
             </div>
         </li>
                     <li class="timeline-inverted">
-                        <div class="timeline-image"><img class="rounded-circle img-fluid" src="/images/main/74804.jpg" alt="..." style="margin-top: 0px; width: 200px; height: 157px;" /></div>
+                        <div class="timeline-image" id="click1"><img class="rounded-circle img-fluid" src="/images/main/74804.jpg" alt="..." style="margin-top: 0px; width: 200px; height: 157px;" /></div>
                      	 <div class="timeline-panel left-panel" style="float: left;  width: 41%;
     padding: 0 20px 20px 30px;
     text-align: right;">
@@ -1748,9 +1748,19 @@
 /*hover시 손가락 커서*/
 .timeline-image.clickable {
     cursor: pointer; /* 손가락 커서 표시 */
+    
+    
+
 }
 
+#click1:hover{
+	transform: scale(1.1); /* 확대 효과 */
+    transition: transform 0.3s ease-in-out; /* 부드러운 전환 */
+}
 
+#click1{
+	cursor:pointer;
+}
         
    /*연혁css끝*/
 
