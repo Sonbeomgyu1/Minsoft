@@ -19,5 +19,9 @@ public class MainController {
 		return "main";
 	}
 	
-
+	//템플릿 페이지
+	@GetMapping("/presentation")
+	public String Presentation() {
+		return "presentation";
+	}
 }
