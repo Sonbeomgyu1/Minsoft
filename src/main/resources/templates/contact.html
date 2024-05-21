@@ -404,7 +404,7 @@
 		<!--오시는길 시작-->
 		<div id="container" style="display: flex; justify-content: center; align-items: center; width: 100vw; height: 100vh; position: relative;">
     <div id="text-contact" class="find-text" style="position: absolute; top: 80px; left: 20%; transform: translateX(-50%); z-index: 10; font-weight: bold;  font-size: 50px;">
-        <p>오시는 길</p>
+        <p class="contact1">오시는 길</p>
     </div>
 		<!--지도요소-->
 		<div id="map" style="margin-top: 40px; width:70%; height:500px;">
@@ -494,7 +494,7 @@
 
 
 <!--새로운 템플릿-->
-<section class="py-10">
+<!--<section class="py-10">
   <div class="container">
     <div class="row">
       <div class="col-lg-8 ms-auto me-auto">
@@ -507,7 +507,7 @@
             <div>
               <a href="javascript:;">
                 <div class="position-relative">
-                  <!--<div class="blur-shadow-avatar">-->
+                  <div class="blur-shadow-avatar">
                     <img class="avatar avatar-xxl rounded-circle" src="/images/contact/59.jpg">
                   </div>
                 </div>
@@ -518,11 +518,11 @@
               <p class="text-sm mb-0">마곡나루역 공항철도,9호선<br>1번출구 하차후 도보로 3분, 250m</p>
             </div>
             <div class="my-auto d-md-block d-none ms-2">
-                <!--<button type="button" class="btn btn-dark pull-end btn-round mb-0">Follow</button>-->
+                <button type="button" class="btn btn-dark pull-end btn-round mb-0">Follow</button>
             </div>
           </div>
           <div class="my-auto d-md-none d-block ms-2">
-              <!--<button type="button" class="btn btn-dark btn-round mt-3">Follow</button>-->
+              <button type="button" class="btn btn-dark btn-round mt-3">Follow</button>
           </div>
       </div>
     </div>
@@ -542,7 +542,7 @@
             <div>
               <a href="javascript:;">
                 <div class="position-relative">
-                  <!--<div class="blur-shadow-avatar">-->
+                  <div class="blur-shadow-avatar">
                     <img class="avatar avatar-xxl rounded-circle" src="/images/contact/7793.jpg">
                   </div>
                 </div>
@@ -553,11 +553,11 @@
               <p class="text-sm mb-0">마곡나루역 1번출구<br>웰튼병원역에서 하차 후 도보로 3분 , 250m</p>
             </div>
             <div class="my-auto d-md-block d-none ms-2">
-                <!--<button type="button" class="btn btn-dark pull-end btn-round mb-0">Follow</button>-->
+                <button type="button" class="btn btn-dark pull-end btn-round mb-0">Follow</button>
             </div>
           </div>
           <div class="my-auto d-md-none d-block ms-2">
-              <!--<button type="button" class="btn btn-dark btn-round mt-3">Follow</button>-->
+              <button type="button" class="btn btn-dark btn-round mt-3">Follow</button>
           </div>
       </div>
     </div>
@@ -568,9 +568,33 @@
   
   
   
-</section>
+</section>-->
 
-
+<!--지하철 버스 새로운 템플릿-->
+<!-- -------- START PRE-FOOTER 7 w/ TEXT AND 2 BUTTONS ------- -->
+<section class="my-10 py-5 bg-gradient-dark position-relative overflow-hidden section-spacing" >
+        <img src="../../assets/img/shapes/waves-white.svg" alt="pattern-lines" class="position-absolute start-0 top-0 w-100 opacity-6" >
+        <div class="container position-relative z-index-2">
+            <div class="row">
+                <div class="col-lg-5 col-md-8 m-auto text-start">
+                    <h5 id="info-text" class="text-white mb-lg-0 mb-5">
+                        마곡나루역 공항철도, 9호선<br>1번출구 하차후 도보로 3분, 250m
+                    </h5>
+                </div>
+                <div class="col-lg-6 m-auto">
+                    <div class="row">
+                        <div class="col-sm-4 col-6 ps-sm-0 ms-auto">
+                            <button type="button" class="btn bg-gradient-primary mb-0 ms-lg-3 ms-sm-2 mb-sm-0 mb-2 me-auto w-100 d-block"  onclick="changeText('지하철')">지하철</button>
+                        </div>
+                        <div class="col-sm-4 col-6 ps-sm-0 me-lg-0 me-auto">
+                            <button type="button" class="btn btn-white mb-0 ms-lg-3 ms-sm-2 mb-sm-0 mb-2 me-auto w-100 d-block" onclick="changeText('버스')">버스</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+<!-- -------- END PRE-FOOTER 7 w/ TEXT AND 2 BUTTONS ------- -->
 		
 
 	</main>
@@ -673,6 +697,17 @@ var infowindow = new kakao.maps.InfoWindow({
 // 마커 위에 인포윈도우를 표시합니다. 두번째 파라미터인 marker를 넣어주지 않으면 지도 위에 표시됩니다
 infowindow.open(map, marker); 
 
+
+
+/*지하철 버스*/
+function changeText(type) {
+            const infoText = document.getElementById('info-text');
+            if (type === '지하철') {
+                infoText.innerHTML = '마곡나루역 공항철도, 9호선<br>1번출구 하차후 도보로 3분, 250m';
+            } else if (type === '버스') {
+                infoText.innerHTML = '마곡나루역 1번출구<br>웰튼병원역에서 하차 후 도보로 3분 , 250m';
+            }
+        }
 
 	</script>
 </body>
@@ -834,7 +869,12 @@ infowindow.open(map, marker);
     background-color:cornflowerblue;
     margin-top: 10px;
 }
+.contact1{
+	font-size: 25px;
+	margin-right: 60px;
+}
 
+  
 /*오시는길 끝*/
 	
 	
