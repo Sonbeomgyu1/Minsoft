@@ -10,8 +10,9 @@ import com.mysite.minsoft.login.model.SiteUser;
 @Mapper
 public interface UserMapper {
     
-    @Select("SELECT * FROM ADMIN")
-    List<SiteUser> getAllUsers();
+    @Select("SELECT ID, PASSWORD FROM ADMIN WHERE ID = #{id}")
+    SiteUser getUserById(String id);
     
     // Add more methods for other CRUD operations
 }
+

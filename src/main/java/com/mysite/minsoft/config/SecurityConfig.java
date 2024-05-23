@@ -39,7 +39,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http
             .authorizeRequests()
                 .antMatchers("/", "/certification", "/greetingpage", "/history", "/businessdetails", "/solutions", "/itoutsourcingpage",
-                        "/consulting", "/sism", "/recruitmentinfomation", "/welfare", "/contact", "/layout", "/images/**", "/assets/**", 
+                        "/consulting", "/sism", "/recruitmentinfomation", "/welfare", "/contact","/check-db-connection","/login", "/layout", "/images/**", "/assets/**", 
                         "/docs/**", "/pages/**", "/sections/**", "/icon/**", "/public/**").permitAll() // 접근 허용 경로 설정
                 .anyRequest().authenticated() // 나머지 경로는 인증 필요
                 .and()
