@@ -17,11 +17,11 @@ import com.mysite.minsoft.login.service.UserService;
 @Controller
 public class LoginController {
 
-    @Autowired
-    private UserService userService;
-
-    @Autowired
-    private AuthenticationManager authenticationManager;
+//    @Autowired
+//    private UserService userService;
+//
+//    @Autowired
+//    private AuthenticationManager authenticationManager;
 
     @GetMapping("/home")
     public String home() {
