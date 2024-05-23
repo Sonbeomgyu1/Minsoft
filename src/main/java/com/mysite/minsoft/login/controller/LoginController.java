@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.mysite.minsoft.login.model.service.UserService;
+import com.mysite.minsoft.login.service.UserService;
 
 @Controller
 public class LoginController {
@@ -46,6 +46,8 @@ public class LoginController {
                                @RequestParam(name = "error", required = false) String error,
                                Model model) {
         logger.info("Login attempt for username: {}", username);
+        System.out.println(username);
+        System.out.println("손범규");
 
         if (error != null) {
             model.addAttribute("loginError", true);
@@ -61,4 +63,5 @@ public class LoginController {
 
         return "redirect:/"; // 로그인 성공 시 리다이렉트할 페이지로 변경
     }
+
 }

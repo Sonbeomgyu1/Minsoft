@@ -1,4 +1,4 @@
-package com.mysite.minsoft.login.model.repository;
+package com.mysite.minsoft.login.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;

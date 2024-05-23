@@ -15,7 +15,7 @@ import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
 import org.springframework.security.web.authentication.SimpleUrlAuthenticationSuccessHandler;
 
-import com.mysite.minsoft.login.model.service.UserService;
+import com.mysite.minsoft.login.service.UserService;
 
 @Configuration
 @EnableWebSecurity
