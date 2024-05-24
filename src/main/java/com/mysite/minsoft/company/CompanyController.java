@@ -5,8 +5,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
 public class CompanyController {
-
-	 
 	 
 	 @GetMapping("/certification") //기술인증 controller
 	    public String certification() {
