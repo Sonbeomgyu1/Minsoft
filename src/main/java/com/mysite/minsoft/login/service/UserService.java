@@ -1,4 +1,4 @@
-package com.mysite.minsoft.login.model.service;
+package com.mysite.minsoft.login.service;
 
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -7,7 +7,7 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 import com.mysite.minsoft.login.model.SiteUser;
-import com.mysite.minsoft.login.model.repository.UserRepository;
+import com.mysite.minsoft.login.repository.UserRepository;
 
 import lombok.RequiredArgsConstructor;
 
