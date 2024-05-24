@@ -36,7 +36,7 @@ public class LoginController {
         return "loginform";
     }
 
-    @PostMapping("/login")
+    @PostMapping("/process-login")
     public String processLogin(@RequestParam("username") String username,
                                @RequestParam("password") String password,
                                @RequestParam(name = "error", required = false) String error,
