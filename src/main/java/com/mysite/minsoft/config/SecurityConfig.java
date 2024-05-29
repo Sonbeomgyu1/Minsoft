@@ -26,7 +26,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http
             .authorizeRequests()
                 .antMatchers("/", "/certification", "/login", "/greetingpage", "/history", "/businessdetails", "/solutions", "/itoutsourcingpage",
-                        "/consulting", "/sism", "/recruitmentinfomation", "/welfare", "/contact", "/notice/new", "/notice", "/check-db-connection", "/layout", "/images/**", "/assets/**", 
+                        "/consulting", "/sism", "/recruitmentinfomation", "/welfare", "/contact", "/notice/new", "/notice","/presentation", "/check-db-connection", "/layout", "/images/**", "/assets/**", 
                         "/docs/**", "/pages/**", "/sections/**", "/icon/**", "/public/**").permitAll() // Allow access to these paths without authentication
                 .anyRequest().authenticated() // Require authentication for any other paths
                 .and()

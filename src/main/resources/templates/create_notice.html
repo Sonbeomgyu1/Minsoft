@@ -11,7 +11,7 @@
 
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software. -->
 <!DOCTYPE html>
-<html lang="en" itemscope itemtype="http://schema.org/WebPage">
+<html lang="en" itemscope itemtype="http://schema.org/WebPage" xmlns:th="http://www.thymeleaf.org">
 
 <head>
 	<meta charset="utf-8" />
@@ -32,6 +32,9 @@
 	<link href="../../assets/css/nucleo-svg.css" rel="stylesheet" />
 	<!-- CSS Files -->
 	<link id="pagestyle" href="../../assets/css/soft-design-system-pro.css?v=1.1.0" rel="stylesheet" />
+	
+	
+	
 </head>
 
 <body class="blog-posts">
@@ -395,21 +398,38 @@
 		<div class="container2">
         <h2>공지 등록</h2>
         <!-- 폼의 액션 URL과 바인딩 객체를 지정합니다 -->
-        <form th:action="@{/notice}" th:object="${notice}" method="post">
+        <!--<form th:action="@{/notice}" th:object="${notice}" method="post">
             <label for="title">제목</label>
-            <!-- 제목 입력 필드와 Notice 객체의 noticeTitle 속성을 바인딩합니다 -->
+             제목 입력 필드와 Notice 객체의 noticeTitle 속성을 바인딩합니다 
             <input type="text" id="title" th:field="*{noticeTitle}" required>
 
             <label for="content">내용</label>
-            <!-- 내용 입력 필드와 Notice 객체의 noticeContent 속성을 바인딩합니다 -->
+             내용 입력 필드와 Notice 객체의 noticeContent 속성을 바인딩합니다 
             <textarea id="content" th:field="*{noticeContent}" rows="5" required></textarea>
 
             <label for="name">작성자</label>
-            <!-- 작성자 입력 필드와 Notice 객체의 name 속성을 바인딩합니다 -->
+             작성자 입력 필드와 Notice 객체의 name 속성을 바인딩합니다 
             <input type="text" id="name" th:field="*{name}">
 
             <button type="submit" class="btn">등록</button>
-        </form>
+        </form>-->
+        
+        
+        <!--CSRF토큰-->
+        <form th:action="@{/notice}" th:object="${notice}" method="post">
+    <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
+    <label for="title">제목</label>
+    <input type="text" id="title" th:field="*{noticeTitle}" required>
+
+    <label for="content">내용</label>
+    <textarea id="content" th:field="*{noticeContent}" rows="5" required></textarea>
+
+    <label for="name">작성자</label>
+    <input type="text" id="name" th:field="*{name}">
+
+    <button type="submit" class="btn">등록</button>
+</form>
+        
     </div>
 
     </main>
