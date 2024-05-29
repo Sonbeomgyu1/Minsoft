@@ -20,16 +20,19 @@ public class SecurityConfig {
         http
             .authorizeRequests(authorizeRequests -> authorizeRequests
                 .antMatchers("/", "/certification", "/login", "/signup", "/greetingpage", "/history", "/businessdetails", "/solutions", "/itoutsourcingpage",
-                        "/consulting", "/sism", "/recruitmentinfomation", "/welfare", "/contact","/notice/new","/notice","/check-db-connection" ,"/layout", "/images/**", "/assets/**", 
+                        "/consulting", "/sism", "/recruitmentinfomation", "/welfare", "/contact", "/notice/new", "/notice", "/check-db-connection", "/layout", "/images/**", "/assets/**", 
                         "/docs/**", "/pages/**", "/sections/**", "/icon/**", "/public/**").permitAll() // Allow access to these paths without authentication
                 .anyRequest().authenticated()) // Require authentication for any other paths
             .formLogin(formLogin -> formLogin
                 .loginPage("/login") // Custom login page
-                .defaultSuccessUrl("/")) // Redirect to "/" after successful login
+                .defaultSuccessUrl("/") // Redirect to "/" after successful login
+                .permitAll()) // Allow everyone to see the login page
             .logout(logout -> logout
                 .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
                 .logoutSuccessUrl("/")
                 .invalidateHttpSession(true)) // Invalidate session on logout
+            .csrf(csrf -> csrf
+                .disable()) // Disable CSRF protection if necessary
             .sessionManagement(session -> session
                 .invalidSessionUrl("/")); // Redirect to main page when the session is invalid
         return http.build();
@@ -45,3 +48,4 @@ public class SecurityConfig {
         return authenticationConfiguration.getAuthenticationManager();
     }
 }
+

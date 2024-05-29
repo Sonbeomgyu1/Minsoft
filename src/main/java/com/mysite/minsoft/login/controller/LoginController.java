@@ -3,6 +3,7 @@ package com.mysite.minsoft.login.controller;
 import javax.validation.Valid;
 
 import org.springframework.dao.DataIntegrityViolationException;
+import org.springframework.security.authentication.AnonymousAuthenticationToken;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
@@ -63,7 +64,13 @@ public class LoginController {
     }
 
     @GetMapping("/login")
-    public String login() {
-        return "login";
+    public String loginRender() {
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        if (authentication == null || authentication instanceof AnonymousAuthenticationToken) {
+            return "login";
+        } else {
+            return "redirect:/";
+        }
     }
+
 }

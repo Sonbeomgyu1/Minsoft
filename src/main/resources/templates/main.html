@@ -11,7 +11,9 @@
 
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software. -->
 <!DOCTYPE html>
-<html lang="en" itemscope itemtype="http://schema.org/WebPage">
+<html lang="en" itemscope itemtype="http://schema.org/WebPage" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
 
 <head>
 	<meta charset="utf-8" />
@@ -304,10 +306,8 @@
 					</li>
 
 				</ul>
-				<a th:href="@{/login}" sec:authorize="isAnonymous()"><button class="styled-button">Admin</button></a>
-				<a th:href="@{/logout}" sec:authorize="isAuthenticated()"><button class="styled-button">logout</button></a>
-				<!--<a th:href="@{/login}" sec:authorize="isAnonymous()" class="btn_1 d-none d-lg-block">로그인</a>
-				<a th:href="@{/logout}" sec:authorize="isAuthenticated()" class="btn_1 d-none d-lg-block">로그아웃</a>-->
+		<a th:href="@{/login}" sec:authorize="isAnonymous()"><button class="styled-button">Admin</button></a>
+    	<a th:href="@{/logout}" sec:authorize="isAuthenticated()"><button class="styled-button">logout</button></a>
 			</div>
 
 

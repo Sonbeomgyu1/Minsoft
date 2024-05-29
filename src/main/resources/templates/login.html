@@ -11,7 +11,9 @@
 
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software. -->
 <!DOCTYPE html>
-<html lang="en" itemscope itemtype="http://schema.org/WebPage">
+<html lang="en" itemscope itemtype="http://schema.org/WebPage" 
+xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
 
 <head>
 	<meta charset="utf-8" />
@@ -44,15 +46,7 @@
 
 			<a href="https://www.creative-tim.com/product/soft-ui-design-system-pro#pricingCard"
 				class="btn btn-sm  bg-gradient-primary  btn-round mb-0 ms-auto d-lg-none d-block">Buy Now</a>
-			<button class="navbar-toggler shadow-none ms-2" type="button" data-bs-toggle="collapse"
-				data-bs-target="#navigation" aria-controls="navigation" aria-expanded="false"
-				aria-label="Toggle navigation">
-				<span class="navbar-toggler-icon mt-2">
-					<span class="navbar-toggler-bar bar1"></span>
-					<span class="navbar-toggler-bar bar2"></span>
-					<span class="navbar-toggler-bar bar3"></span>
-				</span>
-			</button>
+			
 			<div class="collapse navbar-collapse w-100 pt-3 pb-2 py-lg-0" id="navigation">
 				<ul class="navbar-nav navbar-nav-hover mx-auto">
 					<li class="nav-item dropdown dropdown-hover mx-2">
@@ -119,7 +113,7 @@
 					<li class="nav-item dropdown dropdown-hover mx-2">
 						<a href="/sism"
 							class="nav-link ps-2 d-flex justify-content-between cursor-pointer align-items-center"
-							id="dropdownMenuDocs" role="button" style="font-size: 1.3rem;"> <!-- 여기에 원하는 크기를 설정하세요 -->
+							 role="button" style="font-size: 1.3rem;"> <!-- 여기에 원하는 크기를 설정하세요 -->
 							BUSINESS
 							<img src="../../assets/img/down-arrow-dark.svg" alt="down-arrow" class="arrow ms-1">
 						</a>
@@ -206,7 +200,7 @@
 					<li class="nav-item dropdown dropdown-hover mx-2">
 						<a href="/welfare"
 							class="nav-link ps-2 d-flex justify-content-between cursor-pointer align-items-center"
-							id="dropdownMenuDocs" role="button" style="font-size: 1.3rem;"> <!-- 여기에 원하는 크기를 설정하세요 -->
+							 role="button" style="font-size: 1.3rem;"> <!-- 여기에 원하는 크기를 설정하세요 -->
 							RECRUIT
 							<img src="../../assets/img/down-arrow-dark.svg" alt="down-arrow" class="arrow ms-1">
 						</a>
@@ -251,7 +245,7 @@
 					<li class="nav-item dropdown dropdown-hover mx-2">
 						<a href=""
 							class="nav-link ps-2 d-flex justify-content-between cursor-pointer align-items-center"
-							id="dropdownMenuDocs" role="button" style="font-size: 1.3rem;"> <!-- 여기에 원하는 크기를 설정하세요 -->
+							 role="button" style="font-size: 1.3rem;"> <!-- 여기에 원하는 크기를 설정하세요 -->
 							CONTACT US
 							<img src="../../assets/img/down-arrow-dark.svg" alt="down-arrow" class="arrow ms-1">
 						</a>
@@ -282,7 +276,7 @@
 					<li class="nav-item dropdown dropdown-hover mx-2">
 						<a href=""
 							class="nav-link ps-2 d-flex justify-content-between cursor-pointer align-items-center"
-							id="dropdownMenuDocs" role="button" style="font-size: 1.3rem;"> <!-- 여기에 원하는 크기를 설정하세요 -->
+							 role="button" style="font-size: 1.3rem;"> <!-- 여기에 원하는 크기를 설정하세요 -->
 							ABOUT US
 							<img src="../../assets/img/down-arrow-dark.svg" alt="down-arrow" class="arrow ms-1">
 						</a>
@@ -320,11 +314,11 @@
 
 	</header>
 	<!-- -------- END HEADER 11 w/ carousel ------- -->
-	 <main>
+	    <main>
         <div class="container">
             <form class="login-form" th:action="@{/login}" method="post">
                 <div class="mb-3 d-flex align-items-center">
-                    <img src="images/Mn.png" alt="Login Image" class="login-image me-3" width="80" height="45">
+                    <img src="/images/Mn.png" alt="Login Image" class="login-image me-3" width="80" height="45">
                     <h1 class="mb-0 align-self-center">Login</h1>
                 </div>
                 <div class="mb-3">
