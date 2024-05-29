@@ -320,37 +320,30 @@
 
 	</header>
 	<!-- -------- END HEADER 11 w/ carousel ------- -->
-	<main>
-		 <div class="container">
-        <form class="login-form" th:action="@{/login}" method="post">
-            <div class="mb-3 d-flex align-items-center">
-                <!-- 로고 이미지 -->
-                <img src="images/Mn.png" alt="Login Image" class="login-image me-3" width="80" height="45">
-                <!-- 제목 -->
-                <h1 class="mb-0 align-self-center">Login</h1>
-            </div>
-            <!-- 아이디 입력 -->
-            <div class="mb-3">
-                <label for="username" class="form-label">ID</label>
-                <input type="text" class="form-control" id="username" name="username" placeholder="Enter userId" required>
-            </div>
-            <!-- 비밀번호 입력 -->
-            <div class="mb-3">
-                <label for="password" class="form-label">Password</label>
-                <input type="password" class="form-control" id="password" name="password" placeholder="Enter password" required>
-            </div>
-            <!-- 로그인 버튼 -->
-            <div class="d-grid gap-2">
-                <button type="submit" class="btn btn-secondary">Login</button>
-            </div>
-          <div th:if="${loginError}" class="alert alert-danger" role="alert">
-    Invalid username or password. Please try again.
-</div>
-
-
-        </form>
-    </div>
-	</main>
+	 <main>
+        <div class="container">
+            <form class="login-form" th:action="@{/login}" method="post">
+                <div class="mb-3 d-flex align-items-center">
+                    <img src="images/Mn.png" alt="Login Image" class="login-image me-3" width="80" height="45">
+                    <h1 class="mb-0 align-self-center">Login</h1>
+                </div>
+                <div class="mb-3">
+                    <label for="username" class="form-label">ID</label>
+                    <input type="text" class="form-control" id="username" name="username" placeholder="Enter userId" required>
+                </div>
+                <div class="mb-3">
+                    <label for="password" class="form-label">Password</label>
+                    <input type="password" class="form-control" id="password" name="password" placeholder="Enter password" required>
+                </div>
+                <div class="d-grid gap-2">
+                    <button type="submit" class="btn btn-secondary">Login</button>
+                </div>
+                <div th:if="${loginError}" class="alert alert-danger" role="alert">
+                    Invalid username or password. Please try again.
+                </div>
+            </form>
+        </div>
+    </main>
 	<footer id="footer">
 		<div class="row text">
 			<div class="col-lg-6 footer-contact">
