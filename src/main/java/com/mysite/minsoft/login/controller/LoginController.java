@@ -1,57 +1,76 @@
 package com.mysite.minsoft.login.controller;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import javax.validation.Valid;
+
+import org.springframework.dao.DataIntegrityViolationException;
+import org.springframework.security.authentication.AnonymousAuthenticationToken;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 
+import com.mysite.minsoft.login.model.UserCreateForm;
 import com.mysite.minsoft.login.service.UserService;
 
+import lombok.RequiredArgsConstructor;
+
+@RequiredArgsConstructor
 @Controller
 public class LoginController {
 
-    @Autowired
-    private UserService userService;
+    private final UserService userService;
+    private final AuthenticationManager authenticationManager;
 
-    @Autowired
-    private AuthenticationManager authenticationManager;
+    @GetMapping("/signup")
+    public String signup(UserCreateForm userCreateForm) {
+        return "signup";
+    }
 
-    @GetMapping("/home")
-    public String home() {
-        return "home";
+    @PostMapping("/signup")
+    public String signup(@Valid UserCreateForm userCreateForm, BindingResult bindingResult) {
+        if(bindingResult.hasErrors()) {
+            return "signup";
+        }
+
+        if(!userCreateForm.getPassword1().equals(userCreateForm.getPassword2())) {
+            bindingResult.rejectValue("password2", "passwordInCorrect", "2개의 패스워드가 일치하지 않습니다.");
+            return "signup";
+        }
+        try {
+            userService.create(userCreateForm.getUsername(),
+                    userCreateForm.getPassword1(), userCreateForm.getName());
+            // 회원가입 후 자동 로그인 처리
+            Authentication authentication = authenticationManager.authenticate(
+                new UsernamePasswordAuthenticationToken(
+                    userCreateForm.getUsername(), userCreateForm.getPassword1()
+                )
+            );
+            SecurityContextHolder.getContext().setAuthentication(authentication);
+        } catch(DataIntegrityViolationException e) {
+            e.printStackTrace();
+            bindingResult.reject("signupFailed", "이미 등록된 사용자입니다.");
+            return "signup";
+        } catch(Exception e) {
+            e.printStackTrace();
+            bindingResult.reject("signupFailed", e.getMessage());
+            return "signup";
+        }
+
+        return "redirect:/";
     }
 
     @GetMapping("/login")
-    public String login(@RequestParam(name = "error", required = false) String error, Model model) {
-        if (error != null) {
-            model.addAttribute("loginError", true);
-        }
-        return "loginform";
-    }
-
-    @PostMapping("/login")
-    public String processLogin(@RequestParam("username") String username,
-                               @RequestParam("password") String password,
-                               @RequestParam(name = "error", required = false) String error,
-                               Model model) {
-        // 인증 처리
-        UserDetails userDetails = userService.loadUserByUsername(username);
-        UsernamePasswordAuthenticationToken token = new UsernamePasswordAuthenticationToken(userDetails, password, userDetails.getAuthorities());
-
-        try {
-            Authentication authentication = authenticationManager.authenticate(token);
-            SecurityContextHolder.getContext().setAuthentication(authentication);
-            return "redirect:/"; // 로그인 성공 시 리다이렉트할 페이지로 변경
-        } catch (Exception e) {
-            model.addAttribute("loginError", true);
-            return "loginform"; // 로그인 실패 시 다시 로그인 폼으로 이동
+    public String loginRender() {
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        if (authentication == null || authentication instanceof AnonymousAuthenticationToken) {
+            return "login";
+        } else {
+            return "redirect:/";
         }
     }
+
 }

@@ -3,6 +3,7 @@ package com.mysite.minsoft.login.model;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -10,11 +11,12 @@ import lombok.Setter;
 @Getter
 @Setter
 @Entity
+@Table(name = "ADMIN")
 public class SiteUser {
 
 	@Id
-	@Column(name = "ID", unique = true)
-    private String id;
+	@Column(name = "USERNAME")
+    private String username;
 
     @Column(name = "PASSWORD")
     private String password;

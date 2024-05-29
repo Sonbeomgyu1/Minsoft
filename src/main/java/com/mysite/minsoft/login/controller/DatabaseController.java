@@ -23,7 +23,7 @@ public class DatabaseController {
             // Construct a string to display the fetched data
             StringBuilder result = new StringBuilder("Connected to the database!\n");
             for (Map<String, Object> row : adminData) {
-                result.append("ID: ").append(row.get("ID")).append(", ")
+                result.append("UserName: ").append(row.get("USERNAME")).append(", ")
                       .append("Password: ").append(row.get("PASSWORD")).append(", ")
                       .append("Name: ").append(row.get("NAME")).append("\n");
             }
