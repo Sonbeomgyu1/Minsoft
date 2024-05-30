@@ -331,7 +331,7 @@
 							<div class="row">
 								<div class="col-lg-12 my-auto">
 
-									<h1 class="text-white fadeIn2 fadeInBottom">오시는길</h1>
+									<h1 class="text-white fadeIn2 fadeInBottom">CONTACT US</h1>
 
 								</div>
 							</div>
@@ -407,7 +407,7 @@
         <p class="contact1">오시는 길</p>
     </div>
 		<!--지도요소-->
-		<div id="map" style="margin-top: 40px; width:70%; height:500px;">
+		<div id="map" style="margin-top: 70px; width:70%; height:500px;">
 				
 			</div>
 		
@@ -495,8 +495,8 @@
 
 
 	<!--회사주소,번호,Fax번호-->
-	<section class="py-7 bg-white position-relative">  
-  <div class="container">
+	<section class="py-7 bg-white position-relative" style="margin-top: 50px;">  
+  <div class="container" style="margin-top: 50px;">
     <div class="row mt-n7 blur border-radius-lg shadow-blur">
       <div class="col-lg-3 col-md-6 col-6 position-relative my-auto">
         <div class="p-3 text-center" >
@@ -568,7 +568,7 @@
           </div>-->
 <!--회사주소 새로운 템플릿-->
 
-<section class="py-7 bg-white position-relative">
+<!--<section class="py-7 bg-white position-relative">
   <div class="container" style="margin-left: 20%;">
     <div class="row">
       <div class="col-lg-6 col-md-5 mb-5">
@@ -620,14 +620,14 @@
       </div>
     </div>
   </div>
-</section>
+</section>-->
 
 
 
 <!--지하철 버스 새로운 템플릿-->
 <!-- -------- START PRE-FOOTER 7 w/ TEXT AND 2 BUTTONS ------- -->
-<section class="my-10 py-5 bg-gradient-secondary position-relative overflow-hidden section-spacing" >
-        <img src="../../assets/img/shapes/waves-white.svg" alt="pattern-lines" class="position-absolute start-0 top-0 w-100 opacity-6" >
+<section class="my-10 py-5 bg-gradient-secondary position-relative overflow-hidden section-spacing"  >
+        <img src="/images/contact/6053.jpg" alt="pattern-lines" class="position-absolute start-0 top-0 w-100  h-100 " style="object-fit: cover;">
         <div class="container position-relative z-index-2">
             <div class="row">
                 <div class="col-lg-5 col-md-8 m-auto text-start">
@@ -638,10 +638,10 @@
                 <div class="col-lg-6 m-auto">
                     <div class="row">
                         <div class="col-sm-4 col-6 ps-sm-0 ms-auto">
-                            <button type="button" class="btn bg-gradient-white mb-0 ms-lg-3 ms-sm-2 mb-sm-0 mb-2 me-auto w-100 d-block"  onclick="changeText('지하철')">지하철</button>
+                            <button type="button" class="btn  btn-subway mb-0 ms-lg-3 ms-sm-2 mb-sm-0 mb-2 me-auto w-100 d-block"  onclick="changeText('지하철')">지하철</button>
                         </div>
                         <div class="col-sm-4 col-6 ps-sm-0 me-lg-0 me-auto">
-                            <button type="button" class="btn btn-white mb-0 ms-lg-3 ms-sm-2 mb-sm-0 mb-2 me-auto w-100 d-block" onclick="changeText('버스')">버스</button>
+                            <button type="button" class="btn btn-bus mb-0 ms-lg-3 ms-sm-2 mb-sm-0 mb-2 me-auto w-100 d-block" onclick="changeText('버스')">버스</button>
                         </div>
                     </div>
                 </div>
@@ -913,8 +913,26 @@ function changeText(type) {
 	width: 50%;
     }
 }
-
-
+    /*버튼색상바꾸기*/
+      .btn-subway {
+        background-color: cornflowerblue; /* 밝은 빨간색 */
+        color: white;
+        border: none;
+    }
+    .btn-subway:hover {
+        background-color: royalblue; /* 더 어두운 빨간색 */
+        color: white;
+    }
+    .btn-bus {
+        background-color: cornflowerblue; /* 밝은 파란색 */
+        color: white;
+        border: none;
+    }
+    .btn-bus:hover {
+        background-color: royalblue; /* 더 어두운 파란색 */
+        color: white;
+    }
+/*지하철 버스 css끝*/
 /*오시는길 밑줄*/
 .find-text::after {
     content: '';
@@ -934,17 +952,14 @@ function changeText(type) {
 	
 	
 	/*회사주소 css시작*/
-/*	.fit-image{
-	width: 100%;
-    height: 100%;
-    object-fit: cover;
-	}*/
+
 	
 	   .image-container {
     position: relative;
     width: 320px;
     height: 320px; /* 원하는 높이로 설정 */
     overflow: hidden;
+   
   }
   .image-container img {
     width: 100%;

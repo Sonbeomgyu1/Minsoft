@@ -11,14 +11,16 @@
 
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software. -->
 <!DOCTYPE html>
-<html lang="en" itemscope itemtype="http://schema.org/WebPage">
+<html lang="en" itemscope itemtype="http://schema.org/WebPage" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
 
 <head>
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<link rel="apple-touch-icon" sizes="76x76" href="../../assets/img/apple-icon.png">
 	<link rel="icon" type="image/png" href="../../assets/img/favicon.png">
-	 <link href="https://maxcdn.bootstrapcdn.com/bootstrap/5.1.3/css/bootstrap.min.css" rel="stylesheet">
+	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/5.1.3/css/bootstrap.min.css" rel="stylesheet">
 
 	<title>
 		Soft UI Design System PRO by Creative Tim
@@ -39,290 +41,275 @@
 <body class="blog-posts">
 	<!-- Navbar Light -->
 	<nav class="navbar navbar-expand-lg navbar-light bg-white py-3">
-      <div class="container">
-         <a class="navbar-brand font-weight-bold" href="/">
-            <img src="/images/logo.jpg" alt="Soft UI PRO" style="max-width: 300px; height: 45PX;">
-         </a>
+		<div class="container">
+			<a class="navbar-brand font-weight-bold" href="/">
+				<img src="/images/logo.jpg" alt="Soft UI PRO" style="max-width: 300px; height: 45PX;">
+			</a>
 
-         <a href="https://www.creative-tim.com/product/soft-ui-design-system-pro#pricingCard"
-            class="btn btn-sm  bg-gradient-primary  btn-round mb-0 ms-auto d-lg-none d-block">Buy Now</a>
-         <button class="navbar-toggler shadow-none ms-2" type="button" data-bs-toggle="collapse"
-            data-bs-target="#navigation" aria-controls="navigation" aria-expanded="false"
-            aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon mt-2">
-               <span class="navbar-toggler-bar bar1"></span>
-               <span class="navbar-toggler-bar bar2"></span>
-               <span class="navbar-toggler-bar bar3"></span>
-            </span>
-         </button>
-         <div class="collapse navbar-collapse w-100 pt-3 pb-2 py-lg-0" id="navigation">
-            <ul class="navbar-nav navbar-nav-hover mx-auto">
-               <li class="nav-item dropdown dropdown-hover mx-2">
-                  <a href="/greetingpage"
-                  	class="nav-link ps-2 d-flex justify-content-between cursor-pointer align-items-center"
-                     id="dropdownMenuDocs"  role="button"
-                     style="font-size: 1.3rem;"> <!-- 여기에 원하는 크기를 설정하세요 -->
-                     COMPANY
-                     <img src="../../assets/img/down-arrow-dark.svg" alt="down-arrow" class="arrow ms-1">
-                  </a>
+			<a href="https://www.creative-tim.com/product/soft-ui-design-system-pro#pricingCard"
+				class="btn btn-sm  bg-gradient-primary  btn-round mb-0 ms-auto d-lg-none d-block">Buy Now</a>
+			<button class="navbar-toggler shadow-none ms-2" type="button" data-bs-toggle="collapse"
+				data-bs-target="#navigation" aria-controls="navigation" aria-expanded="false"
+				aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon mt-2">
+					<span class="navbar-toggler-bar bar1"></span>
+					<span class="navbar-toggler-bar bar2"></span>
+					<span class="navbar-toggler-bar bar3"></span>
+				</span>
+			</button>
+			<div class="collapse navbar-collapse w-100 pt-3 pb-2 py-lg-0" id="navigation">
+				<ul class="navbar-nav navbar-nav-hover mx-auto">
+					<li class="nav-item dropdown dropdown-hover mx-2">
+						<a href="/greetingpage"
+							class="nav-link ps-2 d-flex justify-content-between cursor-pointer align-items-center"
+							id="dropdownMenuDocs" role="button" style="font-size: 1.3rem;"> <!-- 여기에 원하는 크기를 설정하세요 -->
+							COMPANY
+							<img src="../../assets/img/down-arrow-dark.svg" alt="down-arrow" class="arrow ms-1">
+						</a>
 
-                  <div class="dropdown-menu dropdown-menu-animation dropdown-lg mt-0 mt-lg-3 p-3 border-radius-lg"
-                     aria-labelledby="dropdownMenuDocs">
-                     <div class="d-none d-lg-block">
-                        <ul class="list-group">
-                           <li class="nav-item list-group-item border-0 p-0">
-                              <a class="dropdown-item py-2 ps-3 border-radius-md"
-                                 href=" /greetingpage ">
-                                 <div class="d-flex">
+						<div class="dropdown-menu dropdown-menu-animation dropdown-lg mt-0 mt-lg-3 p-3 border-radius-lg"
+							aria-labelledby="dropdownMenuDocs">
+							<div class="d-none d-lg-block">
+								<ul class="list-group">
+									<li class="nav-item list-group-item border-0 p-0">
+										<a class="dropdown-item py-2 ps-3 border-radius-md" href=" /greetingpage ">
+											<div class="d-flex">
 
-                                    <div>
-                                       <h6 class="dropdown-header text-black font-weight-bolder d-flex justify-content-center align-items-center p-0"
-                                          style="font-size: 16px; /* 원하는 크기로 조정 */ font-weight: bold; /* 굵기 조정 */ ">
-                                          인사말
-                                       </h6>
-                                    </div>
-                                 </div>
-                              </a>
-                           </li>
-                           <li class="nav-item list-group-item border-0 p-0">
-                              <a class="dropdown-item py-2 ps-3 border-radius-md"
-                                 href=" https://www.creative-tim.com/learning-lab/bootstrap-marketplace/overview/soft-ui-design-system ">
-                                 <div class="d-flex">
+												<div>
+													<h6 class="dropdown-header text-black font-weight-bolder d-flex justify-content-center align-items-center p-0"
+														style="font-size: 16px; /* 원하는 크기로 조정 */ font-weight: bold; /* 굵기 조정 */ ">
+														인사말
+													</h6>
+												</div>
+											</div>
+										</a>
+									</li>
+									<li class="nav-item list-group-item border-0 p-0">
+										<a class="dropdown-item py-2 ps-3 border-radius-md" href="/history">
+											<div class="d-flex">
 
-                                    <div>
-                                       <h6 class="dropdown-header text-black font-weight-bolder d-flex justify-content-center align-items-center p-0"
-                                          style="font-size: 16px; /* 원하는 크기로 조정 */ font-weight: bold; /* 굵기 조정 */ ">
-                                          회사연혁
-                                       </h6>
-                                    </div>
-                                 </div>
-                              </a>
-                           </li>
-                           <li class="nav-item list-group-item border-0 p-0">
-                              <a class="dropdown-item py-2 ps-3 border-radius-md"
-                                 href="/certification ">
-                                 <div class="d-flex">
+												<div>
+													<h6 class="dropdown-header text-black font-weight-bolder d-flex justify-content-center align-items-center p-0"
+														style="font-size: 16px; /* 원하는 크기로 조정 */ font-weight: bold; /* 굵기 조정 */ ">
+														회사연혁
+													</h6>
+												</div>
+											</div>
+										</a>
+									</li>
+									<li class="nav-item list-group-item border-0 p-0">
+										<a class="dropdown-item py-2 ps-3 border-radius-md" href="/certification ">
+											<div class="d-flex">
 
-                                    <div>
-                                       <h6 class="dropdown-header text-black font-weight-bolder d-flex justify-content-center align-items-center p-0"
-                                          style="font-size: 16px; /* 원하는 크기로 조정 */ font-weight: bold; /* 굵기 조정 */ ">
-                                          기술인증
-                                       </h6>
-                                    </div>
-                                 </div>
-                              </a>
-                           </li>
-                        </ul>
-                     </div>
+												<div>
+													<h6 class="dropdown-header text-black font-weight-bolder d-flex justify-content-center align-items-center p-0"
+														style="font-size: 16px; /* 원하는 크기로 조정 */ font-weight: bold; /* 굵기 조정 */ ">
+														기업인증
+													</h6>
+												</div>
+											</div>
+										</a>
+									</li>
+								</ul>
+							</div>
 
-                  </div>
-               </li>
+						</div>
+					</li>
 
-               <li class="nav-item dropdown dropdown-hover mx-2">
-                  <a href="/businessdetails"
-                  	class="nav-link ps-2 d-flex justify-content-between cursor-pointer align-items-center"
-                     id="dropdownMenuDocs"  role="button"
-                     style="font-size: 1.3rem;"> <!-- 여기에 원하는 크기를 설정하세요 -->
-                     BUSINESS
-                     <img src="../../assets/img/down-arrow-dark.svg" alt="down-arrow" class="arrow ms-1">
-                  </a>
+					<li class="nav-item dropdown dropdown-hover mx-2">
+						<a href="/businessdetails"
+							class="nav-link ps-2 d-flex justify-content-between cursor-pointer align-items-center"
+							id="dropdownMenuDocs" role="button" style="font-size: 1.3rem;"> <!-- 여기에 원하는 크기를 설정하세요 -->
+							BUSINESS
+							<img src="../../assets/img/down-arrow-dark.svg" alt="down-arrow" class="arrow ms-1">
+						</a>
 
-                  <div class="dropdown-menu dropdown-menu-animation dropdown-lg mt-0 mt-lg-3 p-3 border-radius-lg"
-                     aria-labelledby="dropdownMenuDocs">
-                     <div class="d-none d-lg-block">
-                        <ul class="list-group">
-                           <li class="nav-item list-group-item border-0 p-0">
-                              <a class="dropdown-item py-2 ps-3 border-radius-md"
-                                 href="/businessdetails">
-                                 <div class="d-flex">
+						<div class="dropdown-menu dropdown-menu-animation dropdown-lg mt-0 mt-lg-3 p-3 border-radius-lg"
+							aria-labelledby="dropdownMenuDocs">
+							<div class="d-none d-lg-block">
+								<ul class="list-group">
+									<li class="nav-item list-group-item border-0 p-0">
+										<a class="dropdown-item py-2 ps-3 border-radius-md" href="/businessdetails">
+											<div class="d-flex">
 
-                                    <div>
-                                       <h6 class="dropdown-header text-black font-weight-bolder d-flex justify-content-center align-items-center p-0"
-                                          style="font-size: 16px; /* 원하는 크기로 조정 */ font-weight: bold; /* 굵기 조정 */ ">
-                                          사업내용
-                                       </h6>
-                                    </div>
-                                 </div>
-                              </a>
-                           </li>
-                           <li class="nav-item list-group-item border-0 p-0">
-                              <a class="dropdown-item py-2 ps-3 border-radius-md"
-                                 href=" /itoutsourcingpage ">
-                                 <div class="d-flex">
+												<div>
+													<h6 class="dropdown-header text-black font-weight-bolder d-flex justify-content-center align-items-center p-0"
+														style="font-size: 16px; /* 원하는 크기로 조정 */ font-weight: bold; /* 굵기 조정 */ ">
+														사업내용
+													</h6>
+												</div>
+											</div>
+										</a>
+									</li>
+									<li class="nav-item list-group-item border-0 p-0">
+										<a class="dropdown-item py-2 ps-3 border-radius-md" href=" /itoutsourcingpage ">
+											<div class="d-flex">
 
-                                    <div>
-                                       <h6 class="dropdown-header text-black font-weight-bolder d-flex justify-content-center align-items-center p-0"
-                                          style="font-size: 16px; /* 원하는 크기로 조정 */ font-weight: bold; /* 굵기 조정 */ ">
-                                          아웃소싱
-                                       </h6>
-                                    </div>
-                                 </div>
-                              </a>
-                           </li>
-                           <li class="nav-item list-group-item border-0 p-0">
-                              <a class="dropdown-item py-2 ps-3 border-radius-md"
-                                 href=" /sism ">
-                                 <div class="d-flex">
+												<div>
+													<h6 class="dropdown-header text-black font-weight-bolder d-flex justify-content-center align-items-center p-0"
+														style="font-size: 16px; /* 원하는 크기로 조정 */ font-weight: bold; /* 굵기 조정 */ ">
+														아웃소싱
+													</h6>
+												</div>
+											</div>
+										</a>
+									</li>
+									<li class="nav-item list-group-item border-0 p-0">
+										<a class="dropdown-item py-2 ps-3 border-radius-md" href=" /sism ">
+											<div class="d-flex">
 
-                                    <div>
-                                       <h6 class="dropdown-header text-black font-weight-bolder d-flex justify-content-center align-items-center p-0"
-                                          style="font-size: 16px; /* 원하는 크기로 조정 */ font-weight: bold; /* 굵기 조정 */ ">
-                                          SI / SM
-                                       </h6>
-                                    </div>
-                                 </div>
-                              </a>
-                           </li>
-                           <li class="nav-item list-group-item border-0 p-0">
-                              <a class="dropdown-item py-2 ps-3 border-radius-md"
-                                 href=" /consulting ">
-                                 <div class="d-flex">
+												<div>
+													<h6 class="dropdown-header text-black font-weight-bolder d-flex justify-content-center align-items-center p-0"
+														style="font-size: 16px; /* 원하는 크기로 조정 */ font-weight: bold; /* 굵기 조정 */ ">
+														SI / SM
+													</h6>
+												</div>
+											</div>
+										</a>
+									</li>
+									<li class="nav-item list-group-item border-0 p-0">
+										<a class="dropdown-item py-2 ps-3 border-radius-md" href=" /consulting ">
+											<div class="d-flex">
 
-                                    <div>
-                                       <h6 class="dropdown-header text-black font-weight-bolder d-flex justify-content-center align-items-center p-0"
-                                          style="font-size: 16px; /* 원하는 크기로 조정 */ font-weight: bold; /* 굵기 조정 */ ">
-                                          컨설팅
-                                       </h6>
-                                    </div>
-                                 </div>
-                              </a>
-                           </li>
-                           <li class="nav-item list-group-item border-0 p-0">
-                              <a class="dropdown-item py-2 ps-3 border-radius-md"
-                                 href="/solutions ">
-                                 <div class="d-flex">
+												<div>
+													<h6 class="dropdown-header text-black font-weight-bolder d-flex justify-content-center align-items-center p-0"
+														style="font-size: 16px; /* 원하는 크기로 조정 */ font-weight: bold; /* 굵기 조정 */ ">
+														컨설팅
+													</h6>
+												</div>
+											</div>
+										</a>
+									</li>
+									<li class="nav-item list-group-item border-0 p-0">
+										<a class="dropdown-item py-2 ps-3 border-radius-md" href="/solutions ">
+											<div class="d-flex">
 
-                                    <div>
-                                       <h6 class="dropdown-header text-black font-weight-bolder d-flex justify-content-center align-items-center p-0"
-                                          style="font-size: 16px; /* 원하는 크기로 조정 */ font-weight: bold; /* 굵기 조정 */ ">
-                                          솔루션
-                                       </h6>
-                                    </div>
-                                 </div>
-                              </a>
-                           </li>
-                        </ul>
-                     </div>
+												<div>
+													<h6 class="dropdown-header text-black font-weight-bolder d-flex justify-content-center align-items-center p-0"
+														style="font-size: 16px; /* 원하는 크기로 조정 */ font-weight: bold; /* 굵기 조정 */ ">
+														솔루션
+													</h6>
+												</div>
+											</div>
+										</a>
+									</li>
+								</ul>
+							</div>
 
-                  </div>
-               </li>
-               <li class="nav-item dropdown dropdown-hover mx-2">
-                  <a href="/welfare"
-                  	class="nav-link ps-2 d-flex justify-content-between cursor-pointer align-items-center"
-                     id="dropdownMenuDocs"  role="button"
-                     style="font-size: 1.3rem;"> <!-- 여기에 원하는 크기를 설정하세요 -->
-                     RECRUIT
-                     <img src="../../assets/img/down-arrow-dark.svg" alt="down-arrow" class="arrow ms-1">
-                  </a>
+						</div>
+					</li>
+					<li class="nav-item dropdown dropdown-hover mx-2">
+						<a href="/welfare"
+							class="nav-link ps-2 d-flex justify-content-between cursor-pointer align-items-center"
+							id="dropdownMenuDocs" role="button" style="font-size: 1.3rem;"> <!-- 여기에 원하는 크기를 설정하세요 -->
+							RECRUIT
+							<img src="../../assets/img/down-arrow-dark.svg" alt="down-arrow" class="arrow ms-1">
+						</a>
 
-                  <div class="dropdown-menu dropdown-menu-animation dropdown-lg mt-0 mt-lg-3 p-3 border-radius-lg"
-                     aria-labelledby="dropdownMenuDocs">
-                     <div class="d-none d-lg-block">
-                        <ul class="list-group">
-                           <li class="nav-item list-group-item border-0 p-0">
-                              <a class="dropdown-item py-2 ps-3 border-radius-md"
-                                 href=" /welfare ">
-                                 <div class="d-flex">
+						<div class="dropdown-menu dropdown-menu-animation dropdown-lg mt-0 mt-lg-3 p-3 border-radius-lg"
+							aria-labelledby="dropdownMenuDocs">
+							<div class="d-none d-lg-block">
+								<ul class="list-group">
+									<li class="nav-item list-group-item border-0 p-0">
+										<a class="dropdown-item py-2 ps-3 border-radius-md" href=" /welfare ">
+											<div class="d-flex">
 
-                                    <div>
-                                       <h6 class="dropdown-header text-black font-weight-bolder d-flex justify-content-center align-items-center p-0"
-                                          style="font-size: 16px; /* 원하는 크기로 조정 */ font-weight: bold; /* 굵기 조정 */ ">
-                                          복지제도
-                                       </h6>
-                                    </div>
-                                 </div>
-                              </a>
-                           </li>
-                           <li class="nav-item list-group-item border-0 p-0">
-                              <a class="dropdown-item py-2 ps-3 border-radius-md"
-                                 href=" /recruitmentinfomation ">
-                                 <div class="d-flex">
+												<div>
+													<h6 class="dropdown-header text-black font-weight-bolder d-flex justify-content-center align-items-center p-0"
+														style="font-size: 16px; /* 원하는 크기로 조정 */ font-weight: bold; /* 굵기 조정 */ ">
+														복지제도
+													</h6>
+												</div>
+											</div>
+										</a>
+									</li>
+									<li class="nav-item list-group-item border-0 p-0">
+										<a class="dropdown-item py-2 ps-3 border-radius-md"
+											href=" /recruitmentinfomation ">
+											<div class="d-flex">
 
-                                    <div>
-                                       <h6 class="dropdown-header text-black font-weight-bolder d-flex justify-content-center align-items-center p-0"
-                                          style="font-size: 16px; /* 원하는 크기로 조정 */ font-weight: bold; /* 굵기 조정 */ ">
-                                          채용안내
-                                       </h6>
-                                    </div>
-                                 </div>
-                              </a>
-                           </li>
-                        </ul>
-                     </div>
+												<div>
+													<h6 class="dropdown-header text-black font-weight-bolder d-flex justify-content-center align-items-center p-0"
+														style="font-size: 16px; /* 원하는 크기로 조정 */ font-weight: bold; /* 굵기 조정 */ ">
+														채용안내
+													</h6>
+												</div>
+											</div>
+										</a>
+									</li>
+								</ul>
+							</div>
 
-                  </div>
-               </li>
-               <li class="nav-item dropdown dropdown-hover mx-2">
-                  <a href="/contact"
-                  	class="nav-link ps-2 d-flex justify-content-between cursor-pointer align-items-center"
-                     id="dropdownMenuDocs"  role="button"
-                     style="font-size: 1.3rem;"> <!-- 여기에 원하는 크기를 설정하세요 -->
-                     CONTACT US
-                     <img src="../../assets/img/down-arrow-dark.svg" alt="down-arrow" class="arrow ms-1">
-                  </a>
+						</div>
+					</li>
+					<li class="nav-item dropdown dropdown-hover mx-2">
+						<a href="/contact"
+							class="nav-link ps-2 d-flex justify-content-between cursor-pointer align-items-center"
+							id="dropdownMenuDocs" role="button" style="font-size: 1.3rem;"> <!-- 여기에 원하는 크기를 설정하세요 -->
+							CONTACT US
+							<img src="../../assets/img/down-arrow-dark.svg" alt="down-arrow" class="arrow ms-1">
+						</a>
 
-                  <div class="dropdown-menu dropdown-menu-animation dropdown-lg mt-0 mt-lg-3 p-3 border-radius-lg"
-                     aria-labelledby="dropdownMenuDocs">
-                     <div class="d-none d-lg-block">
-                        <ul class="list-group">
-                           <li class="nav-item list-group-item border-0 p-0">
-                              <a class="dropdown-item py-2 ps-3 border-radius-md"
-                                 href="/contact">
-                                 <div class="d-flex">
+						<div class="dropdown-menu dropdown-menu-animation dropdown-lg mt-0 mt-lg-3 p-3 border-radius-lg"
+							aria-labelledby="dropdownMenuDocs">
+							<div class="d-none d-lg-block">
+								<ul class="list-group">
+									<li class="nav-item list-group-item border-0 p-0">
+										<a class="dropdown-item py-2 ps-3 border-radius-md" href="/contact">
+											<div class="d-flex">
 
-                                    <div>
-                                       <h6 class="dropdown-header text-black font-weight-bolder d-flex justify-content-center align-items-center p-0"
-                                          style="font-size: 16px; /* 원하는 크기로 조정 */ font-weight: bold; /* 굵기 조정 */ ">
-                                          찾아오는 길
-                                       </h6>
+												<div>
+													<h6 class="dropdown-header text-black font-weight-bolder d-flex justify-content-center align-items-center p-0"
+														style="font-size: 16px; /* 원하는 크기로 조정 */ font-weight: bold; /* 굵기 조정 */ ">
+														찾아오는 길
+													</h6>
 
-                                    </div>
-                                 </div>
-                              </a>
-                           </li>
-                        </ul>
-                     </div>
+												</div>
+											</div>
+										</a>
+									</li>
+								</ul>
+							</div>
 
-                  </div>
-               </li>
-               <li class="nav-item dropdown dropdown-hover mx-2">
-                  <a href="/contact"
-                  	class="nav-link ps-2 d-flex justify-content-between cursor-pointer align-items-center"
-                     id="dropdownMenuDocs"  role="button"
-                     style="font-size: 1.3rem;"> <!-- 여기에 원하는 크기를 설정하세요 -->
-                     ABOUT US
-                     <img src="../../assets/img/down-arrow-dark.svg" alt="down-arrow" class="arrow ms-1">
-                  </a>
+						</div>
+					</li>
+					<li class="nav-item dropdown dropdown-hover mx-2">
+						<a href="/notice"
+							class="nav-link ps-2 d-flex justify-content-between cursor-pointer align-items-center"
+							id="dropdownMenuDocs" role="button" style="font-size: 1.3rem;"> <!-- 여기에 원하는 크기를 설정하세요 -->
+							ABOUT US
+							<img src="../../assets/img/down-arrow-dark.svg" alt="down-arrow" class="arrow ms-1">
+						</a>
 
-                  <div class="dropdown-menu dropdown-menu-animation dropdown-lg mt-0 mt-lg-3 p-3 border-radius-lg"
-                     aria-labelledby="dropdownMenuDocs">
-                     <div class="d-none d-lg-block">
-                        <ul class="list-group">
-                           <li class="nav-item list-group-item border-0 p-0">
-                              <a class="dropdown-item py-2 ps-3 border-radius-md"
-                                 href="/contact">
-                                 <div class="d-flex">
+						<div class="dropdown-menu dropdown-menu-animation dropdown-lg mt-0 mt-lg-3 p-3 border-radius-lg"
+							aria-labelledby="dropdownMenuDocs">
+							<div class="d-none d-lg-block">
+								<ul class="list-group">
+									<li class="nav-item list-group-item border-0 p-0">
+										<a class="dropdown-item py-2 ps-3 border-radius-md" href="/notice">
+											<div class="d-flex">
 
-                                    <div>
-                                       <h6 class="dropdown-header text-black font-weight-bolder d-flex justify-content-center align-items-center p-0"
-                                          style="font-size: 16px; /* 원하는 크기로 조정 */ font-weight: bold; /* 굵기 조정 */ ">
-                                          공지사항
-                                       </h6>
+												<div>
+													<h6 class="dropdown-header text-black font-weight-bolder d-flex justify-content-center align-items-center p-0"
+														style="font-size: 16px; /* 원하는 크기로 조정 */ font-weight: bold; /* 굵기 조정 */ ">
+														공지사항
+													</h6>
 
-                                    </div>
-                                 </div>
-                              </a>
-                           </li>
-                        </ul>
-                     </div>
+												</div>
+											</div>
+										</a>
+									</li>
+								</ul>
+							</div>
 
-                  </div>
-               </li>
-			
+						</div>
+					</li>
+
 				</ul>
- 					  <a href="/loginform"><button class="styled-button">Admin</button></a>
+		<a th:href="@{/login}" sec:authorize="isAnonymous()"><button class="styled-button">Admin</button></a>
+    	<a th:href="@{/logout}" sec:authorize="isAuthenticated()"><button class="styled-button">logout</button></a>
 			</div>
-			
+
 
 		</div>
 	</nav>
@@ -331,67 +318,71 @@
 	<header>
 		<div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
 			<div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
-			<div class="carousel-inner">
-				<div class="carousel-item active">
-					<div class="page-header min-vh-45 m-0 border-xl"
-						style="background-image: url('/images/main/future.jpg');">
-						<!--<span class="mask bg-gradient-dark"></span>-->
-						<div class="container">
-							<div class="row">
-								<div class="col-lg-12 my-auto">
+				<div class="carousel-inner">
+					<div class="carousel-item active">
+						<div class="page-header min-vh-45 m-0 border-xl"
+							style="background-image: url('/images/main/future.jpg');">
+							<!--<span class="mask bg-gradient-dark"></span>-->
+							<div class="container">
+								<div class="row">
+									<div class="col-lg-12 my-auto">
 
-									<h1 class="text-white fadeIn2 fadeInBottom">Welcome to  MinSoft</h1>
+										<h1 class="text-white fadeIn2 fadeInBottom">Welcome to MinSoft</h1>
 
+									</div>
 								</div>
 							</div>
 						</div>
+
 					</div>
-
-				</div> 
-						<div class="carousel-item">
-					<div class="page-header min-vh-45 m-0 border-xl"
-						style="background-image: url('/images/main/3d.jpg');">
-						<!--<span class="mask bg-gradient-dark"></span>-->
-						<div class="container">
-							<div class="row">
-								<div class="col-lg-12 my-auto">
-
-									<h1 class="text-white fadeIn2 fadeInBottom">Welcome to  MinSoft</h1>
-
-								</div>
-							</div>
-						</div>
-					</div>
-			</div> 
 					<div class="carousel-item">
-					<div class="page-header min-vh-45 m-0 border-xl"
-						style="background-image: url('/images/main/click.jpg');">
-						<!--<span class="mask bg-gradient-dark"></span>-->
-						<div class="container">
-							<div class="row">
-								<div class="col-lg-12 my-auto">
+						<div class="page-header min-vh-45 m-0 border-xl"
+							style="background-image: url('/images/main/3d.jpg');">
+							<!--<span class="mask bg-gradient-dark"></span>-->
+							<div class="container">
+								<div class="row">
+									<div class="col-lg-12 my-auto">
 
-									<h1 class="text-white fadeIn2 fadeInBottom">Welcome to  MinSoft</h1>
+										<h1 class="text-white fadeIn2 fadeInBottom">Welcome to MinSoft</h1>
 
+									</div>
 								</div>
 							</div>
 						</div>
 					</div>
-			</div> 
-				<!--메인 이미지 옆에 화살표 코드-->
-				<div class="min-vh-75 position-absolute w-100 top-0">
-					<a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-bs-slide="prev">
-						<span class="carousel-control-prev-icon position-absolute bottom-50" aria-hidden="true"></span>
-						<span class="visually-hidden">Previous</span>
-					</a>
-					<a class="carousel-control-next" href="#carouselExampleControls" role="button" data-bs-slide="next">
-						<span class="carousel-control-next-icon position-absolute bottom-50" aria-hidden="true"></span>
-						<span class="visually-hidden">Next</span>
-					</a>
-				</div>
+					<div class="carousel-item">
+						<div class="page-header min-vh-45 m-0 border-xl"
+							style="background-image: url('/images/main/click.jpg');">
+							<!--<span class="mask bg-gradient-dark"></span>-->
+							<div class="container">
+								<div class="row">
+									<div class="col-lg-12 my-auto">
 
+										<h1 class="text-white fadeIn2 fadeInBottom">Welcome to MinSoft</h1>
+
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!--메인 이미지 옆에 화살표 코드-->
+					<div class="min-vh-75 position-absolute w-100 top-0">
+						<a class="carousel-control-prev" href="#carouselExampleControls" role="button"
+							data-bs-slide="prev">
+							<span class="carousel-control-prev-icon position-absolute bottom-50"
+								aria-hidden="true"></span>
+							<span class="visually-hidden">Previous</span>
+						</a>
+						<a class="carousel-control-next" href="#carouselExampleControls" role="button"
+							data-bs-slide="next">
+							<span class="carousel-control-next-icon position-absolute bottom-50"
+								aria-hidden="true"></span>
+							<span class="visually-hidden">Next</span>
+						</a>
+					</div>
+
+				</div>
 			</div>
-		</div>
 	</header>
 	<!-- -------- END HEADER 11 w/ carousel ------- -->
 	<!--Main 시작-->
@@ -403,178 +394,205 @@
 			<a href="/consulting" class="btn btn-light">컨설팅</a>
 			<a href="/consulting" class="btn btn-light">솔루션</a>
 		</div>-->
-		
+
 		<!--비즈니스 시작-->
 		<section class="content-section" id="portfolio">
-            <div class="container px-4 px-lg-5">
-                <div class="content-section-heading" style="text-align: center;">
-                    
-                    <h2 class="mb-5" style="font-weight: bold; margin-top: 250px;">BUSINESS</h2>
-                </div>
-                <div class="row gx-0">
-                    <div class="col-lg-6">
-                        <a class="portfolio-item" href="#!">
-                            <div class="caption">
-                                <div class="caption-content">
-                                    <div class="h2" id="biz" >BUSINESS</div>
-                                    <p class="mb-0" style="font-size: 17px;">A yellow pencil with envelopes on a clean, blue backdrop!</p>
-                                </div>
-                            </div>
-                            <img class="img-fluid" id="biz-img" src="/images/main/customer/102581.jpg" alt="..." />
-                        </a>
-                    </div>
-                    <div class="col-lg-6">
-                        <a class="portfolio-item" href="#!">
-                            <div class="caption">
-                                <div class="caption-content">
-                                    <div class="h2" id="biz">SI/SM</div>
-                                    <p class="mb-0" style="font-size: 17px;">IT Outsourcing 사업에 따른 대기업/관공서/통신사 등에 인력 파견 및 각종 솔루션을 공급하는 것입니다.
-										 파견인력에 대한 피드백 시스템으로 고객만족 극대화를 창출해 낼수 있습니다.</p>
-                                </div>
-                            </div>
-                            <img class="img-fluid" id="biz-img" src="/images/main/1846.jpg" alt="..." />
-                        </a>
-                    </div>
-                    <div class="col-lg-6">
-                        <a class="portfolio-item" href="#!">
-                            <div class="caption">
-                                <div class="caption-content">
-                                    <div class="h2" id="biz" style="color: white;">컨설팅</div>
-                                    <p class="mb-0" style="font-size: 17px;">공공, 금융, 제조/서비스, 전자, 통신/미디어 등의 산업에서 BPM, CRM, CPM, ERM 등 
-										다양한 솔루션을 이용한 전략 컨설팅, 프로세스 혁신 컨설팅, 전략 실행 컨설팅 서비스를 제공합니다. </p>
-                                </div>
-                            </div>
-                            <img class="img-fluid"  id="biz-img" src="/images/main/2151003695.jpg" alt="..." />
-                        </a>
-                    </div>
-                    <div class="col-lg-6">
-                        <a class="portfolio-item" href="#!">
-                            <div class="caption">
-                                <div class="caption-content">
-                                    <div class="h2" id="biz" style="color: white;" >솔루션</div>
-                                    <p class="mb-0" style="font-size: 17px;">기업의 고객 / 영업 / 실적 관리를 모바일 상에서 관리할 수 있는 솔루션이며,
-										 반응형웹서비스는 웹상에서 구동하는 시스템을 모바일이나 테블릿 화면으로 출력할 때 자동으로 해상도를 조절해 주는 솔루션</p>
-                                </div>
-                            </div>
-                            <img class="img-fluid" id="biz-img"  src="/images/main/2150169850.jpg" alt="..." />
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </section>
-        
-        <!--연혁시작-->
-		<!-- About-->
-        <section class="page-section" id="about">
-            <div class="container">
-                <div style="text-align: center;">
-                    <h2 class="section-heading text-uppercase">연혁</h2>
-                    <h3 class="section-subheading text-muted" style="margin-bottom: 60px;">(2014-2024)</h3>
-                </div>
-                <ul class="timeline">
-                    <li>
-                        <div class="timeline-image" id="click1"><img class="rounded-circle img-fluid" src="/images/main/102581.jpg" alt="..." style="margin-top: 0px; width: 200px; height: 157px;" /></div>
-                        <div class="timeline-panel">
-                            <div class="timeline-heading">
-                                <h4>2024</h4>
-                                <h4 class="subheading"></h4>
-                            </div>
-                            <div class="timeline-body"><p class="text-muted" style="font-weight: bold; margin-left: 50px;"><br>
-							[삼성엔지니어링(주)] I&E Inspection Platform 고도화 <br>사회보장정보원 통합플랫폼 유지관리 사업<br>삼성전자 DS 메모리 현장-표준원가 시스템 운영 및 개선 외 12건 	
-							</p></div>
-                        </div>
-                    </li>
-                    <li class="timeline-inverted">
-                        <div class="timeline-image" id="click1"><img class="rounded-circle img-fluid" src="/images/main/2150010138.jpg" alt="..." style="margin-top: 0px; width: 200px; height: 157px;" /></div>
-                        <div class="timeline-panel">
-                            <div class="timeline-heading">
-                                <h4>2023</h4>
-                                <h4 class="subheading">도약기</h4>
-                            </div>
-                            <div class="timeline-body "><p class="text-muted" style="font-weight: bold; margin-right: 50px;">삼성전자 MIS 1차사등록<br>강소기업 선정<br>삼성전자 경영지원 운영<br>삼성전자 MIS 운영 외 31건 </p></div>
-                        </div>
-                    </li>
-                    
-                    <!--2019-2022시작-->
-                    <li>
-                        <div class="timeline-image clickable"><img class="rounded-circle img-fluid" src="/images/main/16311.jpg" alt="..." style="margin-top: 0px; width: 200px; height: 157px;" /></div>
-                        <div class="timeline-panel">
-                            <div class="timeline-heading">
-                                <h4>2019-2022</h4>
-                                <h4 class="subheading">성장기</h4>
-                                <p class="text-muted" style="font-weight: bold;  margin-left: 50px;">사무실 이전 (마곡)<br>기술혁신형 중소기업 Inno-Biz <br>
-									기업부설 연구소 설립</p>
-                            </div>
-                            <div class="timeline-body hidden"><p class="text-muted" style="font-weight: bold; margin-left: 50px;">2022 
-							<br>삼성전자 DS부문 경영,공급<br>기업부설 연구소 설립<br>신한은행 SOL 고도화 구축 외 41건<br><br>
-							</p>
-							
-							<p class="text-muted" style="font-weight: bold; margin-left: 50px;">2021
-							<br>기획재정부 차세대 예산회계시스템 구축<br>LG-CNS 아웃소싱 그룹 운영<br삼성반도체 경영지원시스템 개발it플랫폼전환 외 25건><br><br>
-							</p>
-							
-							<p class="text-muted" style="font-weight: bold; margin-left: 50px;">2020
-							<br>삼성반도체 DS부문 원가시스템 구축 외 14건<br><br>
-							</p>
-							
-							<p class="text-muted" style="font-weight: bold; margin-left: 50px;">2019
-							<br>삼성반도체 EAM 설치작업 검증체계 구축 외 41건<br><br>
-							</p>
-							
+			<div class="container px-4 px-lg-5">
+				<div class="content-section-heading" style="text-align: center;">
+
+					<h2 class="mb-5" style="font-weight: bold; margin-top: 250px;">BUSINESS</h2>
+				</div>
+				<div class="row gx-0">
+					<div class="col-lg-6">
+						<a class="portfolio-item" href="/businessdetails">
+							<div class="caption">
+								<div class="caption-content">
+									<div class="h2" id="biz">BUSINESS</div>
+									<p class="mb-0" style="font-size: 17px;">A yellow pencil with envelopes on a clean,
+										blue backdrop!</p>
+								</div>
 							</div>
-                        </div>
-                    </li>
-                    <!--2019-2022끝-->
-                    
-                    <!--2015-2018시작-->
-                   <li class="timeline-inverted">
-            <div class="timeline-image clickable">
-                <img class="rounded-circle img-fluid" src="/images/main/3988.jpg" alt="..." style="margin-top: 0px; width: 200px; height: 157px;" />
-            </div>
-            <div class="timeline-panel">
-                <div class="timeline-heading">
-                    <h4>2015-2018<br></h4>
-                    <h4 class="subheading" style="font-weight: bold; margin-right: 50px;">성장기</h4>
-						<p style="font-weight: bold; margin-right: 50px;">자본금 2억으로 증자
-<br>나라장터 인허가<br>직접생산 확인 신고<br>경영혁신형 중소기업 Main-Biz 선정<br><br>
-					</p>
-                </div>
-                <div class="timeline-body hidden">
-                    <p class="text-muted" style="font-weight: bold; margin-right: 50px;">2018
-                        <br>삼성전자 DS부분 직구매시스템 구축 외 41건<br><br>
-                    </p>
-                    <p class="text-muted" style="font-weight: bold; margin-right: 50px;">2017
-                        <br>삼성반도체 2017년 원가관리 시스템 구축<br>LG디스플레이 Profile Summary 구축 외 28건<br><br>
-                    </p>
-                    <p class="text-muted" style="font-weight: bold; margin-right: 50px;">2016
-                        <br>국민은행 퇴직연금 BPR 시스템 구축 사업 <br>LG 디스플레이 건설기술 UT Matrix 고도화 사업 외24건<br><br>
-                    </p>
-                    <p class="text-muted" style="font-weight: bold; margin-right: 50px;">2015
-                        <br>나라사랑카드 발급 운영 시스템 구축사업 외 12건<br><br>
-                    </p>
-                </div>
-            </div>
-        </li>
-                    <li class="timeline-inverted">
-                        <div class="timeline-image" id="click1"><img class="rounded-circle img-fluid" src="/images/main/74804.jpg" alt="..." style="margin-top: 0px; width: 200px; height: 157px;" /></div>
-                     	 <div class="timeline-panel left-panel" style="float: left;  width: 41%;
+							<img class="img-fluid" id="biz-img" src="/images/main/customer/102581.jpg" alt="..." />
+						</a>
+					</div>
+					<div class="col-lg-6">
+						<a class="portfolio-item" href="/sism">
+							<div class="caption">
+								<div class="caption-content">
+									<div class="h2" id="biz">SI/SM</div>
+									<p class="mb-0" style="font-size: 17px;">IT Outsourcing 사업에 따른 대기업/관공서/통신사 등에 인력 파견
+										및 각종 솔루션을 공급하는 것입니다.
+										파견인력에 대한 피드백 시스템으로 고객만족 극대화를 창출해 낼수 있습니다.</p>
+								</div>
+							</div>
+							<img class="img-fluid" id="biz-img" src="/images/main/1846.jpg" alt="..." />
+						</a>
+					</div>
+					<div class="col-lg-6">
+						<a class="portfolio-item" href="/consulting">
+							<div class="caption">
+								<div class="caption-content">
+									<div class="h2" id="biz" style="color: white;">컨설팅</div>
+									<p class="mb-0" style="font-size: 17px;">공공, 금융, 제조/서비스, 전자, 통신/미디어 등의 산업에서 BPM,
+										CRM, CPM, ERM 등
+										다양한 솔루션을 이용한 전략 컨설팅, 프로세스 혁신 컨설팅, 전략 실행 컨설팅 서비스를 제공합니다. </p>
+								</div>
+							</div>
+							<img class="img-fluid" id="biz-img" src="/images/main/2151003695.jpg" alt="..." />
+						</a>
+					</div>
+					<div class="col-lg-6">
+						<a class="portfolio-item" href="/solutions">
+							<div class="caption">
+								<div class="caption-content">
+									<div class="h2" id="biz" style="color: white;">솔루션</div>
+									<p class="mb-0" style="font-size: 17px;">기업의 고객 / 영업 / 실적 관리를 모바일 상에서 관리할 수 있는
+										솔루션이며,
+										반응형웹서비스는 웹상에서 구동하는 시스템을 모바일이나 테블릿 화면으로 출력할 때 자동으로 해상도를 조절해 주는 솔루션</p>
+								</div>
+							</div>
+							<img class="img-fluid" id="biz-img" src="/images/main/2150169850.jpg" alt="..." />
+						</a>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!--연혁시작-->
+		<!-- About-->
+		<section class="page-section" id="about">
+			<div class="container">
+				<div style="text-align: center;">
+					<h2 id="history-heading" class="section-heading text-uppercase">연혁</h2>
+
+
+					<h3 class="section-subheading text-muted" style="margin-bottom: 60px;">(2014-2024)</h3>
+				</div>
+				<ul class="timeline">
+					<li>
+						<div class="timeline-image" id="click1"><img class="rounded-circle img-fluid"
+								src="/images/main/102581.jpg" alt="..."
+								style="margin-top: 0px; width: 200px; height: 157px;" /></div>
+						<div class="timeline-panel">
+							<div class="timeline-heading">
+								<h4>2024</h4>
+								<h4 class="subheading"></h4>
+							</div>
+							<div class="timeline-body">
+								<p class="text-muted" style="font-weight: bold; margin-left: 50px;"><br>
+									[삼성엔지니어링(주)] I&E Inspection Platform 고도화 <br>사회보장정보원 통합플랫폼 유지관리 사업<br>삼성전자 DS 메모리
+									현장-표준원가 시스템 운영 및 개선 외 12건
+								</p>
+							</div>
+						</div>
+					</li>
+					<li class="timeline-inverted">
+						<div class="timeline-image" id="click1"><img class="rounded-circle img-fluid"
+								src="/images/main/2150010138.jpg" alt="..."
+								style="margin-top: 0px; width: 200px; height: 157px;" /></div>
+						<div class="timeline-panel">
+							<div class="timeline-heading">
+								<h4>2023</h4>
+								<h4 class="subheading">도약기</h4>
+							</div>
+							<div class="timeline-body ">
+								<p class="text-muted" style="font-weight: bold; margin-right: 50px;">삼성전자 MIS
+									1차사등록<br>강소기업 선정<br>삼성전자 경영지원 운영<br>삼성전자 MIS 운영 외 31건 </p>
+							</div>
+						</div>
+					</li>
+
+					<!--2019-2022시작-->
+					<li>
+						<div class="timeline-image clickable"><img class="rounded-circle img-fluid"
+								src="/images/main/16311.jpg" alt="..."
+								style="margin-top: 0px; width: 200px; height: 157px;" /></div>
+						<div class="timeline-panel">
+							<div class="timeline-heading">
+								<h4>2019-2022</h4>
+								<h4 class="subheading">성장기</h4>
+								<p class="text-muted" style="font-weight: bold;  margin-left: 50px;">사무실 이전
+									(마곡)<br>기술혁신형 중소기업 Inno-Biz <br>
+									기업부설 연구소 설립</p>
+							</div>
+							<div class="timeline-body hidden">
+								<p class="text-muted" style="font-weight: bold; margin-left: 50px;">2022
+									<br>삼성전자 DS부문 경영,공급<br>기업부설 연구소 설립<br>신한은행 SOL 고도화 구축 외 41건<br><br>
+								</p>
+
+								<p class="text-muted" style="font-weight: bold; margin-left: 50px;">2021
+									<br>기획재정부 차세대 예산회계시스템 구축<br>LG-CNS 아웃소싱 그룹 운영<br삼성반도체 경영지원시스템 개발it플랫폼전환 외 25건>
+										<br><br>
+								</p>
+
+								<p class="text-muted" style="font-weight: bold; margin-left: 50px;">2020
+									<br>삼성반도체 DS부문 원가시스템 구축 외 14건<br><br>
+								</p>
+
+								<p class="text-muted" style="font-weight: bold; margin-left: 50px;">2019
+									<br>삼성반도체 EAM 설치작업 검증체계 구축 외 41건<br><br>
+								</p>
+
+							</div>
+						</div>
+					</li>
+					<!--2019-2022끝-->
+
+					<!--2015-2018시작-->
+					<li class="timeline-inverted">
+						<div class="timeline-image clickable">
+							<img class="rounded-circle img-fluid" src="/images/main/3988.jpg" alt="..."
+								style="margin-top: 0px; width: 200px; height: 157px;" />
+						</div>
+						<div class="timeline-panel">
+							<div class="timeline-heading">
+								<h4>2015-2018<br></h4>
+								<h4 class="subheading" style="font-weight: bold; margin-right: 50px;">성장기</h4>
+								<p style="font-weight: bold; margin-right: 50px;">자본금 2억으로 증자
+									<br>나라장터 인허가<br>직접생산 확인 신고<br>경영혁신형 중소기업 Main-Biz 선정<br><br>
+								</p>
+							</div>
+							<div class="timeline-body hidden">
+								<p class="text-muted" style="font-weight: bold; margin-right: 50px;">2018
+									<br>삼성전자 DS부분 직구매시스템 구축 외 41건<br><br>
+								</p>
+								<p class="text-muted" style="font-weight: bold; margin-right: 50px;">2017
+									<br>삼성반도체 2017년 원가관리 시스템 구축<br>LG디스플레이 Profile Summary 구축 외 28건<br><br>
+								</p>
+								<p class="text-muted" style="font-weight: bold; margin-right: 50px;">2016
+									<br>국민은행 퇴직연금 BPR 시스템 구축 사업 <br>LG 디스플레이 건설기술 UT Matrix 고도화 사업 외24건<br><br>
+								</p>
+								<p class="text-muted" style="font-weight: bold; margin-right: 50px;">2015
+									<br>나라사랑카드 발급 운영 시스템 구축사업 외 12건<br><br>
+								</p>
+							</div>
+						</div>
+					</li>
+					<li class="timeline-inverted">
+						<div class="timeline-image" id="click1"><img class="rounded-circle img-fluid"
+								src="/images/main/74804.jpg" alt="..."
+								style="margin-top: 0px; width: 200px; height: 157px;" /></div>
+						<div class="timeline-panel left-panel" style="float: left;  width: 41%;
     padding: 0 20px 20px 30px;
     text-align: right;">
-                            <div class="timeline-heading">
-                                <h4>2014<br><br></h4>
-                                <h4 class="subheading">02월 법인설립</h4>
-                            </div>
-                            <div class="timeline-body"><p class="text-muted" style="font-weight: bold; margin-left: 50px;">행안부 청백-e(통합상시모니터링)시스템 구축 외 10건 </p></div>
-                        </div>                  
-                    </li>
-                </ul>
-            </div>
-        </section>
- <!--연혁끝 -->
-        
-        <!--복지제도 새로운section-->
-  <!-- Features section-->
-           <!-- <section class="py-5" id="features" style="background-image: url('/images//main/2834.jpg');  ">
+							<div class="timeline-heading">
+								<h4>2014<br><br></h4>
+								<h4 class="subheading">02월 법인설립</h4>
+							</div>
+							<div class="timeline-body">
+								<p class="text-muted" style="font-weight: bold; margin-left: 50px;">행안부
+									청백-e(통합상시모니터링)시스템 구축 외 10건 </p>
+							</div>
+						</div>
+					</li>
+				</ul>
+			</div>
+		</section>
+		<!--연혁끝 -->
+
+		<!--복지제도 새로운section-->
+		<!-- Features section-->
+		<!-- <section class="py-5" id="features" style="background-image: url('/images//main/2834.jpg');  ">
                 <div class="container px-5 my-5" style="color: white;">
                     <div class="row gx-5" >
                         <div class="col-lg mb-5 mb-lg-0"><h2 class="fw-bolder mb-0 fs-1">WELFARE</h2>
@@ -611,160 +629,211 @@
                     </div>
                 </div>
             </section>-->
-            
-            
-            <!--복지제도 템플릿-->
-            <!-- Section with four info areas left & one card right with image and waves -->
-<div class="section-divider"></div>            
-            
-<section class="py-6" style="margin-top: 10%;">
-	<p class="underline"></p>
-  <div class="container">
-    <div class="row align-items-center">
-      <div class="col-lg-6">
-        <div class="row justify-content-start">
-          <div class="col-md-6">
-            <div class="info">
-              <div class="icon icon-md">
-              <svg width="25px" height="25px" viewBox="0 0 40 40" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                <title>spaceship</title>
-                <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                  <g transform="translate(-1720.000000, -592.000000)" fill="#923DFA" fill-rule="nonzero">
-                    <g transform="translate(1716.000000, 291.000000)">
-                      <g transform="translate(4.000000, 301.000000)">
-                        <path d="M39.3,0.706666667 C38.9660984,0.370464027 38.5048767,0.192278529 38.0316667,0.216666667 C14.6516667,1.43666667 6.015,22.2633333 5.93166667,22.4733333 C5.68236407,23.0926189 5.82664679,23.8009159 6.29833333,24.2733333 L15.7266667,33.7016667 C16.2013871,34.1756798 16.9140329,34.3188658 17.535,34.065 C17.7433333,33.98 38.4583333,25.2466667 39.7816667,1.97666667 C39.8087196,1.50414529 39.6335979,1.04240574 39.3,0.706666667 Z M25.69,19.0233333 C24.7367525,19.9768687 23.3029475,20.2622391 22.0572426,19.7463614 C20.8115377,19.2304837 19.9992882,18.0149658 19.9992882,16.6666667 C19.9992882,15.3183676 20.8115377,14.1028496 22.0572426,13.5869719 C23.3029475,13.0710943 24.7367525,13.3564646 25.69,14.31 C26.9912731,15.6116662 26.9912731,17.7216672 25.69,19.0233333 L25.69,19.0233333 Z"></path>
-                        <path d="M1.855,31.4066667 C3.05106558,30.2024182 4.79973884,29.7296005 6.43969145,30.1670277 C8.07964407,30.6044549 9.36054508,31.8853559 9.7979723,33.5253085 C10.2353995,35.1652612 9.76258177,36.9139344 8.55833333,38.11 C6.70666667,39.9616667 0,40 0,40 C0,40 0,33.2566667 1.855,31.4066667 Z"></path>
-                        <path d="M17.2616667,3.90166667 C12.4943643,3.07192755 7.62174065,4.61673894 4.20333333,8.04166667 C3.31200265,8.94126033 2.53706177,9.94913142 1.89666667,11.0416667 C1.5109569,11.6966059 1.61721591,12.5295394 2.155,13.0666667 L5.47,16.3833333 C8.55036617,11.4946947 12.5559074,7.25476565 17.2616667,3.90166667 L17.2616667,3.90166667 Z" opacity="0.598539807"></path>
-                        <path d="M36.0983333,22.7383333 C36.9280725,27.5056357 35.3832611,32.3782594 31.9583333,35.7966667 C31.0587397,36.6879974 30.0508686,37.4629382 28.9583333,38.1033333 C28.3033941,38.4890431 27.4704606,38.3827841 26.9333333,37.845 L23.6166667,34.53 C28.5053053,31.4496338 32.7452344,27.4440926 36.0983333,22.7383333 L36.0983333,22.7383333 Z" id="color-3" opacity="0.598539807"></path>
-                      </g>
-                    </g>
-                  </g>
-                </g>
-              </svg>
-            </div>
-              <h5>조기퇴근(Family day)</h5>
-              <p>주1회 5시 퇴근제도 운영</p>
-            </div>
-          </div>
-          <div class="col-md-6">
-            <div class="info">
-              <div class="icon icon-md">
-                <svg width="25px" height="25px" viewBox="0 0 42 42" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                    <title>briefcase-24</title>
-                    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                        <g transform="translate(-2170.000000, -292.000000)" fill="#923DFA" fill-rule="nonzero">
-                            <g transform="translate(1716.000000, 291.000000)">
-                                <g id="briefcase-24" transform="translate(454.000000, 1.000000)">
-                                    <path d="M26.25,31.5 L26.25,35 L15.75,35 L15.75,31.5 L1.75,31.5 L1.75,40.25 C1.75,41.216 2.534,42 3.5,42 L38.5,42 C39.466,42 40.25,41.216 40.25,40.25 L40.25,31.5 L26.25,31.5 Z"></path>
-                                    <path d="M40.25,7 L29.75,7 L29.75,1.75 C29.75,0.784 28.966,0 28,0 L14,0 C13.034,0 12.25,0.784 12.25,1.75 L12.25,7 L1.75,7 C0.784,7 0,7.784 0,8.75 L0,26.25 C0,27.216 0.784,28 1.75,28 L15.75,28 L15.75,22.75 L26.25,22.75 L26.25,28 L40.25,28 C41.216,28 42,27.216 42,26.25 L42,8.75 C42,7.784 41.216,7 40.25,7 Z M26.25,7 L15.75,7 L15.75,3.5 L26.25,3.5 L26.25,7 Z" opacity="0.6"></path>
-                                </g>
-                            </g>
-                        </g>
-                    </g>
-                </svg>
-              </div>
-              
-              <h5>성장 동력비 지원</h5>
-               <p class="mb-0">교육비 지원 </p>
-                                    <p class="mb-0">도서구입비 지원 </p>
-                                    <p class="mb-0">자격증 취득비 지원 </p>
-            </div>
-          </div>
-        </div>
-        <div class="row justify-content-start">
-          <div class="col-md-6">
-            <div class="info">
-              <div class="icon icon-md">
-                <svg width="25px" height="25px" viewBox="0 0 45 44" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                    <title>map-big</title>
-                    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                        <g transform="translate(-2321.000000, -593.000000)" fill="#923DFA" fill-rule="nonzero">
-                            <g transform="translate(1716.000000, 291.000000)">
-                                <g id="map-big" transform="translate(605.000000, 302.000000)">
-                                    <polygon points="31.875 0.71625 24.375 4.46625 24.375 40.53375 31.875 36.78375"></polygon>
-                                    <polygon points="20.625 4.46625 13.125 0.71625 13.125 36.78375 20.625 40.53375"></polygon>
-                                    <path d="M9.375,0.81375 L0.909375,5.893125 C0.346875,6.230625 0,6.84 0,7.5 L0,43.125 L9.375,37.06125 L9.375,0.81375 Z" opacity="0.70186942"></path>
-                                    <path d="M44.090625,5.893125 L35.625,0.81375 L35.625,37.06125 L45,43.125 L45,7.5 C45,6.84 44.653125,6.230625 44.090625,5.893125 Z" opacity="0.70186942"></path>
-                                </g>
-                            </g>
-                        </g>
-                    </g>
-                </svg>
-              </div>
-              
-              <h5>장기근속자 포상제도</h5>
-              <p>3, 5, 7년 포상휴가 및 포상금 지급</p>
-            </div>
-          </div>
-          <div class="col-md-6">
-            <div class="info">
-              <div class="icon icon-md">
-                <svg width="25px" height="25px" viewBox="0 0 42 44" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                    <title>time-alarm</title>
-                    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                        <g transform="translate(-2319.000000, -440.000000)" fill="#923DFA" fill-rule="nonzero">
-                            <g transform="translate(1716.000000, 291.000000)">
-                                <g id="time-alarm" transform="translate(603.000000, 149.000000)">
-                                    <path d="M18.8086957,4.70034783 C15.3814926,0.343541521 9.0713063,-0.410050841 4.7145,3.01715217 C0.357693695,6.44435519 -0.395898667,12.7545415 3.03130435,17.1113478 C5.53738466,10.3360568 11.6337901,5.54042955 18.8086957,4.70034783 L18.8086957,4.70034783 Z" opacity="0.6"></path>
-                                    <path d="M38.9686957,17.1113478 C42.3958987,12.7545415 41.6423063,6.44435519 37.2855,3.01715217 C32.9286937,-0.410050841 26.6185074,0.343541521 23.1913043,4.70034783 C30.3662099,5.54042955 36.4626153,10.3360568 38.9686957,17.1113478 Z" opacity="0.6"></path>
-                                    <path d="M34.3815652,34.7668696 C40.2057958,27.7073059 39.5440671,17.3375603 32.869743,11.0755718 C26.1954189,4.81358341 15.8045811,4.81358341 9.13025701,11.0755718 C2.45593289,17.3375603 1.79420418,27.7073059 7.61843478,34.7668696 L3.9753913,40.0506522 C3.58549114,40.5871271 3.51710058,41.2928217 3.79673036,41.8941824 C4.07636014,42.4955431 4.66004722,42.8980248 5.32153275,42.9456105 C5.98301828,42.9931963 6.61830436,42.6784048 6.98113043,42.1232609 L10.2744783,37.3434783 C16.5555112,42.3298213 25.4444888,42.3298213 31.7255217,37.3434783 L35.0188696,42.1196087 C35.6014207,42.9211577 36.7169135,43.1118605 37.53266,42.5493622 C38.3484064,41.9868639 38.5667083,40.8764423 38.0246087,40.047 L34.3815652,34.7668696 Z M30.1304348,25.5652174 L21,25.5652174 C20.49574,25.5652174 20.0869565,25.1564339 20.0869565,24.6521739 L20.0869565,15.5217391 C20.0869565,15.0174791 20.49574,14.6086957 21,14.6086957 C21.50426,14.6086957 21.9130435,15.0174791 21.9130435,15.5217391 L21.9130435,23.7391304 L30.1304348,23.7391304 C30.6346948,23.7391304 31.0434783,24.1479139 31.0434783,24.6521739 C31.0434783,25.1564339 30.6346948,25.5652174 30.1304348,25.5652174 Z"></path>
-                                </g>
-                            </g>
-                        </g>
-                    </g>
-                </svg>
-              </div>
-              
-              <h5>출산휴가 및 육아휴직 권장</h5>
-              <p class="mb-0">육아에 도움이 되자! </p>
-              <p class="mb-0">육아 휴직 및 출산휴가 적극사용 권장 </p>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-4 ms-auto">
-        <div class="card">
-          <img class="card-img-top" src="https://raw.githubusercontent.com/creativetimofficial/public-assets/master/soft-ui-design-system/assets/img/funny.jpg">
-          <div class="position-relative overflow-hidden" style="height:50px;margin-top:-50px;">
-            <div class="position-absolute w-100 top-0 z-index-1">
-                <svg class="waves waves-sm" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 40" preserveAspectRatio="none" shape-rendering="auto">
-                  <defs>
-                    <path id="card-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z"></path>
-                  </defs>
-                  <g class="moving-waves">
-                    <use xlink:href="#card-wave" x="48" y="-1" fill="rgba(255,255,255,0.30"></use>
-                    <use xlink:href="#card-wave" x="48" y="3" fill="rgba(255,255,255,0.35)"></use>
-                    <use xlink:href="#card-wave" x="48" y="5" fill="rgba(255,255,255,0.25)"></use>
-                    <use xlink:href="#card-wave" x="48" y="8" fill="rgba(255,255,255,0.20)"></use>
-                    <use xlink:href="#card-wave" x="48" y="13" fill="rgba(255,255,255,0.15)"></use>
-                    <use xlink:href="#card-wave" x="48" y="16" fill="rgba(255,255,255,0.99)"></use>
-                  </g>
-                </svg>
-              </div>
-          </div>
-          <!--복지사진카드-->
-          <div class="card-body">
-            <h4>
-              MinSoft 복지제도
-            </h4>
-            <p>
-              민소프트는 다양한 복지제도를 제공합니다.
-            </p>
-            <a href="/welfare" class="text-primary icon-move-right">복지제도 바로가기
-              <i class="fas fa-arrow-right text-xs ms-1"></i>
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-<!-- END Section with four info areas left & one card right with image and waves -->
-            
-            
-            <!--복지제도 끝-->
-        
-        	<!--기술인증 슬라이드-->
+
+
+		<!--복지제도 템플릿-->
+		<!-- Section with four info areas left & one card right with image and waves -->
+		<div class="section-divider"></div>
+
+		<section class="py-6" style="margin-top: 10%;">
+			<p class="underline"></p>
+			<div class="container">
+				<div class="row align-items-center">
+					<div class="col-lg-6">
+						<div class="row justify-content-start">
+							<div class="col-md-6">
+								<div class="info">
+									<div class="icon icon-md">
+										<svg width="25px" height="25px" viewBox="0 0 40 40" version="1.1"
+											xmlns="http://www.w3.org/2000/svg"
+											xmlns:xlink="http://www.w3.org/1999/xlink">
+											<title>spaceship</title>
+											<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+												<g transform="translate(-1720.000000, -592.000000)" fill="#923DFA"
+													fill-rule="nonzero">
+													<g transform="translate(1716.000000, 291.000000)">
+														<g transform="translate(4.000000, 301.000000)">
+															<path
+																d="M39.3,0.706666667 C38.9660984,0.370464027 38.5048767,0.192278529 38.0316667,0.216666667 C14.6516667,1.43666667 6.015,22.2633333 5.93166667,22.4733333 C5.68236407,23.0926189 5.82664679,23.8009159 6.29833333,24.2733333 L15.7266667,33.7016667 C16.2013871,34.1756798 16.9140329,34.3188658 17.535,34.065 C17.7433333,33.98 38.4583333,25.2466667 39.7816667,1.97666667 C39.8087196,1.50414529 39.6335979,1.04240574 39.3,0.706666667 Z M25.69,19.0233333 C24.7367525,19.9768687 23.3029475,20.2622391 22.0572426,19.7463614 C20.8115377,19.2304837 19.9992882,18.0149658 19.9992882,16.6666667 C19.9992882,15.3183676 20.8115377,14.1028496 22.0572426,13.5869719 C23.3029475,13.0710943 24.7367525,13.3564646 25.69,14.31 C26.9912731,15.6116662 26.9912731,17.7216672 25.69,19.0233333 L25.69,19.0233333 Z">
+															</path>
+															<path
+																d="M1.855,31.4066667 C3.05106558,30.2024182 4.79973884,29.7296005 6.43969145,30.1670277 C8.07964407,30.6044549 9.36054508,31.8853559 9.7979723,33.5253085 C10.2353995,35.1652612 9.76258177,36.9139344 8.55833333,38.11 C6.70666667,39.9616667 0,40 0,40 C0,40 0,33.2566667 1.855,31.4066667 Z">
+															</path>
+															<path
+																d="M17.2616667,3.90166667 C12.4943643,3.07192755 7.62174065,4.61673894 4.20333333,8.04166667 C3.31200265,8.94126033 2.53706177,9.94913142 1.89666667,11.0416667 C1.5109569,11.6966059 1.61721591,12.5295394 2.155,13.0666667 L5.47,16.3833333 C8.55036617,11.4946947 12.5559074,7.25476565 17.2616667,3.90166667 L17.2616667,3.90166667 Z"
+																opacity="0.598539807"></path>
+															<path
+																d="M36.0983333,22.7383333 C36.9280725,27.5056357 35.3832611,32.3782594 31.9583333,35.7966667 C31.0587397,36.6879974 30.0508686,37.4629382 28.9583333,38.1033333 C28.3033941,38.4890431 27.4704606,38.3827841 26.9333333,37.845 L23.6166667,34.53 C28.5053053,31.4496338 32.7452344,27.4440926 36.0983333,22.7383333 L36.0983333,22.7383333 Z"
+																id="color-3" opacity="0.598539807"></path>
+														</g>
+													</g>
+												</g>
+											</g>
+										</svg>
+									</div>
+									<h5>조기퇴근(Family day)</h5>
+									<p>주1회 5시 퇴근제도 운영</p>
+								</div>
+							</div>
+							<div class="col-md-6">
+								<div class="info">
+									<div class="icon icon-md">
+										<svg width="25px" height="25px" viewBox="0 0 42 42" version="1.1"
+											xmlns="http://www.w3.org/2000/svg"
+											xmlns:xlink="http://www.w3.org/1999/xlink">
+											<title>briefcase-24</title>
+											<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+												<g transform="translate(-2170.000000, -292.000000)" fill="#923DFA"
+													fill-rule="nonzero">
+													<g transform="translate(1716.000000, 291.000000)">
+														<g id="briefcase-24"
+															transform="translate(454.000000, 1.000000)">
+															<path
+																d="M26.25,31.5 L26.25,35 L15.75,35 L15.75,31.5 L1.75,31.5 L1.75,40.25 C1.75,41.216 2.534,42 3.5,42 L38.5,42 C39.466,42 40.25,41.216 40.25,40.25 L40.25,31.5 L26.25,31.5 Z">
+															</path>
+															<path
+																d="M40.25,7 L29.75,7 L29.75,1.75 C29.75,0.784 28.966,0 28,0 L14,0 C13.034,0 12.25,0.784 12.25,1.75 L12.25,7 L1.75,7 C0.784,7 0,7.784 0,8.75 L0,26.25 C0,27.216 0.784,28 1.75,28 L15.75,28 L15.75,22.75 L26.25,22.75 L26.25,28 L40.25,28 C41.216,28 42,27.216 42,26.25 L42,8.75 C42,7.784 41.216,7 40.25,7 Z M26.25,7 L15.75,7 L15.75,3.5 L26.25,3.5 L26.25,7 Z"
+																opacity="0.6"></path>
+														</g>
+													</g>
+												</g>
+											</g>
+										</svg>
+									</div>
+
+									<h5>성장 동력비 지원</h5>
+									<p class="mb-0">교육비 지원 </p>
+									<p class="mb-0">도서구입비 지원 </p>
+									<p class="mb-0">자격증 취득비 지원 </p>
+								</div>
+							</div>
+						</div>
+						<div class="row justify-content-start">
+							<div class="col-md-6">
+								<div class="info">
+									<div class="icon icon-md">
+										<svg width="25px" height="25px" viewBox="0 0 45 44" version="1.1"
+											xmlns="http://www.w3.org/2000/svg"
+											xmlns:xlink="http://www.w3.org/1999/xlink">
+											<title>map-big</title>
+											<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+												<g transform="translate(-2321.000000, -593.000000)" fill="#923DFA"
+													fill-rule="nonzero">
+													<g transform="translate(1716.000000, 291.000000)">
+														<g id="map-big" transform="translate(605.000000, 302.000000)">
+															<polygon
+																points="31.875 0.71625 24.375 4.46625 24.375 40.53375 31.875 36.78375">
+															</polygon>
+															<polygon
+																points="20.625 4.46625 13.125 0.71625 13.125 36.78375 20.625 40.53375">
+															</polygon>
+															<path
+																d="M9.375,0.81375 L0.909375,5.893125 C0.346875,6.230625 0,6.84 0,7.5 L0,43.125 L9.375,37.06125 L9.375,0.81375 Z"
+																opacity="0.70186942"></path>
+															<path
+																d="M44.090625,5.893125 L35.625,0.81375 L35.625,37.06125 L45,43.125 L45,7.5 C45,6.84 44.653125,6.230625 44.090625,5.893125 Z"
+																opacity="0.70186942"></path>
+														</g>
+													</g>
+												</g>
+											</g>
+										</svg>
+									</div>
+
+									<h5>장기근속자 포상제도</h5>
+									<p>3, 5, 7년 포상휴가 및 포상금 지급</p>
+								</div>
+							</div>
+							<div class="col-md-6">
+								<div class="info">
+									<div class="icon icon-md">
+										<svg width="25px" height="25px" viewBox="0 0 42 44" version="1.1"
+											xmlns="http://www.w3.org/2000/svg"
+											xmlns:xlink="http://www.w3.org/1999/xlink">
+											<title>time-alarm</title>
+											<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+												<g transform="translate(-2319.000000, -440.000000)" fill="#923DFA"
+													fill-rule="nonzero">
+													<g transform="translate(1716.000000, 291.000000)">
+														<g id="time-alarm"
+															transform="translate(603.000000, 149.000000)">
+															<path
+																d="M18.8086957,4.70034783 C15.3814926,0.343541521 9.0713063,-0.410050841 4.7145,3.01715217 C0.357693695,6.44435519 -0.395898667,12.7545415 3.03130435,17.1113478 C5.53738466,10.3360568 11.6337901,5.54042955 18.8086957,4.70034783 L18.8086957,4.70034783 Z"
+																opacity="0.6"></path>
+															<path
+																d="M38.9686957,17.1113478 C42.3958987,12.7545415 41.6423063,6.44435519 37.2855,3.01715217 C32.9286937,-0.410050841 26.6185074,0.343541521 23.1913043,4.70034783 C30.3662099,5.54042955 36.4626153,10.3360568 38.9686957,17.1113478 Z"
+																opacity="0.6"></path>
+															<path
+																d="M34.3815652,34.7668696 C40.2057958,27.7073059 39.5440671,17.3375603 32.869743,11.0755718 C26.1954189,4.81358341 15.8045811,4.81358341 9.13025701,11.0755718 C2.45593289,17.3375603 1.79420418,27.7073059 7.61843478,34.7668696 L3.9753913,40.0506522 C3.58549114,40.5871271 3.51710058,41.2928217 3.79673036,41.8941824 C4.07636014,42.4955431 4.66004722,42.8980248 5.32153275,42.9456105 C5.98301828,42.9931963 6.61830436,42.6784048 6.98113043,42.1232609 L10.2744783,37.3434783 C16.5555112,42.3298213 25.4444888,42.3298213 31.7255217,37.3434783 L35.0188696,42.1196087 C35.6014207,42.9211577 36.7169135,43.1118605 37.53266,42.5493622 C38.3484064,41.9868639 38.5667083,40.8764423 38.0246087,40.047 L34.3815652,34.7668696 Z M30.1304348,25.5652174 L21,25.5652174 C20.49574,25.5652174 20.0869565,25.1564339 20.0869565,24.6521739 L20.0869565,15.5217391 C20.0869565,15.0174791 20.49574,14.6086957 21,14.6086957 C21.50426,14.6086957 21.9130435,15.0174791 21.9130435,15.5217391 L21.9130435,23.7391304 L30.1304348,23.7391304 C30.6346948,23.7391304 31.0434783,24.1479139 31.0434783,24.6521739 C31.0434783,25.1564339 30.6346948,25.5652174 30.1304348,25.5652174 Z">
+															</path>
+														</g>
+													</g>
+												</g>
+											</g>
+										</svg>
+									</div>
+
+									<h5>출산휴가 및 육아휴직 권장</h5>
+									<p class="mb-0">육아에 도움이 되자! </p>
+									<p class="mb-0">육아 휴직 및 출산휴가 적극사용 권장 </p>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-4 ms-auto">
+						<div class="card">
+							<img class="card-img-top"
+								src="https://raw.githubusercontent.com/creativetimofficial/public-assets/master/soft-ui-design-system/assets/img/funny.jpg">
+							<div class="position-relative overflow-hidden" style="height:50px;margin-top:-50px;">
+								<div class="position-absolute w-100 top-0 z-index-1">
+									<svg class="waves waves-sm" xmlns="http://www.w3.org/2000/svg"
+										xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 40"
+										preserveAspectRatio="none" shape-rendering="auto">
+										<defs>
+											<path id="card-wave"
+												d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z">
+											</path>
+										</defs>
+										<g class="moving-waves">
+											<use xlink:href="#card-wave" x="48" y="-1" fill="rgba(255,255,255,0.30">
+											</use>
+											<use xlink:href="#card-wave" x="48" y="3" fill="rgba(255,255,255,0.35)">
+											</use>
+											<use xlink:href="#card-wave" x="48" y="5" fill="rgba(255,255,255,0.25)">
+											</use>
+											<use xlink:href="#card-wave" x="48" y="8" fill="rgba(255,255,255,0.20)">
+											</use>
+											<use xlink:href="#card-wave" x="48" y="13" fill="rgba(255,255,255,0.15)">
+											</use>
+											<use xlink:href="#card-wave" x="48" y="16" fill="rgba(255,255,255,0.99)">
+											</use>
+										</g>
+									</svg>
+								</div>
+							</div>
+							<!--복지사진카드-->
+							<div class="card-body">
+								<h4>
+									MinSoft 복지제도
+								</h4>
+								<p>
+									민소프트는 다양한 복지제도를 제공합니다.
+								</p>
+								<a href="/welfare" class="text-primary icon-move-right">복지제도 바로가기
+									<i class="fas fa-arrow-right text-xs ms-1"></i>
+								</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<!-- END Section with four info areas left & one card right with image and waves -->
+
+
+		<!--복지제도 끝-->
+
+		<!--기술인증 슬라이드-->
 		<div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel" style="margin-top: 150px;">
 			<h2 style="text-align: center; font-weight: bold;">기술인증서</h2>
 			<div class="carousel-inner">
@@ -792,8 +861,8 @@
 						</div>
 					</div>
 				</div>
-				
-				
+
+
 				<div class="carousel-item" data-bs-interval="50000">
 					<div class="row">
 						<div class="col d-flex justify-content-center">
@@ -820,8 +889,8 @@
 
 		</div>
 		<!--기술인증 슬라이드 끝-->
-        
-        <!--오시는길-->
+
+		<!--오시는길-->
 		<!--<div class="my-5" style="position: relative;">
 			<img src="images/main/21636.jpg" alt="배경 이미지" style="width: 100%; height: 500px; ">
 			<div class="container py-5 "
@@ -838,12 +907,13 @@
 		</div>-->
 
 		<!--오시는길 끝 -->
+
         
         
         
-        <!--오시는길 새로운 템플릿-->
+        <!--오시는길 새로운 템플릿1-->
         <!-- -------- START PRE-FOOTER 8 w/ TEXT, BG IMAGE AND 2 BUTTONS ------- -->
-<section class="my-10 py-5 bg-gradient-dark position-relative" style="background-image:url(../../assets/img/nastuh.jpg)">
+<!--<section class="my-10 py-5 bg-gradient-dark position-relative" style="background-image:url(/images/main/3735.jpg); background-size: cover;">
   <span class="mask bg-gradient-dark opacity-8"></span>
   <div class="container position-relative z-index-2">
     <div class="row">
@@ -856,24 +926,121 @@
         <div class="row">
           <div class="col-sm-4 col-6 ps-sm-0 ms-auto">
 			  <a href="/contact">
-						<button type="button" class="btn bg-gradient-warning1 mb-0 ms-lg-3 ms-sm-2 mb-sm-0 mb-2 me-auto w-100 d-block center-text ">Contact Us</button>
+						<button type="button" class="btn bg-gradient-warning1 mb-0 ms-lg-3 ms-sm-2 mb-sm-0 mb-2 me-auto w-100 d-block center-text">Contact Us</button>
 						</a>
 					</div>
 				</div>
       </div>
     </div>
   </div>
-</section>
+</section>-->
 <!--오시는길 끝-->
+
+<!--오시는길 새로운템플릿2-->
+<!-- -------- START FOOTER 5 w/ DARK BACKGROUND ------- -->
+
+<section class="py-7 bg-white position-relative section-underline">
+  <div class="container" style="margin-left: 20%;">
+    <div class="row">
+      <div class="col-lg-6 col-md-5 mb-5">
+		  
+        <div class="icon  text-center mb-4 mb-5">
+         <img class="width-48-px mb-3" src="/icon/gps_1721823.svg" >
+        </div>
+        <h2>ADDERESS</h2>
+        <p class="pe-5"></p>
+        <div class="d-flex p-2">
+          <div>
+            <i class="fas fa-map text-sm"></i>
+          </div>
+          <div class="ps-3">
+            <span>서울시 강서구 마곡서로 158, 1306호 ( 마곡센트럴타워Ⅱ ) <br></span>
+          </div>
+        </div>
+        <div class="d-flex p-2">
+          <div>
+            <i class="fas fa-envelope text-sm"></i>
+          </div>
+          <div class="ps-3">
+            <span>youn628@naver.com</span>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-6 col-md-5">
+        <div class="icon  text-center mb-4 mb-5">
+          <img class="width-48-px mb-3" src="/icon/phone-call_7403580.svg">
+        </div>
+        <h2>PHONE</h2>
+        <p class="pe-5"></p>
+        <div class="d-flex p-2">
+          <div>
+            <i class="fas fa-phone text-sm"></i>
+          </div>
+          <div class="ps-3">
+            <span>Tel) 02-6482-0051  <br> Fax) 02-6483-0051</span>
+          </div>
+        </div>
+        <div class="d-flex p-2">
+          <div>
+           
+          </div>
+          <div class="ps-3">
+           
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- -------- END FOOTER 5 w/ DARK BACKGROUND ------- -->
+
+<!--오시는길 새로운템플릿 끝-->
 <!-- -------- END PRE-FOOTER 8 w/ TEXT, BG IMAGE AND 2 BUTTONS ------- -->
         
         
         <!--main4 기업로고 배너-->
+=======
+
+
+
+		<!--오시는길 새로운 템플릿-->
+		<!-- -------- START PRE-FOOTER 8 w/ TEXT, BG IMAGE AND 2 BUTTONS ------- -->
+		<section class="my-10 py-5 bg-gradient-dark position-relative"
+			style="background-image:url(/images/main/161.jpg); background-size: cover;">
+			<span class="mask bg-gradient-dark opacity-8"></span>
+			<div class="container position-relative z-index-2">
+				<div class="row">
+					<div class="col-lg-5 col-md-8 m-auto text-start">
+						<h2 class="text-white mb-lg-0 mb-5" style="margin-left: 200px;">
+							민소프트 오시는길
+						</h2>
+					</div>
+					<div class="col-lg-6 m-auto">
+						<div class="row">
+							<div class="col-sm-4 col-6 ps-sm-0 ms-auto">
+								<a href="/contact">
+									<button type="button"
+										class="btn bg-gradient-warning1 mb-0 ms-lg-3 ms-sm-2 mb-sm-0 mb-2 me-auto w-100 d-block center-text">Contact
+										Us</button>
+								</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<!--오시는길 끝-->
+		<!-- -------- END PRE-FOOTER 8 w/ TEXT, BG IMAGE AND 2 BUTTONS ------- -->
+
+
+		<!--main4 기업로고 배너-->
+
 		<div class="customer-wrap">
 
 			<div class="customer">
 				<div class="logo scroll">
-					 
+
 					<img class="logo-img" src="images/main/customer/삼성전자.png" alt="삼성전자" />
 					<img class="logo-img" src="images/main/customer/삼성생명img.jpg" alt="삼성생명" />
 					<img class="logo-img" src="images/main/customer/삼성 sds.png" alt="삼성 sds" />
@@ -886,7 +1053,7 @@
 					<img class="logo-img" src="images/main/customer/신한카드.png" alt="신한카드" />
 					<img class="logo-img" src="images/main/customer/LG전자.png" alt="LG전자" />
 					<img class="logo-img" src="images/main/customer/kb생명보험2.png" alt="kb생명보험2" />
-					
+
 					<img class="logo-img" src="images/main/customer/삼성전자.png" alt="삼성전자" />
 					<img class="logo-img" src="images/main/customer/삼성생명img.jpg" alt="" />
 					<img class="logo-img" src="images/main/customer/삼성 sds.png" alt="" />
@@ -904,9 +1071,9 @@
 				</div>
 			</div>
 		</div>
-        
-        
-		
+
+
+
 
 	</main>
 	<footer id="footer">
@@ -949,7 +1116,7 @@
 	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDTTfWur0PDbZWPr7Pmq8K3jiDp0_xUziI"></script>
 	<script src="../../assets/js/soft-design-system-pro.min.js?v=1.1.0" type="text/javascript"></script>
 	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-	
+
 	<script>
 		if (document.getElementById('language-select')) {
 			var element = document.getElementById('language-select');
@@ -974,48 +1141,48 @@
 				navbar.classList.remove('fixed-top'); // 일반 위치로 설정
 			}
 		});
-		
+
 		/*로고배너 슬라이드*/
 		window.addEventListener('scroll', function () {
-		var header = document.getElementById('header');
-		if (window.scrollY > 0) {
-			//header.style.backgroundColor = 'rgba(211, 211, 211, 0.5)'; // 투명도가 있는 연한 회색으로 변경하세요.
-			header.style.backgroundColor = 'white';
-		} else {
-			header.style.backgroundColor = 'transparent'; // 스크롤이 맨 위로 올라갈 때 배경색을 투명으로 설정하세요.
-		}
-	});
-		
-		
-	$(document).ready(function () {
-		// 이미지 슬라이드의 클래스를 선택하여 해당 슬라이드에 대한 제어를 설정합니다.
-		$('.scroll, .scroll2').each(function () {
-			// 슬라이드에 있는 이미지들을 모두 가져옵니다.
-			var imgs = $(this).find('img');
-
-			// 이미지 슬라이드의 가로 폭을 계산합니다.
-			var totalWidth = 0;
-			imgs.each(function () {
-				totalWidth += $(this).outerWidth(true);
-			});
-
-			// 슬라이드를 시작하기 전에 이미지들을 복제하여 끝에 붙입니다.
-			$(this).append(imgs.clone());
-
-			// 이미지 슬라이드의 애니메이션을 설정합니다.
-			var duration = totalWidth / 100; // 이미지가 한 바퀴를 도는 데 걸리는 시간 (초)
-			$(this).css('animation-duration', duration + 's');
+			var header = document.getElementById('header');
+			if (window.scrollY > 0) {
+				//header.style.backgroundColor = 'rgba(211, 211, 211, 0.5)'; // 투명도가 있는 연한 회색으로 변경하세요.
+				header.style.backgroundColor = 'white';
+			} else {
+				header.style.backgroundColor = 'transparent'; // 스크롤이 맨 위로 올라갈 때 배경색을 투명으로 설정하세요.
+			}
 		});
-	});
-		
-		
+
+
+		$(document).ready(function () {
+			// 이미지 슬라이드의 클래스를 선택하여 해당 슬라이드에 대한 제어를 설정합니다.
+			$('.scroll, .scroll2').each(function () {
+				// 슬라이드에 있는 이미지들을 모두 가져옵니다.
+				var imgs = $(this).find('img');
+
+				// 이미지 슬라이드의 가로 폭을 계산합니다.
+				var totalWidth = 0;
+				imgs.each(function () {
+					totalWidth += $(this).outerWidth(true);
+				});
+
+				// 슬라이드를 시작하기 전에 이미지들을 복제하여 끝에 붙입니다.
+				$(this).append(imgs.clone());
+
+				// 이미지 슬라이드의 애니메이션을 설정합니다.
+				var duration = totalWidth / 100; // 이미지가 한 바퀴를 도는 데 걸리는 시간 (초)
+				$(this).css('animation-duration', duration + 's');
+			});
+		});
+
+
 
 		/*연혁 circle 클릭시 p태그 나오도록  clickable/ hidden*/
-		  $(document).ready(function(){
-        $(".clickable").click(function(){
-            $(this).next(".timeline-panel").find(".timeline-body").toggleClass("hidden");
-        });
-    });
+		$(document).ready(function () {
+			$(".clickable").click(function () {
+				$(this).next(".timeline-panel").find(".timeline-body").toggleClass("hidden");
+			});
+		});
 
 	</script>
 </body>
@@ -1068,12 +1235,15 @@
 		/* 버튼 테두리를 없앱니다 */
 	}
 
-/*메인사진크기 조절*/
-.page-header {
-    background-size: cover; /* 이미지가 컨테이너를 채우도록 합니다. */
-    background-position: center; /* 이미지를 가운데로 정렬합니다. */
-    height: 850px; /* 이미지의 원하는 높이로 조정합니다. */
-}
+	/*메인사진크기 조절*/
+	.page-header {
+		background-size: cover;
+		/* 이미지가 컨테이너를 채우도록 합니다. */
+		background-position: center;
+		/* 이미지를 가운데로 정렬합니다. */
+		height: 850px;
+		/* 이미지의 원하는 높이로 조정합니다. */
+	}
 
 
 
@@ -1081,38 +1251,40 @@
 
 	/*main시작 css*/
 	/*admin 버튼 css*/
-	
-.styled-button {
-    position: absolute;
-    top: 50%;
-    right: 20px;
-    transform: translateY(-50%);
-    
-    background-color: black;
-    border: none;
-    color: white;
-    padding: 10px 20px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 14px;
-    margin: 4px 2px;
-    cursor: pointer;
-    border-radius: 12px;
-    transition: background-color 0.3s, box-shadow 0.3s, color 0.3s;
-}
 
-.styled-button:hover {
-    background-color: darkgray;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-}
+	.styled-button {
+		position: absolute;
+		top: 50%;
+		right: 20px;
+		transform: translateY(-50%);
 
-.styled-button:active {
-    background-color: white; /* White background on click */
-    color: black; /* Black text on click */
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-    transform: translateY(-50%) translateY(2px);
-}
+		background-color: black;
+		border: none;
+		color: white;
+		padding: 10px 20px;
+		text-align: center;
+		text-decoration: none;
+		display: inline-block;
+		font-size: 14px;
+		margin: 4px 2px;
+		cursor: pointer;
+		border-radius: 12px;
+		transition: background-color 0.3s, box-shadow 0.3s, color 0.3s;
+	}
+
+	.styled-button:hover {
+		background-color: darkgray;
+		box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+	}
+
+	.styled-button:active {
+		background-color: white;
+		/* White background on click */
+		color: black;
+		/* Black text on click */
+		box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+		transform: translateY(-50%) translateY(2px);
+	}
 
 	/*main css 끝*/
 	/*푸터 css 시작 */
@@ -1163,9 +1335,9 @@
 	}
 
 	/*푸터 css 끝*/
-	
+
 	/* 고객사 배너 스타일*/
-	
+
 	.customer-wrap {
 		width: 100%;
 		height: 160px;
@@ -1221,7 +1393,7 @@
 		background-color: ghostwhite;
 
 	}
-	
+
 	/*기술인증 슬라이드 css*/
 	#carouselExampleInterval {
 		/*carouselExampleInterval 캐러셀 백그라운드 css */
@@ -1251,11 +1423,11 @@
 		filter: brightness(0);
 		/* 아이콘을 흰색으로 보이게 만듭니다. */
 	}
-	
-	
+
+
 	/*새로운복지제도 페이지 아이콘*/
-	
-	.feature{
+
+	.feature {
 		display: inline-flex;
 		align-items: center;
 		justify-content: center;
@@ -1263,472 +1435,579 @@
 		width: 3rem;
 		font-size: 1.5rem;
 	}
-	.rounded-3{
-		border-radius:0.5rem ;
+
+	.rounded-3 {
+		border-radius: 0.5rem;
 	}
-	.bg-primary1{
+
+	.bg-primary1 {
 		--bs-bg-opacity: 1;
-    background-color: white ;
+		background-color: white;
 	}
+
 	.text-white {
-    --bs-text-opacity: 1;
-    color: rgba(var(--bs-white-rgb), var(--bs-text-opacity));
-}
-.mb-3 {
-    margin-bottom: 1rem !important;
-}
-.minwelfare{
-	margin-left: 7%;
-	color:white;
-}
-/*복지제도 배경사진*/
-#features {
-    background-size: cover;
-     background-position: center;
-   
-}
-/*섹션사이에 밑줄*/
-.section-divider {
-    width: 100%;
-    height: 1px; /* 밑줄의 두께 */
-    background-color: lightgray; /* 밑줄의 색상 */
-    margin-top: 15%;
-}
-/*아이콘 위아래 마진*/
-.row .justify-content-start{
-	margin-top: 25px;
-}
+		--bs-text-opacity: 1;
+		color: rgba(var(--bs-white-rgb), var(--bs-text-opacity));
+	}
 
-/*복지제도 끝*/
+	.mb-3 {
+		margin-bottom: 1rem !important;
+	}
 
-/*새로운비즈니스css*/
-.content-section {
-  padding-top: 7.5rem;
-  padding-bottom: 7.5rem;
-}
+	.minwelfare {
+		margin-left: 7%;
+		color: white;
+	}
+
+	/*복지제도 배경사진*/
+	#features {
+		background-size: cover;
+		background-position: center;
+
+	}
+
+	/*섹션사이에 밑줄*/
+	.section-divider {
+		width: 100%;
+		height: 1px;
+		/* 밑줄의 두께 */
+		background-color: lightgray;
+		/* 밑줄의 색상 */
+		margin-top: 15%;
+	}
+
+	/*아이콘 위아래 마진*/
+	.row .justify-content-start {
+		margin-top: 25px;
+	}
+
+	/*복지제도 끝*/
+
+	/*새로운비즈니스css*/
+	.content-section {
+		padding-top: 7.5rem;
+		padding-bottom: 7.5rem;
+	}
 
 
-.content-section-heading h2, .content-section-heading .h2 {
-  font-size: 3rem;
-}
-.content-section-heading h3, .content-section-heading .h3 {
-  font-size: 1rem;
-  text-transform: uppercase;
-}
-.portfolio-item {
-  display: block;
-  position: relative;
-  overflow: hidden;
-  max-width: 530px;
-  margin: auto auto 1rem;
-}
-.portfolio-item .caption {
-  display: flex;
-  height: 100%;
-  width: 100%;
-  background-color: rgba(33, 37, 41, 0.2);
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  z-index: 1;
-}
-.portfolio-item .caption .caption-content {
-  color: #fff;
-  margin: auto 2rem 2rem;
-}
-.portfolio-item .caption .caption-content h2, .portfolio-item .caption .caption-content .h2 {
-  font-size: 0.8rem;
-  text-transform: uppercase;
-}
-.portfolio-item .caption .caption-content p {
-  font-weight: 300;
-  font-size: 1.2rem;
-}
-@media (min-width: 992px) {
-  .portfolio-item {
-    max-width: none;
-    margin: 0;
-  }
-  .portfolio-item .caption {
-    transition: background-color 0.7s, -webkit-clip-path 0.25s ease-out;
-    transition: clip-path 0.25s ease-out, background-color 0.7s;
-    transition: clip-path 0.25s ease-out, background-color 0.7s, -webkit-clip-path 0.25s ease-out;
-    -webkit-clip-path: inset(0px);
-            clip-path: inset(0px);
-  }
-  .portfolio-item .caption .caption-content {
-    transition: opacity 0.25s;
-    margin-left: 5rem;
-    margin-right: 5rem;
-    margin-bottom: 5rem;
-  }
-  .portfolio-item img {
-    transition: -webkit-clip-path 0.25s ease-out;
-    transition: clip-path 0.25s ease-out;
-    transition: clip-path 0.25s ease-out, -webkit-clip-path 0.25s ease-out;
-    -webkit-clip-path: inset(-1px);
-            clip-path: inset(-1px);
-      width: 100%; /* 이미지의 너비를 100%로 설정하여 부모 요소의 너비에 맞게 조정합니다. */
-    height: auto; /* 이미지의 높이를 자동으로 조정하여 비율을 유지합니다. */
-    max-width: 100%; /* 이미지의 최대 너비를 부모 요소의 너비에 맞게 설정합니다. */
-    max-height: 100%; /* 이미지의 최대 높이를 부모 요소의 높이에 맞게 설정합니다. */        
-  }
-  
-  .portfolio-item:hover img {
-    -webkit-clip-path: inset(2rem);
-            clip-path: inset(2rem);
-  }
-  .portfolio-item:hover .caption {
-    background-color: rgba(29, 128, 159, 0.9);
-    -webkit-clip-path: inset(2rem);
-            clip-path: inset(2rem);
-  }
-  
-  
-}
-#biz{
-	font-size: 20px;
-}
+	.content-section-heading h2,
+	.content-section-heading .h2 {
+		font-size: 3rem;
+	}
 
-/*비즈니스 끝*/
+	.content-section-heading h3,
+	.content-section-heading .h3 {
+		font-size: 1rem;
+		text-transform: uppercase;
+	}
 
-/*연혁css*/
-/*연혁 테스트용*/
-   .timeline {
-  position: relative;
-  padding: 0;
-  list-style: none;
-}
-.timeline:before {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 40px;
-  width: 2px;
-  margin-left: -1.5px;
-  content: "";
-  background-color: #e9ecef;
-}
-.timeline > li {
-  position: relative;
-  min-height: 50px;
-  margin-bottom: 50px;
-}
-.timeline > li:after, .timeline > li:before {
-  display: table;
-  content: " ";
-}
-.timeline > li:after {
-  clear: both;
-}
-.timeline > li .timeline-panel {
-  position: relative;
-  float: right;
-  width: 100%;
-  padding: 0 20px 0 100px;
-  text-align: left;
-}
-.timeline > li .timeline-panel:before {
-  right: auto;
-  left: -15px;
-  border-right-width: 15px;
-  border-left-width: 0;
-}
-.timeline > li .timeline-panel:after {
-  right: auto;
-  left: -14px;
-  border-right-width: 14px;
-  border-left-width: 0;
-}
-.timeline > li .timeline-image {
-  position: absolute;
-  z-index: 100;
-  left: 0;
-  width: 80px;
-  height: 80px;
-  margin-left: 0;
-  text-align: center;
-  color: white;
-  border: 7px solid #e9ecef;
-  border-radius: 100%;
-  background-color: #ffc800;
-}
-.timeline > li .timeline-image h4, .timeline > li .timeline-image .h4 {
-  font-size: 10px;
-  line-height: 14px;
-  margin-top: 12px;
-}
-.timeline > li.timeline-inverted > .timeline-panel {
-  float: right;
-  padding: 0 20px 0 100px;
-  text-align: left;
-}
-.timeline > li.timeline-inverted > .timeline-panel:before {
-  right: auto;
-  left: -15px;
-  border-right-width: 15px;
-  border-left-width: 0;
-}
-.timeline > li.timeline-inverted > .timeline-panel:after {
-  right: auto;
-  left: -14px;
-  border-right-width: 14px;
-  border-left-width: 0;
-}
-.timeline > li:last-child {
-  margin-bottom: 0;
-}
-.timeline .timeline-heading h4, .timeline .timeline-heading .h4 {
-  margin-top: 0;
-  color: inherit;
-}
-.timeline .timeline-heading h4.subheading, .timeline .timeline-heading .subheading.h4 {
-  text-transform: none;
-}
-.timeline .timeline-body > ul,
-.timeline .timeline-body > p {
-  margin-bottom: 0;
-}
+	.portfolio-item {
+		display: block;
+		position: relative;
+		overflow: hidden;
+		max-width: 530px;
+		margin: auto auto 1rem;
+	}
 
-@media (min-width: 768px) {
-  .timeline:before {
-    left: 50%;
-  }
-  .timeline > li {
-    min-height: 100px;
-    margin-bottom: 100px;
-  }
-  .timeline > li .timeline-panel {
-    float: left;
-    width: 41%;
-    padding: 0 20px 20px 30px;
-    text-align: right;
-  }
-  .timeline > li .timeline-image {
-    left: 50%;
-    width: 100px;
-    height: 100px;
-    margin-left: -50px;
-  }
-  .timeline > li .timeline-image h4, .timeline > li .timeline-image .h4 {
-    font-size: 13px;
-    line-height: 18px;
-    margin-top: 16px;
-  }
-  .timeline > li.timeline-inverted > .timeline-panel {
-    float: right;
-    padding: 0 30px 20px 20px;
-    text-align: left;
-  }
-}
-@media (min-width: 992px) {
-  .timeline > li {
-    min-height: 150px;
-  }
-  .timeline > li .timeline-panel {
-    padding: 0 20px 20px;
-  }
-  .timeline > li .timeline-image {
-    width: 150px;
-    height: 150px;
-    margin-left: -75px;
-  }
-  .timeline > li .timeline-image h4, .timeline > li .timeline-image .h4 {
-    font-size: 18px;
-    line-height: 26px;
-    margin-top: 30px;
-  }
-  .timeline > li.timeline-inverted > .timeline-panel {
-    padding: 0 20px 20px;
-  }
-}
-@media (min-width: 1200px) {
-  .timeline > li {
-    min-height: 170px;
-  }
-  .timeline > li .timeline-panel {
-    padding: 0 20px 20px 100px;
-  }
-  .timeline > li .timeline-image {
-    width: 170px;
-    height: 170px;
-    margin-left: -85px;
-  }
-  .timeline > li .timeline-image h4, .timeline > li .timeline-image .h4 {
-    margin-top: 40px;
-  }
-  .timeline > li.timeline-inverted > .timeline-panel {
-    padding: 0 100px 20px 20px;
-  }
-}
-.timeline {
-  position: relative;
-  padding: 0;
-  list-style: none;
-}
-.timeline:before {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 40px;
-  width: 2px;
-  margin-left: -1.5px;
-  content: "";
-  background-color: #e9ecef;
-}
-.timeline > li {
-  position: relative;
-  min-height: 50px;
-  margin-bottom: 50px;
-}
-.timeline > li:after, .timeline > li:before {
-  display: table;
-  content: " ";
-}
-.timeline > li:after {
-  clear: both;
-}
-.timeline > li .timeline-panel {
-  position: relative;
-  float: right;
-  width: 100%;
-  padding: 0 20px 0 100px;
-  text-align: left;
-}
-.timeline > li .timeline-panel:before {
-  right: auto;
-  left: -15px;
-  border-right-width: 15px;
-  border-left-width: 0;
-}
-.timeline > li .timeline-panel:after {
-  right: auto;
-  left: -14px;
-  border-right-width: 14px;
-  border-left-width: 0;
-}
-.timeline > li .timeline-image {
-  position: absolute;
-  z-index: 100;
-  left: 0;
-  width: 80px;
-  height: 80px;
-  margin-left: 0;
-  text-align: center;
-  color: white;
-  border: 7px solid #e9ecef;
-  border-radius: 100%;
-  background-color:  slategray;
-}
-.timeline > li .timeline-image h4, .timeline > li .timeline-image .h4 {
-  font-size: 10px;
-  line-height: 14px;
-  margin-top: 12px;
-}
-.timeline > li.timeline-inverted > .timeline-panel {
-  float: right;
-  padding: 0 20px 0 100px;
-  text-align: left;
-}
-.timeline > li.timeline-inverted > .timeline-panel:before {
-  right: auto;
-  left: -15px;
-  border-right-width: 15px;
-  border-left-width: 0;
-}
-.timeline > li.timeline-inverted > .timeline-panel:after {
-  right: auto;
-  left: -14px;
-  border-right-width: 14px;
-  border-left-width: 0;
-}
-.timeline > li:last-child {
-  margin-bottom: 0;
-}
-.timeline .timeline-heading h4, .timeline .timeline-heading .h4 {
-  margin-top: 0;
-  color: inherit;
-}
-.timeline .timeline-heading h4.subheading, .timeline .timeline-heading .subheading.h4 {
-  text-transform: none;
-}
-.timeline .timeline-body > ul,
-.timeline .timeline-body > p {
-  margin-bottom: 0;
-}
+	.portfolio-item .caption {
+		display: flex;
+		height: 100%;
+		width: 100%;
+		background-color: rgba(33, 37, 41, 0.2);
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		z-index: 1;
+	}
 
-@media (min-width: 768px) {
-  .timeline:before {
-    left: 50%;
-  }
-  .timeline > li {
-    min-height: 100px;
-    margin-bottom: 100px;
-  }
-  .timeline > li .timeline-panel {
-    float: left;
-    width: 41%;
-    padding: 0 20px 20px 30px;
-    text-align: right;
-  }
-  .timeline > li .timeline-image {
-    left: 50%;
-    width: 100px;
-    height: 100px;
-    margin-left: -50px;
-  }
-  .timeline > li .timeline-image h4, .timeline > li .timeline-image .h4 {
-    font-size: 13px;
-    line-height: 18px;
-    margin-top: 16px;
-  }
-  .timeline > li.timeline-inverted > .timeline-panel {
-    float: right;
-    padding: 0 30px 20px 20px;
-    text-align: left;
-  }
-}
-@media (min-width: 992px) {
-  .timeline > li {
-    min-height: 150px;
-  }
-  .timeline > li .timeline-panel {
-    padding: 0 20px 20px;
-  }
-  .timeline > li .timeline-image {
-    width: 150px;
-    height: 150px;
-    margin-left: -75px;
-  }
-  .timeline > li .timeline-image h4, .timeline > li .timeline-image .h4 {
-    font-size: 18px;
-    line-height: 26px;
-    margin-top: 30px;
-  }
-  .timeline > li.timeline-inverted > .timeline-panel {
-    padding: 0 20px 20px;
-  }
-}
-@media (min-width: 1200px) {
-  .timeline > li {
-    min-height: 170px;
-  }
-  .timeline > li .timeline-panel {
-    padding: 0 20px 20px 100px;
-  }
-  .timeline > li .timeline-image {
-    width: 170px;
-    height: 170px;
-    margin-left: -85px;
-  }
-  .timeline > li .timeline-image h4, .timeline > li .timeline-image .h4 {
-    margin-top: 40px;
-  }
-  .timeline > li.timeline-inverted > .timeline-panel {
-    padding: 0 100px 20px 20px;
-  }
-}
-/*맨마지막 동그라미 텍스트 왼쪽 정렬 (css 적용안되서 div에 직접 스타일 넣음)
+	.portfolio-item .caption .caption-content {
+		color: #fff;
+		margin: auto 2rem 2rem;
+	}
+
+	.portfolio-item .caption .caption-content h2,
+	.portfolio-item .caption .caption-content .h2 {
+		font-size: 0.8rem;
+		text-transform: uppercase;
+	}
+
+	.portfolio-item .caption .caption-content p {
+		font-weight: 300;
+		font-size: 1.2rem;
+	}
+
+	@media (min-width: 992px) {
+		.portfolio-item {
+			max-width: none;
+			margin: 0;
+		}
+
+		.portfolio-item .caption {
+			transition: background-color 0.7s, -webkit-clip-path 0.25s ease-out;
+			transition: clip-path 0.25s ease-out, background-color 0.7s;
+			transition: clip-path 0.25s ease-out, background-color 0.7s, -webkit-clip-path 0.25s ease-out;
+			-webkit-clip-path: inset(0px);
+			clip-path: inset(0px);
+		}
+
+		.portfolio-item .caption .caption-content {
+			transition: opacity 0.25s;
+			margin-left: 5rem;
+			margin-right: 5rem;
+			margin-bottom: 5rem;
+		}
+
+		.portfolio-item img {
+			transition: -webkit-clip-path 0.25s ease-out;
+			transition: clip-path 0.25s ease-out;
+			transition: clip-path 0.25s ease-out, -webkit-clip-path 0.25s ease-out;
+			-webkit-clip-path: inset(-1px);
+			clip-path: inset(-1px);
+			width: 100%;
+			/* 이미지의 너비를 100%로 설정하여 부모 요소의 너비에 맞게 조정합니다. */
+			height: auto;
+			/* 이미지의 높이를 자동으로 조정하여 비율을 유지합니다. */
+			max-width: 100%;
+			/* 이미지의 최대 너비를 부모 요소의 너비에 맞게 설정합니다. */
+			max-height: 100%;
+			/* 이미지의 최대 높이를 부모 요소의 높이에 맞게 설정합니다. */
+		}
+
+		.portfolio-item:hover img {
+			-webkit-clip-path: inset(2rem);
+			clip-path: inset(2rem);
+		}
+
+		.portfolio-item:hover .caption {
+			background-color: rgba(29, 128, 159, 0.9);
+			-webkit-clip-path: inset(2rem);
+			clip-path: inset(2rem);
+		}
+
+
+	}
+
+	#biz {
+		font-size: 20px;
+	}
+
+	/*비즈니스 끝*/
+
+	/*연혁css*/
+	/*연혁 테스트용*/
+	.timeline {
+		position: relative;
+		padding: 0;
+		list-style: none;
+	}
+
+	.timeline:before {
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		left: 40px;
+		width: 2px;
+		margin-left: -1.5px;
+		content: "";
+		background-color: #e9ecef;
+	}
+
+	.timeline>li {
+		position: relative;
+		min-height: 50px;
+		margin-bottom: 50px;
+	}
+
+	.timeline>li:after,
+	.timeline>li:before {
+		display: table;
+		content: " ";
+	}
+
+	.timeline>li:after {
+		clear: both;
+	}
+
+	.timeline>li .timeline-panel {
+		position: relative;
+		float: right;
+		width: 100%;
+		padding: 0 20px 0 100px;
+		text-align: left;
+	}
+
+	.timeline>li .timeline-panel:before {
+		right: auto;
+		left: -15px;
+		border-right-width: 15px;
+		border-left-width: 0;
+	}
+
+	.timeline>li .timeline-panel:after {
+		right: auto;
+		left: -14px;
+		border-right-width: 14px;
+		border-left-width: 0;
+	}
+
+	.timeline>li .timeline-image {
+		position: absolute;
+		z-index: 100;
+		left: 0;
+		width: 80px;
+		height: 80px;
+		margin-left: 0;
+		text-align: center;
+		color: white;
+		border: 7px solid #e9ecef;
+		border-radius: 100%;
+		background-color: #ffc800;
+	}
+
+	.timeline>li .timeline-image h4,
+	.timeline>li .timeline-image .h4 {
+		font-size: 10px;
+		line-height: 14px;
+		margin-top: 12px;
+	}
+
+	.timeline>li.timeline-inverted>.timeline-panel {
+		float: right;
+		padding: 0 20px 0 100px;
+		text-align: left;
+	}
+
+	.timeline>li.timeline-inverted>.timeline-panel:before {
+		right: auto;
+		left: -15px;
+		border-right-width: 15px;
+		border-left-width: 0;
+	}
+
+	.timeline>li.timeline-inverted>.timeline-panel:after {
+		right: auto;
+		left: -14px;
+		border-right-width: 14px;
+		border-left-width: 0;
+	}
+
+	.timeline>li:last-child {
+		margin-bottom: 0;
+	}
+
+	.timeline .timeline-heading h4,
+	.timeline .timeline-heading .h4 {
+		margin-top: 0;
+		color: inherit;
+	}
+
+	.timeline .timeline-heading h4.subheading,
+	.timeline .timeline-heading .subheading.h4 {
+		text-transform: none;
+	}
+
+	.timeline .timeline-body>ul,
+	.timeline .timeline-body>p {
+		margin-bottom: 0;
+	}
+
+	@media (min-width: 768px) {
+		.timeline:before {
+			left: 50%;
+		}
+
+		.timeline>li {
+			min-height: 100px;
+			margin-bottom: 100px;
+		}
+
+		.timeline>li .timeline-panel {
+			float: left;
+			width: 41%;
+			padding: 0 20px 20px 30px;
+			text-align: right;
+		}
+
+		.timeline>li .timeline-image {
+			left: 50%;
+			width: 100px;
+			height: 100px;
+			margin-left: -50px;
+		}
+
+		.timeline>li .timeline-image h4,
+		.timeline>li .timeline-image .h4 {
+			font-size: 13px;
+			line-height: 18px;
+			margin-top: 16px;
+		}
+
+		.timeline>li.timeline-inverted>.timeline-panel {
+			float: right;
+			padding: 0 30px 20px 20px;
+			text-align: left;
+		}
+	}
+
+	@media (min-width: 992px) {
+		.timeline>li {
+			min-height: 150px;
+		}
+
+		.timeline>li .timeline-panel {
+			padding: 0 20px 20px;
+		}
+
+		.timeline>li .timeline-image {
+			width: 150px;
+			height: 150px;
+			margin-left: -75px;
+		}
+
+		.timeline>li .timeline-image h4,
+		.timeline>li .timeline-image .h4 {
+			font-size: 18px;
+			line-height: 26px;
+			margin-top: 30px;
+		}
+
+		.timeline>li.timeline-inverted>.timeline-panel {
+			padding: 0 20px 20px;
+		}
+	}
+
+	@media (min-width: 1200px) {
+		.timeline>li {
+			min-height: 170px;
+		}
+
+		.timeline>li .timeline-panel {
+			padding: 0 20px 20px 100px;
+		}
+
+		.timeline>li .timeline-image {
+			width: 170px;
+			height: 170px;
+			margin-left: -85px;
+		}
+
+		.timeline>li .timeline-image h4,
+		.timeline>li .timeline-image .h4 {
+			margin-top: 40px;
+		}
+
+		.timeline>li.timeline-inverted>.timeline-panel {
+			padding: 0 100px 20px 20px;
+		}
+	}
+
+	.timeline {
+		position: relative;
+		padding: 0;
+		list-style: none;
+	}
+
+	.timeline:before {
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		left: 40px;
+		width: 2px;
+		margin-left: -1.5px;
+		content: "";
+		background-color: #e9ecef;
+	}
+
+	.timeline>li {
+		position: relative;
+		min-height: 50px;
+		margin-bottom: 50px;
+	}
+
+	.timeline>li:after,
+	.timeline>li:before {
+		display: table;
+		content: " ";
+	}
+
+	.timeline>li:after {
+		clear: both;
+	}
+
+	.timeline>li .timeline-panel {
+		position: relative;
+		float: right;
+		width: 100%;
+		padding: 0 20px 0 100px;
+		text-align: left;
+	}
+
+	.timeline>li .timeline-panel:before {
+		right: auto;
+		left: -15px;
+		border-right-width: 15px;
+		border-left-width: 0;
+	}
+
+	.timeline>li .timeline-panel:after {
+		right: auto;
+		left: -14px;
+		border-right-width: 14px;
+		border-left-width: 0;
+	}
+
+	.timeline>li .timeline-image {
+		position: absolute;
+		z-index: 100;
+		left: 0;
+		width: 80px;
+		height: 80px;
+		margin-left: 0;
+		text-align: center;
+		color: white;
+		border: 7px solid #e9ecef;
+		border-radius: 100%;
+		background-color: slategray;
+	}
+
+	.timeline>li .timeline-image h4,
+	.timeline>li .timeline-image .h4 {
+		font-size: 10px;
+		line-height: 14px;
+		margin-top: 12px;
+	}
+
+	.timeline>li.timeline-inverted>.timeline-panel {
+		float: right;
+		padding: 0 20px 0 100px;
+		text-align: left;
+	}
+
+	.timeline>li.timeline-inverted>.timeline-panel:before {
+		right: auto;
+		left: -15px;
+		border-right-width: 15px;
+		border-left-width: 0;
+	}
+
+	.timeline>li.timeline-inverted>.timeline-panel:after {
+		right: auto;
+		left: -14px;
+		border-right-width: 14px;
+		border-left-width: 0;
+	}
+
+	.timeline>li:last-child {
+		margin-bottom: 0;
+	}
+
+	.timeline .timeline-heading h4,
+	.timeline .timeline-heading .h4 {
+		margin-top: 0;
+		color: inherit;
+	}
+
+	.timeline .timeline-heading h4.subheading,
+	.timeline .timeline-heading .subheading.h4 {
+		text-transform: none;
+	}
+
+	.timeline .timeline-body>ul,
+	.timeline .timeline-body>p {
+		margin-bottom: 0;
+	}
+
+	@media (min-width: 768px) {
+		.timeline:before {
+			left: 50%;
+		}
+
+		.timeline>li {
+			min-height: 100px;
+			margin-bottom: 100px;
+		}
+
+		.timeline>li .timeline-panel {
+			float: left;
+			width: 41%;
+			padding: 0 20px 20px 30px;
+			text-align: right;
+		}
+
+		.timeline>li .timeline-image {
+			left: 50%;
+			width: 100px;
+			height: 100px;
+			margin-left: -50px;
+		}
+
+		.timeline>li .timeline-image h4,
+		.timeline>li .timeline-image .h4 {
+			font-size: 13px;
+			line-height: 18px;
+			margin-top: 16px;
+		}
+
+		.timeline>li.timeline-inverted>.timeline-panel {
+			float: right;
+			padding: 0 30px 20px 20px;
+			text-align: left;
+		}
+	}
+
+	@media (min-width: 992px) {
+		.timeline>li {
+			min-height: 150px;
+		}
+
+		.timeline>li .timeline-panel {
+			padding: 0 20px 20px;
+		}
+
+		.timeline>li .timeline-image {
+			width: 150px;
+			height: 150px;
+			margin-left: -75px;
+		}
+
+		.timeline>li .timeline-image h4,
+		.timeline>li .timeline-image .h4 {
+			font-size: 18px;
+			line-height: 26px;
+			margin-top: 30px;
+		}
+
+		.timeline>li.timeline-inverted>.timeline-panel {
+			padding: 0 20px 20px;
+		}
+	}
+
+	@media (min-width: 1200px) {
+		.timeline>li {
+			min-height: 170px;
+		}
+
+		.timeline>li .timeline-panel {
+			padding: 0 20px 20px 100px;
+		}
+
+		.timeline>li .timeline-image {
+			width: 170px;
+			height: 170px;
+			margin-left: -85px;
+		}
+
+		.timeline>li .timeline-image h4,
+		.timeline>li .timeline-image .h4 {
+			margin-top: 40px;
+		}
+
+		.timeline>li.timeline-inverted>.timeline-panel {
+			padding: 0 100px 20px 20px;
+		}
+	}
+
+	/*맨마지막 동그라미 텍스트 왼쪽 정렬 (css 적용안되서 div에 직접 스타일 넣음)
 .timeline-panel.left-panel {
     float: left;
     width: 41%;
@@ -1736,33 +2015,25 @@
     text-align: right;
 }*/
 
-/*연혁 2015-2018/2019-2022 텍스트hidden*/
- .hidden {
-            display: none;
-        }
- /*circle hover*/
- .timeline-image.clickable:hover {
-    transform: scale(1.1); /* 확대 효과 */
-    transition: transform 0.3s ease-in-out; /* 부드러운 전환 */
-}
-/*hover시 손가락 커서*/
-.timeline-image.clickable {
-    cursor: pointer; /* 손가락 커서 표시 */
-    
-    
+	/*연혁 2015-2018/2019-2022 텍스트hidden*/
+	.hidden {
+		display: none;
+	}
 
-}
+	/*circle hover*/
+	.timeline-image.clickable:hover {
+		transform: scale(1.1);
+		/* 확대 효과 */
+		transition: transform 0.3s ease-in-out;
+		/* 부드러운 전환 */
+	}
 
-#click1:hover{
-	transform: scale(1.1); /* 확대 효과 */
-    transition: transform 0.3s ease-in-out; /* 부드러운 전환 */
-}
+	/*hover시 손가락 커서*/
+	.timeline-image.clickable {
+		cursor: pointer;
+		/* 손가락 커서 표시 */
 
-#click1{
-	cursor:pointer;
-}
-        
-   /*연혁css끝*/
+
 
    /*-------------*/
    /*새로운템플릿 오시는길*/
@@ -1788,9 +2059,60 @@
 	   background-color: #f6f6f6;
    }
    
-   
+   /*버튼 왼쪽으로 이동*/
  
+  
+  
+  /*밑줄긋기*/
+	/* .section-underline {
+    border-bottom: 1px solid #e9ecef; /* 원하는 밑줄 색상과 두께
+  } */
    
+   
+
+
+	}
+
+	#click1:hover {
+		transform: scale(1.1);
+		/* 확대 효과 */
+		transition: transform 0.3s ease-in-out;
+		/* 부드러운 전환 */
+	}
+
+	#click1 {
+		cursor: pointer;
+	}
+
+	/*연혁css끝*/
+
+	/*-------------*/
+	/*새로운템플릿 오시는길*/
+
+	/*버튼 텍스트 가운데로 조정*/
+	.center-text {
+
+		align-items: center;
+		padding-left: 37px;
+
+	}
+
+	/*버튼색상변경*/
+	.bg-gradient-warning1 {
+		background-color: cornflowerblue;
+		color: white;
+
+
+
+	}
+
+	/*버튼 호버시 색상변경*/
+	.bg-gradient-warning1:hover {
+		background-color: #f6f6f6;
+	}
+
+	/*버튼 왼쪽으로 이동*/
+
 </style>
 
 </html>
