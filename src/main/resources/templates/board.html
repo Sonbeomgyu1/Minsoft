@@ -311,7 +311,8 @@
 					</li>
 
 				</ul>
-				<a href="/loginform"><button class="styled-button">Admin</button></a>
+				<a th:href="@{/login}" sec:authorize="isAnonymous()"><button class="styled-button">Admin</button></a>
+    	<a th:href="@{/logout}" sec:authorize="isAuthenticated()"><button class="styled-button">logout</button></a>
 			</div>
 
 
@@ -342,26 +343,22 @@
 		</div>
 	</header>
 	<!-- -------- END HEADER 11 w/ carousel ------- -->
-	<main>
-		<div class="mainbutton">
-			<a href="/consulting" class="btn btn-light">사업내용</a>
-			<a href="/consulting" class="btn btn-light">IT 아웃소싱</a>
-			<a href="/business" class="btn btn-light">SI / SM</a>
-			<a href="/consulting" class="btn btn-light">컨설팅</a>
-			<a href="/consulting" class="btn btn-light">솔루션</a>
-		</div>
+
 		<main>
 			<h2 class="gong">공지사항</h2>
+			 <div sec:authorize="isAuthenticated()">
+			 <button type="button" class="btn custom-btn" id="writeButton">글쓰기</button>
+			 </div>
 			<div class="row">
 				<div class="offset-2 col-8">
-					<table class="table list-table table-hover text-center">
+					<table class="table list-table table-hover text-center">					
 						<thead style="background-color: gainsboro">
 							<tr>
-								<th style="width: 20%">번호</th>
+								<th style="width: 10%">번호</th>
 								<th style="width: 45%">제목</th>
 								<th style="width: 10%">작성자</th>
 								<th style="width: 10%">공개/비공개</th>
-								<th style="width: 15%">파일</th>
+								<th style="width: 10%">파일</th>
 							</tr>
 						</thead>
 						<tbody>
@@ -380,8 +377,7 @@
 			</div>
 
 		</main>
-
-	</main>
+		
 	<footer id="footer">
 		<div class="row text">
 			<div class="col-lg-6 footer-contact">
@@ -421,7 +417,7 @@
 	<!--  Google Maps Plugin    -->
 	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDTTfWur0PDbZWPr7Pmq8K3jiDp0_xUziI"></script>
 	<script src="../../assets/js/soft-design-system-pro.min.js?v=1.1.0" type="text/javascript"></script>
-	<script>
+	<script th:inline="javascript">
 		if (document.getElementById('language-select')) {
 			var element = document.getElementById('language-select');
 			const example = new Choices(element, {
@@ -446,6 +442,22 @@
 			}
 		});
 
+
+		    /*<![CDATA[*/  /*로그인했을시 글쓰기 버튼 활성화 스크립트*/
+        var isLoggedIn = /*[[${#authorization.expression('isAuthenticated()')}]]*/ false;
+        window.onload = function() {
+            updateButtonStatus();
+        }
+
+        function updateButtonStatus() {
+            var writeButton = document.getElementById('writeButton');
+            if (isLoggedIn) {
+                writeButton.disabled = false;
+            } else {
+                writeButton.disabled = true;
+            }
+        }
+        /*]]>*/
 	</script>
 </body>
 <style>
@@ -545,7 +557,24 @@
 		box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
 		transform: translateY(-50%) translateY(2px);
 	}
-
+.gong {
+  font-size: 50px; /* 원하는 크기로 조정 */
+  text-align: center;
+  margin-top: 90px;
+  
+}
+.custom-btn {  /*글쓰기 버튼*/
+  background-color: #ff9900; /* 원하는 배경색으로 변경 */
+  color: white; /* 텍스트 색상을 흰색으로 설정 */
+  margin-left: 1500px; /* 오른쪽 여백 설정 */
+  border: none; /* 외곽선을 제거 */
+  padding: 10px 20px; /* 패딩 조정 */
+  cursor: pointer; /* 마우스 커서 변경 */
+}
+.custom-btn:disabled {
+  background-color: #cccccc; /* 비활성화된 상태의 배경색 */
+  cursor: not-allowed; /* 비활성화된 상태의 커서 */
+}
 	/*main css 끝*/
 	/*푸터 css 시작 */
 	.min {
