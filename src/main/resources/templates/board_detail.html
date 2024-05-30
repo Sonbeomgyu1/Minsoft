@@ -280,7 +280,7 @@
 						</div>
 					</li>
 					<li class="nav-item dropdown dropdown-hover mx-2">
-						<a href=""
+						<a href="/board"
 							class="nav-link ps-2 d-flex justify-content-between cursor-pointer align-items-center"
 							id="dropdownMenuDocs" role="button" style="font-size: 1.3rem;"> <!-- 여기에 원하는 크기를 설정하세요 -->
 							ABOUT US
@@ -292,7 +292,7 @@
 							<div class="d-none d-lg-block">
 								<ul class="list-group">
 									<li class="nav-item list-group-item border-0 p-0">
-										<a class="dropdown-item py-2 ps-3 border-radius-md" href="">
+										<a class="dropdown-item py-2 ps-3 border-radius-md" href="/board">
 											<div class="d-flex">
 
 												<div>
@@ -312,7 +312,7 @@
 
 				</ul>
 				<a th:href="@{/login}" sec:authorize="isAnonymous()"><button class="styled-button">Admin</button></a>
-    	<a th:href="@{/logout}" sec:authorize="isAuthenticated()"><button class="styled-button">logout</button></a>
+    			<a th:href="@{/logout}" sec:authorize="isAuthenticated()"><button class="styled-button">logout</button></a>
 			</div>
 
 
@@ -327,13 +327,7 @@
 					<div class="page-header min-vh-45  border-xl"
 						style="background-image: url('/images/business/sismmain.jpg');">
 						<span class="mask bg-gradient-dark" style="opacity: 0.5;"></span>
-						<div class="container">
-							<div class="row">
-								<div class="col-lg-12 my-auto">
-									<h1 class="text-white fadeIn2">공지사항</h1>
-								</div>
-							</div>
-						</div>
+						
 					</div>
 
 
@@ -343,41 +337,35 @@
 		</div>
 	</header>
 	<!-- -------- END HEADER 11 w/ carousel ------- -->
+	<main>
+	    <div class="container2" style="margin-top: 100px;"> 
+        <div class="post-title">게시물 제목</div>
+        
+        <div class="post-meta" >작성자: 관리자 </div>
+        <div class="title-meta-divider"></div>
+        <div class="post-content">
+            <p>여기에 게시물 내용이 들어갑니다. 이 게시판은 사용자가 작성한 글을 표시하는 페이지입니다.</p>
+            <p>추가 내용이 여기에 들어갈 수 있습니다.</p>
+        </div>
+          <div class="attachments" style="margin-top: 150px;">
+            <h3>첨부파일</h3>
+            <div class="attachment">
+                <a href="파일경로/파일명1.ext" download>파일명1.ext</a>
+            </div>
+            <div class="attachment">
+                <a href="파일경로/파일명2.ext" download>파일명2.ext</a>
+            </div>
+        </div>
+        
+         <div class="action-buttons" >
+                <button class="edit-button" id="writeButton" >수정</button>
+                <button class="delete-button" id="writeButton">삭제</button>
+               
+            </div>
+       
+    </div>
 
-		<main>
-			<h2 class="gong">공지사항</h2>
-			 <div sec:authorize="isAuthenticated()">
-			 <button type="button" class="btn custom-btn" id="writeButton">글쓰기</button>
-			 </div>
-			<div class="row">
-				<div class="offset-2 col-8">
-					<table class="table list-table table-hover text-center">					
-						<thead style="background-color: gainsboro">
-							<tr>
-								<th style="width: 10%">번호</th>
-								<th style="width: 45%">제목</th>
-								<th style="width: 10%">작성자</th>
-								<th style="width: 10%">공개/비공개</th>
-								<th style="width: 10%">파일</th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr th:each="board: ${boards}"
-								th:onclick="|location.href='@{/boards/{category}/{boardId} (category=${category}, boardId=${board.id})}'|">
-								<td style="width: 20%" th:text="${board.user.nickname}" />
-								<td style="width: 45%" th:text="${board.title}" />
-								<td style="width: 10%" th:text="${board.likeCnt}" />
-								<td style="width: 10%" th:text="${board.commentCnt}" />
-								<td style="width: 15%" th:text="${#temporals.format(board.createdAt, 'yy/MM/dd HH:mm')}" />
-							</tr>
-						</tbody>
-					</table>
-				</div>
-				<ul id="paging-ul" class="pagination justify-content-center"></ul>
-			</div>
-
-		</main>
-		
+	</main>
 	<footer id="footer">
 		<div class="row text">
 			<div class="col-lg-6 footer-contact">
@@ -417,7 +405,7 @@
 	<!--  Google Maps Plugin    -->
 	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDTTfWur0PDbZWPr7Pmq8K3jiDp0_xUziI"></script>
 	<script src="../../assets/js/soft-design-system-pro.min.js?v=1.1.0" type="text/javascript"></script>
-	<script th:inline="javascript">
+	<script>
 		if (document.getElementById('language-select')) {
 			var element = document.getElementById('language-select');
 			const example = new Choices(element, {
@@ -441,9 +429,9 @@
 				navbar.classList.remove('fixed-top'); // 일반 위치로 설정
 			}
 		});
-
-
-		    /*<![CDATA[*/  /*로그인했을시 글쓰기 버튼 활성화 스크립트*/
+		
+		/*수정삭제 로그인시 활성화,비활성화*/
+		/*<![CDATA[*/  /*로그인했을시 글쓰기 버튼 활성화 스크립트*/
         var isLoggedIn = /*[[${#authorization.expression('isAuthenticated()')}]]*/ false;
         window.onload = function() {
             updateButtonStatus();
@@ -458,6 +446,8 @@
             }
         }
         /*]]>*/
+		
+
 	</script>
 </body>
 <style>
@@ -557,24 +547,7 @@
 		box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
 		transform: translateY(-50%) translateY(2px);
 	}
-.gong {
-  font-size: 50px; /* 원하는 크기로 조정 */
-  text-align: center;
-  margin-top: 90px;
-  
-}
-.custom-btn {  /*글쓰기 버튼*/
-  background-color: #ff9900; /* 원하는 배경색으로 변경 */
-  color: white; /* 텍스트 색상을 흰색으로 설정 */
-  margin-left: 1500px; /* 오른쪽 여백 설정 */
-  border: none; /* 외곽선을 제거 */
-  padding: 10px 20px; /* 패딩 조정 */
-  cursor: pointer; /* 마우스 커서 변경 */
-}
-.custom-btn:disabled {
-  background-color: #cccccc; /* 비활성화된 상태의 배경색 */
-  cursor: not-allowed; /* 비활성화된 상태의 커서 */
-}
+
 	/*main css 끝*/
 	/*푸터 css 시작 */
 	.min {
@@ -626,6 +599,105 @@
 	}
 
 	/*푸터 css 끝*/
+	
+	
+	/*게시판 상세페이지css*/
+	   body {
+            font-family: 'Noto Sans KR', sans-serif; /* 한국어 폰트 적용 */
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f6f9; /* 전체 배경색 */
+        }
+        
+        /* 게시물 컨테이너 스타일 */
+        .container2 {
+            max-width: 800px; /* 최대 너비 */
+            margin: 0 auto; /* 중앙 정렬 */
+            background: #fff; /* 흰색 배경 */
+            padding: 30px; /* 패딩 추가 */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* 그림자 효과 */
+            margin-top: 100px; /* 상단 마진 */
+            border-radius: 10px; /* 모서리 둥글게 */
+            border: 1px solid #e0e0e0; /* 연한 회색 테두리 */
+        }
+
+        /* 게시물 제목 스타일 */
+        .post-title {
+            font-size: 2.5em; /* 글자 크기 */
+            margin-top: 20px; /* 하단 마진 */
+            color: #333; /* 글자 색상 */
+        }
+
+        /* 게시물 메타 정보 스타일 */
+        .post-meta {
+            color: #666; /* 글자 색상 */
+            margin-bottom: 15px; /* 하단 마진 */
+            font-size: 0.9em; /* 글자 크기 */
+            margin-left: 620px;
+        }
+
+        /* 게시물 제목과 메타 정보 아래 테두리 스타일 */
+        .title-meta-divider {
+            border-bottom: 2px solid #007BFF; /* 하단 테두리 */
+            margin-top: 10px; /* 상단 마진 */
+            margin-bottom: 25px; /* 하단 마진 */
+        }
+
+        /* 게시물 내용 스타일 */
+        .post-content {
+            line-height: 1.8; /* 줄 간격 */
+            color: #555; /* 글자 색상 */
+            margin-bottom: 30px; /* 하단 마진 */
+        }
+
+        /* 첨부파일 섹션 스타일 */
+        .attachments {
+            border-top: 1px solid #e0e0e0; /* 상단 테두리 */
+            padding-top: 20px; /* 상단 패딩 */
+        }
+
+        /* 첨부파일 제목 스타일 */
+        .attachments h3 {
+            margin-bottom: 15px; /* 하단 마진 */
+            color: #007BFF; /* 글자 색상 */
+            font-size: 1.5em; /* 글자 크기 */
+        }
+
+        /* 첨부파일 링크 스타일 */
+        .attachment {
+            margin-bottom: 10px; /* 하단 마진 */
+        }
+
+        /* 첨부파일 링크 스타일 */
+        .attachment a {
+            color: #007BFF; /* 링크 색상 */
+            text-decoration: none; /* 밑줄 제거 */
+            transition: color 0.3s ease; /* 색상 전환 효과 */
+            font-size: 1.1em; /* 글자 크기 */
+        }
+
+        /* 첨부파일 링크 호버 효과 */
+        .attachment a:hover {
+            color: #0056b3; /* 호버 시 링크 색상 */
+        }
+		
+		
+		/*버튼 css*/
+		.action-buttons button:hover {
+            background-color: #0056b3; /* 호버 시 배경색 *
+			
+        }
+
+        .action-buttons .delete-button {
+            background-color: #e0e0e0; /* 삭제 버튼 배경색 */
+        }
+
+        .action-buttons .delete-button:hover {
+            background-color: #c82333; /* 호버 시 삭제 버튼 배경색 */
+        }
+	
+	
+	
 </style>
 
 </html>
