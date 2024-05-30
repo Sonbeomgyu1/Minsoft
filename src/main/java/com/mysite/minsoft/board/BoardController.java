@@ -11,4 +11,9 @@ public class BoardController {
 	    public String board() {
 	        return "board"; 
 	    }
+	 
+	 @GetMapping("/boarddetail") //공지사항 컨트롤러
+	    public String boardDetail() {
+	        return "board_detail"; 
+	    }
 }

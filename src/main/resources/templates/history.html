@@ -32,6 +32,7 @@
 	<link href="../../assets/css/nucleo-svg.css" rel="stylesheet" />
 	<!-- CSS Files -->
 	<link id="pagestyle" href="../../assets/css/soft-design-system-pro.css?v=1.1.0" rel="stylesheet" />
+	<link href="https://fonts.googleapis.com/css?family=Nanum+Gothic&display=swap" rel="stylesheet">
 </head>
 
 <body class="blog-posts">
@@ -328,7 +329,7 @@
 	                  <div class="container">
 	                     <div class="row">
 	                        <div class="col-lg-12 my-auto">
-	                           <h1 class="text-white fadeIn2">회사연혁</h1>
+	                           <h1 class="text-white fadeIn2 fadeInBottom">회사연혁</h1>
 	                        </div>
 	                     </div>
 	                  </div>
@@ -344,11 +345,11 @@
 	<!-- -------- END HEADER 11 w/ carousel ------- -->
 	<main>
 		<div class="mainbutton">
-			<a href="/businessdetails" class="btn btn-light">사업내용</a>
-			<a href="/itoutsourcingpage" class="btn btn-light">IT 아웃소싱</a>
-			<a href="/sism" class="btn btn-light">SI / SM</a>
-			<a href="/consulting" class="btn btn-light">컨설팅</a>
-			<a href="/solutions" class="btn btn-light">솔루션</a>
+			<a href="/businessdetails" class="btn btn-light" id="btn-history5">사업내용</a>
+			<a href="/itoutsourcingpage" class="btn btn-light" id="btn-history5">IT 아웃소싱</a>
+			<a href="/sism" class="btn btn-light" id="btn-history5">SI / SM</a>
+			<a href="/consulting" class="btn btn-light" id="btn-history5">컨설팅</a>
+			<a href="/solutions" class="btn btn-light" id="btn-history5">솔루션</a>
 		</div>
 
 		
@@ -369,11 +370,11 @@
 					Minsoft Since 2014
 			      </a>
 			    </li>
-				<li class="nav-item">
-				  <a class="nav-link" data-scroll href="#scroll-position11">
+				<li class="nav-item"> <!--연혁 추가시의 네비 한 세트 시작, Minsoft Since 2014 밑에 추가할 것. -->
+				  <a class="nav-link" data-scroll href="#scroll-position11"> <!--href 숫자 늘리기 -->
 					2024
 				  </a>
-				</li>
+				</li>				  <!--연혁 추가시의 네비 한 세트 끝, 페이지 하단 css 참고-->
 				<li class="nav-item">
 				  <a class="nav-link" data-scroll href="#scroll-position10">
 					2023
@@ -432,14 +433,14 @@
 				
 		      <div class="col-lg-8 col-8 d-flex justify-content-center flex-column mx-2 text-lg-start text-center history-main-sector">
 				
-				<div class="card-blog card-plain" id="scroll-position11">
+				<div class="card-blog card-plain" id="scroll-position11"> <!--연혁 추가시의 본문 한세트 시작, id 숫자올리기 -->
 				  <div class="historycontent-year col-2" style="float: left;">
 				  	<h1 class="mb-0 mt-lg-0 mt-4 text-gradient text-info">2024</h1>
 				  </div>
 				  
 				  <div class="historycontent-list col-10" style="display: inline-block;">
 	
-		        <ul class="m-lg-2 m-auto historycontents" style="padding-left: 0rem;">
+		        <ul class="m-lg-2 m-auto historycontents" style="padding-left: 0rem;"> <!-- 세부내용 강조표시는 해당 li bold처리 (강조표시 있는 과거년도 참조)-->
 		          <li class="lead mb-2" style="list-style: none; font-size: 18px;"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="rgb(233,107,86)" class="bi bi-check-lg" viewBox="0 0 16 16">
 					  <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425z"/>
 					</svg>&emsp;삼성엔지니어링 I&E Inspection Platform 고도화</li>
@@ -481,7 +482,7 @@
 					</svg>&emsp;사회보장정보원 통합플랫폼 유지관리 사업</li>
 		        </ul>
 				</div>
-			</div><br>
+			</div><br> 	<!--연혁 추가시의 본문 한세트 끝 -->
 				
 				
 				<div class="card-blog card-plain" id="scroll-position10">
@@ -492,10 +493,10 @@
 				  <div class="historycontent-list col-10" style="display: inline-block;">
 	
 		        <ul class="m-lg-2 m-auto historycontents" style="padding-left: 0rem;">
-		          <li class="lead mb-2" style="list-style: none; font-size: 18px;"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="rgb(233,107,86)" class="bi bi-check-lg" viewBox="0 0 16 16">
+		          <li class="lead mb-2" style="list-style: none; font-size: 18px; font-weight: bold;"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="rgb(233,107,86)" class="bi bi-check-lg" viewBox="0 0 16 16">
 					  <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425z"/>
 					</svg>&emsp;서울형 강소기업 협약</li>
-		          <li class="lead mb-2"	style="list-style: none; font-size: 18px;"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="rgb(233,107,86)" class="bi bi-check-lg" viewBox="0 0 16 16">
+		          <li class="lead mb-2"	style="list-style: none; font-size: 18px; font-weight: bold;"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="rgb(233,107,86)" class="bi bi-check-lg" viewBox="0 0 16 16">
 					  <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425z"/>
 					</svg>&emsp;삼성SDS MIS부문 1차사 등록</li>
 					<li class="lead mb-2" style="list-style: none; font-size: 18px;"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="rgb(233,107,86)" class="bi bi-check-lg" viewBox="0 0 16 16">
@@ -846,7 +847,7 @@
 				  <div class="historycontent-list col-10" style="display: inline-block;">
 				
 				<ul class="m-lg-2 m-auto historycontents" style="padding-left: 0rem;">
-		          <li class="lead mb-2" style="list-style: none; font-size: 18px;"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="rgb(233,107,86)" class="bi bi-check-lg" viewBox="0 0 16 16">
+		          <li class="lead mb-2" style="list-style: none; font-size: 18px; font-weight: bold;"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="rgb(233,107,86)" class="bi bi-check-lg" viewBox="0 0 16 16">
 					  <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425z"/>
 					</svg>&emsp;사무실 이전</li>
 					<li class="lead mb-2" style="list-style: none; font-size: 18px;"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="rgb(233,107,86)" class="bi bi-check-lg" viewBox="0 0 16 16">
@@ -906,10 +907,10 @@
 				  <div class="historycontent-list col-10" style="display: inline-block;">
 				
 				<ul class="m-lg-2 m-auto historycontents" style="padding-left: 0rem;">
-				  <li class="lead mb-2" style="list-style: none; font-size: 18px;"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="rgb(233,107,86)" class="bi bi-check-lg" viewBox="0 0 16 16">
+				  <li class="lead mb-2" style="list-style: none; font-size: 18px; font-weight: bold;"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="rgb(233,107,86)" class="bi bi-check-lg" viewBox="0 0 16 16">
 					  <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425z"/>
 					</svg>&emsp;기술혁신형 중소기업 Inno-Biz 선정</li>
-					<li class="lead mb-2" style="list-style: none; font-size: 18px;"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="rgb(233,107,86)" class="bi bi-check-lg" viewBox="0 0 16 16">
+					<li class="lead mb-2" style="list-style: none; font-size: 18px; font-weight: bold;"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="rgb(233,107,86)" class="bi bi-check-lg" viewBox="0 0 16 16">
 					  <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425z"/>
 					</svg>&emsp;기업부설 연구소 설립</li>
 					<li class="lead mb-2" style="list-style: none; font-size: 18px;"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="rgb(233,107,86)" class="bi bi-check-lg" viewBox="0 0 16 16">
@@ -947,7 +948,7 @@
 					</svg>&emsp;삼성반도체 가상계측 시스템 구축</li>
 					<li class="lead mb-2" style="list-style: none; font-size: 18px;"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="rgb(233,107,86)" class="bi bi-check-lg" viewBox="0 0 16 16">
 					  <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425z"/>
-					</svg>&emsp;삼성반도체 가상계측시스템 구축</li>
+					</svg>&emsp;삼성반도체 가상계측 시스템 구축 2차</li>
 					<li class="lead mb-2" style="list-style: none; font-size: 18px;"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="rgb(233,107,86)" class="bi bi-check-lg" viewBox="0 0 16 16">
 					  <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425z"/>
 					</svg>&emsp;삼성반도체 공정관리 시스템 구축</li>
@@ -1050,96 +1051,135 @@
 				  <div class="historycontent-list col-10" style="display: inline-block;">
 				
 				<ul class="m-lg-2 m-auto historycontents" style="padding-left: 0rem;">
-				  <li class="lead mb-2" style="list-style: none; font-size: 18px;"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="rgb(233,107,86)" class="bi bi-check-lg" viewBox="0 0 16 16">
+				  <li class="lead mb-2" style="list-style: none; font-size: 18px; font-weight: bold;"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="rgb(233,107,86)" class="bi bi-check-lg" viewBox="0 0 16 16">
 					  <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425z"/>
 					</svg>&emsp;경영혁신형 중소기업 Main-Biz 선정</li>
 					<li class="lead mb-2" style="list-style: none; font-size: 18px;"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="rgb(233,107,86)" class="bi bi-check-lg" viewBox="0 0 16 16">
 					  <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425z"/>
-					</svg>&emsp;삼성SDS CELLO OP 구축</li>
+					</svg>&emsp;삼성SDS AMS 기능 추가 개발 및 테스트</li>
 					<li class="lead mb-2" style="list-style: none; font-size: 18px;"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="rgb(233,107,86)" class="bi bi-check-lg" viewBox="0 0 16 16">
 					  <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425z"/>
-					</svg>&emsp;삼성물산 리조트 S-TICKET모바일 구축과제</li>
+					</svg>&emsp;삼성SDS NMS ONEVIEW 구축</li>
 					<li class="lead mb-2" style="list-style: none; font-size: 18px;"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="rgb(233,107,86)" class="bi bi-check-lg" viewBox="0 0 16 16">
 					  <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425z"/>
-					</svg>&emsp;삼성바이오로직스 원가관리시스템 구축</li>
+					</svg>&emsp;삼성물산 ERP Re-structuring 구축</li>
 					<li class="lead mb-2" style="list-style: none; font-size: 18px;"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="rgb(233,107,86)" class="bi bi-check-lg" viewBox="0 0 16 16">
 					  <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425z"/>
-					</svg>&emsp;삼성반도체 2017년 원가관리 시스템 구축</li>
+					</svg>&emsp;삼성물산 공사(물량)관리시스템 구축</li>
 					<li class="lead mb-2" style="list-style: none; font-size: 18px;"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="rgb(233,107,86)" class="bi bi-check-lg" viewBox="0 0 16 16">
 					  <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425z"/>
-					</svg>&emsp;삼성반도체 대여장학생 관리시스템 구축 사업</li>
+					</svg>&emsp;삼성반도체 2018년 원가관리 시스템 구축</li>
 					<li class="lead mb-2" style="list-style: none; font-size: 18px;"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="rgb(233,107,86)" class="bi bi-check-lg" viewBox="0 0 16 16">
 					  <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425z"/>
-					</svg>&emsp;삼성반도체 보고서자동화(원가)구축</li>
+					</svg>&emsp;삼성반도체 DS 부문 DPM 통합개선</li>
+					<li class="lead mb-2" style="list-style: none; font-size: 18px;"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="rgb(233,107,86)" class="bi bi-check-lg" viewBox="0 0 16 16">
+					  <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425z"/>
+					</svg>&emsp;삼성반도체 EMS 설비부품 운영 고도화</li>
+					<li class="lead mb-2" style="list-style: none; font-size: 18px;"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="rgb(233,107,86)" class="bi bi-check-lg" viewBox="0 0 16 16">
+					  <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425z"/>
+					</svg>&emsp;삼성반도체 MDM시스템 구축</li>
+					<li class="lead mb-2" style="list-style: none; font-size: 18px;"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="rgb(233,107,86)" class="bi bi-check-lg" viewBox="0 0 16 16">
+					  <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425z"/>
+					</svg>&emsp;삼성반도체 SESS EAM 설비설치 업무 확산</li>
+					<li class="lead mb-2" style="list-style: none; font-size: 18px;"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="rgb(233,107,86)" class="bi bi-check-lg" viewBox="0 0 16 16">
+					  <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425z"/>
+					</svg>&emsp;삼성반도체 반도체 Hook UP 구축</li>
 					<li class="lead mb-2" style="list-style: none; font-size: 18px;"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="rgb(233,107,86)" class="bi bi-check-lg" viewBox="0 0 16 16">
 					  <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425z"/>
 					</svg>&emsp;삼성반도체 복잡도 제거를 위한 하드코딩 제거</li>
 					<li class="lead mb-2" style="list-style: none; font-size: 18px;"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="rgb(233,107,86)" class="bi bi-check-lg" viewBox="0 0 16 16">
 					  <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425z"/>
-					</svg>&emsp;삼성반도체 자원통합관리 연계 구축</li>
+					</svg>&emsp;삼성반도체 상생포탈 구축</li>
 					<li class="lead mb-2" style="list-style: none; font-size: 18px;"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="rgb(233,107,86)" class="bi bi-check-lg" viewBox="0 0 16 16">
 					  <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425z"/>
-					</svg>&emsp;삼성반도체 투자관리 7차 구축</li>
+					</svg>&emsp;삼성반도체 중장기라인시뮬레이션</li>
 					<li class="lead mb-2" style="list-style: none; font-size: 18px;"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="rgb(233,107,86)" class="bi bi-check-lg" viewBox="0 0 16 16">
 					  <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425z"/>
-					</svg>&emsp;삼성전자 DS예방진단 연계 시스템 구축</li>
+					</svg>&emsp;삼성반도체 직구매 4차 시스템 구축</li>
 					<li class="lead mb-2" style="list-style: none; font-size: 18px;"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="rgb(233,107,86)" class="bi bi-check-lg" viewBox="0 0 16 16">
 					  <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425z"/>
-					</svg>&emsp;삼성전자 EMS혁신과제 구축 및 개선</li>
+					</svg>&emsp;삼성반도체 직구매 운영</li>
 					<li class="lead mb-2" style="list-style: none; font-size: 18px;"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="rgb(233,107,86)" class="bi bi-check-lg" viewBox="0 0 16 16">
 					  <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425z"/>
-					</svg>&emsp;삼성전자 FOUNDRY고객대응을 위한 데이터연계</li>
+					</svg>&emsp;삼성반도체 클라우드 운영지원시스템</li>
 					<li class="lead mb-2" style="list-style: none; font-size: 18px;"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="rgb(233,107,86)" class="bi bi-check-lg" viewBox="0 0 16 16">
 					  <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425z"/>
-					</svg>&emsp;삼성전자 G-ERP 스마트 모바일 구축과제</li>
+					</svg>&emsp;삼성반도체 파운드리 과제관리</li>
 					<li class="lead mb-2" style="list-style: none; font-size: 18px;"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="rgb(233,107,86)" class="bi bi-check-lg" viewBox="0 0 16 16">
 					  <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425z"/>
-					</svg>&emsp;삼성전자 SCM GOC과제</li>
+					</svg>&emsp;삼성반도체 품질관리 ONE-Q 시스템 구축</li>
 					<li class="lead mb-2" style="list-style: none; font-size: 18px;"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="rgb(233,107,86)" class="bi bi-check-lg" viewBox="0 0 16 16">
 					  <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425z"/>
-					</svg>&emsp;삼성전자 SDC GMES 예방진단 개선</li>
+					</svg>&emsp;삼성엔지니어링 현장 모바일SEMP 시스템 구축</li>
 					<li class="lead mb-2" style="list-style: none; font-size: 18px;"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="rgb(233,107,86)" class="bi bi-check-lg" viewBox="0 0 16 16">
 					  <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425z"/>
-					</svg>&emsp;삼성전자 TP센터 외주 WP 시스템 구조 개선</li>
+					</svg>&emsp;삼성웰스토리 FS 세일즈 시스템 재구축</li>
 					<li class="lead mb-2" style="list-style: none; font-size: 18px;"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="rgb(233,107,86)" class="bi bi-check-lg" viewBox="0 0 16 16">
 					  <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425z"/>
-					</svg>&emsp;삼성전자 건설 인프라 CPMS 구축과제</li>
+					</svg>&emsp;삼성전자 18년 반도체 원가 B 시스템 구축</li>
 					<li class="lead mb-2" style="list-style: none; font-size: 18px;"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="rgb(233,107,86)" class="bi bi-check-lg" viewBox="0 0 16 16">
 					  <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425z"/>
-					</svg>&emsp;삼성전자 무선 SW자주 검증관리 시스템 구축</li>
+					</svg>&emsp;삼성전자 DS부문 경영지원보고서 발행 시스템 구축</li>
 					<li class="lead mb-2" style="list-style: none; font-size: 18px;"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="rgb(233,107,86)" class="bi bi-check-lg" viewBox="0 0 16 16">
 					  <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425z"/>
-					</svg>&emsp;삼성전자 반도체 연구소 통합시뮬레이션 구축</li>
+					</svg>&emsp;삼성전자 DS부분 직구매시스템 구축</li>
 					<li class="lead mb-2" style="list-style: none; font-size: 18px;"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="rgb(233,107,86)" class="bi bi-check-lg" viewBox="0 0 16 16">
 					  <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425z"/>
-					</svg>&emsp;삼성전자 반도체 협력사 생애관리 시스템</li>
+					</svg>&emsp;삼성전자 DS투자 미세관리 및 효율분석 강화</li>
 					<li class="lead mb-2" style="list-style: none; font-size: 18px;"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="rgb(233,107,86)" class="bi bi-check-lg" viewBox="0 0 16 16">
 					  <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425z"/>
-					</svg>&emsp;삼성전자 반도체 협력사 외주관리 시스템</li>
+					</svg>&emsp;삼성전자 FOUNFRY B2B PHASE3(TA) 지원</li>
 					<li class="lead mb-2" style="list-style: none; font-size: 18px;"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="rgb(233,107,86)" class="bi bi-check-lg" viewBox="0 0 16 16">
 					  <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425z"/>
-					</svg>&emsp;삼성전자 스타일이난다 SaaS 개발과제</li>
+					</svg>&emsp;삼성전자 G-EMS 설비 부품 모듈 개선</li>
 					<li class="lead mb-2" style="list-style: none; font-size: 18px;"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="rgb(233,107,86)" class="bi bi-check-lg" viewBox="0 0 16 16">
 					  <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425z"/>
-					</svg>&emsp;삼성전자 중국 서안반도체 SETTI 2.0개발</li>
+					</svg>&emsp;삼성전자온양반도체 내부 시스템 운영</li>
 					<li class="lead mb-2" style="list-style: none; font-size: 18px;"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="rgb(233,107,86)" class="bi bi-check-lg" viewBox="0 0 16 16">
 					  <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425z"/>
-					</svg>&emsp;한국마사회 전자의무기록 시스템 구축</li>
+					</svg>&emsp;세메스 3D 프린터 운영관리 시스템 구축</li>
 					<li class="lead mb-2" style="list-style: none; font-size: 18px;"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="rgb(233,107,86)" class="bi bi-check-lg" viewBox="0 0 16 16">
 					  <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425z"/>
-					</svg>&emsp;한전 배전지능화 성능관리 시스템 개발 및 운영</li>
+					</svg>&emsp;세메스반도체 제조모바일 2단계 사업 구축</li>
 					<li class="lead mb-2" style="list-style: none; font-size: 18px;"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="rgb(233,107,86)" class="bi bi-check-lg" viewBox="0 0 16 16">
 					  <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425z"/>
-					</svg>&emsp;KT카드관리시스템 고도화</li>
+					</svg>&emsp;임직원 건강증진앱 구축</li>
 					<li class="lead mb-2" style="list-style: none; font-size: 18px;"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="rgb(233,107,86)" class="bi bi-check-lg" viewBox="0 0 16 16">
 					  <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425z"/>
-					</svg>&emsp;LG디스플레이 Profile Summary 구축</li>
+					</svg>&emsp;18년 르노삼성 TOTAL ITO 운영</li>
 					<li class="lead mb-2" style="list-style: none; font-size: 18px;"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="rgb(233,107,86)" class="bi bi-check-lg" viewBox="0 0 16 16">
 					  <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425z"/>
-					</svg>&emsp;SBA 홈페이지 지원시스템 유지보수</li>
+					</svg>&emsp;GS칼텍스 GSePartner 리뉴얼 구축</li>
 					<li class="lead mb-2" style="list-style: none; font-size: 18px;"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="rgb(233,107,86)" class="bi bi-check-lg" viewBox="0 0 16 16">
 					  <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425z"/>
-					</svg>&emsp;네이버 사내정보 SaaS 구축</li>
+					</svg>&emsp;KNOX E3:E44MEETING 사용성 및 인프라전환 개발</li>
+					<li class="lead mb-2" style="list-style: none; font-size: 18px;"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="rgb(233,107,86)" class="bi bi-check-lg" viewBox="0 0 16 16">
+					  <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425z"/>
+					</svg>&emsp;KTDS 내부 홈페이지 개선</li>
+					<li class="lead mb-2" style="list-style: none; font-size: 18px;"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="rgb(233,107,86)" class="bi bi-check-lg" viewBox="0 0 16 16">
+					  <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425z"/>
+					</svg>&emsp;LG화학 오창 청주 파주 소재 생산관리 시스템</li>
+					<li class="lead mb-2" style="list-style: none; font-size: 18px;"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="rgb(233,107,86)" class="bi bi-check-lg" viewBox="0 0 16 16">
+					  <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425z"/>
+					</svg>&emsp;LG화학 통문관리 시스템_출입보안 및 통문관리</li>
+					<li class="lead mb-2" style="list-style: none; font-size: 18px;"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="rgb(233,107,86)" class="bi bi-check-lg" viewBox="0 0 16 16">
+					  <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425z"/>
+					</svg>&emsp;NH농협 (공통)2018년도 IT관리시스템 통합 연계</li>
+					<li class="lead mb-2" style="list-style: none; font-size: 18px;"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="rgb(233,107,86)" class="bi bi-check-lg" viewBox="0 0 16 16">
+					  <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425z"/>
+					</svg>&emsp;SK실트론 18년도 생산정보 ITO운영</li>
+					<li class="lead mb-2" style="list-style: none; font-size: 18px;"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="rgb(233,107,86)" class="bi bi-check-lg" viewBox="0 0 16 16">
+					  <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425z"/>
+					</svg>&emsp;SK하이닉스 커버넌스 구축</li>
+					<li class="lead mb-2" style="list-style: none; font-size: 18px;"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="rgb(233,107,86)" class="bi bi-check-lg" viewBox="0 0 16 16">
+					  <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425z"/>
+					</svg>&emsp;경기도 교통정보센터 IT 운영</li>
+					<li class="lead mb-2" style="list-style: none; font-size: 18px;"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="rgb(233,107,86)" class="bi bi-check-lg" viewBox="0 0 16 16">
+					  <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425z"/>
+					</svg>&emsp;농협은행 환원자료시스템 구축</li>
+					<li class="lead mb-2" style="list-style: none; font-size: 18px;"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="rgb(233,107,86)" class="bi bi-check-lg" viewBox="0 0 16 16">
+					  <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425z"/>
+					</svg>&emsp;대책관리시스템 개선</li>
 				</ul>
 				</div>
 			</div><br>
@@ -1343,10 +1383,10 @@
 				  
 				  <div class="historycontent-list col-10" style="display: inline-block;">
 					<ul class="m-lg-2 m-auto historycontents" style="padding-left: 0rem;">
-				  	  <li class="lead mb-2" style="list-style: none; font-size: 18px;"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="rgb(233,107,86)" class="bi bi-check-lg" viewBox="0 0 16 16">
+				  	  <li class="lead mb-2" style="list-style: none; font-size: 18px; font-weight: bold;"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="rgb(233,107,86)" class="bi bi-check-lg" viewBox="0 0 16 16">
 						<path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425z"/>
 				  	</svg>&emsp;직접생산 확인 신고</li>
-					<li class="lead mb-2" style="list-style: none; font-size: 18px;"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="rgb(233,107,86)" class="bi bi-check-lg" viewBox="0 0 16 16">
+					<li class="lead mb-2" style="list-style: none; font-size: 18px; font-weight: bold;"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="rgb(233,107,86)" class="bi bi-check-lg" viewBox="0 0 16 16">
 					  <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425z"/>
 					</svg>&emsp;자본금 2억으로 증자</li>
 					<li class="lead mb-2" style="list-style: none; font-size: 18px;"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="rgb(233,107,86)" class="bi bi-check-lg" viewBox="0 0 16 16">
@@ -1409,7 +1449,7 @@
 				  
 				  <div class="historycontent-list col-10" style="display: inline-block;">
 					<ul class="m-lg-2 m-auto historycontents" style="padding-left: 0rem;">
-					  <li class="lead mb-2" style="list-style: none; font-size: 18px;"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="rgb(233,107,86)" class="bi bi-check-lg" viewBox="0 0 16 16">
+					  <li class="lead mb-2" style="list-style: none; font-size: 18px; font-weight: bold;"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="rgb(233,107,86)" class="bi bi-check-lg" viewBox="0 0 16 16">
 						<path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425z"/>
 					  </svg>&emsp;법인 설립 ㈜민소프트</li>
 					  <li class="lead mb-2" style="list-style: none; font-size: 18px;"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="rgb(233,107,86)" class="bi bi-check-lg" viewBox="0 0 16 16">
@@ -1547,8 +1587,7 @@
 		/* Adjust as needed */
 		margin: 0;
 		/* Remove any default margin */
-		
-
+		/* color: #344767 !important; */
 	}
 
 	.btn {
@@ -1591,10 +1630,32 @@
 	/*헤더 부분 css 끝*/
 
 	/*main시작 css*/
+	/* 폰트추가 */
+	@font-face {
+	 font-family: 'NanumBarunGothic';
+	 font-style: normal;
+	 font-weight: 400;
+	 src: url('//fastly.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWeb.eot');
+	 src: url('//fastly.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWeb.eot?#iefix') format('embedded-opentype'), url('//fastly.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWeb.woff') format('woff'), url('//fastly.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWeb.ttf') format('truetype');
+	}
+	
+	/*상단 5개 버튼 폰트 수정*/
+	#btn-history5{
+		 font-family: 'NanumBarunGothic';
+		 font-weight: 500;
+	}
+	
 	.mb-2 {	
 		/*연혁상세 각 항목 여백조절*/
 		margin-left: 7px;
+		margin-bottom: 0.9rem !important;
 	}
+	.lead{
+		/*연혁 세부내용 폰트설정*/
+		font-family: 'Nanum Gothic', sans-serif; /*페이지 상단 head부분에 link 추가 */
+		font-weight: 500;
+	}
+	
 	.card-plain {	
 		/*본문 조절*/
 		margin-left: 16px;
@@ -1624,6 +1685,7 @@
 		color: #D3D3D3;
 	}
 	.nav-link:hover {
+		/*네비 연도에 마우스 호버시의 검정으로 글자강조*/
 		color: black;
 	}
 	.left-navbar{	
@@ -1654,7 +1716,7 @@
 		bottom: -10% !important;
 	}
 	
-	#scroll-position1, 
+	#scroll-position1, /*2014년*/
 	#scroll-position2,
 	#scroll-position3,
 	#scroll-position4,
@@ -1664,8 +1726,8 @@
 	#scroll-position8,
 	#scroll-position9,
 	#scroll-position10,
-	#scroll-position11,
-	#scroll-position12,
+	#scroll-position11,	/*2024년*/
+	#scroll-position12, /*2025년*/
 	#scroll-position13,
 	#scroll-position14,
 	#scroll-position15,
@@ -1674,8 +1736,12 @@
 	#scroll-position18,
 	#scroll-position19,
 	#scroll-position20,
-	#scroll-position21 {
-		/*네비클릭 후 스크롤 자동진행시의 여백 향후 수년치 미리 추가함*/
+	#scroll-position21,
+	#scroll-position22,
+	#scroll-position23,
+	#scroll-position24,
+	#scroll-position25 {
+		/*네비클릭 후 스크롤 자동진행시의 여백, 향후 수년치 미리 추가함*/
 		scroll-margin-top: 8rem;
 	}
 	

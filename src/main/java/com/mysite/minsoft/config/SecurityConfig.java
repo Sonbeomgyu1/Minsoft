@@ -16,46 +16,46 @@ import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 @EnableWebSecurity
 public class SecurityConfig {
 
-
 	@Bean
 	SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-	    http
-	        .authorizeRequests(authorizeRequests -> authorizeRequests
-	            .antMatchers("/", "/certification", "/login", "/signup", "/greetingpage", "/history",
-	                    "/businessdetails", "/solutions", "/itoutsourcingpage",
-	                    "/consulting", "/sism", "/recruitmentinfomation", "/welfare", "/contact", "/board",
-	                    "/check-db-connection", "/layout", "/images/**", "/assets/**",
-	                    "/docs/**", "/pages/**", "/sections/**", "/icon/**", "/public/**")
-	            .permitAll() // Allow access to these paths without authentication
-	            .anyRequest().authenticated()) // Require authentication for any other paths
-	        .formLogin(formLogin -> formLogin
-	            .loginPage("/login") // Custom login page
-	            .successHandler(savedRequestAwareAuthenticationSuccessHandler()) // Custom success handler
-	            .permitAll()) // Allow everyone to see the login page
-	        .logout(logout -> logout
-	            .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
-	            .logoutSuccessUrl("/")
-	            .invalidateHttpSession(true)) // Invalidate session on logout
-	        .csrf(csrf -> csrf.disable()) // Disable CSRF protection if necessary
-	        .sessionManagement(session -> session.invalidSessionUrl("/")); // Redirect to main page when the session is invalid
-	    return http.build();
+		http
+				.authorizeRequests(authorizeRequests -> authorizeRequests
+						.antMatchers("/", "/certification", "/login", "/signup", "/greetingpage", "/history",
+								"/businessdetails", "/solutions", "/itoutsourcingpage",
+								"/consulting", "/sism", "/recruitmentinfomation", "/welfare", "/contact", "/board",
+								"/check-db-connection", "/layout", "/images/**", "/assets/**",
+								"/docs/**", "/pages/**", "/sections/**", "/icon/**", "/public/**")
+						.permitAll() // Allow access to these paths without authentication
+						.anyRequest().authenticated()) // Require authentication for any other paths
+				.formLogin(formLogin -> formLogin
+						.loginPage("/login") // Custom login page
+						.successHandler(savedRequestAwareAuthenticationSuccessHandler()) // Custom success handler
+						.permitAll()) // Allow everyone to see the login page
+				.logout(logout -> logout
+						.logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
+						.logoutSuccessUrl("/")
+						.invalidateHttpSession(true)) // Invalidate session on logout
+				.csrf(csrf -> csrf.disable()) // Disable CSRF protection if necessary
+				.sessionManagement(session -> session.invalidSessionUrl("/")); // Redirect to main page when the session
+																				// is invalid
+		return http.build();
 	}
 
 	@Bean
-	 SavedRequestAwareAuthenticationSuccessHandler savedRequestAwareAuthenticationSuccessHandler() {
-	    SavedRequestAwareAuthenticationSuccessHandler successHandler = new SavedRequestAwareAuthenticationSuccessHandler();
-	    successHandler.setUseReferer(true); // 현재 페이지로 리다이렉트하기 위해 Referer를 사용합니다.
-	    return successHandler;
+	SavedRequestAwareAuthenticationSuccessHandler savedRequestAwareAuthenticationSuccessHandler() {
+		SavedRequestAwareAuthenticationSuccessHandler successHandler = new SavedRequestAwareAuthenticationSuccessHandler();
+		successHandler.setUseReferer(true); // 현재 페이지로 리다이렉트하기 위해 Referer를 사용합니다.
+		return successHandler;
 	}
 
-    @Bean
-    PasswordEncoder passwordEncoder() {
-        return new BCryptPasswordEncoder();
-    }
+	@Bean
+	PasswordEncoder passwordEncoder() {
+		return new BCryptPasswordEncoder();
+	}
 
-    @Bean
-    AuthenticationManager authenticationManager(AuthenticationConfiguration authenticationConfiguration)
-            throws Exception {
-        return authenticationConfiguration.getAuthenticationManager();
-    }
+	@Bean
+	AuthenticationManager authenticationManager(AuthenticationConfiguration authenticationConfiguration)
+			throws Exception {
+		return authenticationConfiguration.getAuthenticationManager();
+	}
 }
