@@ -304,26 +304,16 @@
 											</div>
 										</a>
 									</li>
-									
 								</ul>
 							</div>
 
 						</div>
-						
 					</li>
-				
 
 				</ul>
-				
-
 				<a th:href="@{/login}" sec:authorize="isAnonymous()"><button class="styled-button">Admin</button></a>
 				<a th:href="@{/logout}" sec:authorize="isAuthenticated()"><button
 						class="styled-button">logout</button></a>
-						
-	<a sec:authorize="isAuthenticated()" id="minsoftLink" onclick="redirectToExternalIP()">
-    <button class="button">Minsoft</button>
-</a>
-						
 			</div>
 
 
@@ -354,48 +344,74 @@
 		</div>
 	</header>
 	<!-- -------- END HEADER 11 w/ carousel ------- -->
-
 	<main>
-	<div class="row">
-    <div class="row justify-content-center">
-        <h2 class="gong">공지사항</h2>
-        <div sec:authorize="isAuthenticated()" style="margin-left:149%;">
-            <button type="button" class="btn custom-btn" id="writeButton">글 쓰기</button>
+	    <section class="py-7 bg-gray-100 position-relative">
+        <div class="custom-container">
+            <div class="row">
+                <div class="col-lg-6 mx-auto text-center">
+                    <h2>게시글 작성</h2>
+                </div>
+            </div>
+            <div class="row mt-5">
+                <div class="col-lg-10 mx-auto">
+                    <div class="card custom-card">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <form id="contact-form" method="post" autocomplete="off">
+                                    <div class="card-body position-relative p-3 ps-0">
+                                        <div class="form-container mx-auto">
+                                            <div>
+                                                <label>제목</label>
+                                                <div class="input-group mb-4">
+                                                    <input type="text" class="form-control" placeholder="eg. lucas@creative-tim.com">
+                                                </div>
+                                            </div>
+                                            <div class="form-group mt-4">
+                                                <label>내용</label>
+                                                <textarea name="message" class="form-control" id="message" rows="6" style="padding: 100px;"></textarea>
+                                            </div>
+                                            
+                                            <div class="file-upload">
+                                                <input type="file" id="file" name="file" onchange="displayFileName()">
+                                                <label for="file">첨부파일</label>
+                                                <div class="file-name" id="file-name"></div>
+                                            </div>
+                                            
+                                            <label>공개여부</label>
+                                            <div class="d-flex justify-content-center">
+                                                <div>
+                                                    <div class="form-check me-3">
+                                                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" checked>
+                                                        <label class="form-check-label" for="flexRadioDefault1">
+                                                            공개
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                                <div>
+                                                    <div class="form-check me-3">
+                                                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2">
+                                                        <label class="form-check-label" for="flexRadioDefault2">
+                                                            비공개
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="text-end-btn mt-4">
+                                                <button type="button" class="btn bg-gradient-dark mb-0">등록</button>
+                                                
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-    </div>
-</div>
-
-
-
-		<div class="row">
-			<div class="offset-2 col-8">
-				<table class="table list-table table-hover text-center" style="margin-top: 2%;">
-					<thead style="background-color: gainsboro">
-						<tr>
-							<th style="width: 10%">번호</th>
-							<th style="width: 45%">제목</th>
-							<th style="width: 10%">작성자</th>
-							<th style="width: 10%">공개/비공개</th>
-							
-						</tr>
-					</thead>
-					<tbody>
-						<tr th:each="board: ${boards}"
-							th:onclick="|location.href='@{/boards/{category}/{boardId} (category=${category}, boardId=${board.id})}'|">
-							<td style="width: 20%" th:text="${board.user.nickname}" />
-							<td style="width: 45%" th:text="${board.title}" />
-							<td style="width: 10%" th:text="${board.likeCnt}" />
-							<td style="width: 10%" th:text="${board.commentCnt}" />
-							<td style="width: 15%" th:text="${#temporals.format(board.createdAt, 'yy/MM/dd HH:mm')}" />
-						</tr>
-					</tbody>
-				</table>
-			</div>
-			<ul id="paging-ul" class="pagination justify-content-center"></ul>
-		</div>
+    </section>
 
 	</main>
-
 	<footer id="footer">
 		<div class="row text">
 			<div class="col-lg-6 footer-contact">
@@ -435,7 +451,7 @@
 	<!--  Google Maps Plugin    -->
 	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDTTfWur0PDbZWPr7Pmq8K3jiDp0_xUziI"></script>
 	<script src="../../assets/js/soft-design-system-pro.min.js?v=1.1.0" type="text/javascript"></script>
-	<script th:inline="javascript">
+	<script>
 		if (document.getElementById('language-select')) {
 			var element = document.getElementById('language-select');
 			const example = new Choices(element, {
@@ -459,30 +475,7 @@
 				navbar.classList.remove('fixed-top'); // 일반 위치로 설정
 			}
 		});
-		/*글쓰기 버튼 클릭시 글쓰기 페이지 이동하는 스크립트*/
-		document.getElementById("writeButton").addEventListener("click", function () {
-			window.location.href = "/boardwriting";
-		});
 
-		/*<![CDATA[*/  /*로그인했을시 글쓰기 버튼 활성화 스크립트*/
-		var isLoggedIn = /*[[${#authorization.expression('isAuthenticated()')}]]*/ false;
-		window.onload = function () {
-			updateButtonStatus();
-		}
-
-		function updateButtonStatus() {
-			var writeButton = document.getElementById('writeButton');
-			if (isLoggedIn) {
-				writeButton.disabled = false;
-			} else {
-				writeButton.disabled = true;
-			}
-		}
-		/*]]>*/
-		<!-- 민소프트 ip 주소 변경 스크립트-->
-		 function redirectToExternalIP() {
-        window.location.href = 'http://192.168.0.19:8178/login';
-    }
 	</script>
 </body>
 <style>
@@ -498,57 +491,11 @@
 
 	}
 
-	.btn {
-		/*배너 사진밑에 버튼 CSS*/
 
-		padding: 10px 50px;
-		/* 버튼의 내부 여백을 조정합니다. */
-		margin: 50px;
-		/* 버튼 사이의 간격을 설정합니다. */
-		color: black;
-		background-color: white;
-		font-size: 30px;
-		font-weight: 500;
-		/* 글자를 굵게 설정합니다. */
-	}
-
-	.mainbutton {
-		/*배너 아래 버튼 마진 css*/
-		text-align: center;
-		margin-bottom: 70px;
-
-	}
-
-	.btn-light:hover {
-		/*버튼 호버 색상 변경*/
-		color: white;
-		/* 호버시 텍스트 색상 변경 */
-		background-color: lightgrey;
-		/* 호버시 배경색 변경 */
-		border-color: blue;
-		/* 호버시 테두리 색상 변경 */
-	}
-
-	.mainbutton .btn {
-		border: none;
-		/* 버튼 테두리를 없앱니다 */
-	}
-
-	.btn-custom-small {
-		padding: 0.25rem 0.5rem;
-		font-size: 0.875rem;
-	}
-
-	.btn-more-right {
-		margin-right: 2rem;
-		/* Adjust the value as needed */
-	}
 
 	/*헤더 부분 css 끝*/
 
 	/*main시작 css*/
-	
-	
 	/*admin 버튼 css*/
 
 	.styled-button {
@@ -585,36 +532,116 @@
 		transform: translateY(-50%) translateY(2px);
 	}
 
+	/*글쓰기 상세페이지 css 시작*/
+*내용 가운데로 */
+	  /* 기본 설정 */
+            body {
+            font-family: 'Noto Sans KR', sans-serif; /* 한국어 폰트 적용 */
+            margin: 0;
+            padding: 0;
+            background-color: #f4f6f9; /* 전체 배경색 */
+        }
 
-	.custom-btn {
-    background-color: #5e72e4; /* Change to desired background color */
-    color: white; /* Set text color to white */
-    border: none; /* Remove outline */
-    padding: 8px 16px; /* Padding adjustment */
-    cursor: pointer; /* Change mouse cursor */
-    margin-right: 10px; /* 수정: 버튼 간격 조정 */
-    
-}
+        /* 폼 컨테이너 스타일 */
+        .form-container {
+            display: flex;
+            flex-direction: column;
+           
+            width: 100%;
+        }
+        .form-container .form-control,
+        .form-container textarea {
+            width: 100% !important; /* 전체 너비 */
+            max-width: 100% ; /* 최대 너비 설정 */
+            font-size: 1.5rem; /* 기본 글자 크기 */
+            padding: 15px; /* 패딩 추가 */
+            box-sizing: border-box; /* 테두리와 패딩 포함한 박스 크기 */
+            
+             .form-container textarea {
+            height: 500px; /* 텍스트 영역 높이 설정 */
+        }
+            
+            
+        }
+        .text-end-btn {
+            display: flex;
+            justify-content: center; /* 중앙 정렬 */
+            gap: 20px;
+            margin-top: 20px; /* 상단 마진 추가 */
+        }
 
-.custom-btn:disabled {
-    background-color: #cccccc;
-    /* 비활성화된 상태의 배경색 */
-    cursor: not-allowed;
-    /* 비활성화된 상태의 커서 */
-}
+        .text-end-btn button {
+            background-color: #007BFF; /* 버튼 배경색 */
+            color: white; /* 버튼 글자색 */
+            border: none; /* 테두리 제거 */
+            padding: 10px 20px; /* 패딩 */
+            border-radius: 5px; /* 둥근 모서리 */
+            cursor: pointer; /* 커서 변경 */
+            transition: background-color 0.3s ease; /* 배경색 전환 효과 */
+            font-size: 1rem; /* 버튼 글자 크기 */
+        }
 
-.gong {
-    margin-right: auto; /* 공지사항을 왼쪽으로 붙임 */
-    margin-bottom: 0; /* 공지사항과 버튼 간격 조정 */
-    font-size: 50px;
-		/* 원하는 크기로 조정 */
-		text-align: center;
-		margin-top: 90px;
+        .text-end-btn button:hover {
+            background-color: #0056b3; /* 호버 시 배경색 */
+        }
 
-}
+        .text-end-btn .delete-button {
+            background-color: #dc3545; /* 삭제 버튼 배경색 */
+        }
 
+        .text-end-btn .delete-button:hover {
+            background-color: #c82333; /* 호버 시 삭제 버튼 배경색 */
+        }
 
+        .custom-container {
+            padding-top: 70px;
+            padding-bottom: 70px;
+        }
 
+        .custom-card {
+            padding: 20px;
+            max-width: 800px; /* 카드 최대 너비 */
+            margin: 0 auto; /* 수평 중앙 정렬 */
+        }
+
+        .custom-card .card-body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%; /* 전체 너비 사용 */
+        }
+
+        .custom-card .form-check-label,
+        .custom-card label {
+            font-size: 1.2rem; /* 레이블 글자 크기 */
+        }
+
+         .file-upload {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .file-upload input[type="file"] {
+            display: none; /* 파일 입력 숨김 */
+        }
+
+        .file-upload label {
+            cursor: pointer;
+            padding: 10px 20px;
+            border-radius: 5px;
+            background-color: #007BFF;
+            color: white;
+            transition: background-color 0.3s ease;
+            font-size: 1rem; /* 파일 업로드 버튼 글자 크기 */
+        }
+
+        .file-upload label:hover {
+            background-color: #0056b3; /* 호버 시 배경색 */
+        }
+	
+	/*글쓰기 상세페이지 css 끝*/
 	/*main css 끝*/
 	/*푸터 css 시작 */
 	.min {
