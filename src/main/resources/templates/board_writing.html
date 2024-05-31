@@ -304,26 +304,16 @@
 											</div>
 										</a>
 									</li>
-									
 								</ul>
 							</div>
 
 						</div>
-						
 					</li>
-				
 
 				</ul>
-				
-
 				<a th:href="@{/login}" sec:authorize="isAnonymous()"><button class="styled-button">Admin</button></a>
 				<a th:href="@{/logout}" sec:authorize="isAuthenticated()"><button
 						class="styled-button">logout</button></a>
-						
-	<a sec:authorize="isAuthenticated()" id="minsoftLink" onclick="redirectToExternalIP()">
-    <button class="button">Minsoft</button>
-</a>
-						
 			</div>
 
 
@@ -354,48 +344,35 @@
 		</div>
 	</header>
 	<!-- -------- END HEADER 11 w/ carousel ------- -->
-
 	<main>
-	<div class="row">
-    <div class="row justify-content-center">
-        <h2 class="gong">공지사항</h2>
-        <div sec:authorize="isAuthenticated()" style="margin-left:149%;">
-            <button type="button" class="btn custom-btn" id="writeButton">글 쓰기</button>
-        </div>
-    </div>
-</div>
-
-
-
-		<div class="row">
-			<div class="offset-2 col-8">
-				<table class="table list-table table-hover text-center" style="margin-top: 2%;">
-					<thead style="background-color: gainsboro">
-						<tr>
-							<th style="width: 10%">번호</th>
-							<th style="width: 45%">제목</th>
-							<th style="width: 10%">작성자</th>
-							<th style="width: 10%">공개/비공개</th>
-							
-						</tr>
-					</thead>
-					<tbody>
-						<tr th:each="board: ${boards}"
-							th:onclick="|location.href='@{/boards/{category}/{boardId} (category=${category}, boardId=${board.id})}'|">
-							<td style="width: 20%" th:text="${board.user.nickname}" />
-							<td style="width: 45%" th:text="${board.title}" />
-							<td style="width: 10%" th:text="${board.likeCnt}" />
-							<td style="width: 10%" th:text="${board.commentCnt}" />
-							<td style="width: 15%" th:text="${#temporals.format(board.createdAt, 'yy/MM/dd HH:mm')}" />
-						</tr>
-					</tbody>
-				</table>
-			</div>
-			<ul id="paging-ul" class="pagination justify-content-center"></ul>
+		<div class="form-container">
+			<h2>글 작성하기</h2>
+			<form action="/submit-post" method="post" enctype="multipart/form-data">
+				<div class="form-group">
+					<label for="title">제목</label>
+					<input type="text" id="title" name="title" required>
+				</div>
+				<div class="form-group">
+					<label for="content">내용</label>
+					<textarea id="content" name="content" rows="10" required></textarea>
+				</div>
+				<div class="form-group">
+					<label for="files">첨부 파일</label>
+					<input type="file" id="files" name="files" multiple>
+				</div>
+				<div class="form-group">
+					<label for="status">공개 상태</label>
+					<select id="status" name="status" required>
+						<option value="public">공개</option>
+						<option value="private">비공개</option>
+					</select>
+				</div>
+				<div class="form-group">
+					<button type="submit">등록</button>
+				</div>
+			</form>
 		</div>
-
 	</main>
-
 	<footer id="footer">
 		<div class="row text">
 			<div class="col-lg-6 footer-contact">
@@ -435,7 +412,7 @@
 	<!--  Google Maps Plugin    -->
 	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDTTfWur0PDbZWPr7Pmq8K3jiDp0_xUziI"></script>
 	<script src="../../assets/js/soft-design-system-pro.min.js?v=1.1.0" type="text/javascript"></script>
-	<script th:inline="javascript">
+	<script>
 		if (document.getElementById('language-select')) {
 			var element = document.getElementById('language-select');
 			const example = new Choices(element, {
@@ -459,30 +436,7 @@
 				navbar.classList.remove('fixed-top'); // 일반 위치로 설정
 			}
 		});
-		/*글쓰기 버튼 클릭시 글쓰기 페이지 이동하는 스크립트*/
-		document.getElementById("writeButton").addEventListener("click", function () {
-			window.location.href = "/boardwriting";
-		});
 
-		/*<![CDATA[*/  /*로그인했을시 글쓰기 버튼 활성화 스크립트*/
-		var isLoggedIn = /*[[${#authorization.expression('isAuthenticated()')}]]*/ false;
-		window.onload = function () {
-			updateButtonStatus();
-		}
-
-		function updateButtonStatus() {
-			var writeButton = document.getElementById('writeButton');
-			if (isLoggedIn) {
-				writeButton.disabled = false;
-			} else {
-				writeButton.disabled = true;
-			}
-		}
-		/*]]>*/
-		<!-- 민소프트 ip 주소 변경 스크립트-->
-		 function redirectToExternalIP() {
-        window.location.href = 'http://192.168.0.19:8178/login';
-    }
 	</script>
 </body>
 <style>
@@ -498,57 +452,11 @@
 
 	}
 
-	.btn {
-		/*배너 사진밑에 버튼 CSS*/
 
-		padding: 10px 50px;
-		/* 버튼의 내부 여백을 조정합니다. */
-		margin: 50px;
-		/* 버튼 사이의 간격을 설정합니다. */
-		color: black;
-		background-color: white;
-		font-size: 30px;
-		font-weight: 500;
-		/* 글자를 굵게 설정합니다. */
-	}
-
-	.mainbutton {
-		/*배너 아래 버튼 마진 css*/
-		text-align: center;
-		margin-bottom: 70px;
-
-	}
-
-	.btn-light:hover {
-		/*버튼 호버 색상 변경*/
-		color: white;
-		/* 호버시 텍스트 색상 변경 */
-		background-color: lightgrey;
-		/* 호버시 배경색 변경 */
-		border-color: blue;
-		/* 호버시 테두리 색상 변경 */
-	}
-
-	.mainbutton .btn {
-		border: none;
-		/* 버튼 테두리를 없앱니다 */
-	}
-
-	.btn-custom-small {
-		padding: 0.25rem 0.5rem;
-		font-size: 0.875rem;
-	}
-
-	.btn-more-right {
-		margin-right: 2rem;
-		/* Adjust the value as needed */
-	}
 
 	/*헤더 부분 css 끝*/
 
 	/*main시작 css*/
-	
-	
 	/*admin 버튼 css*/
 
 	.styled-button {
@@ -585,36 +493,125 @@
 		transform: translateY(-50%) translateY(2px);
 	}
 
-
-	.custom-btn {
-    background-color: #5e72e4; /* Change to desired background color */
-    color: white; /* Set text color to white */
-    border: none; /* Remove outline */
-    padding: 8px 16px; /* Padding adjustment */
-    cursor: pointer; /* Change mouse cursor */
-    margin-right: 10px; /* 수정: 버튼 간격 조정 */
-    
+	/*글쓰기 상세페이지 css 시작*/
+/* Overall Page Style */
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f4f6f9;
+  color: #333;
+  margin: 0;
+  padding: 0;
 }
 
-.custom-btn:disabled {
-    background-color: #cccccc;
-    /* 비활성화된 상태의 배경색 */
-    cursor: not-allowed;
-    /* 비활성화된 상태의 커서 */
+/* Form Container */
+.form-container {
+  background-color: #fff;
+  padding: 2rem;
+  border-radius: 12px;
+  max-width: 600px;
+  margin: 2rem auto;
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
 }
 
-.gong {
-    margin-right: auto; /* 공지사항을 왼쪽으로 붙임 */
-    margin-bottom: 0; /* 공지사항과 버튼 간격 조정 */
-    font-size: 50px;
-		/* 원하는 크기로 조정 */
-		text-align: center;
-		margin-top: 90px;
-
+.form-container:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.2);
 }
 
+/* Form Heading */
+.form-container h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  color: #5e72e4;
+  border-bottom: 2px solid #e9ecef;
+  padding-bottom: 1rem;
+}
 
+/* Form Groups */
+.form-group {
+  margin-bottom: 1.5rem;
+}
 
+/* Form Labels */
+.form-group label {
+  display: block;
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: #5e72e4;
+}
+
+/* Input Fields */
+.form-group input[type="text"],
+.form-group textarea,
+.form-group input[type="file"],
+.form-group select {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: border-color 0.3s, box-shadow 0.3s;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.form-group input[type="text"]:focus,
+.form-group textarea:focus,
+.form-group input[type="file"]:focus,
+.form-group select:focus {
+  border-color: #5e72e4;
+  box-shadow: 0 0 5px rgba(94, 114, 228, 0.5);
+  outline: none;
+}
+
+/* Textarea */
+.form-group textarea {
+  resize: vertical;
+}
+
+/* Submit Button */
+.form-group button {
+  width: 100%;
+  padding: 0.75rem;
+  background-color: #5e72e4;
+  color: #fff;
+  font-size: 1.2rem;
+  font-weight: 700;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
+}
+
+.form-group button:hover {
+  background-color: #324cdd;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Additional Styles for Better Aesthetics */
+.form-container form {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group input[type="file"] {
+  padding: 0.75rem;
+}
+
+.form-group select {
+  appearance: none;
+  background-image: url('data:image/svg+xml;utf8,<svg fill="%235e72e4" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>');
+  background-repeat: no-repeat;
+  background-position: right 0.75rem center;
+  background-size: 1.5rem 1.5rem;
+  padding-right: 2.5rem;
+}
+
+	/*글쓰기 상세페이지 css 끝*/
 	/*main css 끝*/
 	/*푸터 css 시작 */
 	.min {
