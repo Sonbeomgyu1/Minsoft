@@ -16,4 +16,10 @@ public class BoardController {
 	    public String boardDetail() {
 	        return "board_detail"; 
 	    }
+	 
+	 @GetMapping("/boardedit") //공지사항 컨트롤러
+	    public String boardEdit() {
+	        return "board_edit_delete"; 
+	    }
+	 
 }
