@@ -12,7 +12,7 @@ public class BoardController {
 	        return "board"; 
 	    }
 	 
-	 @GetMapping("/boarddetail") //공지사항 상세페에지 컨트롤러
+	 @GetMapping("/boarddetail") //공지사항 상세페이지 컨트롤러
 	    public String boardDetail() {
 	        return "board_detail"; 
 	    }	
@@ -22,7 +22,7 @@ public class BoardController {
 	        return "board_writing"; 
 	    }
 	 
-	 @GetMapping("/boardedit") //공지사항 컨트롤러
+	 @GetMapping("/boardedit") //공지사항 수정삭제
 	    public String boardEdit() {
 	        return "board_edit_delete"; 
 	    }
