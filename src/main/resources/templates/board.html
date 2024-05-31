@@ -304,16 +304,26 @@
 											</div>
 										</a>
 									</li>
+									
 								</ul>
 							</div>
 
 						</div>
+						
 					</li>
+				
 
 				</ul>
+				
+
 				<a th:href="@{/login}" sec:authorize="isAnonymous()"><button class="styled-button">Admin</button></a>
 				<a th:href="@{/logout}" sec:authorize="isAuthenticated()"><button
 						class="styled-button">logout</button></a>
+						
+	<a sec:authorize="isAuthenticated()" id="minsoftLink" onclick="redirectToExternalIP()">
+    <button class="button">Minsoft</button>
+</a>
+						
 			</div>
 
 
@@ -346,11 +356,11 @@
 	<!-- -------- END HEADER 11 w/ carousel ------- -->
 
 	<main>
-	<div class="container">
+	<div class="row">
     <div class="row justify-content-center">
         <h2 class="gong">공지사항</h2>
-        <div sec:authorize="isAuthenticated()">
-            <button type="button" class="btn custom-btn" id="writeButton">글쓰기</button>
+        <div sec:authorize="isAuthenticated()" style="margin-left:149%;">
+            <button type="button" class="btn custom-btn" id="writeButton">글 쓰기</button>
         </div>
     </div>
 </div>
@@ -359,14 +369,14 @@
 
 		<div class="row">
 			<div class="offset-2 col-8">
-				<table class="table list-table table-hover text-center">
+				<table class="table list-table table-hover text-center" style="margin-top: 2%;">
 					<thead style="background-color: gainsboro">
 						<tr>
 							<th style="width: 10%">번호</th>
 							<th style="width: 45%">제목</th>
 							<th style="width: 10%">작성자</th>
 							<th style="width: 10%">공개/비공개</th>
-							<th style="width: 10%">파일</th>
+							
 						</tr>
 					</thead>
 					<tbody>
@@ -469,6 +479,10 @@
 			}
 		}
 		/*]]>*/
+		<!-- 민소프트 ip 주소 변경 스크립트-->
+		 function redirectToExternalIP() {
+        window.location.href = 'http://192.168.0.19:8178/login';
+    }
 	</script>
 </body>
 <style>
@@ -533,6 +547,8 @@
 	/*헤더 부분 css 끝*/
 
 	/*main시작 css*/
+	
+	
 	/*admin 버튼 css*/
 
 	.styled-button {
@@ -569,31 +585,35 @@
 		transform: translateY(-50%) translateY(2px);
 	}
 
-	.gong {
-		font-size: 50px;
-		/* 원하는 크기로 조정 */
-		text-align: center;
-		margin-top: 90px;
-
-	}
 
 	.custom-btn {
     background-color: #5e72e4; /* Change to desired background color */
     color: white; /* Set text color to white */
-    margin-left: 20px; /* Set right margin */
     border: none; /* Remove outline */
-    padding: 2px 10px; /* Padding adjustment */
+    padding: 8px 16px; /* Padding adjustment */
     cursor: pointer; /* Change mouse cursor */
-    margin-left: 80%;
+    margin-right: 10px; /* 수정: 버튼 간격 조정 */
+    
+}
+
+.custom-btn:disabled {
+    background-color: #cccccc;
+    /* 비활성화된 상태의 배경색 */
+    cursor: not-allowed;
+    /* 비활성화된 상태의 커서 */
+}
+
+.gong {
+    margin-right: auto; /* 공지사항을 왼쪽으로 붙임 */
+    margin-bottom: 0; /* 공지사항과 버튼 간격 조정 */
+    font-size: 50px;
+		/* 원하는 크기로 조정 */
+		text-align: center;
+		margin-top: 90px;
+
 }
 
 
-	.custom-btn:disabled {
-		background-color: #cccccc;
-		/* 비활성화된 상태의 배경색 */
-		cursor: not-allowed;
-		/* 비활성화된 상태의 커서 */
-	}
 
 	/*main css 끝*/
 	/*푸터 css 시작 */
