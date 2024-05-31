@@ -295,7 +295,7 @@
 	                        <ul class="list-group">
 	                           <li class="nav-item list-group-item border-0 p-0">
 	                              <a class="dropdown-item py-2 ps-3 border-radius-md"
-	                                 href=" https://www.creative-tim.com/learning-lab/bootstrap-marketplace/overview/soft-ui-design-system ">
+	                                 href="/board">
 	                                 <div class="d-flex">
 	
 	                                    <div>
@@ -345,11 +345,11 @@
 	<!-- -------- END HEADER 11 w/ carousel ------- -->
 	<main>
 		<div class="mainbutton">
-			<a href="/businessdetails" class="btn btn-light" id="btn-history5">사업내용</a>
-			<a href="/itoutsourcingpage" class="btn btn-light" id="btn-history5">IT 아웃소싱</a>
-			<a href="/sism" class="btn btn-light" id="btn-history5">SI / SM</a>
-			<a href="/consulting" class="btn btn-light" id="btn-history5">컨설팅</a>
-			<a href="/solutions" class="btn btn-light" id="btn-history5">솔루션</a>
+			<a href="/businessdetails" class="btn btn-light" id="btn-main-top-buttons">사업내용</a>
+			<a href="/itoutsourcingpage" class="btn btn-light" id="btn-main-top-buttons">IT 아웃소싱</a>
+			<a href="/sism" class="btn btn-light" id="btn-main-top-buttons">SI / SM</a>
+			<a href="/consulting" class="btn btn-light" id="btn-main-top-buttons">컨설팅</a>
+			<a href="/solutions" class="btn btn-light" id="btn-main-top-buttons">솔루션</a>
 		</div>
 
 		
@@ -1588,6 +1588,7 @@
 		margin: 0;
 		/* Remove any default margin */
 		/* color: #344767 !important; */
+		font-family: 'GmarketSansMedium';
 	}
 
 	.btn {
@@ -1625,12 +1626,27 @@
 		border: none;
 		/* 버튼 테두리를 없앱니다 */
 	}
-
+	.dropdown-header{
+		/*드롭다운 폰트설정*/
+		font-family: 'Pretendard-Regular';
+	}
 
 	/*헤더 부분 css 끝*/
 
 	/*main시작 css*/
 	/* 폰트추가 */
+	@font-face {
+	    font-family: 'Pretendard-Regular';
+	    src: url('https://fastly.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+	    font-weight: 400;
+	    font-style: normal;
+	}
+	@font-face {
+	    font-family: 'GmarketSansMedium';
+	    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
+	    font-weight: normal;
+	    font-style: normal;
+	}
 	@font-face {
 	 font-family: 'NanumBarunGothic';
 	 font-style: normal;
@@ -1640,7 +1656,7 @@
 	}
 	
 	/*상단 5개 버튼 폰트 수정*/
-	#btn-history5{
+	#btn-main-top-buttons{
 		 font-family: 'NanumBarunGothic';
 		 font-weight: 500;
 	}

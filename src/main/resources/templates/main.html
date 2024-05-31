@@ -36,6 +36,7 @@
 	<link href="../../assets/css/nucleo-svg.css" rel="stylesheet" />
 	<!-- CSS Files -->
 	<link id="pagestyle" href="../../assets/css/soft-design-system-pro.css?v=1.1.0" rel="stylesheet" />
+	<link href="https://fonts.googleapis.com/css?family=Nanum+Gothic&display=swap" rel="stylesheet">
 </head>
 
 <body class="blog-posts">
@@ -72,7 +73,7 @@
 							<div class="d-none d-lg-block">
 								<ul class="list-group">
 									<li class="nav-item list-group-item border-0 p-0">
-										<a class="dropdown-item py-2 ps-3 border-radius-md" href=" /greetingpage ">
+										<a class="dropdown-item py-2 ps-3 border-radius-md" href="/greetingpage">
 											<div class="d-flex">
 
 												<div>
@@ -98,7 +99,7 @@
 										</a>
 									</li>
 									<li class="nav-item list-group-item border-0 p-0">
-										<a class="dropdown-item py-2 ps-3 border-radius-md" href="/certification ">
+										<a class="dropdown-item py-2 ps-3 border-radius-md" href="/certification">
 											<div class="d-flex">
 
 												<div>
@@ -142,7 +143,7 @@
 										</a>
 									</li>
 									<li class="nav-item list-group-item border-0 p-0">
-										<a class="dropdown-item py-2 ps-3 border-radius-md" href=" /itoutsourcingpage ">
+										<a class="dropdown-item py-2 ps-3 border-radius-md" href="/itoutsourcingpage">
 											<div class="d-flex">
 
 												<div>
@@ -155,7 +156,7 @@
 										</a>
 									</li>
 									<li class="nav-item list-group-item border-0 p-0">
-										<a class="dropdown-item py-2 ps-3 border-radius-md" href=" /sism ">
+										<a class="dropdown-item py-2 ps-3 border-radius-md" href="/sism">
 											<div class="d-flex">
 
 												<div>
@@ -168,7 +169,7 @@
 										</a>
 									</li>
 									<li class="nav-item list-group-item border-0 p-0">
-										<a class="dropdown-item py-2 ps-3 border-radius-md" href=" /consulting ">
+										<a class="dropdown-item py-2 ps-3 border-radius-md" href="/consulting">
 											<div class="d-flex">
 
 												<div>
@@ -181,7 +182,7 @@
 										</a>
 									</li>
 									<li class="nav-item list-group-item border-0 p-0">
-										<a class="dropdown-item py-2 ps-3 border-radius-md" href="/solutions ">
+										<a class="dropdown-item py-2 ps-3 border-radius-md" href="/solutions">
 											<div class="d-flex">
 
 												<div>
@@ -211,7 +212,7 @@
 							<div class="d-none d-lg-block">
 								<ul class="list-group">
 									<li class="nav-item list-group-item border-0 p-0">
-										<a class="dropdown-item py-2 ps-3 border-radius-md" href=" /welfare ">
+										<a class="dropdown-item py-2 ps-3 border-radius-md" href="/welfare">
 											<div class="d-flex">
 
 												<div>
@@ -224,8 +225,7 @@
 										</a>
 									</li>
 									<li class="nav-item list-group-item border-0 p-0">
-										<a class="dropdown-item py-2 ps-3 border-radius-md"
-											href=" /recruitmentinfomation ">
+										<a class="dropdown-item py-2 ps-3 border-radius-md" href=" /recruitmentinfomation">
 											<div class="d-flex">
 
 												<div>
@@ -1196,6 +1196,7 @@
 		/* Adjust as needed */
 		margin: 0;
 		/* Remove any default margin */
+		font-family: 'GmarketSansMedium';
 
 	}
 
@@ -1244,7 +1245,10 @@
 		height: 850px;
 		/* 이미지의 원하는 높이로 조정합니다. */
 	}
-
+	.dropdown-header{
+		/*드롭다운 폰트설정*/
+		font-family: 'Pretendard-Regular';
+	}
 
 
 	/*헤더 부분 css 끝*/
@@ -1270,6 +1274,7 @@
 		cursor: pointer;
 		border-radius: 12px;
 		transition: background-color 0.3s, box-shadow 0.3s, color 0.3s;
+		font-family: 'GmarketSansMedium';
 	}
 
 	.styled-button:hover {
@@ -1285,7 +1290,26 @@
 		box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
 		transform: translateY(-50%) translateY(2px);
 	}
-
+	/*폰트추가*/
+	@font-face {
+	    font-family: 'Pretendard-Regular';
+	    src: url('https://fastly.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+	    font-weight: 400;
+	    font-style: normal;
+	}
+	@font-face {
+	    font-family: 'GmarketSansMedium';
+	    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
+	    font-weight: normal;
+	    font-style: normal;
+	}
+	@font-face {
+		font-family: 'NanumBarunGothic';
+		font-style: normal;
+		font-weight: 400;
+		src: url('//fastly.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWeb.eot');
+		src: url('//fastly.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWeb.eot?#iefix') format('embedded-opentype'), url('//fastly.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWeb.woff') format('woff'), url('//fastly.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWeb.ttf') format('truetype');
+	}
 	/*main css 끝*/
 	/*푸터 css 시작 */
 	.min {
@@ -1493,6 +1517,7 @@
 	.content-section-heading h2,
 	.content-section-heading .h2 {
 		font-size: 3rem;
+		font-family: 'GmarketSansMedium';
 	}
 
 	.content-section-heading h3,
@@ -1534,7 +1559,13 @@
 	.portfolio-item .caption .caption-content p {
 		font-weight: 300;
 		font-size: 1.2rem;
+		font-family: 'Nanum Gothic', sans-serif !important;
 	}
+	#history-heading,
+	.section-subheading {
+		font-family: 'GmarketSansMedium';
+	}
+
 
 	@media (min-width: 992px) {
 		.portfolio-item {
@@ -1589,6 +1620,7 @@
 
 	#biz {
 		font-size: 20px;
+		font-family: 'NanumBarunGothic';
 	}
 
 	/*비즈니스 끝*/
@@ -1910,11 +1942,16 @@
 	.timeline .timeline-heading h4.subheading,
 	.timeline .timeline-heading .subheading.h4 {
 		text-transform: none;
+		font-family: 'GmarketSansMedium';
 	}
 
 	.timeline .timeline-body>ul,
 	.timeline .timeline-body>p {
 		margin-bottom: 0;
+		font-family: 'Nanum Gothic', sans-serif;
+	}
+	.text-muted{
+		font-family: 'Nanum Gothic', sans-serif;
 	}
 
 	@media (min-width: 768px) {

@@ -40,7 +40,7 @@
 	<nav class="navbar navbar-expand-lg navbar-light bg-white py-3">
 
 	      <div class="container">
-	         <a class="navbar-brand font-weight-bold" href="#">
+	         <a class="navbar-brand font-weight-bold" href="/">
 	            <img src="/images/logo.jpg" alt="Soft UI PRO" style="max-width: 300px; height: 45PX;">
 	         </a>
 
@@ -295,7 +295,7 @@
 	                        <ul class="list-group">
 	                           <li class="nav-item list-group-item border-0 p-0">
 	                              <a class="dropdown-item py-2 ps-3 border-radius-md"
-	                                 href=" https://www.creative-tim.com/learning-lab/bootstrap-marketplace/overview/soft-ui-design-system ">
+	                                 href="/board">
 	                                 <div class="d-flex">
 
 	                                    <div>
@@ -343,9 +343,9 @@
 </header>	<!-- -------- 배너 헤더 END HEADER 11 w/ carousel ------- -->
 <main>
 		<div class="mainbutton">
-			<a href="/greetingpage" class="btn btn-light" id="btn-greeting3">인사말</a>
-			<a href="/history" class="btn btn-light" id="btn-greeting3">회사 연혁</a>
-			<a href="/certification" class="btn btn-light" id="btn-greeting3">기술 인증</a>
+			<a href="/greetingpage" class="btn btn-light" id="btn-main-top-buttons">인사말</a>
+			<a href="/history" class="btn btn-light" id="btn-main-top-buttons">회사 연혁</a>
+			<a href="/certification" class="btn btn-light" id="btn-main-top-buttons">기술 인증</a>
 		</div>
 		
 <!-- ==================== 메인 인사말 START HEADER 7 w/ card over right bg image ==================== -->
@@ -816,6 +816,7 @@ pb-lg-3 (padding-bottom : 1rem)
 		/* Adjust as needed */
 		margin: 0;
 		/* Remove any default margin */
+		font-family: 'GmarketSansMedium';
 
 	}
 
@@ -854,12 +855,27 @@ pb-lg-3 (padding-bottom : 1rem)
 		border: none;
 		/* 버튼 테두리를 없앱니다 */
 	}
-
+	.dropdown-header{
+		/*드롭다운 폰트설정*/
+		font-family: 'Pretendard-Regular';
+	}
 
 	/*헤더 부분 css 끝*/
 
 	/*main시작 css*/
 	/* 폰트 추가 */
+	@font-face {
+	    font-family: 'Pretendard-Regular';
+	    src: url('https://fastly.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+	    font-weight: 400;
+	    font-style: normal;
+	}
+	@font-face {
+	    font-family: 'GmarketSansMedium';
+	    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
+	    font-weight: normal;
+	    font-style: normal;
+	}
 	@font-face {
 		font-family: 'NanumBarunGothic';
 		font-style: normal;
@@ -867,14 +883,14 @@ pb-lg-3 (padding-bottom : 1rem)
 		src: url('//fastly.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWeb.eot');
 		src: url('//fastly.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWeb.eot?#iefix') format('embedded-opentype'), url('//fastly.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWeb.woff') format('woff'), url('//fastly.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWeb.ttf') format('truetype');
 	}
-	#btn-greeting3{
+	#btn-main-top-buttons{
 		/*상단 3개 버튼 폰트 수정*/
 		 font-family: 'NanumBarunGothic';
 		 font-weight: 500;
 	}
 	.greeting-title{
 		/*인사말 굵은 제목 폰트 수정*/
-		font-family: 'BookkGothic-Bd';
+		font-family: 'GmarketSansMedium';
 	}
 	.lead{
 		/* 인사말 내용 폰트변경*/
