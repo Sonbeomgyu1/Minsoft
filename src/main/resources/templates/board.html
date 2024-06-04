@@ -11,7 +11,7 @@
 
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software. -->
 <!DOCTYPE html>
-<html lang="en" itemscope itemtype="http://schema.org/WebPage">
+<html lang="en" itemscope itemtype="http://schema.org/WebPage" >
 
 <head>
 	<meta charset="utf-8" />
@@ -375,19 +375,18 @@
 							<th style="width: 10%">번호</th>
 							<th style="width: 45%">제목</th>
 							<th style="width: 10%">작성자</th>
-							<th style="width: 10%">공개/비공개</th>
+							<th style="width: 3%"></th>
 							
 						</tr>
 					</thead>
 					<tbody>
-						<tr th:each="board: ${boards}"
-							th:onclick="|location.href='@{/boards/{category}/{boardId} (category=${category}, boardId=${board.id})}'|">
-							<td style="width: 20%" th:text="${board.user.nickname}" />
-							<td style="width: 45%" th:text="${board.title}" />
-							<td style="width: 10%" th:text="${board.likeCnt}" />
-							<td style="width: 10%" th:text="${board.commentCnt}" />
-							<td style="width: 15%" th:text="${#temporals.format(board.createdAt, 'yy/MM/dd HH:mm')}" />
-						</tr>
+						 <tr th:each="board : ${boards}"
+                    th:onclick="|location.href='@{/boarddetail/{id}(id=${board.id})}'|">
+                    <td th:text="${board.id}"></td>
+                    <td th:text="${board.title}"></td>
+                    <td th:text="${board.author != null ? board.author.name : '관리자'}"></td>
+                    <td th:text="${board.isPublic ? '' : '🔒'}"></td>
+                </tr>
 					</tbody>
 				</table>
 			</div>
@@ -666,6 +665,13 @@
 	}
 
 	/*푸터 css 끝*/
+	
+	
+	
+	
+	
+	
+	
 </style>
 
 </html>

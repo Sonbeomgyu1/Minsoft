@@ -20,10 +20,11 @@ public class SecurityConfig {
 	SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
 		http
 				.authorizeRequests(authorizeRequests -> authorizeRequests
+						.antMatchers("/boardwriting").authenticated()// 글쓰기 페이지는 인증된 사용자만 접근 가능
 						.antMatchers("/", "/certification", "/login", "/signup", "/greetingpage", "/history",
 								"/businessdetails", "/solutions", "/itoutsourcingpage",
 
-								"/consulting", "/sism", "/recruitmentinfomation", "/welfare", "/contact", "/board","/boarddetail","/presentation","/boardedit","/boardwriting",
+								"/consulting", "/sism", "/recruitmentinfomation", "/welfare", "/contact", "/board","/boarddetail/**","/presentation","/boardedit",
 
 								"/check-db-connection", "/layout", "/images/**", "/assets/**",
 								"/docs/**", "/pages/**", "/sections/**", "/icon/**", "/public/**")
@@ -31,6 +32,7 @@ public class SecurityConfig {
 						.anyRequest().authenticated()) // Require authentication for any other paths
 				.formLogin(formLogin -> formLogin
 						.loginPage("/login") // Custom login page
+						 
 						.successHandler(savedRequestAwareAuthenticationSuccessHandler()) // Custom success handler
 						.permitAll()) // Allow everyone to see the login page
 				.logout(logout -> logout
