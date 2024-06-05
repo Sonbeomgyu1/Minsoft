@@ -346,69 +346,67 @@
 	<!-- -------- END HEADER 11 w/ carousel ------- -->
 	<main>
 	    <section class="py-7 bg-gray-100 position-relative">
-        <div class="custom-container">
-            <div class="row">
-                <div class="col-lg-6 mx-auto text-center">
-                    <h2>게시글 작성</h2>
-                </div>
-            </div>
-            <div class="row mt-5">
-                <div class="col-lg-10 mx-auto">
-                    <div class="card custom-card">
-                        <div class="row">
-                            <div class="col-lg-12">
-                                <form id="contact-form" method="post" autocomplete="off">
-                                    <div class="card-body position-relative p-3 ps-0">
-                                        <div class="form-container mx-auto">
-                                            <div>
-                                                <label>제목</label>
-                                                <div class="input-group mb-4">
-                                                    <input type="text" class="form-control" placeholder="eg. lucas@creative-tim.com">
-                                                </div>
+       <div class="custom-container">
+    <div class="row">
+        <div class="col-lg-6 mx-auto text-center">
+            <h2>게시글 작성</h2>
+        </div>
+    </div>
+    <div class="row mt-5">
+        <div class="col-lg-10 mx-auto">
+            <div class="card custom-card">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <form id="contact-form" method="post" action="/boardwriting" enctype="multipart/form-data" autocomplete="off">
+                            <div class="card-body position-relative p-3 ps-0">
+                                <div class="form-container mx-auto">
+                                    <div>
+                                        <label>제목</label>
+                                        <div class="input-group mb-4">
+                                            <input type="text" class="form-control" name="title" placeholder="제목을 입력하세요">
+                                        </div>
+                                    </div>
+                                    <div class="form-group mt-4">
+                                        <label>내용</label>
+                                        <textarea name="content" class="form-control" id="message" rows="6" style="padding: 100px;"></textarea>
+                                    </div>
+                                    <div class="file-upload">
+                                        <input type="file" id="file" name="file" onchange="displayFileName()">
+                                        <label for="file">첨부파일</label>
+                                        <div class="file-name" id="file-name"></div>
+                                    </div>
+                                    <label>공개여부</label>
+                                    <div class="d-flex justify-content-center">
+                                        <div>
+                                            <div class="form-check me-3">
+                                                <input class="form-check-input" type="radio" name="isPublic" id="flexRadioDefault1" value="1" >
+                                                <label class="form-check-label" for="flexRadioDefault1">
+                                                    공개
+                                                </label>
                                             </div>
-                                            <div class="form-group mt-4">
-                                                <label>내용</label>
-                                                <textarea name="message" class="form-control" id="message" rows="6" style="padding: 100px;"></textarea>
-                                            </div>
-                                            
-                                            <div class="file-upload">
-                                                <input type="file" id="file" name="file" onchange="displayFileName()">
-                                                <label for="file">첨부파일</label>
-                                                <div class="file-name" id="file-name"></div>
-                                            </div>
-                                            
-                                            <label>공개여부</label>
-                                            <div class="d-flex justify-content-center">
-                                                <div>
-                                                    <div class="form-check me-3">
-                                                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" checked>
-                                                        <label class="form-check-label" for="flexRadioDefault1">
-                                                            공개
-                                                        </label>
-                                                    </div>
-                                                </div>
-                                                <div>
-                                                    <div class="form-check me-3">
-                                                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2">
-                                                        <label class="form-check-label" for="flexRadioDefault2">
-                                                            비공개
-                                                        </label>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="text-end-btn mt-4">
-                                                <button type="button" class="btn bg-gradient-dark mb-0">등록</button>
-                                                
+                                        </div>
+                                        <div>
+                                            <div class="form-check me-3">
+                                                <input class="form-check-input" type="radio" name="isPublic" id="flexRadioDefault2" value="0" >
+                                                <label class="form-check-label" for="flexRadioDefault2">
+                                                    비공개
+                                                </label>
                                             </div>
                                         </div>
                                     </div>
-                                </form>
+                                    <div class="text-end-btn mt-4">
+                                        <button type="submit" class="btn bg-gradient-dark mb-0">등록</button>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
+                        </form>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
+</div>
+
     </section>
 
 	</main>

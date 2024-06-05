@@ -6,6 +6,8 @@ import lombok.Setter;
 
 import javax.persistence.*;
 
+import org.hibernate.annotations.Type;
+
 import com.mysite.minsoft.login.model.SiteUser;
 
 import java.io.Serializable;
@@ -29,11 +31,23 @@ public class Board implements Serializable {
     @ManyToOne
     @JoinColumn(name = "AUTHOR", referencedColumnName = "NAME")
     private SiteUser author;
-
+    
+    //@Type(type = "org.hibernate.type.NumericBooleanType")
     @Column(name = "ISPUBLIC", nullable = false)
     private boolean isPublic;
 
     @Lob
     @Column(name = "CONTENT", nullable = false)
     private String content;
+    
+    
+    //공개비공개 설정
+	/*
+	 * public void setIsPublicFromString(String isPublic) { this.isPublic =
+	 * "1".equals(isPublic); }
+	 */
+
+    public void setPublic(boolean isPublic) {
+        this.isPublic = isPublic;
+    }
 }
