@@ -11,7 +11,7 @@
 
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software. -->
 <!DOCTYPE html>
-<html lang="en" itemscope itemtype="http://schema.org/WebPage" >
+<html lang="en" itemscope itemtype="http://schema.org/WebPage">
 
 <head>
 	<meta charset="utf-8" />
@@ -380,19 +380,46 @@
 						</tr>
 					</thead>
 					<tbody>
-						 <tr th:each="board : ${boards}"
+						 <!--<tr th:each="board : ${boards}"
                     th:onclick="|location.href='@{/boarddetail/{id}(id=${board.id})}'|">
                     <td th:text="${board.id}"></td>
                     <td th:text="${board.title}"></td>
                     <td th:text="${board.author != null ? board.author.name : '관리자'}"></td>
                     <td th:text="${board.isPublic ? '' : '🔒'}"></td>
+                </tr>-->
+                 <tr th:each="board, iterStat : ${boards.content}"                 
+                    th:onclick="|location.href='@{/boarddetail/{id}(id=${board.id})}'|">
+                    <!--번호 재조정-->
+                    <!--<td th:text="${boards.totalElements - (boards.number * boards.size + iterStat.index)}"></td>-->
+                    <td th:text="${board.number}"></td>
+                    <!--<td th:text="${startNumber - iterStat.index}"></td>-->
+                    <td th:text="${board.title}"></td>
+                    <td th:text="${board.author != null ? board.author.name : '관리자'}"></td>
+                    <td th:text="${board.isPublic ? '' : '🔒'}"></td>
                 </tr>
+                
+                <!--페이징처리-->
+                	
 					</tbody>
 				</table>
+				
+         <div class="pagination justify-content-center">
+            <ul id="paging-ul" class="pagination">
+                <li class="page-item" th:classappend="${currentPage == 0} ? 'disabled' : ''">
+                    <a class="page-link" th:href="@{/board(page=${currentPage - 1}, size=${pageSize})}" aria-label="Previous">이전</a>
+                </li>
+                <li class="page-item" th:each="i : ${#numbers.sequence(1, totalPages)}"
+                    th:classappend="${i - 1 == currentPage} ? 'active' : ''">
+                    <a class="page-link" th:href="@{/board(page=${i - 1}, size=${pageSize})}" th:text="${i}">1</a>
+                </li>
+                <li class="page-item" th:classappend="${currentPage == totalPages - 1} ? 'disabled' : ''">
+                    <a class="page-link" th:href="@{/board(page=${currentPage + 1}, size=${pageSize})}" aria-label="Next">다음</a>
+                </li>
+            </ul>
+        </div>
 			</div>
-			<ul id="paging-ul" class="pagination justify-content-center"></ul>
+			
 		</div>
-
 	</main>
 
 	<footer id="footer">

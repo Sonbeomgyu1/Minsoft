@@ -11,7 +11,12 @@
 
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software. -->
 <!DOCTYPE html>
-<html lang="en" itemscope itemtype="http://schema.org/WebPage">
+<html
+  lang="en"
+  itemscope
+  itemtype="http://schema.org/WebPage"
+  xmlns:th="http://www.thymeleaf.org"
+>
   <head>
     <meta charset="utf-8" />
     <meta
@@ -496,38 +501,56 @@
     </header>
     <!-- -------- END HEADER 11 w/ carousel ------- -->
     <main>
-      
       <div class="container2" style="margin-top: 100px">
         <div class="post-title" th:text="${board.title}">게시물 제목</div>
 
-        <div class="post-meta">작성자:<span th:text="${board.author != null ? board.author.name : '관리자'}"></span> </div>
+        <div class="post-meta">
+          작성자:<span
+            th:text="${board.author != null ? board.author.name : '관리자'}"
+          ></span>
+        </div>
         <div class="title-meta-divider"></div>
         <div class="post-content">
-          <p th:text="${board.title}">
+          <p th:text="${board.content}">
             여기에 게시물 내용이 들어갑니다. 이 게시판은 사용자가 작성한 글을
             표시하는 페이지입니다.
           </p>
-          
-        </div>
-        <div class="attachments" style="margin-top: 150px">
-          <h3>첨부파일</h3>
-          <div class="attachment">
-            <a href="파일경로/파일명1.ext" download>파일명1.ext</a>
-          </div>
-          <div class="attachment">
-            <a href="파일경로/파일명2.ext" download>파일명2.ext</a>
-          </div>
         </div>
 
+        <div>파일 : <span th:text="${originalFileName}"> </span></div>
+        <a th:href="@{'/download/' + ${boardId}}" th:text="다운로드"></a>
+
         <div class="action-buttons">
-          <button class="edit-button" id="editButton" style="display: none">
-            수정
-          </button>
-          <button class="delete-button" id="deleteButton" style="display: none">
+          <!-- <button class="edit-button" id="editButton" style="display: none">수정</button>-->
+          <!--수정버튼-->
+          <a
+            th:href="@{/boardedit/{id}(id=${board.id})}"
+            id="editButton"
+            style="display: none"
+            >수정</a
+          >
+          <!--삭제버튼-->
+          <!--<form th:action="@{/boarddelete/{id}(id=${board.id})}" method="post" style="display:inline;">-->
+          <form
+            th:action="@{/boarddelete/{id}(id=${board.id})}"
+            method="post"
+            style="display: inline"
+            onsubmit="return confirmDelete();"
+          >
+            <button
+              type="submit"
+              id="deleteButton"
+              class="delete-button"
+              style="display: none"
+            >
+              삭제
+            </button>
+          </form>
+          <!--<button class="delete-button" id="deleteButton" style="display: none">
             삭제
-          </button>
-        </div>       
-      </div>     
+          </button>-->
+        </div>
+      </div>
     </main>
     <footer id="footer">
       <div class="row text">
@@ -614,7 +637,8 @@
         }
       });
 
-      /*수정삭제 로그인시 활성화,비활성화*/
+      <!-- 로그인 상태에 따른 버튼 표시/비표시 스크립트 -->
+
       /*<![CDATA[*/
       var isLoggedIn = /*[[${#authorization.expression('isAuthenticated()')}]]*/ false;
 
@@ -635,6 +659,11 @@
         }
       }
       /*]]>*/
+
+      /*삭제 경고창*/
+      function confirmDelete() {
+        return confirm("정말로 삭제하시겠습니까?");
+      }
     </script>
   </body>
   <style>
@@ -880,23 +909,29 @@
 
     /* 첨부파일 링크 호버 효과 */
     .attachment a:hover {
-      color: #0056b3; /* 호버 시 링크 색상 */
+      color: #0056b3;
+      /* 호버 시 링크 색상 */
     }
 
     /* 첨부파일 링크 호버 효과 */
     .attachment a:hover {
-      color: #0056b3; /* 호버 시 링크 색상 */
+      color: #0056b3;
+      /* 호버 시 링크 색상 */
     }
 
     /* 수정 삭제 버튼 스타일 */
     .action-buttons {
       display: flex;
-      justify-content: flex-end; /* 오른쪽 정렬 */
-      gap: 10px; /* 버튼 사이 간격 */
-      margin-top: 20px; /* 상단 마진 */
+      justify-content: flex-end;
+      /* 오른쪽 정렬 */
+      gap: 10px;
+      /* 버튼 사이 간격 */
+      margin-top: 20px;
+      /* 상단 마진 */
     }
 
-    .action-buttons button {
+    .action-buttons button,
+    .action-buttons a {
       background-color: #007bff; /* 버튼 배경색 */
       color: white; /* 버튼 글자색 */
       border: none; /* 테두리 제거 */
@@ -904,10 +939,13 @@
       border-radius: 5px; /* 둥근 모서리 */
       cursor: pointer; /* 커서 변경 */
       transition: background-color 0.3s ease; /* 배경색 전환 효과 */
+      text-decoration: none; /* 링크 기본 스타일 제거 */
+      display: inline-block; /* a 태그에 버튼 스타일 적용 */
     }
 
     .action-buttons button:hover {
-      background-color: #0056b3; /* 호버 시 배경색 */
+      background-color: #0056b3;
+      /* 호버 시 배경색 */
     }
 
     /* 첨부파일 링크 스타일 */

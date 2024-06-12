@@ -7,6 +7,7 @@ import lombok.Setter;
 import javax.persistence.*;
 
 import org.hibernate.annotations.Type;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.mysite.minsoft.login.model.SiteUser;
 
@@ -40,6 +41,7 @@ public class Board implements Serializable {
     @Column(name = "CONTENT", nullable = false)
     private String content;
     
+  
     
     //공개비공개 설정
 	/*
@@ -50,4 +52,8 @@ public class Board implements Serializable {
     public void setPublic(boolean isPublic) {
         this.isPublic = isPublic;
     }
+    
+    //번호필드 추가
+    @Transient
+    private Long number;
 }

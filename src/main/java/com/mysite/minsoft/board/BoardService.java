@@ -17,12 +17,18 @@ public class BoardService {
 		 
 	 }
 	 
-	 //모든 게시글 목록 조회
-	 public List<Board> findAll(){
-		 return boardRepository.findAll();
-	 }
-	 
-	 
+		
+		
+		  //모든 게시글 목록 조회
+			/*
+			 * public List<Board> findAll(){ return boardRepository.findAll(); }
+			 */
+		 
+	 	  //모든 게시글 목록 조회(페이징 처리)
+	 		 public Page<Board> findAll(Pageable pageable) {
+	 	        return boardRepository.findAll(pageable);
+	 	    }
+	 		
 	 //ID를 통해 특정 게시글을 조회
 	 public Board findById(Long id) {
 		 Optional<Board> board = boardRepository.findById(id);
@@ -33,6 +39,8 @@ public class BoardService {
 			 throw new RuntimeException("게시글을 찾을수 없습니다.");
 		 }
 	 }
+	 
+	 
 	 	 
 	 //새로운 게시글 저장
 	 public Board save(Board board) {
@@ -40,13 +48,10 @@ public class BoardService {
 	 }
 	 
 	 //ID를 통해 특정 게시글을 삭제
-	 public void deletedById(Long id) {
-		 boardRepository.deleteById(id);
-	 }
-	 
-	 
-	 //모든게시글 목록 조회(페이징 처리)
-	 public Page<Board> findAll(Pageable pageable){
-	        return boardRepository.findAll(pageable);
+	 public void deleteById(Long id) {
+	        boardRepository.deleteById(id);
 	    }
+	 
+	 
+	 
 }
