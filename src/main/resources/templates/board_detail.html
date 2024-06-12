@@ -517,9 +517,16 @@
           </p>
         </div>
 
-        <div>파일 : <span th:text="${originalFileName}"> </span></div>
-        <a th:href="@{'/download/' + ${boardId}}" th:text="다운로드"></a>
-
+      <!--  <div>파일 : <span th:text="${originalFileName}"> </span></div>
+        <a th:href="@{'/download/' + ${boardId}}" th:text="다운로드"></a>-->
+		
+		<div th:if="${originalFileName != null}">
+            파일 : <span th:text="${originalFileName}"></span>
+            <div>
+               <a th:href="@{'/download/' + ${board.id}}" th:text="'다운로드'"></a>
+            </div>
+         </div>
+		
         <div class="action-buttons">
           <!-- <button class="edit-button" id="editButton" style="display: none">수정</button>-->
           <!--수정버튼-->
