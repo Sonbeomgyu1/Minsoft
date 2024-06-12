@@ -365,7 +365,9 @@
                                                  <textarea name="content" class="form-control" id="message" rows="6" required th:text="${board.content}"></textarea>
                                             </div>
                                             
+                                            <div>파일 : <span th:text="${originalFileName}">없음</span></div>
                                             <div class="file-upload">
+												 
                                                 <input type="file" id="file" name="file" onchange="displayFileName()">
                                                 <label for="file">첨부파일</label>
                                                 <div class="file-name" id="file-name"></div>

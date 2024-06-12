@@ -222,6 +222,16 @@ public class BoardController {
 	public String boardEditForm(@PathVariable Long id, Model model) {
 		Board board = boardService.findById(id);
 		model.addAttribute("board", board);
+		
+		// 파일 정보를 가져와 모델에 추가
+	    List<FileSave> fileSaves = fileSaveRepository.findAllByBoardId(id);
+	    if (fileSaves != null && !fileSaves.isEmpty()) {
+	        model.addAttribute("originalFileName", fileSaves.get(0).getOriginalFileName()); // 첫 번째 파일 이름을 사용
+	    } else {
+	        model.addAttribute("originalFileName", null); // 파일이 없는 경우 null
+	    }
+
+		
 		return "board_edit_delete";
 	}
 
@@ -295,6 +305,12 @@ public class BoardController {
 	        fileSaveRepository.save(fileSave);
 	    }
 
+	    
+	    
+	    
+	    
+	    
+	    
 	    // 수정된 게시물을 데이터베이스에 저장합니다.
 	    boardService.save(existingBoard);
 	    // 게시물 목록 페이지로 리디렉션합니다.
