@@ -350,7 +350,8 @@
                     <div class="card custom-card">
                         <div class="row">
                             <div class="col-lg-12">
-                                <form id="contact-form" th:action="@{/boardedit/{id}(id=${board.id})}" method="post" autocomplete="off">
+                                <!--<form id="contact-form" th:action="@{/boardedit/{id}(id=${board.id})}" method="post" autocomplete="off">-->
+								<form id="contact-form" th:action="@{/boardedit/{id}/update(id=${board.id})}" method="post" autocomplete="off" enctype="multipart/form-data">
                                     <div class="card-body position-relative p-3 ps-0">
                                         <div class="form-container mx-auto">
                                             <div>
