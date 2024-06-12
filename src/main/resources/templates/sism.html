@@ -35,7 +35,7 @@
 	<link href="https://fonts.googleapis.com/css?family=Nanum+Gothic&display=swap" rel="stylesheet">
 </head>
 
-<body class="blog-posts">
+<body class="blog-posts" style="overflow-x: hidden; overflow-y: auto;">
 	<!-- Navbar Light -->
 	<nav class="navbar navbar-expand-lg navbar-light bg-white py-3">
 		<div class="container">
@@ -143,7 +143,7 @@
 												<div>
 													<h6 class="dropdown-header text-black font-weight-bolder d-flex justify-content-center align-items-center p-0"
 														style="font-size: 16px; /* 원하는 크기로 조정 */ font-weight: bold; /* 굵기 조정 */ ">
-														아웃소싱
+														IT 아웃소싱
 													</h6>
 												</div>
 											</div>
@@ -404,7 +404,7 @@
 			<h1 class="pb">시스템통합(SI)</h1>
 			<div class="row g-4 py-5 row-cols-1 row-cols-lg-3">
 
-				<div class="col d-flex align-items-start border">
+				<div class="col d-flex align-items-start border shadow-md">
 					<div class="icon-square text-body-emphasis bg-body-secondary d-inline-flex align-items-center justify-content-center fs-4 flex-shrink-0 me-3"
 						style="margin-top: 30px; margin-left: 25px; ">
 						<svg class="bi" width="0em" height="0em"><img src="/images/business/1-circle-fill.svg"
@@ -416,7 +416,7 @@
 						<p>저비용 고효율로 미래의 전자정부 구현을 위한 SI/SM 수행</p>
 					</div>
 				</div>
-				<div class="col d-flex align-items-start border">
+				<div class="col d-flex align-items-start border shadow-md">
 					<div class="icon-square text-body-emphasis bg-body-secondary d-inline-flex align-items-center justify-content-center fs-4 flex-shrink-0 me-3"
 						style="margin-top: 30px; margin-left: 25px; ">
 						<svg class="bi" width="0em" height="0em"><img src="/images/business/2-circle-fill.svg"
@@ -427,7 +427,7 @@
 						<p>신국방재정/국방 군수 종합정보체계 사업 등 군 정보화를 통한 국가안보능력 강화</p>
 					</div>
 				</div>
-				<div class="col d-flex align-items-start border">
+				<div class="col d-flex align-items-start border shadow-md">
 					<div class="icon-square text-body-emphasis bg-body-secondary d-inline-flex align-items-center justify-content-center fs-4 flex-shrink-0 me-3"
 						style="margin-top: 30px; margin-left: 25px; ">
 						<svg class="bi" width="0em" height="0em"><img src="/images/business/3-circle-fill.svg"
@@ -440,7 +440,7 @@
 				</div>
 			</div>
 			<div class="row g-4 row-cols-1 row-cols-lg-3">
-				<div class="col d-flex align-items-start border">
+				<div class="col d-flex align-items-start border shadow-md">
 					<div class="icon-square text-body-emphasis bg-body-secondary d-inline-flex align-items-center justify-content-center fs-4 flex-shrink-0 me-3"
 						style="margin-top: 30px; margin-left: 25px; ">
 						<svg class="bi" width="0em" height="0em"><img src="/images/business/4-circle-fill.svg"
@@ -451,7 +451,7 @@
 						<p>금융기관의 경영 컨설팅, 정보시스템 구축, <br>운영 재난대비 시스템, 보안시스템 구축</p>
 					</div>
 				</div>
-				<div class="col d-flex align-items-start border">
+				<div class="col d-flex align-items-start border shadow-md">
 					<div class="icon-square text-body-emphasis bg-body-secondary d-inline-flex align-items-center justify-content-center fs-4 flex-shrink-0 me-3"
 						style="margin-top: 30px; margin-left: 25px; ">
 						<svg class="bi" width="0em" height="0em"><img src="/images/business/5-circle-fill.svg"
@@ -462,7 +462,7 @@
 						<p>유통서비스, 교육기관에 특화된 솔루션으로 <br>정보시스템 구축</p>
 					</div>
 				</div>
-				<div class="col d-flex align-items-start border">
+				<div class="col d-flex align-items-start border shadow-md">
 					<div class="icon-square text-body-emphasis bg-body-secondary d-inline-flex align-items-center justify-content-center fs-4 flex-shrink-0 me-3"
 						style="margin-top: 30px; margin-left: 25px; ">
 						<svg class="bi" width="0em" height="0em"><img src="/images/business/6-circle-fill.svg"
@@ -659,7 +659,7 @@
 				<p><strong></strong>07788) 서울시 강서구 마곡서로 158, 1306호 ( 마곡센트럴타워Ⅱ )</p>
 				<p class="min">
 					<img id="logoImg2" src="/images/logo.jpg" alt="로고 이미지">
-					&copy; Copyright <strong><span>주식회사 민소프트</span></strong>. All Rights Reserved
+					&copy; Copyright 2024. <strong><span>주식회사 민소프트</span></strong> All Rights Reserved.
 				</p>
 			</div>
 
@@ -1037,6 +1037,10 @@
 		/* 진행절차 아래 세부내용 폰트설정*/
 		font-family: 'Nanum Gothic', sans-serif;
 	}
+	.g-4 .d-flex{
+		/*시스템통합(SI) 카드 테두리 설정*/
+		border-radius: 0.5rem;
+	}
 	
 	.col-md-6 #progress-heading,
 	.accordion-button {
@@ -1077,7 +1081,7 @@
 		position: absolute;
 		top: -55px;
 		/* 이미지를 위로 이동시킬 픽셀 수 */
-		right: 20%;
+		right: 30%;
 	}
 
 	#footer {

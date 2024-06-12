@@ -35,7 +35,7 @@
 	<link href="https://fonts.googleapis.com/css?family=Nanum+Gothic&display=swap" rel="stylesheet">
 </head>
 
-<body class="blog-posts">
+<body class="blog-posts" style="overflow-x: hidden; overflow-y: auto;">
 	<!-- Navbar Light -->
 	<nav class="navbar navbar-expand-lg navbar-light bg-white py-3">
 		<div class="container">
@@ -144,7 +144,7 @@
 												<div>
 													<h6 class="dropdown-header text-black font-weight-bolder d-flex justify-content-center align-items-center p-0"
 														style="font-size: 16px; /* 원하는 크기로 조정 */ font-weight: bold; /* 굵기 조정 */ ">
-														아웃소싱
+														IT 아웃소싱
 													</h6>
 												</div>
 											</div>
@@ -342,7 +342,7 @@
 
 			<body>
 				<div class="image-container">
-					<img src="/images/business/consulting99.png" class="SIimg" alt="...">
+					<img src="/images/business/consulting99.png" class="SIimg shadow-xl" alt="...">
 				</div>
 			</body>
 
@@ -357,13 +357,13 @@
 
 					<div class="row" style="margin-top: 150px;">
 						<div class="col-12 col-lg-4">
-							<img src="/images/business/consulting10.jpg" class="con-b" alt="Google Marketing Platform">
+							<img src="/images/business/consulting10.jpg" class="con-b shadow-lg" alt="Google Marketing Platform">
 						</div>
 						<div class="col-12 col-lg-4">
-							<img src="/images/business/consulting20.jpg" class="con-b" alt="Google Marketing Platform">
+							<img src="/images/business/consulting20.jpg" class="con-b shadow-lg" alt="Google Marketing Platform">
 						</div>
 						<div class="col-12 col-lg-4">
-							<img src="/images/business/consulting30.jpg" class="con-b" alt="Google Marketing Platform">
+							<img src="/images/business/consulting30.jpg" class="con-b shadow-lg" alt="Google Marketing Platform">
 						</div>
 					</div>
 				</div>
@@ -381,7 +381,7 @@
 				<p><strong></strong>07788) 서울시 강서구 마곡서로 158, 1306호 ( 마곡센트럴타워Ⅱ )</p>
 				<p class="min">
 					<img id="logoImg2" src="/images/logo.jpg" alt="로고 이미지">
-					&copy; Copyright <strong><span>주식회사 민소프트</span></strong>. All Rights Reserved
+					&copy; Copyright 2024. <strong><span>주식회사 민소프트</span></strong> All Rights Reserved.
 				</p>
 			</div>
 
@@ -497,6 +497,7 @@
 	.SIimg {
 		/* 애니메이션 이름과 지속 시간 설정 */
 		animation: slideInFromBottom 1s ease-out;
+		border-radius: 1rem !important;
 	}
 
 	/*---------------------*/
@@ -517,6 +518,7 @@
 	/* 애니메이션을 적용할 이미지에 초기 스타일 설정 */
 	.con-b {
 		opacity: 0;
+		border-radius: 0.75rem !important;
 	}
 
 	/* 스크롤 애니메이션을 적용할 클래스 설정 */
@@ -727,7 +729,7 @@
 		position: absolute;
 		top: -55px;
 		/* 이미지를 위로 이동시킬 픽셀 수 */
-		right: 20%;
+		right: 30%;
 	}
 
 	#footer {
