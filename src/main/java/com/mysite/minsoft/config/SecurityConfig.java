@@ -24,7 +24,7 @@ public class SecurityConfig {
 						.antMatchers("/", "/certification", "/login", "/signup", "/greetingpage", "/history",
 								"/businessdetails", "/solutions", "/itoutsourcingpage",
 
-								"/consulting", "/sism", "/recruitmentinfomation", "/welfare", "/contact", "/board","/boarddetail/**","/presentation","/boardedit",
+								"/consulting", "/sism", "/recruitmentinfomation", "/welfare", "/contact", "/board","/boarddetail/**","/presentation","/boardedit/**",
 
 								"/check-db-connection", "/layout", "/images/**", "/assets/**",
 								"/docs/**", "/pages/**", "/sections/**", "/icon/**", "/public/**")

@@ -17,12 +17,18 @@ public class BoardService {
 		 
 	 }
 	 
-	 //모든 게시글 목록 조회
-	 public List<Board> findAll(){
-		 return boardRepository.findAll();
-	 }
-	 
-	 
+		
+		
+		  //모든 게시글 목록 조회
+			/*
+			 * public List<Board> findAll(){ return boardRepository.findAll(); }
+			 */
+		 
+	 	  //모든 게시글 목록 조회(페이징 처리)
+	 		 public Page<Board> findAll(Pageable pageable) {
+	 	        return boardRepository.findAll(pageable);
+	 	    }
+	 		
 	 //ID를 통해 특정 게시글을 조회
 	 public Board findById(Long id) {
 		 Optional<Board> board = boardRepository.findById(id);
@@ -45,8 +51,5 @@ public class BoardService {
 	 }
 	 
 	 
-	 //모든게시글 목록 조회(페이징 처리)
-	 public Page<Board> findAll(Pageable pageable){
-	        return boardRepository.findAll(pageable);
-	    }
+	 
 }

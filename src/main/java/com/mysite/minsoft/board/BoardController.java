@@ -2,7 +2,14 @@ package com.mysite.minsoft.board;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -25,20 +32,74 @@ public class BoardController {
 	private final UserRepository userRepository; // UserRepository 필드 추가
 	// 의존성 주입을 통해 BoardService 객체를 초기화
 
+	
 	public BoardController(BoardService boardService, UserRepository userRepository) {
 		this.boardService = boardService;
 		this.userRepository = userRepository; // UserRepository 초기화
 	}
 
+	
+	 
+	 
+
 	// 공지사항 목록
 	@GetMapping("/board")
-	public String board(Model model){
-		List<Board> boards = boardService.findAll();
-		model.addAttribute("boards", boards);
-		return "board";
+	public String board(@RequestParam(defaultValue = "0") int page, 
+						@RequestParam(defaultValue = "10") int size,
+						Model model) {
+		Pageable pageable = PageRequest.of(page, size, Sort.by("id").descending());
+		Page<Board> boardPage = boardService.findAll(pageable);
 
+		// 디버깅용 로그 출력
+		System.out.println("Current Page: " + page);
+		System.out.println("Page Size: " + size);
+		boardPage.getContent().forEach(board -> System.out.println("Board ID: " + board.getId()));
+
+		
+		 // 게시글 번호 설정 
+		// 게시글의 총 개수 
+		/*
+		 * long totalElements = boardPage.getTotalElements(); // 현재 페이지에서의 시작 번호 final
+		 * long startNumber = totalElements - (page * size) ; */
+					
+		  // 각 페이지의 첫 번째 게시글 번호는 1부터 시작 
+			final long startNumber = page * size + 1;
+		 
+		// 디버깅용 로그 출력
+		/* System.out.println("Total Elements: " + totalElements); */
+		System.out.println("Start Number: " + startNumber);
+
+		// 모델에 데이터 추가
+		model.addAttribute("boards", boardPage);
+		model.addAttribute("currentPage", page);
+		model.addAttribute("totalPages", boardPage.getTotalPages());
+		model.addAttribute("pageSize", size);
+		// 시작 번호 추가
+		model.addAttribute("startNumber", startNumber);
+		
+		
+		// 각 게시글에 번호 설정
+	    for (int i = 0; i < boardPage.getContent().size(); i++) {
+	        Board board = boardPage.getContent().get(i);
+	        long number = startNumber + i;
+	        board.setNumber(number);
+	    }
+				
+		// 각 게시글의 번호 디버깅 로그 출력
+		for (int i = 0; i < boardPage.getContent().size(); i++) {
+			Board board = boardPage.getContent().get(i);
+			/* long number = totalElements - (page * size) - i; */
+			 long number = startNumber + i; 
+			board.setNumber(number);
+			System.out.println("Board ID: " + board.getId() + " - Number: " + number);
+		}
+
+		return "board";
 	}
 
+	
+	
+	
 	// 공지사항 상세 페이지
 	@GetMapping("/boarddetail/{id}")
 	public String boardDetail(@PathVariable Long id, Model model) {
@@ -124,25 +185,54 @@ public class BoardController {
 	}
 
 	// 공지사항 수정 폼에서 전송된 데이터 처리
-	@PostMapping("/boardedit/{id}")
-	public String boardEdit(@PathVariable Long id, @ModelAttribute Board board,
-			@AuthenticationPrincipal SiteUser author) {
-		// 기존 게시글 조회
-		Board existingBoard = boardService.findById(id);
-		// 작성자를 현재 인증된 사용자로 설정
-		existingBoard.setAuthor(author);
-		// 게시글 제목 업데이트
-		existingBoard.setTitle(board.getTitle());
-		// 게시글 내용 업데이트
-		existingBoard.setContent(board.getContent());
-		// 공개여부 업데이트
-		existingBoard.setPublic(board.isPublic());
-		// 수정된 게시글 저장
-		boardService.save(existingBoard);
-		// 저장 후 공지사항목록 페이지로 리다이렉트
-		return "redirect:/board";
+	/*
+	 * @PostMapping("/boardedit/{id}") public String boardEdit(@PathVariable Long
+	 * id, @ModelAttribute Board board,
+	 * 
+	 * @AuthenticationPrincipal SiteUser author) { // 기존 게시글 조회 Board existingBoard
+	 * = boardService.findById(id);
+	 * 
+	 * // 작성자를 현재 인증된 사용자로 설정 existingBoard.setAuthor(author); // 게시글 제목 업데이트
+	 * existingBoard.setTitle(board.getTitle()); // 게시글 내용 업데이트
+	 * existingBoard.setContent(board.getContent()); // 공개여부 업데이트
+	 * existingBoard.setPublic(board.isPublic()); // 수정된 게시글 저장
+	 * boardService.save(existingBoard);
+	 * 
+	 * // 저장 후 공지사항목록 페이지로 리다이렉트 return "redirect:/board";
+	 * 
+	 * }
+	 */
+	
+	// 공지사항 수정 폼에서 전송된 데이터 처리
+	 @PostMapping("/boardedit/{id}")
+	    public String boardEdit(@PathVariable Long id, @ModelAttribute Board board, @RequestParam("isPublic") String isPublicParam) {
+	        Board existingBoard = boardService.findById(id);
 
-	}
+	        Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+	        if (principal instanceof UserDetails) {
+	            String username = ((UserDetails) principal).getUsername();
+	            SiteUser currentUser = userRepository.findByUsername(username)
+	                    .orElseThrow(() -> new RuntimeException("유효하지 않은 작성자입니다."));
+	            existingBoard.setAuthor(currentUser);
+	        } else {
+	            throw new RuntimeException("유효하지 않은 작성자입니다.");
+	        }
+
+	        existingBoard.setTitle(board.getTitle());
+	        existingBoard.setContent(board.getContent());
+
+	        boolean isPublic = "1".equals(isPublicParam); 
+	        existingBoard.setPublic(isPublic);
+
+	        boardService.save(existingBoard);
+	        return "redirect:/board";
+	    }
+	
+	
+	
+	
+	
+	
 
 	// 공지사항 삭제
 	@PostMapping("/boarddelete/{id}")

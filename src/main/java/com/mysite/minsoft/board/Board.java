@@ -50,4 +50,8 @@ public class Board implements Serializable {
     public void setPublic(boolean isPublic) {
         this.isPublic = isPublic;
     }
+    
+    //번호필드 추가
+    @Transient
+    private Long number;
 }
