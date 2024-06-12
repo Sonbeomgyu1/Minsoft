@@ -35,7 +35,7 @@
 	<link href="https://fonts.googleapis.com/css?family=Nanum+Gothic&display=swap" rel="stylesheet">
 </head>
 
-<body class="blog-posts">
+<body class="blog-posts" style="overflow-x: hidden; overflow-y: auto;">
 	<!-- Navbar Light -->
 	<nav class="navbar navbar-expand-lg navbar-light bg-white py-3">
       <div class="container">
@@ -43,22 +43,12 @@
             <img src="/images/logo.jpg" alt="Soft UI PRO" style="max-width: 300px; height: 45PX;">
          </a>
 
-         <a href="https://www.creative-tim.com/product/soft-ui-design-system-pro#pricingCard"
-            class="btn btn-sm  bg-gradient-primary  btn-round mb-0 ms-auto d-lg-none d-block">Buy Now</a>
-         <button class="navbar-toggler shadow-none ms-2" type="button" data-bs-toggle="collapse"
-            data-bs-target="#navigation" aria-controls="navigation" aria-expanded="false"
-            aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon mt-2">
-               <span class="navbar-toggler-bar bar1"></span>
-               <span class="navbar-toggler-bar bar2"></span>
-               <span class="navbar-toggler-bar bar3"></span>
-            </span>
-         </button>
          <div class="collapse navbar-collapse w-100 pt-3 pb-2 py-lg-0" id="navigation">
             <ul class="navbar-nav navbar-nav-hover mx-auto">
                <li class="nav-item dropdown dropdown-hover mx-2">
-                  <a class="nav-link ps-2 d-flex justify-content-between cursor-pointer align-items-center"
-                     id="dropdownMenuDocs" data-bs-toggle="dropdown" aria-expanded="false" role="button"
+                  <a href="/greetingpage"
+				  	 class="nav-link ps-2 d-flex justify-content-between cursor-pointer align-items-center"
+                     id="dropdownMenuDocs" role="button"
                      style="font-size: 1.3rem;"> <!-- 여기에 원하는 크기를 설정하세요 -->
                      COMPANY
                      <img src="../../assets/img/down-arrow-dark.svg" alt="down-arrow" class="arrow ms-1">
@@ -104,7 +94,7 @@
                                     <div>
                                        <h6 class="dropdown-header text-black font-weight-bolder d-flex justify-content-center align-items-center p-0"
                                           style="font-size: 16px; /* 원하는 크기로 조정 */ font-weight: bold; /* 굵기 조정 */ ">
-                                          기술인증
+                                          기업인증
                                        </h6>
                                     </div>
                                  </div>
@@ -117,8 +107,9 @@
                </li>
 
                <li class="nav-item dropdown dropdown-hover mx-2">
-                  <a class="nav-link ps-2 d-flex justify-content-between cursor-pointer align-items-center"
-                     id="dropdownMenuDocs" data-bs-toggle="dropdown" aria-expanded="false" role="button"
+                  <a href="/businessdetails"
+				  	 class="nav-link ps-2 d-flex justify-content-between cursor-pointer align-items-center"
+                     id="dropdownMenuDocs" role="button"
                      style="font-size: 1.3rem;"> <!-- 여기에 원하는 크기를 설정하세요 -->
                      BUSINESS
                      <img src="../../assets/img/down-arrow-dark.svg" alt="down-arrow" class="arrow ms-1">
@@ -150,7 +141,7 @@
                                     <div>
                                        <h6 class="dropdown-header text-black font-weight-bolder d-flex justify-content-center align-items-center p-0"
                                           style="font-size: 16px; /* 원하는 크기로 조정 */ font-weight: bold; /* 굵기 조정 */ ">
-                                          아웃소싱
+                                          IT 아웃소싱
                                        </h6>
                                     </div>
                                  </div>
@@ -206,7 +197,7 @@
                <li class="nav-item dropdown dropdown-hover mx-2">
                   <a href="/welfare"
                   	class="nav-link ps-2 d-flex justify-content-between cursor-pointer align-items-center"
-                     id="dropdownMenuDocs"  role="button"
+                     id="dropdownMenuDocs" role="button"
                      style="font-size: 1.3rem;"> <!-- 여기에 원하는 크기를 설정하세요 -->
                      RECRUIT
                      <img src="../../assets/img/down-arrow-dark.svg" alt="down-arrow" class="arrow ms-1">
@@ -230,20 +221,6 @@
                                  </div>
                               </a>
                            </li>
-                           <li class="nav-item list-group-item border-0 p-0">
-                              <a class="dropdown-item py-2 ps-3 border-radius-md"
-                                 href="/recruitmentinfomation">
-                                 <div class="d-flex">
-
-                                    <div>
-                                       <h6 class="dropdown-header text-black font-weight-bolder d-flex justify-content-center align-items-center p-0"
-                                          style="font-size: 16px; /* 원하는 크기로 조정 */ font-weight: bold; /* 굵기 조정 */ ">
-                                          채용안내
-                                       </h6>
-                                    </div>
-                                 </div>
-                              </a>
-                           </li>
                         </ul>
                      </div>
 
@@ -252,7 +229,7 @@
                <li class="nav-item dropdown dropdown-hover mx-2">
                   <a href="/contact"
                   	class="nav-link ps-2 d-flex justify-content-between cursor-pointer align-items-center"
-                     id="dropdownMenuDocs"  role="button"
+                     id="dropdownMenuDocs" role="button"
                      style="font-size: 1.3rem;"> <!-- 여기에 원하는 크기를 설정하세요 -->
                      CONTACT US
                      <img src="../../assets/img/down-arrow-dark.svg" alt="down-arrow" class="arrow ms-1">
@@ -283,8 +260,9 @@
                   </div>
                </li>
                <li class="nav-item dropdown dropdown-hover mx-2">
-                  <a class="nav-link ps-2 d-flex justify-content-between cursor-pointer align-items-center"
-                     id="dropdownMenuDocs" data-bs-toggle="dropdown" aria-expanded="false" role="button"
+                  <a href="/board"
+				  	 class="nav-link ps-2 d-flex justify-content-between cursor-pointer align-items-center"
+                     id="dropdownMenuDocs" role="button"
                      style="font-size: 1.3rem;"> <!-- 여기에 원하는 크기를 설정하세요 -->
                      ABOUT US
                      <img src="../../assets/img/down-arrow-dark.svg" alt="down-arrow" class="arrow ms-1">
@@ -331,7 +309,7 @@
 							<div class="row">
 								<div class="col-lg-12 my-auto">
 
-									<h1 class="text-white2 fadeIn2 fadeInBottom" id="recruit-text">RECRUIT</h1>
+									<h1 class="text-white2 fadeIn2 fadeInBottom" id="recruit-text">복지제도</h1>
 
 								</div>
 							</div>
@@ -676,14 +654,14 @@
         <img class="width-48-px mb-3" src="/icon/summer_4407277.svg" >
         
         <h5 class="welfare-text" >일도 휴식도 눈치보지 말고</h5>
-        <p class="text-sm" id="welfare-text2">시차출근제<br>선택적근무<br>자유로운 연차사용 장려</p>
+        <p class="text-sm" id="welfare-text2">시차 출근제<br>선택적 근무<br>자유로운 연차사용 장려</p>
        
       </div>
       <div class="col-sm-6 col-lg-4 mt-lg-0 mt-4">
         <img class="width-48-px mb-3" src="/icon/badge_4033227.svg" >
         <img class="width-48-px mb-3" src="/icon/multitasking_3315097.svg" >
         <h5 class="welfare-text">장기근속자<br>포상제도</h5>
-        <p class="text-sm" id="welfare-text2">3,5,7년 포상휴가 및 포상금 지급</p>
+        <p class="text-sm" id="welfare-text2">3, 5, 7년 포상휴가 및 포상금 지급</p>
       </div>
       <div class="col-sm-6 col-lg-4 mt-lg-0 mt-4">
         <img class="width-48-px mb-3" src="/icon/workaholic_3989501.svg">
@@ -730,13 +708,13 @@
         <img class="width-48-px mb-3" src="/icon/meeting_3855194.svg">
         <img class="width-48-px mb-3" src="/icon/golf_2514078.svg">
         <h5 class="welfare-text">취미 모임 지원</h5>
-        <p class="text-sm" id="welfare-text2">등산,낚시,골프 등 <br>취미 모임비 지원</p>
+        <p class="text-sm" id="welfare-text2">등산, 낚시, 골프 등 <br>취미 모임비 지원</p>
       </div>
       <div class="col-sm-6 col-lg-4 mt-lg-5 mt-4">
         <img class="width-48-px mb-3" src="/icon/tram_2701501.svg">
         <img class="width-48-px mb-3" src="/icon/gift_3898406.svg">
         <h5 class="welfare-text">명절선물<br></h5>
-        <p class="text-sm" id="welfare-text2">명절엔 두손 가득 설렘을 가지고 출발</p>
+        <p class="text-sm" id="welfare-text2">명절엔 두 손 가득 설렘을 가지고 출발</p>
       </div>
       <div class="col-sm-6 col-lg-4 mt-lg-5 mt-4">
         <img class="width-48-px mb-3" src="/icon/report_11309657.svg">
@@ -838,7 +816,7 @@
 				<ul>
 					<li class="list-group-item list-group-item-light recruitinfo">채용 단계</li>
 				</ul>
-	  			<div class="process" style="border-radius: 20px;">
+	  			<div class="process	shadow-xl">
 	  				
 	  			</div>
 	  		</div>	
@@ -905,7 +883,7 @@
 				<p><strong></strong>07788) 서울시 강서구 마곡서로 158, 1306호 ( 마곡센트럴타워Ⅱ )</p>
 				<p class="min">
 					<img id="logoImg2" src="/images/logo.jpg" alt="로고 이미지">
-					&copy; Copyright <strong><span>주식회사 민소프트</span></strong>. All Rights Reserved
+					&copy; Copyright 2024. <strong><span>주식회사 민소프트</span></strong> All Rights Reserved.
 				</p>
 			</div>
 
@@ -1032,7 +1010,10 @@
 		/*버튼을 웨이브이미지 앞으로 배치하여 클릭되도록 설정*/
 		z-index: 1 !important;
 	}
-	
+	.col-8 .carousel{
+		/*캐로셀 테두리 곡선처리화 및 배경색맞춤*/
+		border-radius: 0.75rem !important;
+	}
 	.col-xl-6 .mid-title{
 		/*캐로셀 내부 우측 큰글씨 여백설정*/
 		padding-left: 150px !important;
@@ -1077,7 +1058,7 @@
 		/*채용단계 타이틀 설정*/
 		background-color: #f1f3f5;
 		font-family: 'GmarketSansMedium';
-		font-size: 40px; 
+		font-size: 36px; 
 		font-weight: 600;
 		color: #344767;
 		padding-bottom: 12px;
@@ -1091,6 +1072,7 @@
 		background-image: url("images/recruit/recruitprocess1.jpeg");
 		background-size: 100% 750px;
 		height: 750px;
+		border-radius: 0.75rem !important;
 	}
 	#welfareinfo1,
 	#welfareinfo2 {
@@ -1131,7 +1113,7 @@
 		position: absolute;
 		top: -55px;
 		/* 이미지를 위로 이동시킬 픽셀 수 */
-		right: 20%;
+		right: 30%;
 	}
 
 	#footer {
@@ -1205,7 +1187,7 @@
 	}
 /*복지제도,채용안내 버튼 폰트 수정*/
 #btn-welfare{
-	 font-family: 'NanumBarunGothic';
+	 font-family: 'GmarketSansMedium';
 	 font-weight: 500;
 	
 }
