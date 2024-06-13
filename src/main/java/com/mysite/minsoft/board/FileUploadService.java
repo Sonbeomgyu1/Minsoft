@@ -32,6 +32,41 @@ public class FileUploadService {
     private String uploadDir;
 
  // 파일 업로드 메서드
+	/*
+	 * public String uploadFile(MultipartFile file, Board board) { // 원본 파일 이름 가져오기
+	 * String originalFileName = file.getOriginalFilename(); // 파일 이름에서 관련된 경로 문자 제거
+	 * String fileName = StringUtils.cleanPath(originalFileName); // 파일 확장자 가져오기
+	 * String fileExtension = getFileExtension(fileName); // 고유한 파일 이름 생성 String
+	 * newFileName = generateUniqueFileName(fileExtension);
+	 * 
+	 * try { // 업로드 디렉토리의 절대 경로 가져오기 Path uploadPath =
+	 * Paths.get(uploadDir).toAbsolutePath().normalize(); // 디렉토리가 존재하지 않으면 생성
+	 * Files.createDirectories(uploadPath);
+	 * 
+	 * // 파일을 저장할 대상 위치 설정 Path targetLocation = uploadPath.resolve(newFileName);
+	 * 
+	 * 
+	 * 
+	 * // 파일을 대상 위치로 전송 file.transferTo(targetLocation);
+	 * 
+	 * // 게시글이 ID를 가지고 있는지 확인 if (board.getId() != null) { // 새 FileSave 객체 생성
+	 * FileSave fileSave = new FileSave(); // 파일 세부 정보 설정
+	 * fileSave.setFileName(newFileName);
+	 * fileSave.setFilePath(targetLocation.toString());
+	 * fileSave.setOriginalFileName(originalFileName); // 파일을 게시글과 연결
+	 * fileSave.setBoard(board);
+	 * 
+	 * // 파일 저장 정보를 데이터베이스에 저장 fileSaveRepository.save(fileSave); } else { // 게시글
+	 * ID가 null인 경우 예외 발생 throw new
+	 * RuntimeException("게시글을 저장하는 데 실패했습니다. 게시글 ID가 null입니다."); }
+	 * 
+	 * // 새 파일 이름 반환 return originalFileName; } catch (IOException ex) { // 파일 저장에
+	 * 실패하면 런타임 예외 발생 throw new RuntimeException("파일 저장에 실패했습니다.", ex); } }
+	 */
+    
+    
+    
+ // 파일 업로드 메서드
     public String uploadFile(MultipartFile file, Board board) {
         // 원본 파일 이름 가져오기
         String originalFileName = file.getOriginalFilename();
@@ -50,34 +85,20 @@ public class FileUploadService {
 
             // 파일을 저장할 대상 위치 설정
             Path targetLocation = uploadPath.resolve(newFileName);
+
             // 파일을 대상 위치로 전송
             file.transferTo(targetLocation);
 
-            // 게시글이 ID를 가지고 있는지 확인
-            if (board.getId() != null) {
-                // 새 FileSave 객체 생성
-                FileSave fileSave = new FileSave();
-                // 파일 세부 정보 설정
-                fileSave.setFileName(newFileName);
-                fileSave.setFilePath(targetLocation.toString());
-                fileSave.setOriginalFileName(originalFileName);
-                // 파일을 게시글과 연결
-                fileSave.setBoard(board);
-
-                // 파일 저장 정보를 데이터베이스에 저장
-                fileSaveRepository.save(fileSave);
-            } else {
-                // 게시글 ID가 null인 경우 예외 발생
-                throw new RuntimeException("게시글을 저장하는 데 실패했습니다. 게시글 ID가 null입니다.");
-            }
-
-            // 새 파일 이름 반환
-            return originalFileName;
+            // 새 파일 경로 반환
+            return targetLocation.toString();
         } catch (IOException ex) {
             // 파일 저장에 실패하면 런타임 예외 발생
             throw new RuntimeException("파일 저장에 실패했습니다.", ex);
         }
     }
+    
+    
+    
 
     // 확장자 추출 메서드
     private String getFileExtension(String fileName) {

@@ -366,10 +366,9 @@
                                             </div>
                                             
                                             <div>파일 : <span th:text="${originalFileName}">없음</span></div>
-                                            <div class="file-upload">
-												 
-                                                <input type="file" id="file" name="file" onchange="displayFileName()">
-                                                <label for="file">첨부파일</label>
+                                            <div class="file-upload">												 
+                                                <input type="file" id="boardFile" name="boardFile" onchange="displayFileName()">
+                                                <label for="boardFile">첨부파일</label>
                                                 <div class="file-name" id="file-name"></div>
                                             </div>
                                             
@@ -478,11 +477,23 @@
 		});
 		
 		 /*파일첨부*/
-		 function displayFileName() {
+		/* function displayFileName() {
             var input = document.getElementById('file');
             var fileName = input.files[0].name;
             document.getElementById('file-name').innerText = fileName;
-        }
+        }*/
+        /*파일첨부*/
+        function displayFileName() {
+				const fileInput = document.getElementById('boardFile');
+				const fileNameDiv = document.getElementById('file-name');
+				if (fileInput.files.length > 0) {
+					fileNameDiv.textContent = fileInput.files[0].name;
+				} else {
+					fileNameDiv.textContent = '';
+				}
+			}
+
+        
 		
 		/*삭제하기*/
 		function deletePost(postId) {

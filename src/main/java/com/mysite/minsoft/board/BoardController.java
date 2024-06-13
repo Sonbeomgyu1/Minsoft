@@ -291,14 +291,31 @@ public class BoardController {
 
 	    // 파일이 비어 있지 않은 경우 파일을 업로드합니다.
 	    if (file != null && !file.isEmpty()) {
+	    	
+	    	//청 수정코드
+	    	 // 기존 파일 삭제 로직 추가
+	        List<FileSave> existingFiles = fileSaveRepository.findAllByBoardId(id);
+	        for (FileSave existingFile : existingFiles) {
+				/* fileUploadService.deleteFile(existingFile.getFileName()); */
+	        	fileUploadService.deleteFile(existingFile.getFilePath());
+	            fileSaveRepository.delete(existingFile);
+	        }
+	    	
+	    	
 	        // 파일을 업로드하고 파일 이름을 가져옵니다.
-	        String fileName = fileUploadService.uploadFile(file, existingBoard);
+	        String filePath = fileUploadService.uploadFile(file, existingBoard);
+			/* String fileName = fileUploadService.uploadFile(file, existingBoard); */
 	        // 파일 저장 정보를 생성합니다.
 	        FileSave fileSave = new FileSave();
 	        // 파일 이름을 설정합니다.
-	        fileSave.setFileName(fileName);
+	        fileSave.setFileName(file.getOriginalFilename());
+			/* fileSave.setFileName(fileName); */
 	        // 원본 파일 이름을 설정합니다.
 	        fileSave.setOriginalFileName(file.getOriginalFilename());
+	        
+	     // 파일 경로를 설정합니다.
+	        fileSave.setFilePath(filePath);
+	        
 	        // 게시물에 속한 파일을 설정합니다.
 	        fileSave.setBoard(existingBoard);
 	        // 파일 저장 정보를 데이터베이스에 저장합니다.
