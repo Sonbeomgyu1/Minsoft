@@ -379,30 +379,19 @@
 							
 						</tr>
 					</thead>
-					<tbody>
-						 <!--<tr th:each="board : ${boards}"
-                    th:onclick="|location.href='@{/boarddetail/{id}(id=${board.id})}'|">
-                    <td th:text="${board.id}"></td>
-                    <td th:text="${board.title}"></td>
-                    <td th:text="${board.author != null ? board.author.name : '관리자'}"></td>
-                    <td th:text="${board.isPublic ? '' : '🔒'}"></td>
-                </tr>-->
-                 <tr th:each="board, iterStat : ${boards.content}"                 
-                    th:onclick="|location.href='@{/boarddetail/{id}(id=${board.id})}'|">
-                    <!--번호 재조정-->
-                    <!--<td th:text="${boards.totalElements - (boards.number * boards.size + iterStat.index)}"></td>-->
+					  <tbody>
+                <tr th:each="board : ${boards.content}" th:onclick="|location.href='@{/boarddetail/{id}(id=${board.id})}'|">
                     <td th:text="${board.number}"></td>
-                    <!--<td th:text="${startNumber - iterStat.index}"></td>-->
-                    <td th:text="${board.title}"></td>
+                    <td>
+                        <a th:href="@{/boarddetail/{id}(id=${board.id})}" th:text="${board.title}"></a>
+                    </td>
                     <td th:text="${board.author != null ? board.author.name : '관리자'}"></td>
                     <td th:text="${board.isPublic ? '' : '🔒'}"></td>
                 </tr>
-                
-                <!--페이징처리-->
-                	
-					</tbody>
+            </tbody>
 				</table>
 				
+				<!--페이징처리-->
          <div class="pagination justify-content-center">
             <ul id="paging-ul" class="pagination">
                 <li class="page-item" th:classappend="${currentPage == 0} ? 'disabled' : ''">
