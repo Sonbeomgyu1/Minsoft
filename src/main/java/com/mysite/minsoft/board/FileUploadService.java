@@ -30,18 +30,16 @@ public class FileUploadService {
     @Value("${file.upload-dir}")
     private String uploadDir;
 
-    // 파일 업로드 메서드
+ // 파일 업로드 메서드
     public String uploadFile(MultipartFile file, Board board) {
         String originalFileName = file.getOriginalFilename();
         String fileName = StringUtils.cleanPath(originalFileName);
-        String fileExtension = getFileExtension(fileName);
-        String newFileName = generateUniqueFileName(fileExtension);
 
         try {
             Path uploadPath = Paths.get(uploadDir).toAbsolutePath().normalize();
             Files.createDirectories(uploadPath);
 
-            Path targetLocation = uploadPath.resolve(newFileName);
+            Path targetLocation = uploadPath.resolve(fileName); // Use original file name as target
             file.transferTo(targetLocation);
 
             // 파일 정보를 데이터베이스에 저장하기 전에 기존 파일 삭제
@@ -49,8 +47,8 @@ public class FileUploadService {
 
             // 파일 정보를 데이터베이스에 저장
             FileSave fileSave = new FileSave();
-            fileSave.setFileName(newFileName);
-            fileSave.setOriginalFileName(originalFileName);
+            fileSave.setFileName(fileName); // Use original file name as file name
+            fileSave.setOriginalFileName(originalFileName); // 원본 파일 이름 저장
             fileSave.setFilePath(targetLocation.toString());
             fileSave.setBoard(board);
             fileSaveRepository.save(fileSave);
