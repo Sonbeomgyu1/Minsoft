@@ -34,6 +34,7 @@ import com.mysite.minsoft.login.model.SiteUser;
 import com.mysite.minsoft.login.repository.UserRepository;
 
 import java.io.IOException;
+import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 
 import javax.servlet.ServletContext;
@@ -43,6 +44,8 @@ import org.springframework.http.MediaType;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import java.net.URLEncoder;
 
 @Controller
 public class BoardController {
@@ -325,30 +328,44 @@ public class BoardController {
 	
 	
 
-	@GetMapping("/download/{boardId}")
-	public ResponseEntity<Resource> downloadFile(@PathVariable Long boardId) {
-		// 파일을 리소스로 로드합니다.
-		Resource resource = fileUploadService.loadFileAsResource(boardId);
+	 @GetMapping("/download/{boardId}")
+	    public ResponseEntity<Resource> downloadFile(@PathVariable Long boardId) {
+	        // Load file resource
+	        Resource resource = fileUploadService.loadFileAsResource(boardId);
 
-		// 파일의 콘텐츠 유형을 결정합니다.
-		String contentType = null;
-		try {
-			contentType = Files.probeContentType(resource.getFile().toPath());
-		} catch (IOException e) {
-			// 파일의 콘텐츠 유형을 결정하는 동안 예외가 발생한 경우 기본 콘텐츠 유형으로 설정합니다.
-			contentType = "application/octet-stream";
-			e.printStackTrace();
-		}
+	        // Determine file content type
+	        String contentType = null;
+	        try {
+	            contentType = Files.probeContentType(resource.getFile().toPath());
+	        } catch (IOException e) {
+	            contentType = "application/octet-stream";
+	            e.printStackTrace();
+	        }
 
-		// 파일 유형이 결정되지 않으면 기본 콘텐츠 유형으로 설정합니다.
-		if (contentType == null) {
-			contentType = "application/octet-stream";
-		}
+	        // Set default content type if not determined
+	        if (contentType == null) {
+	            contentType = "application/octet-stream";
+	        }
 
-		return ResponseEntity.ok().contentType(MediaType.parseMediaType(contentType))
-				.header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=\"" + resource.getFilename() + "\"")
-				.body(resource);
-	}
+	        // Extract original filename from database or resource metadata
+	        String originalFileName = fileSaveRepository.findByBoardId(boardId)
+	                                                     .map(FileSave::getOriginalFileName)
+	                                                     .orElse(resource.getFilename());
+
+	        // Encode filename in UTF-8 to ensure proper handling of non-ASCII characters
+	        String encodedFileName;
+	        try {
+	            encodedFileName = URLEncoder.encode(originalFileName, StandardCharsets.UTF_8.toString());
+	        } catch (IOException e) {
+	            throw new RuntimeException("Failed to encode filename: " + originalFileName, e);
+	        }
+
+	        // Build and return ResponseEntity with correct headers
+	        return ResponseEntity.ok()
+	                .contentType(MediaType.parseMediaType(contentType))
+	                .header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename*=UTF-8''" + encodedFileName)
+	                .body(resource);
+	    }
 
 	@GetMapping("/download/{boardId}/view")
 	public String downloadFileView(@PathVariable Long boardId, Model model) {
