@@ -157,40 +157,44 @@ public class BoardController {
 		return "board_writing";
 	}
 
-	// 게시물 생성을 처리하는 메서드(글작성페이지)
 	@PostMapping("/boardwriting")
 	public String boardWriting(@ModelAttribute Board board, @RequestParam("isPublic") String isPublicParam,
-			@RequestParam("boardFile") MultipartFile file) {
-		// 현재 사용자 정보 가져오기
-		Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-		// UserDetails를 구현했는지 확인
-		if (principal instanceof UserDetails) {
-			// 사용자 이름 가져오기
-			String username = ((UserDetails) principal).getUsername();
-			// 사용자 이름으로 현재 사용자 찾기
-			SiteUser currentUser = userRepository.findByUsername(username)
-					.orElseThrow(() -> new RuntimeException("유효하지 않은 사용자입니다."));
-			// 작성자 설정
-			board.setAuthor(currentUser);
-		} else {
-			// 사용자가 유효하지 않은 경우 예외 발생
-			throw new RuntimeException("유효하지 않은 사용자입니다.");
-		}
+	        @RequestParam("boardFile") MultipartFile file, Model model) {
+	    // 현재 사용자 정보 가져오기
+	    Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+	    // UserDetails를 구현했는지 확인
+	    if (principal instanceof UserDetails) {
+	        // 사용자 이름 가져오기
+	        String username = ((UserDetails) principal).getUsername();
+	        // 사용자 이름으로 현재 사용자 찾기
+	        SiteUser currentUser = userRepository.findByUsername(username)
+	                .orElseThrow(() -> new RuntimeException("유효하지 않은 사용자입니다."));
+	        // 작성자 설정
+	        board.setAuthor(currentUser);
+	    } else {
+	        // 사용자가 유효하지 않은 경우 예외 발생
+	        throw new RuntimeException("유효하지 않은 사용자입니다.");
+	    }
 
-		// 공개 여부 설정
-		boolean isPublic = "1".equals(isPublicParam);
-		board.setPublic(isPublic);
+	    // 공개 여부 설정
+	    boolean isPublic = "1".equals(isPublicParam);
+	    board.setPublic(isPublic);
 
-		// 새로운 게시물 저장
-		boardService.save(board);
+	    // 새로운 게시물 저장
+	    boardService.save(board);
 
-		// 파일 업로드 처리
-		if (!file.isEmpty()) {
-			fileUploadService.uploadFile(file, board);
-		}
+	    // 파일 업로드 처리
+	    if (!file.isEmpty()) {
+	        fileUploadService.uploadFile(file, board);
+	        // 업로드된 파일의 원본 파일 이름을 모델에 추가
+	        model.addAttribute("originalFileName", file.getOriginalFilename());
+	    } else {
+	        // 파일이 업로드되지 않은 경우 null을 모델에 추가
+	        model.addAttribute("originalFileName", null);
+	    }
 
-		// 게시물 목록 페이지로 리디렉션
-		return "redirect:/board";
+	    // 게시물 목록 페이지로 리디렉션
+	    return "redirect:/board";
 	}
 
 	// 공지사항 수정 폼에서 전송된 데이터 처리
@@ -322,12 +326,6 @@ public class BoardController {
 	        fileSaveRepository.save(fileSave);
 	    }
 
-	    
-	    
-	    
-	    
-	    
-	    
 	    // 수정된 게시물을 데이터베이스에 저장합니다.
 	    boardService.save(existingBoard);
 	    // 게시물 목록 페이지로 리디렉션합니다.
