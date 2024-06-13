@@ -158,42 +158,38 @@ public class BoardController {
 	}
 
 	@PostMapping("/boardwriting")
-	public String boardWriting(@ModelAttribute Board board, @RequestParam("isPublic") String isPublicParam,
-	        @RequestParam("boardFile") MultipartFile file, Model model) {
-	    // 현재 사용자 정보 가져오기
+	public String boardWriting(@ModelAttribute Board board,
+	                           @RequestParam("isPublic") String isPublicParam,
+	                           @RequestParam("boardFile") MultipartFile file,
+	                           Model model) {
+	    // Get current user information
 	    Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-	    // UserDetails를 구현했는지 확인
-	    if (principal instanceof UserDetails) {
-	        // 사용자 이름 가져오기
-	        String username = ((UserDetails) principal).getUsername();
-	        // 사용자 이름으로 현재 사용자 찾기
-	        SiteUser currentUser = userRepository.findByUsername(username)
-	                .orElseThrow(() -> new RuntimeException("유효하지 않은 사용자입니다."));
-	        // 작성자 설정
-	        board.setAuthor(currentUser);
-	    } else {
-	        // 사용자가 유효하지 않은 경우 예외 발생
-	        throw new RuntimeException("유효하지 않은 사용자입니다.");
+	    if (!(principal instanceof UserDetails)) {
+	        throw new RuntimeException("Invalid user.");
 	    }
-
-	    // 공개 여부 설정
+	    
+	    // Get the current user
+	    String username = ((UserDetails) principal).getUsername();
+	    SiteUser currentUser = userRepository.findByUsername(username)
+	            .orElseThrow(() -> new RuntimeException("Invalid user."));
+	    
+	    // Set author and public status
+	    board.setAuthor(currentUser);
 	    boolean isPublic = "1".equals(isPublicParam);
 	    board.setPublic(isPublic);
-
-	    // 새로운 게시물 저장
+	    
+	    // Save board entity
 	    boardService.save(board);
-
-	    // 파일 업로드 처리
+	    
+	    // Process file upload if a file is uploaded
 	    if (!file.isEmpty()) {
 	        fileUploadService.uploadFile(file, board);
-	        // 업로드된 파일의 원본 파일 이름을 모델에 추가
 	        model.addAttribute("originalFileName", file.getOriginalFilename());
 	    } else {
-	        // 파일이 업로드되지 않은 경우 null을 모델에 추가
 	        model.addAttribute("originalFileName", null);
 	    }
-
-	    // 게시물 목록 페이지로 리디렉션
+	    
+	    // Redirect to posts list page
 	    return "redirect:/board";
 	}
 
@@ -266,71 +262,64 @@ public class BoardController {
 	
 	@PostMapping("/boardedit/{id}/update")
 	public String boardEdit(@PathVariable Long id, @ModelAttribute Board board,
-	        @RequestParam("isPublic") String isPublicParam, @RequestParam(value = "boardFile", required = false) MultipartFile file) {
+	                        @RequestParam("isPublic") String isPublicParam,
+	                        @RequestParam(value = "boardFile", required = false) MultipartFile file) {
 	    // 주어진 ID로 기존 게시물을 찾습니다.
 	    Board existingBoard = boardService.findById(id);
 
+	    // 기존 게시물이 존재하는지 확인합니다.
+	    if (existingBoard == null) {
+	        throw new RuntimeException("ID에 해당하는 게시물을 찾을 수 없습니다: " + id);
+	    }
+
 	    // 현재 인증된 사용자 정보를 가져옵니다.
 	    Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-	    if (principal instanceof UserDetails) {
-	        // 사용자 이름을 가져옵니다.
-	        String username = ((UserDetails) principal).getUsername();
-	        // 사용자 이름으로 현재 사용자를 찾습니다.
-	        SiteUser currentUser = userRepository.findByUsername(username)
-	                .orElseThrow(() -> new RuntimeException("유효하지 않은 작성자입니다."));
-	        // 게시물의 작성자를 현재 사용자로 설정합니다.
-	        existingBoard.setAuthor(currentUser);
-	    } else {
-	        // 사용자가 유효하지 않은 경우 예외를 발생시킵니다.
-	        throw new RuntimeException("유효하지 않은 작성자입니다.");
+	    if (!(principal instanceof UserDetails)) {
+	        throw new RuntimeException("유효하지 않은 사용자입니다.");
 	    }
 
-	    // 게시물의 제목과 내용을 업데이트합니다.
-	    existingBoard.setTitle(board.getTitle());
-	    existingBoard.setContent(board.getContent());
+	    // 사용자명을 가져옵니다.
+	    String username = ((UserDetails) principal).getUsername();
+	    // 사용자명으로 현재 사용자를 찾습니다.
+	    SiteUser currentUser = userRepository.findByUsername(username)
+	            .orElseThrow(() -> new RuntimeException("유효하지 않은 사용자입니다."));
 
-	    // 공개 여부를 업데이트합니다.
-	    boolean isPublic = "1".equals(isPublicParam);
-	    existingBoard.setPublic(isPublic);
+	    // 현재 사용자가 기존 게시물의 저자인지 확인합니다.
+	    if (!existingBoard.getAuthor().equals(currentUser)) {
+	        throw new RuntimeException("이 게시물을 수정할 권한이 없습니다.");
+	    }
 
-	    // 파일이 비어 있지 않은 경우 파일을 업로드합니다.
-	    if (file != null && !file.isEmpty()) {
-	    	
-	    	//청 수정코드
-	    	 // 기존 파일 삭제 로직 추가
-	        List<FileSave> existingFiles = fileSaveRepository.findAllByBoardId(id);
-	        for (FileSave existingFile : existingFiles) {
-				/* fileUploadService.deleteFile(existingFile.getFileName()); */
-	        	fileUploadService.deleteFile(existingFile.getFilePath());
-	            fileSaveRepository.delete(existingFile);
+	    try {
+	        // 새 파일이 제공된 경우 파일 삭제 로직을 먼저 처리합니다.
+	        if (file != null && !file.isEmpty()) {
+	            fileUploadService.uploadFile(file, existingBoard);
+	        } else {
+	            // 새 파일이 업로드되지 않은 경우, 기존 파일을 삭제합니다.
+	            fileUploadService.deleteExistingFilesForBoard(id);
 	        }
-	    	
-	    	
-	        // 파일을 업로드하고 파일 이름을 가져옵니다.
-	        String filePath = fileUploadService.uploadFile(file, existingBoard);
-			/* String fileName = fileUploadService.uploadFile(file, existingBoard); */
-	        // 파일 저장 정보를 생성합니다.
-	        FileSave fileSave = new FileSave();
-	        // 파일 이름을 설정합니다.
-	        fileSave.setFileName(file.getOriginalFilename());
-			/* fileSave.setFileName(fileName); */
-	        // 원본 파일 이름을 설정합니다.
-	        fileSave.setOriginalFileName(file.getOriginalFilename());
-	        
-	     // 파일 경로를 설정합니다.
-	        fileSave.setFilePath(filePath);
-	        
-	        // 게시물에 속한 파일을 설정합니다.
-	        fileSave.setBoard(existingBoard);
-	        // 파일 저장 정보를 데이터베이스에 저장합니다.
-	        fileSaveRepository.save(fileSave);
-	    }
 
-	    // 수정된 게시물을 데이터베이스에 저장합니다.
-	    boardService.save(existingBoard);
-	    // 게시물 목록 페이지로 리디렉션합니다.
-	    return "redirect:/board";
+	        // 기존 게시물의 제목과 내용을 업데이트합니다.
+	        existingBoard.setTitle(board.getTitle());
+	        existingBoard.setContent(board.getContent());
+
+	        // 공개 여부를 업데이트합니다.
+	        boolean isPublic = "1".equals(isPublicParam);
+	        existingBoard.setPublic(isPublic);
+
+	        // 수정된 게시물을 데이터베이스에 저장합니다.
+	        boardService.save(existingBoard);
+
+	        // 게시물 목록 페이지로 리다이렉션합니다.
+	        return "redirect:/board";
+	    } catch (RuntimeException ex) {
+	        // 예외 처리 및 에러 페이지로 리다이렉션합니다.
+	        return "error";
+	    }
 	}
+
+
+
+
 
 	
 	
