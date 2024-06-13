@@ -285,7 +285,9 @@
 		<a th:href="@{/login}" sec:authorize="isAnonymous()"><button class="styled-button">Admin</button></a>
     	<a th:href="@{/logout}" sec:authorize="isAuthenticated()"><button class="styled-button">logout</button></a>
 			</div>
-
+<a sec:authorize="isAuthenticated()" id="minsoftLink" onclick="redirectToExternalIP()">
+    <button class="button">Minsoft</button>
+</a>
 
 		</div>
 	</nav>
@@ -1093,6 +1095,12 @@
 	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
 	<script>
+		
+		<!-- 민소프트 ip 주소 변경 스크립트-->
+		 function redirectToExternalIP() {
+        window.location.href = 'http://222.238.63.185:8178/';
+    }
+    
 		if (document.getElementById('language-select')) {
 			var element = document.getElementById('language-select');
 			const example = new Choices(element, {
