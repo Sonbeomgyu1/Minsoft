@@ -321,6 +321,13 @@
 					<div class="page-header min-vh-45 border-xl"
 						style="background-image: url('/images/board/board_banner1.jpg')">
 						<span class="mask"></span>
+						<div class="container">
+							<div class="row">
+								<div class="col-lg-12 my-auto">
+									<h1 class="text-white fadeIn2">공지사항</h1>
+								</div>
+							</div>
+						</div>
 					</div>
 				</div>
 			</div>
@@ -354,6 +361,7 @@
 
 			<div class="action-buttons">
 				<!-- <button class="edit-button" id="editButton" style="display: none">수정</button>-->
+				<a href="/board">목록</a>
 				<!--수정버튼-->
 				<a th:href="@{/boardedit/{id}(id=${board.id})}" id="editButton" style="display: none">수정</a>
 				<!--삭제버튼-->
