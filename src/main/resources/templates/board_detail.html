@@ -32,7 +32,7 @@
 	<link id="pagestyle" href="../../assets/css/soft-design-system-pro.css?v=1.1.0" rel="stylesheet" />
 </head>
 
-<body class="blog-posts">
+<body class="blog-posts" style="overflow-x: hidden; overflow-y: auto;">
 	<!-- Navbar Light -->
 	<nav class="navbar navbar-expand-lg navbar-light bg-white py-3">
 		<div class="container">
@@ -40,17 +40,6 @@
 				<img src="/images/logo.jpg" alt="Soft UI PRO" style="max-width: 300px; height: 45px" />
 			</a>
 
-			<a href="https://www.creative-tim.com/product/soft-ui-design-system-pro#pricingCard"
-				class="btn btn-sm bg-gradient-primary btn-round mb-0 ms-auto d-lg-none d-block">Buy Now</a>
-			<button class="navbar-toggler shadow-none ms-2" type="button" data-bs-toggle="collapse"
-				data-bs-target="#navigation" aria-controls="navigation" aria-expanded="false"
-				aria-label="Toggle navigation">
-				<span class="navbar-toggler-icon mt-2">
-					<span class="navbar-toggler-bar bar1"></span>
-					<span class="navbar-toggler-bar bar2"></span>
-					<span class="navbar-toggler-bar bar3"></span>
-				</span>
-			</button>
 			<div class="collapse navbar-collapse w-100 pt-3 pb-2 py-lg-0" id="navigation">
 				<ul class="navbar-nav navbar-nav-hover mx-auto">
 					<li class="nav-item dropdown dropdown-hover mx-2">
@@ -319,10 +308,7 @@
 				<a th:href="@{/login}" sec:authorize="isAnonymous()"><button class="styled-button">Admin</button></a>
 				<a th:href="@{/logout}" sec:authorize="isAuthenticated()"><button
 						class="styled-button">logout</button></a>
-						
-				<a sec:authorize="isAuthenticated()" id="minsoftLink" onclick="redirectToExternalIP()">
-				   <button class="button">Minsoft</button>
-				</a>
+				
 			</div>
 		</div>
 	</nav>
