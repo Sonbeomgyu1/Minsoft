@@ -357,7 +357,7 @@
                                             </div>
                                             
                                             <label>공개여부</label>
-                                            <div class="d-flex justify-content-center">
+                                            <div class="d-flex justify-content-center" id="set-private-radio1">
                                                 <div>
                                                     <div class="form-check me-3">
                                                         <input class="form-check-input" type="radio" name="isPublic" id="flexRadioDefault1"  value="1" th:checked="${board.isPublic == 1}">
@@ -685,7 +685,9 @@
              .form-container textarea {
             height: 400px; /* 텍스트 영역 높이 설정 */
         }
-            
+        #set-private-radio1{
+			gap: 40px;
+		}
         .text-end-btn {
             display: flex;
             justify-content: center; /* 중앙 정렬 */
@@ -719,13 +721,12 @@
         }
 
         .custom-container {
-            padding-top: 70px;
             padding-bottom: 70px;
         }
 
         .custom-card {
             padding: 20px;
-            max-width: 800px; /* 카드 최대 너비 */
+            max-width: 900px; /* 카드 최대 너비 */
             margin: 0 auto; /* 수평 중앙 정렬 */
         }
 

@@ -292,10 +292,7 @@
 				</ul>
 				<a th:href="@{/login}" sec:authorize="isAnonymous()"><button class="styled-button">Admin</button></a>
 				<a th:href="@{/logout}" sec:authorize="isAuthenticated()"><button
-						class="styled-button">logout</button></a>
-						
-					<a sec:authorize="isAuthenticated()" id="minsoftLink" onclick="redirectToExternalIP()">
-				    <button class="button">Minsoft</button>
+						class="styled-button">logout</button>
 				</a>
 			</div>
 		</div>
