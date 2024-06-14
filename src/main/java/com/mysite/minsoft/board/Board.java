@@ -42,6 +42,10 @@ public class Board implements Serializable {
     private String content;
     
   
+    //조회수 컬럼
+    @Column(name = "VIEW_COUNT", nullable = false)
+    private int viewCount = 0;
+
     
     //공개비공개 설정
 	/*
@@ -56,4 +60,10 @@ public class Board implements Serializable {
     //번호필드 추가
     @Transient
     private Long number;
+    
+    //조회수증가
+    public void incrementViewCount() {
+        this.viewCount++;
+    }
+    
 }

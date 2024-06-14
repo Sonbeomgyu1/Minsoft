@@ -121,13 +121,23 @@ public class BoardController {
 	public String boardDetail(@PathVariable Long id, Model model) { // 보드 디테일 컨트롤러 메서드
 		Logger logger = LoggerFactory.getLogger(getClass()); // Logger 객체 생성
 
-		// 게시물 정보를 로드합니다.
+		// 게시물 정보를 로드합니다. 조회수 증가와 저장을 BoardService에서 처리
 		Board board = boardService.findById(id); // 주어진 ID에 해당하는 보드 정보를 가져옵니다.
 		logger.debug("Board loaded: {}", board); // 디버그 로그: 가져온 보드 정보를 기록합니다.
 
 		// 게시물에 대한 파일 정보를 로드합니다.
 		List<FileSave> fileSaves = fileSaveRepository.findAllByBoardId(id); // 주어진 보드 ID에 해당하는 파일 정보를 가져옵니다.
 		logger.debug("File saves loaded: {}", fileSaves); // 디버그 로그: 가져온 파일 정보를 기록합니다.
+		
+		//----------수정중-------------
+		/*
+		 * // 조회수를 증가시킵니다. board.incrementViewCount(); //변경된 게시글 저장
+		 * boardService.save(board); // 로그 추가
+		 * logger.debug("boardDetail 메서드 호출됨 - ID: {}", id);
+		 */
+		 // 조회수를 증가시킵니다.
+	    boardService.incrementViewCount(id);
+		
 
 		// 모델에 게시물 정보와 파일 이름을 추가합니다.
 		model.addAttribute("board", board); // 모델에 보드 정보를 추가합니다.

@@ -375,6 +375,8 @@
 							<th style="width: 10%">번호</th>
 							<th style="width: 45%">제목</th>
 							<th style="width: 10%">작성자</th>
+							<!--조회수 추가-->
+							 <th style="width: 10%">조회수</th>
 							<th style="width: 3%"></th>
 							
 						</tr>
@@ -386,6 +388,8 @@
                         <a th:href="@{/boarddetail/{id}(id=${board.id})}" th:text="${board.title}"></a>
                     </td>
                     <td th:text="${board.author != null ? board.author.name : '관리자'}"></td>
+                    <!--조회수 추가-->
+                     <td th:text="${board.viewCount}"></td>
                     <td th:text="${board.isPublic ? '' : '🔒'}"></td>
                 </tr>
             </tbody>
