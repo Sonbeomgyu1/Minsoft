@@ -1,5 +1,6 @@
 package com.mysite.minsoft.login.controller;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 
 import org.springframework.dao.DataIntegrityViolationException;
@@ -64,13 +65,19 @@ public class LoginController {
     }
 
     @GetMapping("/login")
-    public String loginRender() {
+    public String loginRender(HttpServletRequest request) {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         if (authentication == null || authentication instanceof AnonymousAuthenticationToken) {
+            // Referer 헤더를 이용해 이전 URL을 가져옵니다.
+            String referrer = request.getHeader("Referer");
+            if (referrer != null && !referrer.contains("/login")) {
+                request.getSession().setAttribute("redirectUrl", referrer);
+            }
             return "login";
         } else {
             return "redirect:/";
         }
     }
+
 
 }
