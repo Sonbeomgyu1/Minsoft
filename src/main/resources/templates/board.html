@@ -346,15 +346,15 @@
 							
 						</tr>
 					</thead>
-					  <tbody>
+					   <tbody>
                 <tr th:each="board : ${boards.content}" th:onclick="|location.href='@{/boarddetail/{id}(id=${board.id})}'|">
                     <td th:text="${board.number}"></td>
                     <td>
                         <a th:href="@{/boarddetail/{id}(id=${board.id})}" th:text="${board.title}"></a>
                     </td>
                     <td th:text="${board.author != null ? board.author.name : '관리자'}"></td>
-                    <!--조회수 추가-->
-                     <td th:text="${board.viewCount}"></td>
+                    <!-- 조회수 추가 -->
+                    <td th:text="${board.viewCount}"></td>
                     <td th:text="${board.isPublic ? '' : '🔒'}"></td>
                 </tr>
             </tbody>
@@ -571,7 +571,7 @@
 
 
 	.custom-btn {
-    background-color: #5e72e4; /* Change to desired background color */
+    background-color: darkblue; /* Change to desired background color */
     color: white; /* Set text color to white */
     border: none; /* Remove outline */
     padding: 8px 16px; /* Padding adjustment */
@@ -596,7 +596,11 @@
 		margin-top: 90px;
 
 }
-
+   /* 테이블 내용 스타일 설정 */
+    tbody tr td {
+        font-size: 15px; /* 원하는 폰트 크기로 설정 */
+        font-weight: 20px; /* 원하는 폰트 두께로 설정 */
+    }
 
 
 	/*main css 끝*/
