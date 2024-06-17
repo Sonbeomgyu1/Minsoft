@@ -341,12 +341,12 @@
                                             <div>
                                                 <label>제목</label>
                                                 <div class="input-group mb-4">
-                                                    <input type="text" class="form-control" name="title" th:value="${board.title}" required>
+                                                    <input type="text" class="form-control" placeholder="제목을 입력하세요 (최대 70글자)" maxlength="70" name="title" th:value="${board.title}" required>
                                                 </div>
                                             </div>
                                             <div class="form-group mt-4">
                                                 <label>내용</label>
-                                                 <textarea name="content" class="form-control" id="message" rows="6" required th:text="${board.content}" style="resize: none;"></textarea>
+                                                 <textarea name="content" class="form-control" id="message" placeholder="내용을 입력하세요" rows="6" required th:text="${board.content}" style="resize: none;"></textarea>
                                             </div>
                                             
                                             <div>파일 : <span th:text="${originalFileName}">없음</span></div>
@@ -726,7 +726,7 @@
 
         .custom-card {
             padding: 20px;
-            max-width: 900px; /* 카드 최대 너비 */
+            max-width: 1000px; /* 카드 최대 너비 */
             margin: 0 auto; /* 수평 중앙 정렬 */
         }
 
