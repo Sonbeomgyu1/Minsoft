@@ -342,8 +342,8 @@
 				작성자 : <span th:text="${board.author != null ? board.author.name : '관리자'}"></span>
 			</div>
 			<div class="title-meta-divider"></div>
-			<div class="post-content" >
-				<p th:text="${board.content}">
+			<div class="post-content" style="white-space: pre-wrap;">
+				<p th:text="${board.content}" class="post-content-text">
 					여기에 게시물 내용이 들어갑니다. 이 게시판은 사용자가 작성한 글을
 					표시하는 페이지입니다.
 				</p>
@@ -637,7 +637,7 @@
 
 	/* 게시물 컨테이너 스타일 */
 	.container2 {
-		max-width: 800px;
+		max-width: 1000px;
 		/* 최대 너비 */
 		margin: 0 auto;
 		/* 중앙 정렬 */
@@ -657,12 +657,15 @@
 
 	/* 게시물 제목 스타일 */
 	.post-title {
-		font-size: 2.5em;
+		font-size: 1.8rem;
 		/* 글자 크기 */
 		margin-top: 20px;
 		/* 하단 마진 */
 		color: #333;
 		/* 글자 색상 */
+	}
+	.post-content-text{
+		font-size: 1.1em;
 	}
 
 	/* 게시물 메타 정보 스타일 */
@@ -671,9 +674,7 @@
 		/* 글자 색상 */
 		margin-bottom: 15px;
 		/* 하단 마진 */
-		font-size: 0.9em;
-		/* 글자 크기 */
-		margin-left: 620px;
+		margin-left: 820px;
 	}
 
 	/* 게시물 제목과 메타 정보 아래 테두리 스타일 */
