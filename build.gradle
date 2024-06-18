@@ -2,10 +2,12 @@ plugins {
 	id 'java'
 	id 'org.springframework.boot' version '2.7.14'
 	id 'io.spring.dependency-management' version '1.0.15.RELEASE'
+	id 'war'	//war 배포용
 }
 
 group = 'com.mysite'
 version = '0.0.1-SNAPSHOT'
+apply plugin:'war'	// war배포용
 
 java {
 	sourceCompatibility = '11'
@@ -41,16 +43,17 @@ dependencies {
     implementation 'ch.qos.logback:logback-classic:1.2.3'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
     implementation 'org.springframework.boot:spring-boot-starter-logging'
-    
-    
-    
-    
-
-
+    providedRuntime 'org.springframework.boot:spring-boot-starter-tomcat'	// war배포용 수정
     
 }
 
 
 tasks.named('test') {
     useJUnitPlatform()
+}
+
+bootWar{			// war 배포 파일명
+	archiveBaseName = 'ROOT'
+    archiveFileName = 'ROOT.war'
+    archiveVersion = "0.0.0"
 }
