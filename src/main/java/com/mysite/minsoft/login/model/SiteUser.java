@@ -13,7 +13,7 @@ import lombok.Setter;
 @Getter
 @Setter
 @Entity
-@Table(name = "ADMIN")
+@Table(name="ADMIN")
 public class SiteUser  implements Serializable{
 	
 	private static final long serialVersionUID = 1L;
