@@ -14,30 +14,48 @@
 <html lang="en" itemscope itemtype="http://schema.org/WebPage">
 
 <head>
-	<meta charset="utf-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<link rel="apple-touch-icon" sizes="76x76" href="../../assets/img/apple-icon.png">
-	<link rel="icon" type="image/png" href="../../assets/img/favicon.png">
-	<title>
-		(주)민소프트
-	</title>
-	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-	<!--     Fonts and icons     -->
-	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
-	<!-- Nucleo Icons -->
-	<link href="../../assets/css/nucleo-icons.css" rel="stylesheet" />
-	<link href="../../assets/css/nucleo-svg.css" rel="stylesheet" />
-	<!-- Font Awesome Icons -->
-	<script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
-	<link href="../../assets/css/nucleo-svg.css" rel="stylesheet" />
-	<!-- CSS Files -->
-	<link id="pagestyle" href="../../assets/css/soft-design-system-pro.css?v=1.1.0" rel="stylesheet" />
-	<link href="https://fonts.googleapis.com/css?family=Nanum+Gothic&display=swap" rel="stylesheet">
+   <meta charset="utf-8" />
+   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+   <link rel="apple-touch-icon" sizes="76x76" href="../../assets/img/apple-icon.png">
+   <link rel="icon" type="image/png" href="../../assets/img/favicon.png">
+   <title>
+      Soft UI Design System PRO by Creative Tim
+   </title>
+   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+   <!--     Fonts and icons     -->
+   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
+   <!-- Nucleo Icons -->
+   <link href="../../assets/css/nucleo-icons.css" rel="stylesheet" />
+   <link href="../../assets/css/nucleo-svg.css" rel="stylesheet" />
+   <!-- Font Awesome Icons -->
+   <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
+   <!--카카오맵api-->
+   <!--<script type="text/javascript"
+      src="//dapi.kakao.com/v2/maps/sdk.js?appkey=e9fb342f05f318865b155c2edf278cf6"></script>-->
+      <!--비동기로 KaKao Maps API 로드-->
+          <script type="text/javascript">
+        function loadKakaoMapScript(callback) {
+            var script = document.createElement('script');
+            script.src = 'https://dapi.kakao.com/v2/maps/sdk.js?appkey=e9fb342f05f318865b155c2edf278cf6&autoload=false';
+            script.async = true;
+            script.defer = true;
+            script.onload = function() {
+                kakao.maps.load(callback); // 스크립트가 로드된 후에 kakao.maps.load를 사용하여 callback 호출
+            };
+            
+           
+            document.head.appendChild(script);
+        }
+    </script>
+   <link href="../../assets/css/nucleo-svg.css" rel="stylesheet" />
+   <!-- CSS Files -->
+   <link id="pagestyle" href="../../assets/css/soft-design-system-pro.css?v=1.1.0" rel="stylesheet" />
+   <link href="https://fonts.googleapis.com/css?family=Nanum+Gothic&display=swap" rel="stylesheet">
 </head>
 
 <body class="blog-posts" style="overflow-x: hidden; overflow-y: auto;">
-	<!-- Navbar Light -->
-	<nav class="navbar navbar-expand-lg navbar-light bg-white py-3">
+   <!-- Navbar Light -->
+   <nav class="navbar navbar-expand-lg navbar-light bg-white py-3">
       <div class="container">
          <a class="navbar-brand font-weight-bold" href="/">
             <img src="/images/logo.jpg" alt="Soft UI PRO" style="max-width: 300px; height: 45PX;">
@@ -47,7 +65,7 @@
             <ul class="navbar-nav navbar-nav-hover mx-auto">
                <li class="nav-item dropdown dropdown-hover mx-2">
                   <a href="/greetingpage"
-				  	 class="nav-link ps-2 d-flex justify-content-between cursor-pointer align-items-center"
+                  class="nav-link ps-2 d-flex justify-content-between cursor-pointer align-items-center"
                      id="dropdownMenuDocs" role="button"
                      style="font-size: 1.3rem;"> <!-- 여기에 원하는 크기를 설정하세요 -->
                      COMPANY
@@ -108,7 +126,7 @@
 
                <li class="nav-item dropdown dropdown-hover mx-2">
                   <a href="/businessdetails"
-				  	 class="nav-link ps-2 d-flex justify-content-between cursor-pointer align-items-center"
+                  class="nav-link ps-2 d-flex justify-content-between cursor-pointer align-items-center"
                      id="dropdownMenuDocs" role="button"
                      style="font-size: 1.3rem;"> <!-- 여기에 원하는 크기를 설정하세요 -->
                      BUSINESS
@@ -196,7 +214,7 @@
                </li>
                <li class="nav-item dropdown dropdown-hover mx-2">
                   <a href="/welfare"
-                  	class="nav-link ps-2 d-flex justify-content-between cursor-pointer align-items-center"
+                     class="nav-link ps-2 d-flex justify-content-between cursor-pointer align-items-center"
                      id="dropdownMenuDocs" role="button"
                      style="font-size: 1.3rem;"> <!-- 여기에 원하는 크기를 설정하세요 -->
                      RECRUIT
@@ -228,7 +246,7 @@
                </li>
                <li class="nav-item dropdown dropdown-hover mx-2">
                   <a href="/contact"
-                  	class="nav-link ps-2 d-flex justify-content-between cursor-pointer align-items-center"
+                     class="nav-link ps-2 d-flex justify-content-between cursor-pointer align-items-center"
                      id="dropdownMenuDocs" role="button"
                      style="font-size: 1.3rem;"> <!-- 여기에 원하는 크기를 설정하세요 -->
                      CONTACT US
@@ -261,7 +279,7 @@
                </li>
                <li class="nav-item dropdown dropdown-hover mx-2">
                   <a href="/board"
-				  	 class="nav-link ps-2 d-flex justify-content-between cursor-pointer align-items-center"
+                  class="nav-link ps-2 d-flex justify-content-between cursor-pointer align-items-center"
                      id="dropdownMenuDocs" role="button"
                      style="font-size: 1.3rem;"> <!-- 여기에 원하는 크기를 설정하세요 -->
                      ABOUT US
@@ -297,77 +315,76 @@
       </div>
    </nav>
 
-	<!-- End Navbar -->
-	<!-- -------- START HEADER 11 w/ carousel ------- -->
-	<header>
-		<div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
-			<div class="carousel-inner">
-				<div class="carousel-item active">
-					<div class="page-header min-vh-45 m-0 border-xl"
-						style="background-image: url('/images/contact/41990.jpg'); ">
-						<span class="mask bg-gradient-dark" style="opacity: 0.1;"></span>
-						<div class="container">
-							<div class="row">
-								<div class="col-lg-12 my-auto">
+   <!-- End Navbar -->
+   <!-- -------- START HEADER 11 w/ carousel ------- -->
+   <header>
+      <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+         <div class="carousel-inner">
+            <div class="carousel-item active">
+               <div class="page-header min-vh-45 m-0 border-xl"
+                  style="background-image: url('/images/contact/41990.jpg'); ">
+                  <span class="mask bg-gradient-dark" style="opacity: 0.1;"></span>
+                  <div class="container">
+                     <div class="row">
+                        <div class="col-lg-12 my-auto">
 
-									<h1 class="text-white fadeIn2 fadeInBottom">찾아오는 길</h1>
+                           <h1 class="text-white fadeIn2 fadeInBottom">찾아오는 길</h1>
 
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</header>
-	<!-- -------- END HEADER 11 w/ carousel ------- -->
-	<main>
-		<!--오시는길 시작-->
-		<div id="container" style="display: flex; justify-content: center; align-items: center; width: 100vw; height: 100vh; position: relative;">
-		    <div id="text-contact" class="find-text" style="position: absolute; top: 80px; left: 20%; transform: translateX(-50%); z-index: 10; font-weight: bold;  font-size: 50px;">
-		        <p class="contact1">오시는 길</p>
-		    </div>
-			<!--지도요소-->
-			<div id="map" class="shadow-lg" style="margin-top: 70px; width:70%; height:500px; border-radius: 0.8rem;">
-			</div>
-		</div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </header>
+   <!-- -------- END HEADER 11 w/ carousel ------- -->
+   <main>
+      <!--오시는길 시작-->
+      <div id="container" style="display: flex; justify-content: center; align-items: center; width: 100vw; height: 100vh; position: relative;">
+          <div id="text-contact" class="find-text" style="position: absolute; top: 80px; left: 20%; transform: translateX(-50%); z-index: 10; font-weight: bold;  font-size: 50px;">
+              <p class="contact1">오시는 길</p>
+          </div>
+         <!--지도요소-->
+         <div id="map" class="shadow-lg" style="margin-top: 70px; width:70%; height:500px; border-radius: 0.8rem;">
+         </div>
+      </div>
 
-	<!--회사주소,번호,Fax번호-->
-	<section class="py-7 bg-white position-relative">  
+   <!--회사주소,번호,Fax번호-->
+   <section class="py-7 bg-white position-relative">  
   <div class="container">
-    <div class="row mt-4 blur border-radius-lg shadow-lg">
-      <div class="col-lg-3 col-md-6 col-6 my-auto">
-        <div class="p-3 text-center">
-          <img class="width-48-px mb-3" src="/icon/gps_1721823.svg">
+    <div class="row mt-n7 blur border-radius-lg shadow-lg">
+      <div class="col-lg-3 col-md-6 col-6 position-relative my-auto">
+        <div class="p-3 text-center" >
+         <img class="width-48-px mb-3" src="/icon/gps_1721823.svg" >
           <h5 class="mt-3 mb-1">Address</h5>
           <p class="mb-0">서울시 강서구 마곡서로 158, 1306호<br>(&nbsp;마곡센트럴타워Ⅱ )</p>
           <hr class="vertical dark">
         </div>
       </div>
-      <div class="col-lg-3 col-md-6 col-6 my-auto">
+      <div class="col-lg-3 col-md-6 col-6 position-relative my-auto">
         <div class="p-3 text-center">
-          <img class="width-48-px mb-3" src="/icon/sign_4138610.svg">
+         <img class="width-48-px mb-3" src="/icon/sign_4138610.svg" >
           <h5 class="mt-3 mb-1">Email</h5>
-          <p class="mb-0">minsoft@minsoft.co.kr</p>
+          <p class="mb-0">youn628@naver.com</p>
         </div>
         <hr class="vertical dark">
       </div>
-      <div class="col-lg-3 col-md-6 col-6 my-auto">
+      <div class="col-lg-3 col-md-6 col-6 position-relative my-auto">
         <div class="p-3 text-center">
-          <img class="width-48-px mb-3" src="/icon/phone-call_7403580.svg">
+         <img class="width-48-px mb-3" src="/icon/phone-call_7403580.svg">
+        
           <h5 class="mt-3 mb-1">Phone</h5>
-          <p class="mb-0">Tel) 02-6482-0051<br>Fax) 02-6483-0051</p>
+          <p class="mb-0">Tel) 02-6482-0051<br>Fax) 02-6483-0051 </p>
         </div>
       </div>
-      <div class="col-lg-3 col-md-6 col-6 my-auto">
-        <div class="image-container">
-          <img src="/images/contact/685.jpg" alt="" class="img-fluid" style="border-radius: 0.5rem;">
-        </div>
-      </div>
+      <div class="col-lg-3 col-md-6 col-6 position-relative my-auto image-container" >
+        
+        <img src="/images/contact/685.jpg" alt="" class="img-fluid" style="border-radius: 0.5rem;">
+     </div>
     </div>
   </div>
 </section>
-
        
 
 <!--지하철 버스 새로운 템플릿-->
@@ -395,80 +412,82 @@
         </div>
     </section>
 <!-- -------- END PRE-FOOTER 7 w/ TEXT AND 2 BUTTONS ------- -->
-	<!--복지제도 새로운 템플릿 끝-->
-		
-	</main>
-	<footer id="footer">
-		<div class="row text">
-			<div class="col-lg-6 footer-contact">
-				<p><strong></strong>주식회사 민소프트</p>
-				<!--<p><strong>대표이사:</strong> 김민구</p>-->
-				<p><strong></strong>Tel) 02-6482-0051 | Fax) 02-6483-0051</p>
-				<p><strong></strong>E-mail: minsoft@minsoft.co.kr</p>
-				<p><strong></strong>07788) 서울시 강서구 마곡서로 158, 1306호 ( 마곡센트럴타워Ⅱ )</p>
-				<p class="min">
-					<img id="logoImg2" src="/images/logo.jpg" alt="로고 이미지">
-					&copy; Copyright 2024. <strong><span>주식회사 민소프트</span></strong> All Rights Reserved.
-				</p>
-			</div>
+   <!--복지제도 새로운 템플릿 끝-->
+      
+   </main>
+   <footer id="footer">
+      <div class="row text">
+         <div class="col-lg-6 footer-contact">
+            <p><strong></strong>주식회사 민소프트</p>
+            <!--<p><strong>대표이사:</strong> 김민구</p>-->
+            <p><strong></strong>Tel) 02-6482-0051 | Fax) 02-6483-0051</p>
+            <p><strong></strong>E-mail: youn628@naver.com</p>
+            <p><strong></strong>07788) 서울시 강서구 마곡서로 158, 1306호 ( 마곡센트럴타워Ⅱ )</p>
+            <p class="min">
+               <img id="logoImg2" src="/images/logo.jpg" alt="로고 이미지">
+               &copy; Copyright 2024. <strong><span>주식회사 민소프트</span></strong> All Rights Reserved.
+            </p>
+         </div>
 
-		</div>
-	</footer>
-	<!-- -------- END FOOTER 5 w/ DARK BACKGROUND ------- -->
-	<!--   Core JS Files   -->
-	<script src="../../assets/js/core/popper.min.js" type="text/javascript"></script>
+      </div>
+   </footer>
+   <!-- -------- END FOOTER 5 w/ DARK BACKGROUND ------- -->
+   <!--   Core JS Files   -->
+   <script src="../../assets/js/core/popper.min.js" type="text/javascript"></script>
 <script src="../../assets/js/core/bootstrap.min.js" type="text/javascript"></script>
 <script src="../../assets/js/plugins/perfect-scrollbar.min.js"></script>
 <script src="../../assets/js/soft-design-system-pro.min.js?v=1.1.0" type="text/javascript"></script>
-	<!--카카오맵api-->
-	<script type="text/javascript"
-		src="//dapi.kakao.com/v2/maps/sdk.js?appkey=e9fb342f05f318865b155c2edf278cf6"></script>
-	<script>
-		if (document.getElementById('language-select')) {
-			var element = document.getElementById('language-select');
-			const example = new Choices(element, {
-				searchEnabled: false
-			});
+   <!--카카오맵api-->
+   <!--<script type="text/javascript"
+      src="//dapi.kakao.com/v2/maps/sdk.js?appkey=e9fb342f05f318865b155c2edf278cf6"></script>-->
+   <script>
+      if (document.getElementById('language-select')) {
+         var element = document.getElementById('language-select');
+         const example = new Choices(element, {
+            searchEnabled: false
+         });
 
-		}
-		if (document.getElementById('currency-select')) {
-			var element = document.getElementById('currency-select');
-			const example = new Choices(element, {
-				searchEnabled: false
-			});
-		}
+      }
+      if (document.getElementById('currency-select')) {
+         var element = document.getElementById('currency-select');
+         const example = new Choices(element, {
+            searchEnabled: false
+         });
+      }
 
-		/*헤더 네비바 따라 내려오게하는 스크립트*/
-		window.addEventListener('scroll', function () {
-			var navbar = document.querySelector('.navbar');
-			if (window.scrollY > 50) { // 스크롤 위치가 50px 이상인 경우
-				navbar.classList.add('fixed-top'); // 고정된 위치로 설정
-			} else {
-				navbar.classList.remove('fixed-top'); // 일반 위치로 설정
-			}
-		});
-	/*카카오 맵 api 지도생성*/
-		var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
-			mapOption = {
-				center: new kakao.maps.LatLng(37.56811616282523, 126.82544870861699), // 지도의 중심좌표
-				level: 3 // 지도의 확대 레벨
-			};
+      /*헤더 네비바 따라 내려오게하는 스크립트*/
+      window.addEventListener('scroll', function () {
+         var navbar = document.querySelector('.navbar');
+         if (window.scrollY > 50) { // 스크롤 위치가 50px 이상인 경우
+            navbar.classList.add('fixed-top'); // 고정된 위치로 설정
+         } else {
+            navbar.classList.remove('fixed-top'); // 일반 위치로 설정
+         }
+      });
+   /*카카오 맵 api 지도생성*/
+   /*initMap함수추가*/
+   function initMap() {
+      var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
+         mapOption = {
+            center: new kakao.maps.LatLng(37.56811616282523, 126.82544870861699), // 지도의 중심좌표
+            level: 3 // 지도의 확대 레벨
+         };
 
-		var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
+      var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
 
-		// 마커가 표시될 위치입니다 
-		var markerPosition = new kakao.maps.LatLng(37.56811616282523, 126.82544870861699);
+      // 마커가 표시될 위치입니다 
+      var markerPosition = new kakao.maps.LatLng(37.56811616282523, 126.82544870861699);
 
-		// 마커를 생성합니다
-		var marker = new kakao.maps.Marker({
-			position: markerPosition
-		});
+      // 마커를 생성합니다
+      var marker = new kakao.maps.Marker({
+         position: markerPosition
+      });
 
-		// 마커가 지도 위에 표시되도록 설정합니다
-		marker.setMap(map);
-		
-		
-		var iwContent = '<div style="padding:5px; text-align: center; color: blue; ">민소프트 <br><a href="https://map.kakao.com/link/map/서울 강서구 마곡서로 158,37.56811616282523, 126.82544870861699" style="color:black" target="_blank">크게보기&ensp;</a>/ <a href="https://map.kakao.com/link/to/서울 강서구 마곡서로 158,37.56811616282523, 126.82544870861699" style="color:black" target="_blank">&ensp;길찾기</a></div>', // 인포윈도우에 표출될 내용으로 HTML 문자열이나 document element가 가능합니다
+      // 마커가 지도 위에 표시되도록 설정합니다
+      marker.setMap(map);
+      
+      
+      var iwContent = '<div style="padding:5px; text-align: center; color: blue; ">민소프트 <br><a href="https://map.kakao.com/link/map/서울 강서구 마곡서로 158,37.56811616282523, 126.82544870861699" style="color:black" target="_blank">크게보기&ensp;</a>/ <a href="https://map.kakao.com/link/to/서울 강서구 마곡서로 158,37.56811616282523, 126.82544870861699" style="color:black" target="_blank">&ensp;길찾기</a></div>', // 인포윈도우에 표출될 내용으로 HTML 문자열이나 document element가 가능합니다
     iwPosition = new kakao.maps.LatLng(37.56811616282523, 126.82544870861699); //인포윈도우 표시 위치입니다
 
 // 인포윈도우를 생성합니다
@@ -480,7 +499,11 @@ var infowindow = new kakao.maps.InfoWindow({
 // 마커 위에 인포윈도우를 표시합니다. 두번째 파라미터인 marker를 넣어주지 않으면 지도 위에 표시됩니다
 infowindow.open(map, marker); 
 
+}//initMap 함수 닫는 중괄호
 
+ document.addEventListener('DOMContentLoaded', function() {
+            loadKakaoMapScript(initMap);
+        });
 
 /*지하철 버스*/
 function changeText(type) {
@@ -492,176 +515,176 @@ function changeText(type) {
             }
         }
 
-	</script>
+   </script>
 </body>
 <style>
-	/*헤더 부분 css 시작*/
-	.text-white {
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		height: 50vh;
-		/* Adjust as needed */
-		margin: 0;
-		/* Remove any default margin */
-		font-family: 'GmarketSansMedium';
+   /*헤더 부분 css 시작*/
+   .text-white {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 50vh;
+      /* Adjust as needed */
+      margin: 0;
+      /* Remove any default margin */
+      font-family: 'GmarketSansMedium';
 
-	}
+   }
 
-	.btn {
-		/*배너 사진밑에 버튼 CSS*/
+   .btn {
+      /*배너 사진밑에 버튼 CSS*/
 
-		padding: 10px 50px;
-		/* 버튼의 내부 여백을 조정합니다. */
-		margin: 50px;
-		/* 버튼 사이의 간격을 설정합니다. */
-		color: black;
-		background-color: white;
-		font-size: 30px;
-		font-weight: 500;
-		/* 글자를 굵게 설정합니다. */
-	}
+      padding: 10px 50px;
+      /* 버튼의 내부 여백을 조정합니다. */
+      margin: 50px;
+      /* 버튼 사이의 간격을 설정합니다. */
+      color: black;
+      background-color: white;
+      font-size: 30px;
+      font-weight: 500;
+      /* 글자를 굵게 설정합니다. */
+   }
 
-	.mainbutton {
-		/*배너 아래 버튼 마진 css*/
-		text-align: center;
-		margin-bottom: 70px;
+   .mainbutton {
+      /*배너 아래 버튼 마진 css*/
+      text-align: center;
+      margin-bottom: 70px;
 
-	}
+   }
 
-	.btn-light:hover {
-		/*버튼 호버 색상 변경*/
-		color: white;
-		/* 호버시 텍스트 색상 변경 */
-		background-color: lightgrey;
-		/* 호버시 배경색 변경 */
-		border-color: blue;
-		/* 호버시 테두리 색상 변경 */
-	}
+   .btn-light:hover {
+      /*버튼 호버 색상 변경*/
+      color: white;
+      /* 호버시 텍스트 색상 변경 */
+      background-color: lightgrey;
+      /* 호버시 배경색 변경 */
+      border-color: blue;
+      /* 호버시 테두리 색상 변경 */
+   }
 
-	.mainbutton .btn {
-		border: none;
-		/* 버튼 테두리를 없앱니다 */
-	}
-	.dropdown-header{
-		/*드롭다운 폰트설정*/
-		font-family: 'Pretendard-Regular';
-	}
+   .mainbutton .btn {
+      border: none;
+      /* 버튼 테두리를 없앱니다 */
+   }
+   .dropdown-header{
+      /*드롭다운 폰트설정*/
+      font-family: 'Pretendard-Regular';
+   }
 
-	/*헤더 부분 css 끝*/
+   /*헤더 부분 css 끝*/
 
-	/*main시작 css*/
+   /*main시작 css*/
 
-	/*main css 끝*/
-	/*푸터 css 시작 */
-	.min {
-		/*밑에 저작권문구 위치조정*/
-		position: absolute;
-		bottom: 40px;
-		right: -70%;
-	}
+   /*main css 끝*/
+   /*푸터 css 시작 */
+   .min {
+      /*밑에 저작권문구 위치조정*/
+      position: absolute;
+      bottom: 40px;
+      right: -70%;
+   }
 
-	#footer .footer-contact {
-		position: relative;
-		margin-left: 100px;
-		/* 적당한 여백 값을 지정하세요. */
-	}
+   #footer .footer-contact {
+      position: relative;
+      margin-left: 100px;
+      /* 적당한 여백 값을 지정하세요. */
+   }
 
-	#logoImg2 {
-		/*푸터부분 이미지위치*/
-		position: absolute;
-		top: -55px;
-		/* 이미지를 위로 이동시킬 픽셀 수 */
-		right: 30%;
-	}
+   #logoImg2 {
+      /*푸터부분 이미지위치*/
+      position: absolute;
+      top: -55px;
+      /* 이미지를 위로 이동시킬 픽셀 수 */
+      right: 30%;
+   }
 
-	#footer {
-		/*푸터 위쪽 밑줄*/
-		border-top: 1px solid rgba(0, 0, 0, 0.2);
-		/* 투명도가 있는 연한 회색으로 변경 */
-		padding-top: 30px;
-		/* 원하는 간격 설정 */
-		margin-top: 50px;
-	}
+   #footer {
+      /*푸터 위쪽 밑줄*/
+      border-top: 1px solid rgba(0, 0, 0, 0.2);
+      /* 투명도가 있는 연한 회색으로 변경 */
+      padding-top: 30px;
+      /* 원하는 간격 설정 */
+      margin-top: 50px;
+   }
 
 
 
-	#fixedNav .nav-link {
-		font-weight: bold;
-		/* 글자를 굵게 설정합니다. */
-		color: black;
-		/* 글자 색상을 검은색으로 설정합니다. */
-		font-size: 25px;
-		/* 원하는 크기로 설정하세요 */
-		margin-bottom: 90px;
-		/* 아래쪽으로 20px의 공간을 띄웁니다. */
-	}
+   #fixedNav .nav-link {
+      font-weight: bold;
+      /* 글자를 굵게 설정합니다. */
+      color: black;
+      /* 글자 색상을 검은색으로 설정합니다. */
+      font-size: 25px;
+      /* 원하는 크기로 설정하세요 */
+      margin-bottom: 90px;
+      /* 아래쪽으로 20px의 공간을 띄웁니다. */
+   }
 
-	.text-center {
-		margin-top: 50px;
-		/* 푸터 요소의 위쪽에 20px의 마진 추가 */
-	}
+   .text-center {
+      margin-top: 50px;
+      /* 푸터 요소의 위쪽에 20px의 마진 추가 */
+   }
 
-	/*푸터 css 끝*/
-	
-	
-	
-	/*오시는길 css*/
-	/*폰트*/
-	@font-face {
-	    font-family: 'Pretendard-Regular';
-	    src: url('https://fastly.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
-	    font-weight: 400;
-	    font-style: normal;
-	}
-	@font-face {
-	    font-family: 'GmarketSansMedium';
-	    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
-	    font-weight: normal;
-	    font-style: normal;
-	}
-	@font-face {
-		font-family: 'NanumBarunGothic';
-		font-style: normal;
-		font-weight: 400;
-		src: url('//fastly.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWeb.eot');
-		src: url('//fastly.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWeb.eot?#iefix') format('embedded-opentype'), url('//fastly.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWeb.woff') format('woff'), url('//fastly.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWeb.ttf') format('truetype');
-	}
-	
-	#text-contact .contact1{
-		/*오시는 길 큰제목 폰트*/
-		font-family: 'GmarketSansMedium';
-	}
-	
-	.col-lg-3 .p-3 p,
-	.col-lg-5 #info-text,
-	.col-sm-4 .btn {
-		/*주소 한글, 찾아오는 길 좌측 설명, 우측 버튼 폰트*/
-		font-family: 'Nanum Gothic', sans-serif;
-	}
-	/*찾아오시는길 텍스트폰트*/
-	
-	#text-contact .contact1 {
-		/*오시는 길 큰제목 폰트크기*/
-		font-size: 32px !important;
-		font-weight: 550 !important;
-	}
-	.col-lg-5 #info-text {
-		/*찾아오시는 길 좌측 텍스트 여백 및 크기조정*/
-		padding-top: 45px;
-		line-height: 175%;
-		font-size: 24px !important;
-	}
-			
+   /*푸터 css 끝*/
+   
+   
+   
+   /*오시는길 css*/
+   /*폰트*/
+   @font-face {
+       font-family: 'Pretendard-Regular';
+       src: url('https://fastly.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+       font-weight: 400;
+       font-style: normal;
+   }
+   @font-face {
+       font-family: 'GmarketSansMedium';
+       src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
+       font-weight: normal;
+       font-style: normal;
+   }
+   @font-face {
+      font-family: 'NanumBarunGothic';
+      font-style: normal;
+      font-weight: 400;
+      src: url('//fastly.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWeb.eot');
+      src: url('//fastly.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWeb.eot?#iefix') format('embedded-opentype'), url('//fastly.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWeb.woff') format('woff'), url('//fastly.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWeb.ttf') format('truetype');
+   }
+   
+   #text-contact .contact1{
+      /*오시는 길 큰제목 폰트*/
+      font-family: 'GmarketSansMedium';
+   }
+   
+   .col-lg-3 .p-3 p,
+   .col-lg-5 #info-text,
+   .col-sm-4 .btn {
+      /*주소 한글, 찾아오는 길 좌측 설명, 우측 버튼 폰트*/
+      font-family: 'Nanum Gothic', sans-serif;
+   }
+   /*찾아오시는길 텍스트폰트*/
+   
+   #text-contact .contact1 {
+      /*오시는 길 큰제목 폰트크기*/
+      font-size: 32px !important;
+      font-weight: 550 !important;
+   }
+   .col-lg-5 #info-text {
+      /*찾아오시는 길 좌측 텍스트 여백 및 크기조정*/
+      padding-top: 45px;
+      line-height: 175%;
+      font-size: 24px !important;
+   }
+         
 @font-face {
     font-family: 'Pretendard-Regular';
     src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
     font-weight: 400;
     font-style: normal;
 }
-	
-		/*지하철 폰트*/
-		@font-face {
+   
+      /*지하철 폰트*/
+      @font-face {
     font-family: 'TheJamsil5Light';
     src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2302_01@1.0/TheJamsil5Bold.woff2') format('woff2');
     font-weight: 0;
@@ -669,44 +692,22 @@ function changeText(type) {
 }
 
 
-		
-	.display-5{
-	font-family: 'TheJamsil5Bold'; 
-	
+      
+   .display-5{
+   font-family: 'TheJamsil5Bold'; 
+   
 }
 
 
-	/*박스색상변경*/
+   /*박스색상변경*/
 .bg-body-tertiary {
     background-color:white/* 원하는 색상으로 변경 */
     !important
 }
 
-/* 일반적인 모바일 및 태블릿 */
-@media screen and (max-width: 768px) {
-    .btn {
-        font-size: 18px;
-        padding: 10px 30px;
-    }
-}
-@media (max-width: 768px) {
-    .container {
-        height: auto;
-        padding: 20px;
-    }
-
-    .responsive-image {
-        width: 100%;
-        height: auto;
-    }
-}
-
-/* 데스크탑 및 더 큰 화면 */
-@media screen and (min-width: 1025px) {
-   
-    .btn {
-        font-size: 20px;
-        padding: 12px 40px;
+@media screen and (max-width: 768px) { 
+    .find-text::after {
+   width: 50%;
     }
 }
     /*버튼색상바꾸기*/
@@ -740,27 +741,27 @@ function changeText(type) {
     margin-top: -10px;
 }
 .contact1{
-	font-size: 25px;
-	margin-right: 60px;
+   font-size: 25px;
+   margin-right: 60px;
 }
 /*오시는길 끝*/
-	
-	/*전화번호 및 팩스번호*/
-	.py-7 {
-		/*여백설정*/
-		padding-top: 0 !important;
-		padding-bottom: 0 !important;
-		margin-bottom: -3rem !important;
-	}
-	
-	/*회사주소 css시작*/
-	
-	.image-container {
+   
+   /*전화번호 및 팩스번호*/
+   .py-7 {
+      /*여백설정*/
+      padding-top: 0 !important;
+      padding-bottom: 0 !important;
+      margin-bottom: -3rem !important;
+   }
+   
+   /*회사주소 css시작*/
+   
+   .image-container {
     position: relative;
     width: 320px;
     height: 320px; /* 원하는 높이로 설정 */
     overflow: hidden;
-	padding: 0;
+   padding: 0;
   }
   .image-container img {
     width: 100%;
@@ -768,13 +769,12 @@ function changeText(type) {
     object-fit: cover;
   }
   .my-10{
-	/*회사 주소 밑 여백조절*/
-	margin-top: 9rem !important;
-	margin-bottom: 0 !important;
+   /*회사 주소 밑 여백조절*/
+   margin-top: 9rem !important;
+   margin-bottom: 0 !important;
   }
-	
-
-	
+   
+   
 </style>
 
 </html>
