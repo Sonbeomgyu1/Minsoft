@@ -16,7 +16,7 @@ import java.io.Serializable;
 @Entity
 @Getter
 @Setter
-@Table(name = "BOARD")
+@Table(name = "board")
 public class Board implements Serializable {
 
     private static final long serialVersionUID = 1L;

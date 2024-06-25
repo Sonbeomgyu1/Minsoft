@@ -8,7 +8,7 @@ import lombok.Setter;
 @Getter
 @Setter
 @Entity
-@Table(name = "FILESAVE")
+@Table(name = "filesave")
 public class FileSave {
 
     @Id
