@@ -10,7 +10,7 @@ version = '0.0.1-SNAPSHOT'
 
 
 java {
-	 sourceCompatibility = '17'
+	sourceCompatibility = '17'
     targetCompatibility = '17'
 }
 
@@ -45,8 +45,7 @@ dependencies {
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
     implementation 'org.springframework.boot:spring-boot-starter-logging'
     providedRuntime 'org.springframework.boot:spring-boot-starter-tomcat'	// war배포용 수정
-    implementation 'mysql:mysql-connector-java:8.0.32'
-    
+    implementation 'mysql:mysql-connector-java:8.0.32' // MySQL 적용
 }
 
 
