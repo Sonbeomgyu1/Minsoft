@@ -302,7 +302,7 @@
 			<div class="carousel-inner">
 				<div class="carousel-item active">
 					<div class="page-header min-vh-45  border-xl"
-						style="background-image: url('/images/business/sismmain.jpg');">
+						style="background-image: url('/images/business/sismmain_resized.jpg');">
 						<span class="mask bg-gradient-dark" style="opacity: 0.28;"></span>
 						<div class="container">
 							<div class="row">
@@ -351,7 +351,7 @@
 					</p>
 				</div>
 				<div class="col-md-5 order-md-1">
-					<img src="/images/business/sism0.jpg" alt="이미지 대체 텍스트" class="img-fluid mx-auto shadow-lg" width="700"
+					<img src="/images/business/sism0_resized.jpg" alt="이미지 대체 텍스트" class="img-fluid mx-auto shadow-lg" width="700"
 						height="500" style="border-radius: 0.75rem;">
 				</div>
 			</div>
@@ -371,7 +371,7 @@
 
 				</div>
 				<div class="col-md-5 order-md-1">
-					<img src="/images/business/sism2.jpg" alt="이미지 대체 텍스트" class="img-fluid mx-auto shadow-lg" width="700"
+					<img src="/images/business/sism2_resized.jpg" alt="이미지 대체 텍스트" class="img-fluid mx-auto shadow-lg" width="700"
 						height="500" style="border-radius: 0.75rem;">
 				</div>
 			</div>
@@ -390,7 +390,7 @@
 					</p>
 				</div>
 				<div class="col-md-5 order-md-1">
-					<img src="/images/business/sism3.jpg" alt="이미지 대체 텍스트" class="img-fluid mx-auto shadow-lg" width="700"
+					<img src="/images/business/sism3_resized.jpg" alt="이미지 대체 텍스트" class="img-fluid mx-auto shadow-lg" width="700"
 						height="500" style="border-radius: 0.75rem;">
 				</div>
 			</div>
@@ -664,6 +664,13 @@
 			</div>
 
 		</div>
+		
+		<!-- 상단 이동하기 버튼 -->
+		<a href="#" class="btn_gotop shadow-sm" id="click">
+			<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-chevron-up" viewBox="0 0 16 16">
+			  <path fill-rule="evenodd" d="M7.646 4.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1-.708.708L8 5.707l-5.646 5.647a.5.5 0 0 1-.708-.708z"/>
+			</svg>
+		</a>
 	</footer>
 	<!-- -------- END FOOTER 5 w/ DARK BACKGROUND ------- -->
 	<!--   Core JS Files   -->
@@ -758,6 +765,12 @@
 
 			// Trigger scroll event on page load to check initial visibility
 			revealOnScroll();
+		});
+		
+		/*상단 이동버튼*/
+		$('.btn_gotop').click(function(){
+			$('html, body').animate({scrollTop:0},400);
+			return false;
 		});
 
 	</script>
@@ -1109,6 +1122,22 @@
 	.text-center {
 		margin-top: 50px;
 		/* 푸터 요소의 위쪽에 20px의 마진 추가 */
+	}
+	
+	/*상단이동 버튼*/
+	.btn_gotop { 
+		display: block; 
+		position: fixed; 
+		bottom: 30px; /* 탑버튼을 화면의 가장 아래에서 몇 픽셀 떨어뜨릴 것인지 정하세요*/ 
+		right: 30px; /* 탑버튼을 화면의 가장 오른쪽에서 몇 픽셀 떨어뜨릴 것인지 정하세요*/ 
+		z-index: 999; 
+		border: 1px solid rgba(0,0,0,0.25); 
+		outline: none; 
+		background-color: white; 
+		color: rgba(0,0,0,0.7); 
+		cursor: pointer; 
+		padding: 15px 20px; 
+		border-radius: 100%; 
 	}
 
 	/*푸터 css 끝*/
