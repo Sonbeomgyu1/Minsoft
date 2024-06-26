@@ -27,11 +27,9 @@
    <!-- Nucleo Icons -->
    <link href="../../assets/css/nucleo-icons.css" rel="stylesheet" />
    <link href="../../assets/css/nucleo-svg.css" rel="stylesheet" />
+   
    <!-- Font Awesome Icons -->
    <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
-   <!--카카오맵api-->
-   <!--<script type="text/javascript"
-      src="//dapi.kakao.com/v2/maps/sdk.js?appkey=e9fb342f05f318865b155c2edf278cf6"></script>-->
       <!--비동기로 KaKao Maps API 로드-->
           <script type="text/javascript">
         function loadKakaoMapScript(callback) {
@@ -429,14 +427,22 @@
             </p>
          </div>
 
-      </div>
-   </footer>
+
+		</div>
+		
+		<!-- 상단 이동하기 버튼 -->
+		<a href="#" class="btn_gotop shadow-sm" id="click">
+			<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-chevron-up" viewBox="0 0 16 16">
+			  <path fill-rule="evenodd" d="M7.646 4.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1-.708.708L8 5.707l-5.646 5.647a.5.5 0 0 1-.708-.708z"/>
+			</svg>
+		</a>
+	</footer>
    <!-- -------- END FOOTER 5 w/ DARK BACKGROUND ------- -->
    <!--   Core JS Files   -->
- <script src="../../assets/js/core/popper.min.js" type="text/javascript"></script>
-<script src="../../assets/js/core/bootstrap.min.js" type="text/javascript"></script>
-<script src="../../assets/js/plugins/perfect-scrollbar.min.js"></script>
-<script src="../../assets/js/soft-design-system-pro.min.js?v=1.1.0" type="text/javascript"></script>
+   <script src="../../assets/js/core/popper.min.js" type="text/javascript"></script>
+	<script src="../../assets/js/core/bootstrap.min.js" type="text/javascript"></script>
+	<script src="../../assets/js/plugins/perfect-scrollbar.min.js"></script>
+	<script src="../../assets/js/soft-design-system-pro.min.js?v=1.1.0" type="text/javascript"></script>
    <script>
       if (document.getElementById('language-select')) {
          var element = document.getElementById('language-select');
@@ -622,6 +628,72 @@ function changeText(type) {
       /* 푸터 요소의 위쪽에 20px의 마진 추가 */
    }
 
+	/*상단이동 버튼*/
+	.btn_gotop { 
+		display: block; 
+		position: fixed; 
+		bottom: 30px; /* 탑버튼을 화면의 가장 아래에서 몇 픽셀 떨어뜨릴 것인지 정하세요*/ 
+		right: 30px; /* 탑버튼을 화면의 가장 오른쪽에서 몇 픽셀 떨어뜨릴 것인지 정하세요*/ 
+		z-index: 999; 
+		border: 1px solid rgba(0,0,0,0.25); 
+		outline: none; 
+		background-color: white; 
+		color: rgba(0,0,0,0.7); 
+		cursor: pointer; 
+		padding: 15px 20px; 
+		border-radius: 100%; 
+	}
+	/*푸터 css 끝*/
+	
+	
+	
+	/*오시는길 css*/
+	/*폰트*/
+	@font-face {
+	    font-family: 'Pretendard-Regular';
+	    src: url('https://fastly.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+	    font-weight: 400;
+	    font-style: normal;
+	}
+	@font-face {
+	    font-family: 'GmarketSansMedium';
+	    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
+	    font-weight: normal;
+	    font-style: normal;
+	}
+	@font-face {
+		font-family: 'NanumBarunGothic';
+		font-style: normal;
+		font-weight: 400;
+		src: url('//fastly.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWeb.eot');
+		src: url('//fastly.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWeb.eot?#iefix') format('embedded-opentype'), url('//fastly.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWeb.woff') format('woff'), url('//fastly.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWeb.ttf') format('truetype');
+	}
+	
+	#text-contact .contact1{
+		/*오시는 길 큰제목 폰트*/
+		font-family: 'GmarketSansMedium';
+	}
+	
+	.col-lg-3 .p-3 p,
+	.col-lg-5 #info-text,
+	.col-sm-4 .btn {
+		/*주소 한글, 찾아오는 길 좌측 설명, 우측 버튼 폰트*/
+		font-family: 'Nanum Gothic', sans-serif;
+	}
+	/*찾아오시는길 텍스트폰트*/
+	
+	#text-contact .contact1 {
+		/*오시는 길 큰제목 폰트크기*/
+		font-size: 32px !important;
+		font-weight: 550 !important;
+	}
+	.col-lg-5 #info-text {
+		/*찾아오시는 길 좌측 텍스트 여백 및 크기조정*/
+		padding-top: 45px;
+		line-height: 175%;
+		font-size: 24px !important;
+	}
+			
    /*푸터 css 끝*/
    
    
