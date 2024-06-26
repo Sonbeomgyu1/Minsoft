@@ -222,6 +222,18 @@
 	                                 </div>
 	                              </a>
 	                           </li>
+	                           <li class="nav-item list-group-item border-0 p-0">
+										<a class="dropdown-item py-2 ps-3 border-radius-md" href="/welfare#welfareinfo2">
+											<div class="d-flex">
+												<div>
+													<h6 class="dropdown-header text-black font-weight-bolder d-flex justify-content-center align-items-center p-0"
+														style="font-size: 16px; font-weight: bold;">
+														채용안내
+													</h6>
+												</div>
+											</div>
+										</a>
+									</li>
 	                        </ul>
 	                     </div>
 	
@@ -502,7 +514,7 @@
 				<p><strong></strong>주식회사 민소프트</p>
 				<!--<p><strong>대표이사:</strong> 김민구</p>-->
 				<p><strong></strong>Tel) 02-6482-0051 | Fax) 02-6483-0051</p>
-				<p><strong></strong>E-mail: minsoft@minsoft.co.kr</p>
+				<p><strong></strong>E-mail : minsoft@minsoft.co.kr</p>
 				<p><strong></strong>07788) 서울시 강서구 마곡서로 158, 1306호 ( 마곡센트럴타워Ⅱ )</p>
 				<p class="min">
 					<img id="logoImg2" src="/images/logo.jpg" alt="로고 이미지">
@@ -551,6 +563,21 @@
 			}
 		});
 		
+		<!--채용공고 페이지로 가는 url 설정-->
+document.addEventListener('DOMContentLoaded', function() {
+    document.querySelectorAll('a[data-scroll]').forEach(anchor => {
+        anchor.addEventListener('click', function(event) {
+            event.preventDefault();
+            const targetId = this.getAttribute('href').substring(1);
+            const targetElement = document.getElementById(targetId);
+
+            window.scrollTo({
+                top: targetElement.offsetTop,
+                behavior: 'smooth'
+            });
+        });
+    });
+});
 	</script>
 </body>
 <style>
