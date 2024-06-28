@@ -59,8 +59,7 @@
 							<div class="d-none d-lg-block">
 								<ul class="list-group">
 									<li class="nav-item list-group-item border-0 p-0">
-										<a class="dropdown-item py-2 ps-3 border-radius-md"
-											href="/greetingpage">
+										<a class="dropdown-item py-2 ps-3 border-radius-md" href="/greetingpage">
 											<div class="d-flex">
 
 												<div>
@@ -73,8 +72,7 @@
 										</a>
 									</li>
 									<li class="nav-item list-group-item border-0 p-0">
-										<a class="dropdown-item py-2 ps-3 border-radius-md"
-											href="/history">
+										<a class="dropdown-item py-2 ps-3 border-radius-md" href="/history">
 											<div class="d-flex">
 
 												<div>
@@ -87,8 +85,7 @@
 										</a>
 									</li>
 									<li class="nav-item list-group-item border-0 p-0">
-										<a class="dropdown-item py-2 ps-3 border-radius-md"
-										href="/certification">
+										<a class="dropdown-item py-2 ps-3 border-radius-md" href="/certification">
 											<div class="d-flex">
 
 												<div>
@@ -121,8 +118,7 @@
 							<div class="d-none d-lg-block">
 								<ul class="list-group">
 									<li class="nav-item list-group-item border-0 p-0">
-										<a class="dropdown-item py-2 ps-3 border-radius-md"
-											href="/businessdetails">
+										<a class="dropdown-item py-2 ps-3 border-radius-md" href="/businessdetails">
 											<div class="d-flex">
 
 												<div>
@@ -135,8 +131,7 @@
 										</a>
 									</li>
 									<li class="nav-item list-group-item border-0 p-0">
-										<a class="dropdown-item py-2 ps-3 border-radius-md"
-											href="/itoutsourcingpage">
+										<a class="dropdown-item py-2 ps-3 border-radius-md" href="/itoutsourcingpage">
 											<div class="d-flex">
 
 												<div>
@@ -149,8 +144,7 @@
 										</a>
 									</li>
 									<li class="nav-item list-group-item border-0 p-0">
-										<a class="dropdown-item py-2 ps-3 border-radius-md"
-											href="/sism">
+										<a class="dropdown-item py-2 ps-3 border-radius-md" href="/sism">
 											<div class="d-flex">
 
 												<div>
@@ -163,8 +157,7 @@
 										</a>
 									</li>
 									<li class="nav-item list-group-item border-0 p-0">
-										<a class="dropdown-item py-2 ps-3 border-radius-md"
-											href="/consulting">
+										<a class="dropdown-item py-2 ps-3 border-radius-md" href="/consulting">
 											<div class="d-flex">
 
 												<div>
@@ -177,8 +170,7 @@
 										</a>
 									</li>
 									<li class="nav-item list-group-item border-0 p-0">
-										<a class="dropdown-item py-2 ps-3 border-radius-md"
-											href="/solutions">
+										<a class="dropdown-item py-2 ps-3 border-radius-md" href="/solutions">
 											<div class="d-flex">
 
 												<div>
@@ -208,8 +200,7 @@
 							<div class="d-none d-lg-block">
 								<ul class="list-group">
 									<li class="nav-item list-group-item border-0 p-0">
-										<a class="dropdown-item py-2 ps-3 border-radius-md"
-											href="/welfare">
+										<a class="dropdown-item py-2 ps-3 border-radius-md" href="/welfare">
 											<div class="d-flex">
 
 												<div>
@@ -222,7 +213,8 @@
 										</a>
 									</li>
 									<li class="nav-item list-group-item border-0 p-0">
-										<a class="dropdown-item py-2 ps-3 border-radius-md" href="/welfare#welfareinfo2">
+										<a class="dropdown-item py-2 ps-3 border-radius-md"
+											href="/welfare#welfareinfo2">
 											<div class="d-flex">
 												<div>
 													<h6 class="dropdown-header text-black font-weight-bolder d-flex justify-content-center align-items-center p-0"
@@ -251,8 +243,7 @@
 							<div class="d-none d-lg-block">
 								<ul class="list-group">
 									<li class="nav-item list-group-item border-0 p-0">
-										<a class="dropdown-item py-2 ps-3 border-radius-md"
-											href="/contact">
+										<a class="dropdown-item py-2 ps-3 border-radius-md" href="/contact">
 											<div class="d-flex">
 
 												<div>
@@ -283,8 +274,7 @@
 							<div class="d-none d-lg-block">
 								<ul class="list-group">
 									<li class="nav-item list-group-item border-0 p-0">
-										<a class="dropdown-item py-2 ps-3 border-radius-md"
-											href="/board">
+										<a class="dropdown-item py-2 ps-3 border-radius-md" href="/board">
 											<div class="d-flex">
 
 												<div>
@@ -303,8 +293,7 @@
 					</li>
 				</ul>
 				<a th:href="@{/login}" sec:authorize="isAnonymous()"><button class="styled-button">Admin</button></a>
-				<a th:href="@{/logout}" sec:authorize="isAuthenticated()"><button
-						class="styled-button">logout</button>
+				<a th:href="@{/logout}" sec:authorize="isAuthenticated()"><button class="styled-button">logout</button>
 				</a>
 			</div>
 		</div>
@@ -333,14 +322,14 @@
 	<!-- -------- END HEADER 11 w/ carousel ------- -->
 
 	<main>
-	<div class="row">
-      <div class="row justify-content-center">
-        <h2 class="gong">공지사항</h2>
-        <div sec:authorize="isAuthenticated()" style="margin-left:149%;">
-            <button type="button" class="btn custom-btn" id="writeButton">글 쓰기</button>
-        </div>
-      </div>
-	</div>
+		<div class="row">
+			<div class="row justify-content-center">
+				<h2 class="gong">공지사항</h2>
+				<div sec:authorize="isAuthenticated()" style="margin-left:149%;">
+					<button type="button" class="btn custom-btn" id="writeButton">글 쓰기</button>
+				</div>
+			</div>
+		</div>
 
 
 
@@ -353,42 +342,46 @@
 							<th style="width: 45%">제목</th>
 							<th style="width: 10%">작성자</th>
 							<!--조회수 추가-->
-							 <th style="width: 10%">조회수</th>
+							<th style="width: 10%">조회수</th>
 							<th style="width: 3%"></th>
-							
+
 						</tr>
 					</thead>
-					   <tbody>
-                <tr th:each="board : ${boards.content}" th:onclick="|location.href='@{/boarddetail/{id}(id=${board.id})}'|">
-                    <td th:text="${board.number}"></td>
-                    <td>
-                        <a th:href="@{/boarddetail/{id}(id=${board.id})}" th:text="${board.title}"></a>
-                    </td>
-                    <td th:text="${board.author != null ? board.author.name : '관리자'}"></td>
-                    <!-- 조회수 추가 -->
-                    <td th:text="${board.viewCount}"></td>
-                    <td th:text="${board.isPublic ? '' : '🔒'}"></td>
-                </tr>
-            </tbody>
+					<tbody>
+						<tr th:each="board : ${boards.content}"
+							th:onclick="|location.href='@{/boarddetail/{id}(id=${board.id})}'|">
+							<td th:text="${board.number}"></td>
+							<td>
+								<a th:href="@{/boarddetail/{id}(id=${board.id})}" th:text="${board.title}"></a>
+							</td>
+							<td th:text="${board.author != null ? board.author.name : '관리자'}"></td>
+							<!-- 조회수 추가 -->
+							<td th:text="${board.viewCount}"></td>
+							<td th:text="${board.isPublic ? '' : '🔒'}"></td>
+						</tr>
+					</tbody>
 				</table>
-				
+
 				<!--페이징처리-->
-         <div class="pagination justify-content-center">
-            <ul id="paging-ul" class="pagination">
-                <li class="page-item" th:classappend="${currentPage == 0} ? 'disabled' : ''">
-                    <a class="page-link" th:href="@{/board(page=${currentPage - 1}, size=${pageSize})}" aria-label="Previous">이전</a>
-                </li>
-                <li class="page-item" th:each="i : ${#numbers.sequence(1, totalPages)}"
-                    th:classappend="${i - 1 == currentPage} ? 'active' : ''">
-                    <a class="page-link" th:href="@{/board(page=${i - 1}, size=${pageSize})}" th:text="${i}">1</a>
-                </li>
-                <li class="page-item" th:classappend="${currentPage == totalPages - 1} ? 'disabled' : ''">
-                    <a class="page-link" th:href="@{/board(page=${currentPage + 1}, size=${pageSize})}" aria-label="Next">다음</a>
-                </li>
-            </ul>
-        </div>
+				<div class="pagination justify-content-center">
+					<ul id="paging-ul" class="pagination">
+						<li class="page-item" th:classappend="${currentPage == 0} ? 'disabled' : ''">
+							<a class="page-link" th:href="@{/board(page=${currentPage - 1}, size=${pageSize})}"
+								aria-label="Previous">이전</a>
+						</li>
+						<li class="page-item" th:each="i : ${#numbers.sequence(1, totalPages)}"
+							th:classappend="${i - 1 == currentPage} ? 'active' : ''">
+							<a class="page-link" th:href="@{/board(page=${i - 1}, size=${pageSize})}"
+								th:text="${i}">1</a>
+						</li>
+						<li class="page-item" th:classappend="${currentPage == totalPages - 1} ? 'disabled' : ''">
+							<a class="page-link" th:href="@{/board(page=${currentPage + 1}, size=${pageSize})}"
+								aria-label="Next">다음</a>
+						</li>
+					</ul>
+				</div>
 			</div>
-			
+
 		</div>
 	</main>
 
@@ -407,11 +400,13 @@
 			</div>
 
 		</div>
-		
+
 		<!-- 상단 이동하기 버튼 -->
 		<a href="#" class="btn_gotop shadow-sm" id="click">
-			<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-chevron-up" viewBox="0 0 16 16">
-			  <path fill-rule="evenodd" d="M7.646 4.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1-.708.708L8 5.707l-5.646 5.647a.5.5 0 0 1-.708-.708z"/>
+			<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-chevron-up"
+				viewBox="0 0 16 16">
+				<path fill-rule="evenodd"
+					d="M7.646 4.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1-.708.708L8 5.707l-5.646 5.647a.5.5 0 0 1-.708-.708z" />
 			</svg>
 		</a>
 
@@ -419,55 +414,55 @@
 	<!-- -------- END FOOTER 5 w/ DARK BACKGROUND ------- -->
 	<!--   Core JS Files   -->
 	<script src="../../assets/js/core/popper.min.js" type="text/javascript"></script>
-<script src="../../assets/js/core/bootstrap.min.js" type="text/javascript"></script>
-<script src="../../assets/js/plugins/perfect-scrollbar.min.js"></script>
-<script src="../../assets/js/soft-design-system-pro.min.js?v=1.1.0" type="text/javascript"></script>
+	<script src="../../assets/js/core/bootstrap.min.js" type="text/javascript"></script>
+	<script src="../../assets/js/plugins/perfect-scrollbar.min.js"></script>
+	<script src="../../assets/js/soft-design-system-pro.min.js?v=1.1.0" type="text/javascript"></script>
 
 	<script th:inline="javascript">
-    document.addEventListener('DOMContentLoaded', function() {
-        if (document.getElementById('language-select')) {
-            var element = document.getElementById('language-select');
-            const example = new Choices(element, {
-                searchEnabled: false
-            });
-        }
-        
-        if (document.getElementById('currency-select')) {
-            var element = document.getElementById('currency-select');
-            const example = new Choices(element, {
-                searchEnabled: false
-            });
-        }
+		document.addEventListener('DOMContentLoaded', function () {
+			if (document.getElementById('language-select')) {
+				var element = document.getElementById('language-select');
+				const example = new Choices(element, {
+					searchEnabled: false
+				});
+			}
 
-        /* 헤더 네비바 따라 내려오게하는 스크립트 */
-        window.addEventListener('scroll', function () {
-            var navbar = document.querySelector('.navbar');
-            if (window.scrollY > 50) {
-                navbar.classList.add('fixed-top');
-            } else {
-                navbar.classList.remove('fixed-top');
-            }
-        });
+			if (document.getElementById('currency-select')) {
+				var element = document.getElementById('currency-select');
+				const example = new Choices(element, {
+					searchEnabled: false
+				});
+			}
 
-        /* 글쓰기 버튼 클릭시 글쓰기 페이지 이동하는 스크립트 */
-        var writeButton = document.getElementById("writeButton");
-        if (writeButton) {
-            writeButton.addEventListener("click", function () {
-                window.location.href = "/boardwriting";
-            });
-        }
+			/* 헤더 네비바 따라 내려오게하는 스크립트 */
+			window.addEventListener('scroll', function () {
+				var navbar = document.querySelector('.navbar');
+				if (window.scrollY > 50) {
+					navbar.classList.add('fixed-top');
+				} else {
+					navbar.classList.remove('fixed-top');
+				}
+			});
 
-        /* 로그인했을시 글쓰기 버튼 활성화 스크립트 */
-        var isLoggedIn = /*[[${#authorization.expression('isAuthenticated()')}]]*/ false;
-        updateButtonStatus();
+			/* 글쓰기 버튼 클릭시 글쓰기 페이지 이동하는 스크립트 */
+			var writeButton = document.getElementById("writeButton");
+			if (writeButton) {
+				writeButton.addEventListener("click", function () {
+					window.location.href = "/boardwriting";
+				});
+			}
 
-        function updateButtonStatus() {
-            var writeButton = document.getElementById('writeButton');
-            if (writeButton) {
-                writeButton.disabled = !isLoggedIn;
-            }
-        }
-    });
+			/* 로그인했을시 글쓰기 버튼 활성화 스크립트 */
+			var isLoggedIn = /*[[${#authorization.expression('isAuthenticated()')}]]*/ false;
+			updateButtonStatus();
+
+			function updateButtonStatus() {
+				var writeButton = document.getElementById('writeButton');
+				if (writeButton) {
+					writeButton.disabled = !isLoggedIn;
+				}
+			}
+		});
 
 
 		function updateButtonStatus() {
@@ -479,20 +474,20 @@
 			}
 		}
 		<!--복지제도페이지 채용공고 가는 스크립트-->
-		document.addEventListener('DOMContentLoaded', function() {
-    document.querySelectorAll('a[data-scroll]').forEach(anchor => {
-        anchor.addEventListener('click', function(event) {
-            event.preventDefault();
-            const targetId = this.getAttribute('href').substring(1);
-            const targetElement = document.getElementById(targetId);
+		document.addEventListener('DOMContentLoaded', function () {
+			document.querySelectorAll('a[data-scroll]').forEach(anchor => {
+				anchor.addEventListener('click', function (event) {
+					event.preventDefault();
+					const targetId = this.getAttribute('href').substring(1);
+					const targetElement = document.getElementById(targetId);
 
-            window.scrollTo({
-                top: targetElement.offsetTop,
-                behavior: 'smooth'
-            });
-        });
-    });
-});
+					window.scrollTo({
+						top: targetElement.offsetTop,
+						behavior: 'smooth'
+					});
+				});
+			});
+		});
 	</script>
 
 </body>
@@ -558,8 +553,8 @@
 	/*헤더 부분 css 끝*/
 
 	/*main시작 css*/
-	
-	
+
+
 	/*admin 버튼 css*/
 
 	.styled-button {
@@ -598,36 +593,47 @@
 
 
 	.custom-btn {
-    background-color: darkblue; /* Change to desired background color */
-    color: white; /* Set text color to white */
-    border: none; /* Remove outline */
-    padding: 8px 16px; /* Padding adjustment */
-    cursor: pointer; /* Change mouse cursor */
-    margin-right: 10px; /* 수정: 버튼 간격 조정 */
-    
-}
+		background-color: darkblue;
+		/* Change to desired background color */
+		color: white;
+		/* Set text color to white */
+		border: none;
+		/* Remove outline */
+		padding: 8px 16px;
+		/* Padding adjustment */
+		cursor: pointer;
+		/* Change mouse cursor */
+		margin-right: 10px;
+		/* 수정: 버튼 간격 조정 */
 
-.custom-btn:disabled {
-    background-color: #cccccc;
-    /* 비활성화된 상태의 배경색 */
-    cursor: not-allowed;
-    /* 비활성화된 상태의 커서 */
-}
+	}
 
-.gong {
-    margin-right: auto; /* 공지사항을 왼쪽으로 붙임 */
-    margin-bottom: 0; /* 공지사항과 버튼 간격 조정 */
-    font-size: 50px;
+	.custom-btn:disabled {
+		background-color: #cccccc;
+		/* 비활성화된 상태의 배경색 */
+		cursor: not-allowed;
+		/* 비활성화된 상태의 커서 */
+	}
+
+	.gong {
+		margin-right: auto;
+		/* 공지사항을 왼쪽으로 붙임 */
+		margin-bottom: 0;
+		/* 공지사항과 버튼 간격 조정 */
+		font-size: 50px;
 		/* 원하는 크기로 조정 */
 		text-align: center;
 		margin-top: 90px;
 
-}
-   /* 테이블 내용 스타일 설정 */
-    tbody tr td {
-        font-size: 15px; /* 원하는 폰트 크기로 설정 */
-        font-weight: 20px; /* 원하는 폰트 두께로 설정 */
-    }
+	}
+
+	/* 테이블 내용 스타일 설정 */
+	tbody tr td {
+		font-size: 15px;
+		/* 원하는 폰트 크기로 설정 */
+		font-weight: 20px;
+		/* 원하는 폰트 두께로 설정 */
+	}
 
 
 	/*main css 끝*/
@@ -681,29 +687,34 @@
 	}
 
 	/*상단이동 버튼*/
-	.btn_gotop { 
-		display: block; 
-		position: fixed; 
-		bottom: 30px; /* 탑버튼을 화면의 가장 아래에서 몇 픽셀 떨어뜨릴 것인지 정하세요*/ 
-		right: 30px; /* 탑버튼을 화면의 가장 오른쪽에서 몇 픽셀 떨어뜨릴 것인지 정하세요*/ 
-		z-index: 999; 
-		border: 1px solid rgba(0,0,0,0.25); 
-		outline: none; 
-		background-color: white; 
-		color: rgba(0,0,0,0.7); 
-		cursor: pointer; 
-		padding: 15px 20px; 
-		border-radius: 100%; 
+	.btn_gotop {
+		display: block;
+		position: fixed;
+		bottom: 30px;
+		/* 탑버튼을 화면의 가장 아래에서 몇 픽셀 떨어뜨릴 것인지 정하세요*/
+		right: 30px;
+		/* 탑버튼을 화면의 가장 오른쪽에서 몇 픽셀 떨어뜨릴 것인지 정하세요*/
+		z-index: 999;
+		border: 1px solid rgba(0, 0, 0, 0.25);
+		outline: none;
+		background-color: white;
+		color: rgba(0, 0, 0, 0.7);
+		cursor: pointer;
+		padding: 15px 20px;
+		border-radius: 100%;
 	}
+
 	/*푸터 css 끝*/
-	
+
 	/* styles.css 또는 해당 CSS 파일 */
-.pagination .page-item.active .page-link {
-    background-color :darkgray; /* 원하는 색상으로 변경 */
-    border-color :darkgray; /* 원하는 색상으로 변경 */
-    color: white; /* 텍스트 색상 변경 */
-}
-	
+	.pagination .page-item.active .page-link {
+		background-color: darkgray;
+		/* 원하는 색상으로 변경 */
+		border-color: darkgray;
+		/* 원하는 색상으로 변경 */
+		color: white;
+		/* 텍스트 색상 변경 */
+	}
 </style>
 
 </html>

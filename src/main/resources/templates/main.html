@@ -300,9 +300,10 @@
 					</li>
 
 				</ul>
-				<a sec:authorize="isAuthenticated()" id="minsoftLink" onclick="redirectToExternalIP()">
+				<a sec:authorize="isAuthenticated()" id="minsoftLink" onclick="redirectToExternalIP()" target="_blank">
 					<button class="button">Minsoft</button>
 				</a>
+
 
 				<a th:href="@{/login}" sec:authorize="isAnonymous()"><button class="styled-button">Admin</button></a>
 				<a th:href="@{/logout}" sec:authorize="isAuthenticated()"><button
@@ -798,55 +799,55 @@
 			style="margin-top: 150px;">
 			<h2 style="text-align: center; font-weight: bold;">기술인증서</h2>
 			<div class="carousel-inner">
-    <div class="carousel-item active">
-        <div class="row">
-            <div class="col d-flex justify-content-center">
-                <a href="/certification">
-                    <img src="images/main/tech/seoul.png" class="d-block mx-auto" alt="..."
-                        style="max-height: 400px; width: auto;">
-                </a>
-            </div>
-            <div class="col d-flex justify-content-center">
-                <a href="/certification">
-                    <img src="images/main/tech/sbc.png" class="d-block mx-auto" alt="..."
-                        style="max-height: 400px; width: auto;">
-                </a>
-            </div>
-        </div>
-    </div>
-    <div class="carousel-item">
-        <div class="row">
-            <div class="col d-flex justify-content-center">
-                <a href="/certification">
-                    <img src="images/main/tech/lnnobiz.png" class="d-block mx-auto" alt="..."
-                        style="max-height: 400px; width: auto;">
-                </a>
-            </div>
-            <div class="col d-flex justify-content-center">
-                <a href="/certification">
-                    <img src="images/main/tech/koita.png" class="d-block mx-auto" alt="..."
-                        style="max-height: 400px; width: auto;">
-                </a>
-            </div>
-        </div>
-    </div>
-    <div class="carousel-item">
-        <div class="row">
-            <div class="col d-flex justify-content-center">
-                <a href="/certification">
-                    <img src="images/main/tech/mainbiz.png" class="d-block mx-auto" alt="..."
-                        style="max-height: 400px; width: auto;">
-                </a>
-            </div>
-            <div class="col d-flex justify-content-center">
-                <a href="/certification">
-                    <img src="images/main/tech/seoul.png" class="d-block mx-auto" alt="..."
-                        style="max-height: 400px; width: auto;">
-                </a>
-            </div>
-        </div>
-    </div>
-</div>
+				<div class="carousel-item active">
+					<div class="row">
+						<div class="col d-flex justify-content-center">
+							<a href="/certification">
+								<img src="images/main/tech/seoul.png" class="d-block mx-auto" alt="..."
+									style="max-height: 400px; width: auto;">
+							</a>
+						</div>
+						<div class="col d-flex justify-content-center">
+							<a href="/certification">
+								<img src="images/main/tech/sbc.png" class="d-block mx-auto" alt="..."
+									style="max-height: 400px; width: auto;">
+							</a>
+						</div>
+					</div>
+				</div>
+				<div class="carousel-item">
+					<div class="row">
+						<div class="col d-flex justify-content-center">
+							<a href="/certification">
+								<img src="images/main/tech/lnnobiz.png" class="d-block mx-auto" alt="..."
+									style="max-height: 400px; width: auto;">
+							</a>
+						</div>
+						<div class="col d-flex justify-content-center">
+							<a href="/certification">
+								<img src="images/main/tech/koita.png" class="d-block mx-auto" alt="..."
+									style="max-height: 400px; width: auto;">
+							</a>
+						</div>
+					</div>
+				</div>
+				<div class="carousel-item">
+					<div class="row">
+						<div class="col d-flex justify-content-center">
+							<a href="/certification">
+								<img src="images/main/tech/mainbiz.png" class="d-block mx-auto" alt="..."
+									style="max-height: 400px; width: auto;">
+							</a>
+						</div>
+						<div class="col d-flex justify-content-center">
+							<a href="/certification">
+								<img src="images/main/tech/seoul.png" class="d-block mx-auto" alt="..."
+									style="max-height: 400px; width: auto;">
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
 
 			<button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval"
 				data-bs-slide="prev">
@@ -1048,10 +1049,9 @@
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
 	<script>
-
-		<!-- 민소프트 ip 주소 변경 스크립트-->
+		<!-- 민소프트 IP 주소 변경 스크립트 -->
 		function redirectToExternalIP() {
-			window.location.href = 'http://222.238.63.185:8178/';
+			window.open('http://222.238.63.185:8178/', '_blank');
 		}
 
 		if (document.getElementById('language-select')) {

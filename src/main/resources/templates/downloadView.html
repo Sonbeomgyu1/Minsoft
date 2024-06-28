@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
+
 <head>
-    <title>파일 다운로드</title>
+	<title>파일 다운로드</title>
 </head>
+
 <body>
-    <div>
-        원본 파일 이름: <span th:text="${originalFileName}"></span>
-    </div>
-    <a th:href="@{'/download/' + ${boardId}}" th:text="다운로드"></a>
+	<div>
+		원본 파일 이름: <span th:text="${originalFileName}"></span>
+	</div>
+	<a th:href="@{'/download/' + ${boardId}}" th:text="다운로드"></a>
 </body>
+
 </html>

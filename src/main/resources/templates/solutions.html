@@ -223,17 +223,17 @@
 	                              </a>
 	                           </li>
 	                           <li class="nav-item list-group-item border-0 p-0">
-										<a class="dropdown-item py-2 ps-3 border-radius-md" href="/welfare#welfareinfo2">
-											<div class="d-flex">
-												<div>
-													<h6 class="dropdown-header text-black font-weight-bolder d-flex justify-content-center align-items-center p-0"
-														style="font-size: 16px; font-weight: bold;">
-														채용안내
-													</h6>
-												</div>
-											</div>
-										</a>
-									</li>
+    <a class="dropdown-item py-2 ps-3 border-radius-md recruitment-link" href="/welfare#welfareinfo2">
+        <div class="d-flex">
+            <div>
+                <h6 class="dropdown-header text-black font-weight-bolder d-flex justify-content-center align-items-center p-0" style="font-size: 16px; font-weight: bold;">
+                    채용안내
+                </h6>
+            </div>
+        </div>
+    </a>
+</li>
+
 	                        </ul>
 	                     </div>
 	
@@ -355,7 +355,7 @@
 				    <li class="nav-item">
 				      <a class="nav-link text-dark" data-scroll href="#scroll-position1">
 				        <div class="icon me-2">
-				          <svg class="text-primary" width="20px" height="20px" viewBox="0 0 40 44" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+				          <svg class="text-primary" width="10px" height="20px" viewBox="0 0 40 44" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 				            <title>document</title>
 				            <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
 				              <g transform="translate(-1870.000000, -591.000000)" fill="#FFFFFF" fill-rule="nonzero">
@@ -375,7 +375,7 @@
 				    <li class="nav-item">
 				      <a class="nav-link text-dark" data-scroll href="#scroll-position2">
 				        <div class="icon me-2">
-						  <svg class="text-primary" width="20px" height="20px" viewBox="0 0 40 44" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+						  <svg class="text-primary" width="10px" height="20px" viewBox="0 0 40 44" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 				            <title>document</title>
 				            <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
 				              <g transform="translate(-1870.000000, -591.000000)" fill="#FFFFFF" fill-rule="nonzero">
@@ -395,7 +395,7 @@
 				    <li class="nav-item">
 				      <a class="nav-link text-dark" data-scroll href="#scroll-position3">
 				        <div class="icon me-2">
-						  <svg class="text-primary" width="20px" height="20px" viewBox="0 0 40 44" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+						  <svg class="text-primary" width="10px" height="20px" viewBox="0 0 40 44" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 				            <title>document</title>
 				            <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
 				              <g transform="translate(-1870.000000, -591.000000)" fill="#FFFFFF" fill-rule="nonzero">
@@ -415,7 +415,7 @@
 					<li class="nav-item">
 					  <a class="nav-link text-dark" data-scroll href="#scroll-position4">
 					    <div class="icon me-2">
-						  <svg class="text-primary" width="20px" height="20px" viewBox="0 0 40 44" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+						  <svg class="text-primary" width="10px" height="20px" viewBox="0 0 40 44" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 				            <title>document</title>
 				            <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
 				              <g transform="translate(-1870.000000, -591.000000)" fill="#FFFFFF" fill-rule="nonzero">
@@ -800,21 +800,35 @@
 				navbar.classList.remove('fixed-top'); // 일반 위치로 설정
 			}
 		});
-		<!--채용공고 페이지로 가는 url 설정-->
+		
 document.addEventListener('DOMContentLoaded', function() {
-    document.querySelectorAll('a[data-scroll]').forEach(anchor => {
-        anchor.addEventListener('click', function(event) {
+    const recruitmentLink = document.querySelector('a.recruitment-link');
+    if (recruitmentLink) {
+        recruitmentLink.addEventListener('click', function(event) {
             event.preventDefault();
-            const targetId = this.getAttribute('href').substring(1);
-            const targetElement = document.getElementById(targetId);
-
-            window.scrollTo({
-                top: targetElement.offsetTop,
-                behavior: 'smooth'
-            });
+            const targetHref = this.getAttribute('href');
+            const targetId = targetHref.split('#')[1];
+            
+            // 현재 페이지와 동일한 경우에만 스크롤 애니메이션 적용
+            if (window.location.pathname === '/welfare') {
+                const targetElement = document.getElementById(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop,
+                        behavior: 'smooth'
+                    });
+                }
+            } else {
+                // 다른 페이지로 이동하는 경우
+                window.location.href = targetHref;
+            }
         });
-    });
+    }
 });
+
+
+		
+
 	</script>
 </body>
 <style>
@@ -921,10 +935,7 @@ document.addEventListener('DOMContentLoaded', function() {
 		 font-family: 'GmarketSansMedium';
 		 font-weight: 500;
 	}
-	/*본문 상단여백 조정*/
-	.py-5{
-		padding-top: 0 !important;
-	}
+	
 	.mb-3{
 		/*좌측 네비 각 항목 설정*/
 		width: 17%;

@@ -226,7 +226,8 @@
 										</a>
 									</li>
 									<li class="nav-item list-group-item border-0 p-0">
-										<a class="dropdown-item py-2 ps-3 border-radius-md" href="/welfare#welfareinfo2">
+										<a class="dropdown-item py-2 ps-3 border-radius-md"
+											href="/welfare#welfareinfo2">
 											<div class="d-flex">
 												<div>
 													<h6 class="dropdown-header text-black font-weight-bolder d-flex justify-content-center align-items-center p-0"
@@ -461,21 +462,21 @@
 				deleteButton.style.display = "none";
 			}
 		}
-	
-document.addEventListener('DOMContentLoaded', function() {
-    document.querySelectorAll('a[data-scroll]').forEach(anchor => {
-        anchor.addEventListener('click', function(event) {
-            event.preventDefault();
-            const targetId = this.getAttribute('href').substring(1);
-            const targetElement = document.getElementById(targetId);
 
-            window.scrollTo({
-                top: targetElement.offsetTop,
-                behavior: 'smooth'
-            });
-        });
-    });
-});
+		document.addEventListener('DOMContentLoaded', function () {
+			document.querySelectorAll('a[data-scroll]').forEach(anchor => {
+				anchor.addEventListener('click', function (event) {
+					event.preventDefault();
+					const targetId = this.getAttribute('href').substring(1);
+					const targetElement = document.getElementById(targetId);
+
+					window.scrollTo({
+						top: targetElement.offsetTop,
+						behavior: 'smooth'
+					});
+				});
+			});
+		});
 
 		/*삭제 경고창*/
 		function confirmDelete() {
