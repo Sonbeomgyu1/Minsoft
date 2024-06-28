@@ -311,6 +311,11 @@
 						</div>
 					</li>
 				</ul>
+				<a  id="minsoftLink" onclick="redirectToExternalIP()" target="_blank">
+					<button class="button0" >Minsoft</button>
+				</a>
+
+
 				<a th:href="@{/login}" sec:authorize="isAnonymous()"><button class="styled-button">Admin</button></a>
 				<a th:href="@{/logout}" sec:authorize="isAuthenticated()"><button
 						class="styled-button">logout</button></a>
@@ -421,6 +426,10 @@
 	<script src="../../assets/js/plugins/anime.min.js" type="text/javascript"></script>
 	<script src="../../assets/js/soft-design-system-pro.min.js?v=1.1.0" type="text/javascript"></script>
 	<script th:inline="javascript">
+		<!-- 민소프트 IP 주소 변경 스크립트 -->
+		function redirectToExternalIP() {
+			window.open('http://222.238.63.185:8178/', '_blank');
+		}
 		if (document.getElementById("language-select")) {
 			var element = document.getElementById("language-select");
 			const example = new Choices(element, {
@@ -445,7 +454,7 @@
 			}
 		});
 
-		<!-- 로그인 상태에 따른 버튼 표시/비표시 스크립트 -->
+	
 
 		/*<![CDATA[*/
 		var isLoggedIn = /*[[${#authorization.expression('isAuthenticated()')}]]*/ false;
@@ -547,7 +556,41 @@
 
 	/*헤더 부분 css 끝*/
 
-	/*main시작 css*/
+	/*admin 버튼 css*/
+.button0{
+		position: absolute;
+		top: 50%;
+		right: 110px;
+		transform: translateY(-50%);
+		background-color: black;
+		border: none;
+		color: white;
+		padding: 10px 20px;
+		text-align: center;
+		text-decoration: none;
+		display: inline-block;
+		font-size: 14px;
+		margin: 4px 2px;
+		cursor: pointer;
+		border-radius: 12px;
+		transition: background-color 0.3s, box-shadow 0.3s, color 0.3s;
+		font-family: 'GmarketSansMedium';
+	}
+	
+	.button0:hover {
+		background-color: darkgray;
+		box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+	}
+
+	.button0:active {
+		background-color: white;
+		/* White background on click */
+		color: black;
+		/* Black text on click */
+		box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+		transform: translateY(-50%) translateY(2px);
+	}
+
 	/*admin 버튼 css*/
 
 	.styled-button {
@@ -568,6 +611,7 @@
 		cursor: pointer;
 		border-radius: 12px;
 		transition: background-color 0.3s, box-shadow 0.3s, color 0.3s;
+		font-family: 'GmarketSansMedium';
 	}
 
 	.styled-button:hover {
@@ -582,6 +626,29 @@
 		/* Black text on click */
 		box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
 		transform: translateY(-50%) translateY(2px);
+	}
+
+	/*폰트추가*/
+	@font-face {
+		font-family: 'Pretendard-Regular';
+		src: url('https://fastly.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+		font-weight: 400;
+		font-style: normal;
+	}
+
+	@font-face {
+		font-family: 'GmarketSansMedium';
+		src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
+		font-weight: normal;
+		font-style: normal;
+	}
+
+	@font-face {
+		font-family: 'NanumBarunGothic';
+		font-style: normal;
+		font-weight: 400;
+		src: url('//fastly.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWeb.eot');
+		src: url('//fastly.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWeb.eot?#iefix') format('embedded-opentype'), url('//fastly.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWeb.woff') format('woff'), url('//fastly.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWeb.ttf') format('truetype');
 	}
 
 	.gong {
