@@ -3536,28 +3536,28 @@
         });
     });
 });
-/*네비게이션 년도 클릭시의 상단 여백 조정*/
-document.addEventListener("DOMContentLoaded", function() {
-  const offset = 150; // 헤더 높이만큼의 오프셋을 설정 (필요에 따라 조정)
-
-  document.querySelectorAll('.nav-link').forEach(link => {
-    link.addEventListener('click', function(e) {
-      e.preventDefault();
-      
-      const targetId = this.getAttribute('href').substring(1);
-      const targetElement = document.getElementById(targetId);
-
-      if (targetElement) {
-        const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - offset;
-        
-        window.scrollTo({
-          top: targetPosition,
-          behavior: 'smooth'
-        });
-      }
-    });
-  });
-});
+		/*네비게이션 년도 클릭시의 상단 여백 조정*/
+		document.addEventListener("DOMContentLoaded", function() {
+		  const offset = 150; // 헤더 높이만큼의 오프셋을 설정 (필요에 따라 조정)
+		
+		  document.querySelectorAll('.nav-link').forEach(link => {
+		    link.addEventListener('click', function(e) {
+		      e.preventDefault();
+		      
+		      const targetId = this.getAttribute('href').substring(1);
+		      const targetElement = document.getElementById(targetId);
+		
+		      if (targetElement) {
+		        const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - offset;
+		        
+		        window.scrollTo({
+		          top: targetPosition,
+		          behavior: 'smooth'
+		        });
+		      }
+		    });
+		  });
+		});
 
 	</script>
 </body>
@@ -3775,9 +3775,8 @@ document.addEventListener("DOMContentLoaded", function() {
 	#scroll-position23,
 	#scroll-position24,
 	#scroll-position25 {
-		/*네비클릭 후 스크롤 자동진행시의 여백, 향후 수년치 미리 추가함*/
+		/*네비클릭 후 스크롤 부드럽게, 향후 수년치 미리 추가함*/
 		scroll-behavior: smooth !important;
-		scroll-margin-top: 100px;
 	}
 
 	/*main css 끝*/
