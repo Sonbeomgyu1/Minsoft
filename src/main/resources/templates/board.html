@@ -294,9 +294,7 @@
 						</div>
 					</li>
 				</ul>
-				<a  id="minsoftLink" onclick="redirectToExternalIP()" target="_blank">
-					<button class="button0" >Minsoft</button>
-				</a>
+				
 
 
 				<a th:href="@{/login}" sec:authorize="isAnonymous()"><button class="styled-button">Admin</button></a>
@@ -426,10 +424,7 @@
 	<script src="../../assets/js/soft-design-system-pro.min.js?v=1.1.0" type="text/javascript"></script>
 
 	<script th:inline="javascript">
-		<!-- 민소프트 IP 주소 변경 스크립트 -->
-		function redirectToExternalIP() {
-			window.open('http://222.238.63.185:8178/', '_blank');
-		}
+		
 		document.addEventListener('DOMContentLoaded', function () {
 			if (document.getElementById('language-select')) {
 				var element = document.getElementById('language-select');
