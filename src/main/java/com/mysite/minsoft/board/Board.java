@@ -46,12 +46,6 @@ public class Board implements Serializable {
     @Column(name = "VIEW_COUNT", nullable = false)
     private int viewCount = 0;
 
-    
-    //공개비공개 설정
-	/*
-	 * public void setIsPublicFromString(String isPublic) { this.isPublic =
-	 * "1".equals(isPublic); }
-	 */
 
     public void setPublic(boolean isPublic) {
         this.isPublic = isPublic;

@@ -248,30 +248,7 @@ public class BoardController {
 		return "board_edit_delete";
 	}
 
-	// 게시물 수정 처리 메서드
-	/*
-	 * @PostMapping("/boardedit/{id}/files") public String
-	 * boardEditFile(@PathVariable Long id, @ModelAttribute Board board,
-	 * 
-	 * @AuthenticationPrincipal SiteUser author, @RequestParam("boardFile")
-	 * MultipartFile file) { // 편집할 게시물 가져오기 Board existingBoard =
-	 * boardService.findById(id); // 작성자 설정 existingBoard.setAuthor(author); // 제목
-	 * 설정 existingBoard.setTitle(board.getTitle()); // 내용 설정
-	 * existingBoard.setContent(board.getContent()); // 공개 여부 설정
-	 * existingBoard.setPublic(board.isPublic());
-	 * 
-	 * // 파일이 비어 있지 않은 경우 파일 업로드 if (!file.isEmpty()) { // 파일 업로드 및 파일 이름 가져오기
-	 * String fileName = fileUploadService.uploadFile(file, existingBoard); // 파일 저장
-	 * 정보 생성 FileSave fileSave = new FileSave(); // 파일 이름 설정
-	 * fileSave.setFileName(fileName); // 원본 파일 이름 설정
-	 * fileSave.setOriginalFileName(file.getOriginalFilename()); // 파일 경로 설정
-	 * fileSave.setFilePath("/file-storage/" + fileName); // 게시물에 속한 파일 설정
-	 * fileSave.setBoard(existingBoard); // 파일 저장 정보 저장
-	 * fileSaveRepository.save(fileSave); }
-	 * 
-	 * // 수정된 게시물 저장 boardService.save(existingBoard); // 게시물 목록 페이지로 리디렉션 return
-	 * "redirect:/board"; }
-	 */
+	
 	
 	@PostMapping("/boardedit/{id}/update")
 	public String boardEdit(@PathVariable Long id, @ModelAttribute Board board,
