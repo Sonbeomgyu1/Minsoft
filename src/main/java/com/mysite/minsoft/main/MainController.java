@@ -10,6 +10,15 @@ public class MainController {
     public String layout() {
         return "layout"; 
     }
+	@GetMapping("header")  //hreader 틀 controller
+    public String header() {
+        return "header"; 
+    }
+	@GetMapping("footer")  //footer 틀 controller
+    public String footer() {
+        return "footer"; 
+    }
+
 
 	//메인페이지
 	@GetMapping("/")

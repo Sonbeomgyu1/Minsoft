@@ -33,7 +33,7 @@ public class SecurityConfig {
                 .antMatchers("/", "/certification", "/login", "/signup", "/greetingpage", "/history", "/downloadView","/error",
                         "/businessdetails", "/solutions", "/itoutsourcingpage",
                         "/consulting", "/sism", "/recruitmentinfomation", "/welfare", "/contact", "/board", "/boarddetail/**", "/presentation", "/boardedit/**",
-                        "/check-db-connection", "/layout", "/images/**", "/assets/**",
+                        "/check-db-connection", "/layout","/header","/footer", "/images/**", "/assets/**",
                         "/docs/**", "/pages/**", "/sections/**", "/icon/**", "/public/**")
                 .permitAll() // 인증 없이 접근 가능한 경로 설정
                 .anyRequest().authenticated()) // 나머지 요청은 인증 필요
