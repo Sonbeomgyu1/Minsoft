@@ -458,6 +458,26 @@
 
 
 	/*푸터 css 끝*/
+	
+	/* 768px 이하 화면에서 적용 */
+@media (max-width: 768px) {
+    .mainbutton {
+        display: flex; /* Flexbox 사용 */
+        flex-direction: column; /* 세로 정렬 */
+        align-items: center; /* 버튼을 중앙 정렬 */
+        gap: 1rem; /* 버튼 간격 없애기 */
+        margin: 0; /* 부모의 마진 없애기 */
+    }
+
+    #btn-main-top-buttons {
+        width: 50%; /* 버튼이 부모 컨테이너의 너비를 차지하도록 */
+        font-size: 1rem; /* 텍스트 크기 */
+        padding: 0.5rem 0; /* 버튼 높이 줄이기 */
+        text-align: center; /* 텍스트 중앙 정렬 */
+        margin: 0; /* 버튼 간 마진 없애기 */
+        border-radius: 5px; /* 버튼 모서리 둥글게 */
+    }
+}
 </style>
 
 </html>

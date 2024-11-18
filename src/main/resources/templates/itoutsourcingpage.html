@@ -53,17 +53,17 @@
 	<!-- -------- END HEADER 11 w/ carousel ------- -->
 
 	<div class="mainbutton">
-		<a href="/businessdetails" class="btn btn-light" id="btn-itoutsourcing5">사업내용</a>
-		<a href="/itoutsourcingpage" class="btn btn-light" id="btn-itoutsourcing5">IT 아웃소싱</a>
-		<a href="/sism" class="btn btn-light" id="btn-itoutsourcing5">SI / SM</a>
-		<a href="/consulting" class="btn btn-light" id="btn-itoutsourcing5">컨설팅</a>
-		<a href="/solutions" class="btn btn-light" id="btn-itoutsourcing5">솔루션</a>
+		<a href="/businessdetails" class="btn btn-light" id="btn-main-top-buttons">사업내용</a>
+		<a href="/itoutsourcingpage" class="btn btn-light" id="btn-main-top-buttons">IT 아웃소싱</a>
+		<a href="/sism" class="btn btn-light" id="btn-main-top-buttons">SI / SM</a>
+		<a href="/consulting" class="btn btn-light" id="btn-main-top-buttons">컨설팅</a>
+		<a href="/solutions" class="btn btn-light" id="btn-main-top-buttons">솔루션</a>
 	</div>
 
 
 	<!-- ========================================= IT 아웃소싱 Section ======================================================-->
 	<!-- 사진을 프리픽에서 이미지 주소복사 삽입, max-height-600을 height-500으로 수정 필요 및 style에 .height-580: { height: 580px;} 추가 -->
-	<section class="py-7 position-relative">
+	<section class="py-7 position-relative" style="margin-top: 40px;">
 		<div class="container">
 			<div id="carousel-testimonials" class="carousel slide carousel-team">
 				<div class="carousel-inner">
@@ -479,6 +479,7 @@
 		font-size: 30px;
 		font-weight: 500;
 		/* 글자를 굵게 설정합니다. */
+
 	}
 
 	.mainbutton {
@@ -610,12 +611,6 @@
 		border-radius: 100%;
 	}
 
-	/* 모바일 장치용 반응형 스타일 */
-	@media (max-width: 768px) {
-		.container {
-			height: auto;
-			padding: 20px;
-		}
 
 
 		/*상단이동 버튼*/
@@ -640,18 +635,33 @@
 			width: 100%;
 			height: auto;
 		}
-	}
+	
+/* 768px 이하 화면에서 적용 */
+@media (max-width: 768px) {
+    .mainbutton {
+        display: flex; /* Flexbox 사용 */
+        flex-direction: column; /* 세로 정렬 */
+        align-items: center; /* 버튼을 중앙 정렬 */
+        gap: 1rem; /* 버튼 간격 없애기 */
+        margin: 0; /* 부모의 마진 없애기 */
+    }
 
-	/* 데스크탑 및 더 큰 화면 */
-	@media screen and (min-width: 1025px) {
-
-		.btn {
-			font-size: 20px;
-			padding: 12px 40px;
-		}
-	}
-
+    #btn-main-top-buttons {
+        width: 50%; /* 버튼이 부모 컨테이너의 너비를 차지하도록 */
+        font-size: 1rem; /* 텍스트 크기 */
+        padding: 0.5rem 0; /* 버튼 높이 줄이기 */
+        text-align: center; /* 텍스트 중앙 정렬 */
+        margin: 0; /* 버튼 간 마진 없애기 */
+        border-radius: 5px; /* 버튼 모서리 둥글게 */
+    }
+}
 	/*푸터 css 끝*/
+	/*상단 5개 버튼 폰트 수정*/
+	#btn-main-top-buttons {
+		font-family: 'GmarketSansMedium';
+		font-weight: 500;
+	}
+	
 </style>
 
 </html>

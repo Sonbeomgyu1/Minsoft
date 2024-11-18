@@ -72,69 +72,48 @@
 				<div class="row">
 
 					<div class="col-lg-2 mb-lg-0 mb-3" style="background-color:#f1f3f5;">
-						<ul class="nav flex-column bg-white border-radius-lg p-3 position-sticky top-15 left-navbar">
-							<li class="nav-item">
-								<a class="nav-link text-dark border-radius-lg" style="background-color: #f1f3f5;">
-									Minsoft Since 2014
-								</a>
-							</li>
-							<li class="nav-item"> <!--연혁 추가시의 네비 한 세트 시작, Minsoft Since 2014 밑에 추가할 것. -->
-								<a class="nav-link" data-scroll href="#scroll-position11"> <!--href 숫자 늘리기 -->
-									2024
-								</a>
-							</li> <!--연혁 추가시의 네비 한 세트 끝, 페이지 하단 css 참고-->
-							<li class="nav-item">
-								<a class="nav-link" data-scroll href="#scroll-position10">
-									2023
-								</a>
-							</li>
-							<li class="nav-item">
-								<a class="nav-link" data-scroll href="#scroll-position9">
-									2022
-								</a>
-							</li>
-							<li class="nav-item">
-								<a class="nav-link" data-scroll href="#scroll-position8">
-									2021
-								</a>
-							</li>
-							<li class="nav-item">
-								<a class="nav-link" data-scroll href="#scroll-position7">
-									2020
-								</a>
-							</li>
-							<li class="nav-item">
-								<a class="nav-link" data-scroll href="#scroll-position6">
-									2019
-								</a>
-							</li>
-							<li class="nav-item">
-								<a class="nav-link" data-scroll href="#scroll-position5">
-									2018
-								</a>
-							</li>
-							<li class="nav-item">
-								<a class="nav-link" data-scroll href="#scroll-position4">
-									2017
-								</a>
-							</li>
-							<li class="nav-item">
-								<a class="nav-link" data-scroll href="#scroll-position3">
-									2016
-								</a>
-							</li>
-							<li class="nav-item">
-								<a class="nav-link" data-scroll href="#scroll-position2">
-									2015
-								</a>
-							</li>
-							<li class="nav-item">
-								<a class="nav-link" data-scroll href="#scroll-position1">
-									2014
-								</a>
-							</li>
-						</ul>
-					</div>
+    <ul class="nav flex-column bg-white border-radius-lg p-3 position-sticky top-15 left-navbar">
+        <li class="nav-item">
+            <a class="nav-link text-dark border-radius-lg" style="background-color: #f1f3f5;">
+                Minsoft Since 2014
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" data-scroll href="#scroll-position11">2024</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" data-scroll href="#scroll-position10">2023</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" data-scroll href="#scroll-position9">2022</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" data-scroll href="#scroll-position8">2021</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" data-scroll href="#scroll-position7">2020</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" data-scroll href="#scroll-position6">2019</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" data-scroll href="#scroll-position5">2018</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" data-scroll href="#scroll-position4">2017</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" data-scroll href="#scroll-position3">2016</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" data-scroll href="#scroll-position2">2015</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" data-scroll href="#scroll-position1">2014</a>
+        </li>
+    </ul>
+</div>
+
 
 					<div
 						class="col-lg-8 col-8 d-flex justify-content-center flex-column mx-2 text-lg-start text-center history-main-sector">
@@ -2230,6 +2209,26 @@
 <style>
 	
 
+	/*모바일 CSS*/
+/* 768px 이하 화면에서 적용 */
+@media (max-width: 768px) {
+    .mainbutton {
+        display: flex; /* Flexbox 사용 */
+        flex-direction: column; /* 세로 정렬 */
+        align-items: center; /* 버튼을 중앙 정렬 */
+        gap: 1rem; /* 버튼 간격 없애기 */
+        margin: 0; /* 부모의 마진 없애기 */
+    }
+
+    #btn-main-top-buttons {
+        width: 50%; /* 버튼이 부모 컨테이너의 너비를 차지하도록 */
+        font-size: 1rem; /* 텍스트 크기 */
+        padding: 0.5rem 0; /* 버튼 높이 줄이기 */
+        text-align: center; /* 텍스트 중앙 정렬 */
+        margin: 0; /* 버튼 간 마진 없애기 */
+        border-radius: 5px; /* 버튼 모서리 둥글게 */
+    }
+}
 	/*main시작 css*/
 	/* 폰트추가 */
 	@font-face {
@@ -2254,11 +2253,6 @@
 		src: url('//fastly.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWeb.eot?#iefix') format('embedded-opentype'), url('//fastly.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWeb.woff') format('woff'), url('//fastly.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWeb.ttf') format('truetype');
 	}
 
-	/*상단 5개 버튼 폰트 수정*/
-	#btn-main-top-buttons {
-		font-family: 'GmarketSansMedium';
-		font-weight: 500;
-	}
 
 	/*본문 상단여백 조정*/
 	.py-5 {
@@ -2421,35 +2415,7 @@
 		border-radius: 100%;
 	}
 
-	/* 세로 모드에서의 모바일 디바이스 */
-	@media screen and (max-device-width: 480px) and (orientation: portrait) {
-		.btn {
-			font-size: 14px;
-			padding: 8px 20px;
-		}
-	}
-
-	/* 모바일 장치용 반응형 스타일 */
-	@media (max-width: 768px) {
-		.container {
-			height: auto;
-			padding: 20px;
-		}
-
-		.responsive-image {
-			width: 100%;
-			height: auto;
-		}
-	}
-
-	/* 데스크탑 및 더 큰 화면 */
-	@media screen and (min-width: 1025px) {
-
-		.btn {
-			font-size: 20px;
-			padding: 12px 40px;
-		}
-	}
+	
 
 
 	/*푸터 css 끝*/

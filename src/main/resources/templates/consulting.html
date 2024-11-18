@@ -347,6 +347,7 @@
 	.consulting {
 		text-align: center;
 		/* 텍스트와 이미지를 가운데 정렬합니다. */
+		margin-top: 80px;
 
 	}
 
@@ -532,13 +533,31 @@
 		}
 	}
 
-	/* 데스크탑 및 더 큰 화면 */
-	@media screen and (min-width: 1025px) {
+/*상단버튼 5개 css 모바일*/
+/* 768px 이하 화면에서 적용 */
+@media (max-width: 768px) {
+    .mainbutton {
+        display: flex; /* Flexbox 사용 */
+        flex-direction: column; /* 세로 정렬 */
+        align-items: center; /* 버튼을 중앙 정렬 */
+        gap: 1rem; /* 버튼 간격 없애기 */
+        margin: 0; /* 부모의 마진 없애기 */
+    }
 
-		.btn {
-			font-size: 20px;
-			padding: 12px 40px;
-		}
+    #btn-main-top-buttons {
+        width: 50%; /* 버튼이 부모 컨테이너의 너비를 차지하도록 */
+        font-size: 1rem; /* 텍스트 크기 */
+        padding: 0.5rem 0; /* 버튼 높이 줄이기 */
+        text-align: center; /* 텍스트 중앙 정렬 */
+        margin: 0; /* 버튼 간 마진 없애기 */
+        border-radius: 5px; /* 버튼 모서리 둥글게 */
+    }
+}
+	/*푸터 css 끝*/
+	/*상단 5개 버튼 폰트 수정*/
+	#btn-main-top-buttons {
+		font-family: 'GmarketSansMedium';
+		font-weight: 500;
 	}
 </style>
 

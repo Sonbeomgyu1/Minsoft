@@ -54,15 +54,15 @@
 	<!-- -------- END HEADER 11 w/ carousel ------- -->
 	<main>
 		<div class="mainbutton">
-			<a href="/businessdetails" class="btn btn-light" id="btn-solutions5">사업내용</a>
-			<a href="/itoutsourcingpage" class="btn btn-light" id="btn-solutions5">IT 아웃소싱</a>
-			<a href="/sism" class="btn btn-light" id="btn-solutions5">SI / SM</a>
-			<a href="/consulting" class="btn btn-light" id="btn-solutions5">컨설팅</a>
-			<a href="/solutions" class="btn btn-light" id="btn-solutions5">솔루션</a>
+			<a href="/businessdetails" class="btn btn-light" id="btn-main-top-buttons">사업내용</a>
+			<a href="/itoutsourcingpage" class="btn btn-light" id="btn-main-top-buttons">IT 아웃소싱</a>
+			<a href="/sism" class="btn btn-light" id="btn-main-top-buttons">SI / SM</a>
+			<a href="/consulting" class="btn btn-light" id="btn-main-top-buttons">컨설팅</a>
+			<a href="/solutions" class="btn btn-light" id="btn-main-top-buttons">솔루션</a>
 		</div>
 
 		<!-- START Blogs w/ big image on left -->
-		<section class="py-5" style="background-color:#f1f3f5;">
+		<section class="py-5" style="background-color:#f1f3f5; margin-top: 80px;">
 			<div class="container-fluid">
 				<div class="row">
 
@@ -965,13 +965,31 @@
 		}
 	}
 
-	/* 데스크탑 및 더 큰 화면 */
-	@media screen and (min-width: 1025px) {
+/*상단버튼 5개 css 모바일*/
+/* 768px 이하 화면에서 적용 */
+@media (max-width: 768px) {
+    .mainbutton {
+        display: flex; /* Flexbox 사용 */
+        flex-direction: column; /* 세로 정렬 */
+        align-items: center; /* 버튼을 중앙 정렬 */
+        gap: 1rem; /* 버튼 간격 없애기 */
+        margin: 0; /* 부모의 마진 없애기 */
+    }
 
-		.btn {
-			font-size: 20px;
-			padding: 12px 40px;
-		}
+    #btn-main-top-buttons {
+        width: 50%; /* 버튼이 부모 컨테이너의 너비를 차지하도록 */
+        font-size: 1rem; /* 텍스트 크기 */
+        padding: 0.5rem 0; /* 버튼 높이 줄이기 */
+        text-align: center; /* 텍스트 중앙 정렬 */
+        margin: 0; /* 버튼 간 마진 없애기 */
+        border-radius: 5px; /* 버튼 모서리 둥글게 */
+    }
+}
+	/*푸터 css 끝*/
+	/*상단 5개 버튼 폰트 수정*/
+	#btn-main-top-buttons {
+		font-family: 'GmarketSansMedium';
+		font-weight: 500;
 	}
 </style>
 
