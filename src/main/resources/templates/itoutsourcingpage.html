@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=yes" />
     <link rel="apple-touch-icon" sizes="76x76" href="/images/Mn.png">
     <link rel="icon" type="image/png" href="/images/Mn.png">
 
@@ -202,17 +202,21 @@
 				</div>
 				<!-- 앞 뒤 버튼 시작 -->
 				<div class="position-relative mt-n6">
-					<a class="carousel-control-prev text-dark position-absolute bottom-0 start-0"
-						href="#carousel-testimonials" role="button" data-bs-slide="prev">
-						<i class="fas fa-2x fa-chevron-left position-absolute start-0 ms-3" aria-hidden="true"></i>
-						<span class="sr-only">Previous</span>
-					</a>
-					<a class="carousel-control-next text-dark position-absolute bottom-0 start-0 ms-4"
-						href="#carousel-testimonials" role="button" data-bs-slide="next">
-						<i class="fas fa-2x fa-chevron-right"></i>
-						<span class="sr-only">Next</span>
-					</a>
-				</div>
+    <!-- 이전 버튼 -->
+    <a class="carousel-control-prev position-absolute start-0 top-50 translate-middle-y text-dark" 
+        href="#carousel-testimonials" role="button" data-bs-slide="prev" style="z-index: 3;">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+    </a>
+
+    <!-- 다음 버튼 -->
+    <a class="carousel-control-next position-absolute end-0 top-50 translate-middle-y text-dark" 
+        href="#carousel-testimonials" role="button" data-bs-slide="next" style="z-index: 3; ">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+    </a>
+</div>
+
 				<!-- 앞 뒤 버튼 끝 -->
 			</div> <!--  #carousel-testimonials 끝 -->
 
@@ -221,7 +225,7 @@
 				<div class="col-lg-23_5 col-6 mb-lg-0 mb-4">
 					<a href="javascript:;" class="text-lg text-gradient text-selfmade1 h3 ps-3 active"
 						data-bs-target="#carousel-testimonials" data-bs-slide-to="0">
-						<span class="span01">01</span>
+						<span >01</span>
 						<span class="ms-2 text-md-start">IT 아웃소싱컨설팅 서비스</span>
 					</a>
 				</div>
@@ -661,7 +665,68 @@
 		font-family: 'GmarketSansMedium';
 		font-weight: 500;
 	}
-	
+	/*모바일 css 시작*/
+	/* 기본적으로 모바일 환경 (화면 너비 768px 이하)에서 동작하도록 설정 */
+@media (max-width: 768px) {
+  /* 숫자 메뉴 스타일 */
+  .row.mt-7 .col-lg-23_5,
+  .row.mt-7 .col-lg-18,
+  .row.mt-7 .col-lg-2_7,
+  .row.mt-7 .col-lg-15_5,
+  .row.mt-7 .col-lg-2 {
+    width: 100%; /* 각 숫자 메뉴를 한 줄에 표시 */
+    margin-bottom: 10px; /* 각 메뉴 간격 추가 */
+    text-align: center; /* 텍스트를 가운데 정렬 */
+  }
+
+  /* 숫자 메뉴 텍스트 크기 조정 */
+  .text-lg {
+    font-size: 16px;
+  }
+
+  /* 숫자 메뉴 번호 간격 조정 */
+  .span01, .span02, .span03, .span04, .span05 {
+    display: block; /* 번호를 블록 형태로 표시 */
+    font-size: 20px; /* 번호 크기 조정 */
+  }
+
+  /* 앞뒤 버튼 스타일 */
+  .carousel-control-prev, .carousel-control-next {
+    width: 30px; /* 버튼 크기 조정 */
+    height: 30px;
+    top: 50%; /* 버튼을 세로 중앙에 위치 */
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5); /* 버튼 배경을 살짝 투명하게 */
+    border-radius: 50%; /* 버튼을 동그랗게 */
+  }
+
+  .carousel-control-prev i, .carousel-control-next i {
+    font-size: 20px; /* 버튼 안의 화살표 크기 조정 */
+    color: #fff; /* 화살표 색상 */
+  }
+
+  /* 숫자 메뉴와 버튼 간 간격 추가 */
+  .position-relative.mt-n6 {
+    margin-bottom: 20px;
+  }
+
+  /* 이미지 크기 조정 */
+  .carousel-item img {
+    max-height: 400px; /* 이미지 높이 제한 */
+    object-fit: cover; /* 이미지 비율 유지 */
+  }
+
+  /* 텍스트 크기 조정 */
+  h1.itoutsourcing-title {
+    font-size: 24px;
+    line-height: 1.4;
+  }
+
+  .lead {
+    font-size: 14px;
+  }
+}
+
 </style>
 
 </html>

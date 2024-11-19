@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=yes" />
     <link rel="apple-touch-icon" sizes="76x76" href="/images/Mn.png">
     <link rel="icon" type="image/png" href="/images/Mn.png">
 
@@ -193,7 +193,7 @@
 							</div><br>
 							<div class="card-body px-0 pt-4">
 								<h3 class="mb-4">CP의 정의</h3>
-								<p class="blockquote my-3 ps-2">
+								<p class=" my-3 ps-2">
 									<span><strong>CP (Contents Provider)</strong>는 기업의 CP는 인터넷에서 이용자에게 제공되는 정보의 내용을 제작하는
 										사람이나 기관을 의미하는데,<br>
 										콘텐츠 제공업체가 자신의 콘텐츠를 직접 운영할 때도 별도의 부담 없이 정보를 증대시킬 수 있고,<br> 정보의 질에 맞는 정보제공계약을 체결할
@@ -281,7 +281,7 @@
 							</div><br>
 							<div class="card-body px-0 pt-4">
 								<h3 class="mb-4">반응형 웹서비스의 정의</h3>
-								<p class="blockquote my-3 ps-2">
+								<p class=" my-3 ps-2">
 									<span><strong>반응형 웹서비스</strong>는 기업의 홈페이지나 관리페이지에 접속할 때 PC, 모바일, 테블릿 등과 같이 각 기기마다의
 										최적화된 해상도가 존재하는데,<br>
 										그 해상도를 디스플레이 종류에 따라 화면의 크기가 자동으로 최적화되도록 조절되는 웹페이지를 의미합니다.</span>
@@ -362,7 +362,7 @@
 							</div><br>
 							<div class="card-body px-0 pt-4">
 								<h3 class="mb-4">CRM의 정의</h3>
-								<p class="blockquote my-3 ps-2">
+								<p class=" my-3 ps-2">
 									<span><strong>CRM (Customer Relationship Management)</strong>은 영업활동 관리 + 마케팅 활동 관리 +
 										고객통합서비스를 통합하여<br>
 										기업 내부의 축적된 고객정보를 효과적으로 활용하고 고객과의 관계를 유지 확대 개선함으로써,<br> 고객의 만족과 충성도를 제고하고, 기업 및
@@ -504,7 +504,7 @@
 							</div><br>
 							<div class="card-body px-0 pt-4">
 								<h3 class="mb-4">MIS의 정의</h3>
-								<p class="blockquote my-3 ps-2">
+								<p class=" my-3 ps-2">
 									<span><strong>MIS(management information system)</strong>은 조직의 계획·운영 및 통제를 위한 정보를
 										수집, 저장·검색·처리하여<br>
 										적절한 시기에 적절한 형태로 적절한 구성원에게 제공함으로써 조직의 목표를 효율적이고 효과적으로 달성할 수 있도록<br> 조직화한 통합적
@@ -874,14 +874,113 @@
 	.btn-warning {
 		width: 180px;
 	}
-
+/*특장점 css*/
 	.btndescription {
 		/*장단기적 관점 버튼 여백 및 폰트설정*/
 		margin: 40px 30px 50px 5px;
 		font-size: 24px;
 		font-family: 'NanumBarunGothic';
 	}
+	/*모바일 전체 css*/
+	/* 기본 스타일 */
+.card-body {
+    padding-left: 0;
+    padding-right: 0;
+}
 
+.card-img-top {
+    width: 100%; /* 이미지가 부모 컨테이너 너비에 맞춰서 자동으로 크기 조정 */
+}
+
+/*상단 모바일 css*/
+/* 기본 스타일 */
+
+ @media (max-width: 767px) {
+    .col-lg-2 {
+      width: 90%; /* 모바일 화면에서 가로를 100%로 설정 */
+    }
+    .nav {
+      box-shadow: none; /* 모바일에서 그림자 제거 */
+    }
+  }
+/*상단 모바일 css 끝*/
+
+/* 본문 모바일 화면에서의 스타일 */
+@media (max-width: 768px) {
+    /* 전체 카드 레이아웃 */
+    .col-lg-8 {
+        width: 70%; /* 모바일에서 카드가 화면 전체 너비를 차지하도록 설정 */
+        margin-left: 65px !important; /* 모바일에서 추가 마진을 없애기 */
+        
+    }
+
+    /* 이미지 크기 조정 */
+    .img-fluid {
+        max-width: 100%; /* 이미지가 부모 요소를 넘지 않도록 설정 */
+        height: auto; /* 이미지 비율을 유지하면서 크기를 조정 */
+    }
+
+    /* 텍스트 영역 */
+    .text-lg-start {
+        text-align: center; /* 모바일에서는 텍스트를 중앙 정렬 */
+        margin-right: 150px;
+    }
+
+    /* 카드 본문 내부 스타일 */
+    .card-body {
+        padding: 1rem; /* 모바일에서 패딩을 줄여서 공간 확보 */
+        
+    }
+
+    /* 헤더 및 본문 텍스트 */
+    h1, h3 {
+        font-size: 1.5rem; /* 모바일에서 헤더 크기를 줄여서 화면에 맞게 조정 */
+    }
+
+    .blockquote {
+        font-size: 1rem; /* 인용문 크기 조정 */
+        padding-left: 0; /* 왼쪽 여백 없애기 */
+        padding-right: 0; /* 오른쪽 여백 없애기 */
+    }
+
+    /* 블록 요소 간 간격 조정 */
+    .mb-4, .mt-4, .mt-lg-0 {
+        margin-bottom: 1.5rem; /* 각 요소 간 간격을 모바일 화면에 맞게 줄임 */
+        margin-top: 1.5rem; /* 상단 간격 조정 */
+    }
+
+    /* 카드 이미지 상단 여백 */
+    .position-relative {
+        margin-bottom: 1rem; /* 카드 이미지와 본문 간 여백을 모바일에서 줄임 */
+    }
+}
+
+	/*본문 모바일 전체css 끝*/
+	
+/*모바일 특장점 css*/
+/* 모바일 화면에서 버튼 레이아웃 수정 */
+@media (max-width: 768px) {
+    .d-inline-flex {
+        flex-wrap: wrap; /* 버튼들이 화면에 맞춰 줄바꿈되도록 설정 */
+        justify-content: center; /* 버튼을 중앙 정렬 */
+    }
+
+    .btndescription {
+        margin: 10px; /* 버튼 간 간격을 줄여서 화면에 맞게 조정 */
+        font-size: 18px; /* 모바일 화면에서 폰트 크기 줄이기 */
+        width: 100%; /* 각 버튼이 화면 너비에 맞게 100%로 확장 */
+        box-sizing: border-box; /* 패딩 포함하여 너비 계산 */
+    }
+
+    /* 버튼 너비 조정 */
+    .btn {
+        width: 100%; /* 버튼들이 전체 너비를 차지하도록 설정 */
+        margin-bottom: 10px; /* 버튼 간 간격 추가 */
+    }
+}
+
+
+/*특장점 css 끝*/
 	.bodydescription {
 		/* 장단기적 관점 클릭시 나오는 콜랩스박스 그림자 설정*/
 		box-shadow: 2px 2px 2px 2px lightgray;
