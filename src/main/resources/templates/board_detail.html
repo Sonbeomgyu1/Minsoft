@@ -49,49 +49,39 @@
 	</header>
 	<!-- -------- END HEADER 11 w/ carousel ------- -->
 	<main>
-		<div class="container2 shadow-xl" style="margin-top: 100px;">
-			<div class="post-title" th:text="${board.title}">게시물 제목</div>
+    <div class="container2 shadow-xl" style="margin-top: 100px;">
+        <div class="post-title" th:text="${board.title}">게시물 제목</div>
 
-			<div class="post-meta">
-				작성자 : <span th:text="${board.author != null ? board.author.name : '관리자'}"></span>
-			</div>
-			<div class="title-meta-divider"></div>
-			<div class="post-content" style="white-space: pre-wrap;">
-				<p th:text="${board.content}" class="post-content-text">
-					여기에 게시물 내용이 들어갑니다. 이 게시판은 사용자가 작성한 글을
-					표시하는 페이지입니다.
-				</p>
-			</div>
+        <div class="post-meta">
+            작성자 : <span th:text="${board.author != null ? board.author.name : '관리자'}"></span>
+        </div>
+        <div class="title-meta-divider"></div>
+        <div class="post-content" style="white-space: pre-wrap;">
+            <p th:text="${board.content}" class="post-content-text">
+                여기에 게시물 내용이 들어갑니다. 이 게시판은 사용자가 작성한 글을
+                표시하는 페이지입니다.
+            </p>
+        </div>
 
-			<!--  <div>파일 : <span th:text="${originalFileName}"> </span></div>
-        <a th:href="@{'/download/' + ${boardId}}" th:text="다운로드"></a>-->
+        <div th:if="${originalFileName != null}">
+            파일 : <span th:text="${originalFileName}"></span>
+            <div>
+                <a th:href="@{'/download/' + ${board.id}}" th:text="'다운로드'"></a>
+            </div>
+        </div>
 
-			<div th:if="${originalFileName != null}">
-				파일 : <span th:text="${originalFileName}"></span>
-				<div>
-					<a th:href="@{'/download/' + ${board.id}}" th:text="'다운로드'"></a>
-				</div>
-			</div>
-
-			<div class="action-buttons">
-				<!-- <button class="edit-button" id="editButton" style="display: none">수정</button>-->
-				<a href="/board">목록</a>
-				<!--수정버튼-->
-				<a th:href="@{/boardedit/{id}(id=${board.id})}" id="editButton" style="display: none">수정</a>
-				<!--삭제버튼-->
-				<!--<form th:action="@{/boarddelete/{id}(id=${board.id})}" method="post" style="display:inline;">-->
-				<form th:action="@{/boarddelete/{id}(id=${board.id})}" method="post" style="display: inline"
-					onsubmit="return confirmDelete();">
-					<button type="submit" id="deleteButton" class="delete-button" style="display: none">
-						삭제
-					</button>
-				</form>
-				<!--<button class="delete-button" id="deleteButton" style="display: none">
-            삭제
-          </button>-->
-			</div>
-		</div>
-	</main>
+        <div class="action-buttons">
+            <a href="/board">목록</a>
+            <a th:href="@{/boardedit/{id}(id=${board.id})}" id="editButton" style="display: none">수정</a>
+            <form th:action="@{/boarddelete/{id}(id=${board.id})}" method="post" style="display: inline"
+                onsubmit="return confirmDelete();">
+                <button type="submit" id="deleteButton" class="delete-button" style="display: none">
+                    삭제
+                </button>
+            </form>
+        </div>
+    </div>
+</main>
 	<div th:include="footer :: footer"></div>
 	<!-- 나머지 플러그인 스크립트들 -->
 <script src="../../assets/js/soft-design-system-pro.min.js?v=1.1.0" type="text/javascript"></script>
@@ -433,7 +423,7 @@
 		/* 글자 색상 */
 		margin-bottom: 15px;
 		/* 하단 마진 */
-		margin-left: 760px;
+	margin-top:30px;
 	}
 
 	/* 게시물 제목과 메타 정보 아래 테두리 스타일 */
@@ -563,6 +553,33 @@
 		background-color: #c82333;
 		/* 호버 시 삭제 버튼 배경색 */
 	}
+	
+	 .post-meta {
+        word-break: break-word;
+        white-space: normal;
+    }
+
+    @media (max-width: 768px) {
+        .post-title {
+            font-size: 1.5rem;
+        }
+
+        .post-meta {
+            font-size: 1rem;
+            word-break: break-word;
+            white-space: normal;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: flex-start;
+        }
+
+        .container2 {
+            margin: 10px;
+            max-width: 100%;
+            padding: 0 15px;
+        }
+    }
+
 </style>
 
 </html>

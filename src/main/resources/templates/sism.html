@@ -6,6 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=yes" />
     <link rel="apple-touch-icon" sizes="76x76" href="/images/Mn.png">
     <link rel="icon" type="image/png" href="/images/Mn.png">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+     <!-- Bootstrap CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
 
     <title>
         (주)민소프트
@@ -726,6 +729,19 @@
 		/* h2 요소의 글꼴 크기를 50px로 설정합니다 */
 		margin-top: 80px;
 	}
+	
+	/*상세페이지 배너 사진 모바일 사진 크기*/
+@media (max-width: 768px) {
+    #carouselExampleControls .carousel-item.active .page-header {
+        height: 18.4vh !important; /* 모바일 화면에서 배경 이미지 높이를 30%로 설정 */
+    }
+
+    #carouselExampleControls .carousel-item.active .page-header {
+        background-size: cover; /* 이미지가 배경으로 꽉 차게 */
+        background-position: center center; /* 배경 이미지가 중앙에 위치하도록 */
+    }
+}
+/*상세 페이지 배너 사진 모바일 사진 크기 끝*/
 	/* 모바일 화면에서 글씨 크기 조정 */
 @media (max-width: 768px) {
   .mainsi {

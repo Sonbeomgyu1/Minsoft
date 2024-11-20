@@ -33,7 +33,7 @@
 			<div class="carousel-inner">
 				<div class="carousel-item active">
 					<div class="page-header min-vh-45  border-xl"
-						style="background-image: url('/images/company/history_banner1.jpg');">
+						style="background-image: url('/images/company/history_banner1.jpg'); height: 450px;">
 						<span class="mask bg-gradient-dark" style="opacity: 0.13;"></span>
 						<div class="container">
 							<div class="row">
@@ -50,6 +50,7 @@
 			</div>
 		</div>
 	</header>
+	
 
 	<!-- -------- END HEADER 11 w/ carousel ------- -->
 	<main>
@@ -73,52 +74,52 @@
 					<div class="col-12 col-md-4 col-lg-2 mb-lg-0 mb-3">
 						<ul class="nav flex-column bg-white border-radius-lg p-3 position-sticky top-15 left-navbar">
 							<!-- Minsoft Since 2014 항목 -->
-							<li class="nav-item">
-								<a class="nav-link text-dark border-radius-lg">
+							<li class="nav-item1">
+								<a class="nav-link1 text-dark border-radius-lg">
 									Minsoft Since 2014
 								</a>
 							</li>
 
 							<!-- 연도를 3개씩 배치 (기존 HTML은 그대로 유지) -->
 							<div class="year-row">
-								<li class="nav-item">
-									<a class="nav-link" data-scroll href="#scroll-position11">2024</a>
+								<li class="nav-item1">
+									<a class="nav-link1" data-scroll href="#scroll-position11">2024</a>
 								</li>
-								<li class="nav-item">
-									<a class="nav-link" data-scroll href="#scroll-position10">2023</a>
+								<li class="nav-item1">
+									<a class="nav-link1" data-scroll href="#scroll-position10">2023</a>
 								</li>
-								<li class="nav-item">
-									<a class="nav-link" data-scroll href="#scroll-position9">2022</a>
-								</li>
-							</div>
-							<div class="year-row">
-								<li class="nav-item">
-									<a class="nav-link" data-scroll href="#scroll-position8">2021</a>
-								</li>
-								<li class="nav-item">
-									<a class="nav-link" data-scroll href="#scroll-position7">2020</a>
-								</li>
-								<li class="nav-item">
-									<a class="nav-link" data-scroll href="#scroll-position6">2019</a>
+								<li class="nav-item1">
+									<a class="nav-link1" data-scroll href="#scroll-position9">2022</a>
 								</li>
 							</div>
 							<div class="year-row">
-								<li class="nav-item">
-									<a class="nav-link" data-scroll href="#scroll-position5">2018</a>
+								<li class="nav-item1">
+									<a class="nav-link1" data-scroll href="#scroll-position8">2021</a>
 								</li>
-								<li class="nav-item">
-									<a class="nav-link" data-scroll href="#scroll-position4">2017</a>
+								<li class="nav-item1">
+									<a class="nav-link1" data-scroll href="#scroll-position7">2020</a>
 								</li>
-								<li class="nav-item">
-									<a class="nav-link" data-scroll href="#scroll-position3">2016</a>
+								<li class="nav-item1">
+									<a class="nav-link1" data-scroll href="#scroll-position6">2019</a>
 								</li>
 							</div>
 							<div class="year-row">
-								<li class="nav-item">
-									<a class="nav-link" data-scroll href="#scroll-position2">2015</a>
+								<li class="nav-item1">
+									<a class="nav-link1" data-scroll href="#scroll-position5">2018</a>
 								</li>
-								<li class="nav-item">
-									<a class="nav-link" data-scroll href="#scroll-position1">2014</a>
+								<li class="nav-item1">
+									<a class="nav-link1" data-scroll href="#scroll-position4">2017</a>
+								</li>
+								<li class="nav-item1">
+									<a class="nav-link1" data-scroll href="#scroll-position3">2016</a>
+								</li>
+							</div>
+							<div class="year-row">
+								<li class="nav-item1">
+									<a class="nav-link1" data-scroll href="#scroll-position2">2015</a>
+								</li>
+								<li class="nav-item1">
+									<a class="nav-link1" data-scroll href="#scroll-position1">2014</a>
 								</li>
 							</div>
 						</ul>
@@ -2251,7 +2252,7 @@
 		window.addEventListener("load", function () {
 			const offset = 150; // 헤더 높이만큼의 오프셋 설정 (필요에 따라 조정)
 
-			document.querySelectorAll('.nav-link').forEach(link => {
+			document.querySelectorAll('.nav-link1').forEach(link => {
 				link.addEventListener('click', function (e) {
 					const href = this.getAttribute('href');
 
@@ -2281,12 +2282,12 @@
 <style>
 	/*연혁 텍스트 정리*/
 	.historycontents {
-		padding-left: 0rem;
+		padding-left: -2rem;
 	}
 
 	.historycontents li {
 		list-style: none;
-		font-size: 15px;
+		font-size: 14px;
 		margin-bottom: 8px;
 		display: flex;
 		align-items: center;
@@ -2319,23 +2320,37 @@
 		/* 왼쪽 여백 없애기 */
 	}
 
-	@media (max-width: 768px) {
-		.historycontent-year h1 {
-			font-size: 1.5rem;
-			/* 모바일에서 적절한 크기로 축소 */
-		}
+	.left-navbar{
+		align-items: center;
 	}
+	/* 년도 항목 사이에 간격 추가 */
+.year-row {
+    margin-bottom: 10px; /* 년도 그룹 사이에 간격 추가 */
+}
 
+/* 각 년도 항목 사이에 간격 추가 */
+.year-row .nav-item1 .nav-item1 {
+    margin-bottom: 5px; /* 각 년도 항목 사이에 간격 추가 */
+}
+
+/* PC 화면에서 연도 항목 간 간격을 크게 설정 */
+@media (min-width: 992px) {
+    .year-row .nav-item1 {
+        margin-bottom: 15px; /* PC에서는 간격을 좀 더 넓게 설정 */
+    }
+}
+
+	
 	/*모바일 사이드바에 년도 클릭시 */
 	/* 기본적으로 모바일 환경에서 네비게이션 스타일 수정 */
-	/* 모바일 화면에서 네비게이션 스타일 수정 */
 	/* 모바일 화면에서 네비게이션 스타일 수정 */
 	@media (max-width: 768px) {
 		.left-navbar {
 			margin: 0;
 			padding: 1rem;
-			width: 240%;
+			width: 250%;
 			position: relative;
+			
 		}
 
 		.nav {
@@ -2346,7 +2361,7 @@
 			/* 아이템들을 가로로 중앙 정렬 */
 		}
 
-		.nav-item {
+		.nav-item1 {
 			margin-bottom: 1rem;
 			display: flex;
 			justify-content: center;
@@ -2355,7 +2370,7 @@
 			/* 네비게이션 항목을 100% 너비로 설정 */
 		}
 
-		.nav-link {
+		.nav-link1 {
 			font-size: 18px;
 			padding: 10px;
 			text-align: center;
@@ -2366,13 +2381,13 @@
 			/* 패딩이 요소 크기에 포함되도록 설정 */
 		}
 
-		.nav-link:hover {
+		.nav-link1:hover {
 			color: black;
 			background-color: #f1f3f5;
 		}
 
 		/* Minsoft Since 2014 */
-		.nav-link:first-child {
+		.nav-link1{
 			font-size: 20px;
 			font-weight: bold;
 			text-align: center;
@@ -2388,6 +2403,7 @@
 		.year-row {
 			display: flex;
 			justify-content: center;
+			align-items: center;
 			/* 중앙 정렬 */
 			gap: 1rem;
 			/* 연도 간 간격 */
@@ -2416,6 +2432,26 @@
 
 
 	/*연혁 텍스트 정리 끝*/
+	
+	/*본문 왼쪽으로 가게*/
+@media (max-width: 768px) {
+    .history-main-sector {
+        text-align: left !important; /* 모바일 화면에서 왼쪽 정렬 */
+    }
+}
+
+@media (max-width: 768px) {
+		.historycontent-year h1 {
+			font-size: 0.98rem;
+			/* 모바일에서 적절한 크기로 축소 */
+			margin-right: 50px;
+		}
+	}
+
+
+
+
+/*본문 왼쪽으로 가게 끝*/
 
 	/*모바일 CSS*/
 	/* 768px 이하 화면에서 적용 */
@@ -2523,7 +2559,7 @@
 		top: 15% !important;
 	}
 
-	.nav-link {
+	.nav-link1 {
 		/*좌측 네비 각 항목 폰트조절*/
 		text-align: center;
 		font-size: 24px;
@@ -2536,7 +2572,7 @@
 		--bs-nav-link-hover-color: #D3D3D3 !important;
 	}
 
-	.nav-link:hover {
+	.nav-link1:hover {
 		/*네비 연도에 마우스 호버시의 검정으로 글자강조*/
 		color: black;
 	}
@@ -2607,7 +2643,7 @@
 
 
 
-	#fixedNav .nav-link {
+	#fixedNav .nav-link1 {
 		font-weight: bold;
 		/* 글자를 굵게 설정합니다. */
 		color: black;

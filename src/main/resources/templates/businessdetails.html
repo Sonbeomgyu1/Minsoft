@@ -464,6 +464,19 @@
 		padding: 15px 20px;
 		border-radius: 100%;
 	}
+/*상세페이지 배너 사진 모바일 사진 크기*/
+@media (max-width: 768px) {
+    #carouselExampleControls .carousel-item.active .page-header {
+        height: 18.4vh !important; /* 모바일 화면에서 배경 이미지 높이를 30%로 설정 */
+    }
+
+    #carouselExampleControls .carousel-item.active .page-header {
+        background-size: cover; /* 이미지가 배경으로 꽉 차게 */
+        background-position: center center; /* 배경 이미지가 중앙에 위치하도록 */
+    }
+}
+/*상세 페이지 배너 사진 모바일 사진 크기 끝*/
+
 
 	/* 모바일 장치용 반응형 스타일 */
 	@media (max-width: 768px) {

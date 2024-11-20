@@ -52,12 +52,12 @@
 	</header>
 	<!-- -------- END HEADER 11 w/ carousel ------- -->
 	<main>
-		<div class="mainbutton">
+		
 			<div class="mainbutton">
 				<a class="btn btn-light" data-scroll href="#welfareinfo1" id="btn-welfare">복지제도</button>
 					<a class="btn btn-light" data-scroll href="#welfareinfo2" id="btn-welfare">채용안내</a>
 			</div>
-		</div>
+		
 
 		<!--복지제도 새로운 템플릿-->
 		<!-- -------- START Features w/ 6 cols w/ company logos & title & text -------- -->
@@ -455,20 +455,10 @@
 		/* 전체 너비에 맞추기 */
 	}
 
-	/* 기본 슬라이드 이미지 크기 */
-	.carousel-inner .carousel-item {
-		height: 600px;
-		/* 데스크탑 화면에서 슬라이드의 높이 */
-	}
 
 	/* 모바일 화면에서 슬라이드 이미지 크기 조정 */
 	@media (max-width: 768px) {
-		.carousel-inner .carousel-item {
-			height: 600px;
-			/* 모바일에서 슬라이드 이미지 높이를 줄여서 화면에 맞게 조정 */
-			background-size: cover;
-			background-position: center;
-		}
+		
 
 		/* 텍스트 크기 및 배치 조정 */
 		.carousel-item h4 {
@@ -814,7 +804,18 @@
 		/* 밑줄의 색상 설정 */
 
 	}
+/*상세페이지 배너 사진 모바일 사진 크기*/
+@media (max-width: 768px) {
+    #carouselExampleControls .carousel-item.active .page-header {
+        height: 18.4vh !important; /* 모바일 화면에서 배경 이미지 높이를 30%로 설정 */
+    }
 
+    #carouselExampleControls .carousel-item.active .page-header {
+        background-size: cover; /* 이미지가 배경으로 꽉 차게 */
+        background-position: center center; /* 배경 이미지가 중앙에 위치하도록 */
+    }
+}
+/*상세 페이지 배너 사진 모바일 사진 크기 끝*/
 	@media (max-width: 768px) {
 		.container {
 			height: auto;
@@ -834,21 +835,23 @@
         display: flex; /* Flexbox 사용 */
         flex-direction: column; /* 세로 정렬 */
         align-items: center; /* 버튼을 중앙 정렬 */
-        gap: 1rem; /* 버튼 간격 없애기 */
-        margin: 0; /* 부모의 마진 없애기 */
     }
 
-    #btn-welfare {
-        width: 300%; /* 버튼이 부모 컨테이너의 너비를 차지하도록 */
+    #btn-main-top-buttons {
+        width: 50%; /* 버튼이 부모 컨테이너의 너비를 차지하도록 */
         font-size: 1rem; /* 텍스트 크기 */
-        padding:1rem 0; /* 버튼 높이 줄이기 */
+        padding: 0.5rem 0; /* 버튼 높이 줄이기 */
         text-align: center; /* 텍스트 중앙 정렬 */
         margin: 0; /* 버튼 간 마진 없애기 */
         border-radius: 5px; /* 버튼 모서리 둥글게 */
     }
 }
-
-	
+	/*푸터 css 끝*/
+	/*상단 5개 버튼 폰트 수정*/
+	#btn-main-top-buttons {
+		font-family: 'GmarketSansMedium';
+		font-weight: 500;
+	}
 </style>
 
 </html>

@@ -50,67 +50,79 @@
 	<!-- -------- END HEADER 11 w/ carousel ------- -->
 
 	<main>
-		<div class="row">
-			<div class="row justify-content-center">
-				<h2 class="gong">공지사항</h2>
-				<div sec:authorize="isAuthenticated()" style="margin-left:30%;">
-					<button type="button" class="btn custom-btn" id="writeButton">글 쓰기</button>
-				</div>
-			</div>
-		</div>
+    <div class="row">
+        <div class="row justify-content-center">
+            <h2 class="gong">공지사항</h2>
+            <div sec:authorize="isAuthenticated()" class="text-end" style="margin-right: 30px;">
+    <button type="button" class="btn custom-btn" id="writeButton">글 쓰기</button>
+</div>
 
-
-
-		<div class="row">
-    <div class="col-12 col-md-10 offset-md-1"> <!-- 모바일에서는 꽉 차고, PC에서는 가운데 정렬 -->
-
-        <!-- 테이블 -->
-        <div class="table-responsive">
-            <table class="table list-table table-hover text-center" style="margin-top: 2%;">
-                <thead style="background-color: gainsboro">
-                    <tr>
-                        <th style="width: 10%">번호</th>
-                        <th style="width: 45%">제목</th>
-                        <th style="width: 10%">작성자</th>
-                        <th style="width: 10%">조회수</th>
-                        <th style="width: 3%"></th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr th:each="board : ${boards.content}"
-                        th:onclick="|location.href='@{/boarddetail/{id}(id=${board.id})}'|">
-                        <td th:text="${board.number}"></td>
-                        <td>
-                            <a th:href="@{/boarddetail/{id}(id=${board.id})}" th:text="${board.title}"></a>
-                        </td>
-                        <td th:text="${board.author != null ? board.author.name : '관리자'}"></td>
-                        <td th:text="${board.viewCount}"></td>
-                        <td th:text="${board.isPublic ? '' : '🔒'}"></td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-
-        <!-- 페이징 처리 -->
-        <div class="pagination justify-content-center">
-            <ul id="paging-ul" class="pagination">
-                <li class="page-item" th:classappend="${currentPage == 0} ? 'disabled' : ''">
-                    <a class="page-link" th:href="@{/board(page=${currentPage - 1}, size=${pageSize})}"
-                        aria-label="Previous">이전</a>
-                </li>
-                <li class="page-item" th:each="i : ${#numbers.sequence(1, totalPages)}"
-                    th:classappend="${i - 1 == currentPage} ? 'active' : ''">
-                    <a class="page-link" th:href="@{/board(page=${i - 1}, size=${pageSize})}" th:text="${i}">1</a>
-                </li>
-                <li class="page-item" th:classappend="${currentPage == totalPages - 1} ? 'disabled' : ''">
-                    <a class="page-link" th:href="@{/board(page=${currentPage + 1}, size=${pageSize})}"
-                        aria-label="Next">다음</a>
-                </li>
-            </ul>
         </div>
     </div>
-</div>
-	</main>
+
+    <div class="row">
+        <div class="col-12 col-md-10 offset-md-1"> <!-- 모바일에서는 꽉 차고, PC에서는 가운데 정렬 -->
+
+            <!-- 데스크톱 테이블 -->
+            <div class="d-none d-md-block table-responsive">
+                <table class="table list-table table-hover text-center" style="margin-top: 2%;">
+                    <thead style="background-color: gainsboro">
+                        <tr>
+                            <th style="width: 10%">번호</th>
+                            <th style="width: 45%">제목</th>
+                            <th style="width: 10%">작성자</th>
+                            <th style="width: 10%">조회수</th>
+                            <th style="width: 3%"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr th:each="board : ${boards.content}" th:onclick="|location.href='@{/boarddetail/{id}(id=${board.id})}'|">
+                            <td th:text="${board.number}"></td>
+                            <td>
+                                <a th:href="@{/boarddetail/{id}(id=${board.id})}" th:text="${board.title}"></a>
+                            </td>
+                            <td th:text="${board.author != null ? board.author.name : '관리자'}"></td>
+                            <td th:text="${board.viewCount}"></td>
+                            <td th:text="${board.isPublic ? '' : '🔒'}"></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- 모바일 카드 리스트 -->
+            <div class="d-block d-md-none">
+                <div class="list-group">
+                    <div class="list-group-item" th:each="board : ${boards.content}">
+                        <h5 class="mb-1">
+                            <a th:href="@{/boarddetail/{id}(id=${board.id})}" th:text="${board.title}"></a>
+                        </h5>
+                        <small class="text-muted">
+                            작성자: <span th:text="${board.author != null ? board.author.name : '관리자'}"></span> |
+                            조회수: <span th:text="${board.viewCount}"></span>
+                        </small>
+                        <span th:if="${!board.isPublic}" class="text-danger">🔒 비공개</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 페이징 처리 -->
+            <div class="pagination justify-content-center">
+                <ul id="paging-ul" class="pagination">
+                    <li class="page-item" th:classappend="${currentPage == 0} ? 'disabled' : ''">
+                        <a class="page-link" th:href="@{/board(page=${currentPage - 1}, size=${pageSize})}" aria-label="Previous"><</a>
+                    </li>
+                    <li class="page-item" th:each="i : ${#numbers.sequence(1, totalPages)}" th:classappend="${i - 1 == currentPage} ? 'active' : ''">
+                        <a class="page-link" th:href="@{/board(page=${i - 1}, size=${pageSize})}" th:text="${i}">1</a>
+                    </li>
+                    <li class="page-item" th:classappend="${currentPage == totalPages - 1} ? 'disabled' : ''">
+                        <a class="page-link" th:href="@{/board(page=${currentPage + 1}, size=${pageSize})}" aria-label="Next">></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</main>
+
 
 	<div th:include="footer :: footer"></div>
 	<!-- 나머지 플러그인 스크립트들 -->
@@ -475,43 +487,109 @@
 		/* 원하는 색상으로 변경 */
 		color: white;
 		/* 텍스트 색상 변경 */
+		white-space: normal;
 	}
 	
-	 @media (max-width: 768px) {
-    /* 테이블 */
-    .table-responsive {
-        -webkit-overflow-scrolling: touch;
-        overflow-x: auto; /* 테이블이 너무 넓어질 경우 가로 스크롤이 생기도록 설정 */
+	 /* 반응형 테이블 스타일 */
+@media (max-width: 768px) {
+    /* 데스크톱 테이블 숨김 */
+    .d-none.d-md-block {
+        display: none !important;
     }
 
-    table {
-        width: 100%; /* 테이블 너비를 100%로 설정하여 화면에 맞게 조정 */
-        table-layout: auto; /* 테이블 열 너비를 자동으로 조정 */
+    /* 모바일 카드 리스트 표시 */
+    .d-block.d-md-none {
+        display: block !important;
     }
 
-    th, td {
-        word-wrap: break-word; /* 긴 텍스트가 있을 경우 줄 바꿈 */
-        padding: 0.3rem; /* 셀 패딩을 줄여서 화면에 맞게 여백을 설정 */
-        font-size: 0.85rem; /* 작은 글씨 크기로 조정하여 모바일에서 더 잘 보이게 */
+    /* 카드 스타일 */
+    .list-group-item {
+        border: 1px solid #ddd;
+        margin-bottom: 1rem;
+        padding: 1rem;
+        border-radius: 0.5rem;
+        background-color: #fff;
     }
 
-    /* 페이징 버튼 */
-    .pagination {
-        display: flex;
-        justify-content: center;
-        flex-wrap: wrap; /* 버튼들이 여러 줄로 나뉘어도 되도록 설정 */
-        padding: 0; /* 페이징 버튼의 기본 여백을 제거 */
+    .list-group-item h5 {
+        font-size: 1rem;
+        font-weight: bold;
     }
 
-    .pagination .page-item {
-        margin: 0.2rem; /* 버튼들 간의 여백 설정 */
+    .list-group-item small {
+        display: block;
+        font-size: 0.85rem;
+        margin-top: 0.5rem;
     }
 
+    /* 페이징 버튼 스타일 */
     .pagination .page-link {
-        padding: 0.3rem 0.6rem; /* 버튼 크기를 적당히 조정 */
-        font-size: 0.85rem; /* 버튼 글씨 크기 줄여서 모바일에서 잘 보이게 */
+        padding: 0.4rem 0.8rem;
+        font-size: 0.85rem;
+    }
+    
+}
+
+/* 기본 테이블 스타일 */
+.table-responsive {
+    -webkit-overflow-scrolling: touch;
+    overflow-x: auto;
+}
+
+th, td {
+    word-wrap: break-word;
+    padding: 0.5rem;
+    font-size: 0.9rem;
+}
+
+.table {
+    width: 100%;
+    table-layout: auto;
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 0;
+}
+
+
+/* 모바일에서 테이블이 화면을 넘지 않도록 스크롤 추가 */
+.table-responsive {
+    overflow-x: auto;
+}
+
+/* 모바일에서의 테이블 마진과 패딩을 줄여서 여백을 최적화 */
+@media (max-width: 767px) {
+    .table-responsive {
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    /* '공지사항' 제목 글씨 크기 조정 */
+    .gong {
+        font-size: 2.5rem;
+        margin-bottom: 20px;
+    }
+
+    /* 버튼의 오른쪽 여백을 줄여서 화면에 맞게 조정 */
+    .custom-btn {
+        margin-right: 0;
+    }
+
+    /* 모바일에서 글 목록의 카드 스타일 최적화 */
+    .list-group-item {
+        padding: 10px;
+    }
+
+    /* 페이징 버튼을 모바일에서 좀 더 작게, 다듬어줌 */
+    .pagination .page-item {
+        font-size: 0.8rem;
+        
     }
 }
+
 
 </style>
 

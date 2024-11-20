@@ -495,7 +495,9 @@ document.addEventListener('DOMContentLoaded', function() {
             object-fit: contain; /* 이미지를 영역에 맞게 표시 */
             height: 100%; /* 높이를 100%로 설정하여 잘리지 않도록 */
         }
-
+.position-relative{/* 모바일에서 어드레스와 지도 간격*/
+	margin-top: 50px;
+}
         .row {
             flex-direction: column; /* 모바일에서 세로로 정렬 */
             align-items: center; /* 요소들이 화면 중앙에 오도록 정렬 */
@@ -585,7 +587,12 @@ document.addEventListener('DOMContentLoaded', function() {
 		padding-top: 0 !important;
 		padding-bottom: 0 !important;
 		margin-bottom: -3rem !important;
+		
 	}
+.mb-0 {
+    font-size: 12px;
+    font-weight: bold; /* 글씨를 볼드로 설정 */
+}
 
 	/*회사주소 css시작*/
 
@@ -596,6 +603,7 @@ document.addEventListener('DOMContentLoaded', function() {
 		/* 원하는 높이로 설정 */
 		overflow: hidden;
 		padding: 0;
+	
 	}
 
 	.image-container img {

@@ -520,6 +520,19 @@
 	}
 
 	/*푸터 css 끝*/
+	
+	/*상세페이지 배너 사진 모바일 사진 크기*/
+@media (max-width: 768px) {
+    #carouselExampleControls .carousel-item.active .page-header {
+        height: 18.4vh !important; /* 모바일 화면에서 배경 이미지 높이를 30%로 설정 */
+    }
+
+    #carouselExampleControls .carousel-item.active .page-header {
+        background-size: cover; /* 이미지가 배경으로 꽉 차게 */
+        background-position: center center; /* 배경 이미지가 중앙에 위치하도록 */
+    }
+}
+/*상세 페이지 배너 사진 모바일 사진 크기 끝*/
 	/* 모바일 장치용 반응형 스타일 */
 	@media (max-width: 768px) {
 		.container {
@@ -559,6 +572,15 @@
 		font-family: 'GmarketSansMedium';
 		font-weight: 500;
 	}
+	
+	
+	/*모바일일떄 컨설팅 아래 이미지 간격 띄우기 */
+	@media (max-width: 768px) { /* 모바일 환경, 화면 너비 768px 이하 */
+    .con-b {
+        margin-bottom: 30px; /* 이미지 간격 추가 */
+    }  
+}
+
 </style>
 
 </html>
