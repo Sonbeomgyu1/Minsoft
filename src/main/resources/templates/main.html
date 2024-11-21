@@ -38,10 +38,10 @@
 </head>
 
 <body class="blog-posts" style="overflow-x: hidden; overflow-y: auto;">
-
-	<div th:replace="~{header}"></div>
-
 	<header>
+	<div th:replace="~{header}"></div>
+	</header>
+	
 		<div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
 			<div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
 				<div class="carousel-inner">
@@ -109,7 +109,7 @@
 
 				</div>
 			</div>
-	</header>
+		</div>
 	<!-- -------- END HEADER 11 w/ carousel ------- -->
 	<!--Main 시작-->
 	<main id="main">
@@ -825,7 +825,23 @@
 		font-family: 'Pretendard-Regular';
 	}
 
+@media (max-width: 768px) {
+    /* 화살표 숨기기 */
+    #banner-carousel {
+        display: none;
+    }
 
+    .page-header {
+        min-height: 30vh; /* 모바일에서 높이 줄이기 */
+        align-items: flex-start; /* 텍스트를 화면 상단에 정렬 */
+        padding-top: 50%; /* 상단 여백 추가 */
+    }
+
+    h1.text-white {
+        font-size: 1.5rem; /* 텍스트 크기 줄이기 */
+        text-align: center;
+    }
+}
 	/*헤더 부분 css 끝*/
 
 	/*main시작 css*/
@@ -1367,7 +1383,7 @@
 
 	.timeline>li.timeline-inverted>.timeline-panel {
 		float: right;
-		padding: 0 20px 0 100px;
+		/*padding: 0 20px 0 100px;*/
 		text-align: left;
 	}
 

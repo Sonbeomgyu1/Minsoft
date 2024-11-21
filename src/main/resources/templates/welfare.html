@@ -605,19 +605,27 @@
 		/* 영역을 벗어나는 부분을 숨김 */
 	}
 
-	/* 모바일 화면에서 높이 및 이미지 크기 조정 */
+	/* 채용공고 사진 모바일 화면에서 높이 및 이미지 크기 조정 */
 	@media (max-width: 768px) {
 		.process .container .col-lg-12 .process {
-			height: 300px;
+			height: 700px;
 			/* 모바일에서는 이미지 높이를 더 줄여서 화면에 맞게 */
 			background-size: contain;
 			/* 이미지가 화면에 맞도록 크기 조정 */
 			background-position: center center;
 			/* 이미지가 가운데 정렬되도록 */
+			 /* 채용단계 이미지 설정 */
+        background-image: url("images/recruit/welfareinfo2.png");
+       
+        background-position: center center; /* 이미지가 가운데 정렬되도록 */
+        background-repeat: no-repeat; /* 이미지 반복하지 않도록 */
+        
+        border-radius: 0 !important; /* 테두리 제거 */
+        width: 110%; /* 화면 크기에 맞게 너비를 조정 */
+        overflow: hidden; /* 영역을 벗어나는 부분을 숨김 */
+    
 		}
 	}
-
-
 
 
 
@@ -852,6 +860,13 @@
 		font-family: 'GmarketSansMedium';
 		font-weight: 500;
 	}
+	/* 모바일 화면에 맞는 스타일 */
+@media (max-width: 768px) {
+    .carousel-item .mid-title {
+        display: none;  /* "창의"와 "도전" 텍스트 숨기기 */
+    }
+}
+
 </style>
 
 </html>
