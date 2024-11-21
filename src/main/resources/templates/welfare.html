@@ -52,12 +52,12 @@
 	</header>
 	<!-- -------- END HEADER 11 w/ carousel ------- -->
 	<main>
-		
-			<div class="mainbutton">
-				<a class="btn btn-light" data-scroll href="#welfareinfo1" id="btn-welfare">복지제도</button>
-					<a class="btn btn-light" data-scroll href="#welfareinfo2" id="btn-welfare">채용안내</a>
-			</div>
-		
+
+		<div class="mainbutton">
+			<a class="btn btn-light" data-scroll href="#welfareinfo1" id="btn-welfare">복지제도</button>
+				<a class="btn btn-light" data-scroll href="#welfareinfo2" id="btn-welfare">채용안내</a>
+		</div>
+
 
 		<!--복지제도 새로운 템플릿-->
 		<!-- -------- START Features w/ 6 cols w/ company logos & title & text -------- -->
@@ -458,7 +458,7 @@
 
 	/* 모바일 화면에서 슬라이드 이미지 크기 조정 */
 	@media (max-width: 768px) {
-		
+
 
 		/* 텍스트 크기 및 배치 조정 */
 		.carousel-item h4 {
@@ -605,27 +605,20 @@
 		/* 영역을 벗어나는 부분을 숨김 */
 	}
 
+	/* 채용공고 사진모바일 화면에서 높이 및 이미지 크기 조정 */
 	/* 채용공고 사진 모바일 화면에서 높이 및 이미지 크기 조정 */
-	@media (max-width: 768px) {
-		.process .container .col-lg-12 .process {
-			height: 700px;
-			/* 모바일에서는 이미지 높이를 더 줄여서 화면에 맞게 */
-			background-size: contain;
-			/* 이미지가 화면에 맞도록 크기 조정 */
-			background-position: center center;
-			/* 이미지가 가운데 정렬되도록 */
-			 /* 채용단계 이미지 설정 */
-        background-image: url("images/recruit/welfareinfo2.png");
-       
+@media (max-width: 768px) {
+    .process .container .col-lg-12 .process {
+        height: 700px; /* 고정된 높이 */
+        background-image: url("images/recruit/soft.png");
+        background-size: cover; /* 틀에 맞게 이미지를 늘림 */
         background-position: center center; /* 이미지가 가운데 정렬되도록 */
-        background-repeat: no-repeat; /* 이미지 반복하지 않도록 */
-        
-        border-radius: 0 !important; /* 테두리 제거 */
-        width: 110%; /* 화면 크기에 맞게 너비를 조정 */
-        overflow: hidden; /* 영역을 벗어나는 부분을 숨김 */
-    
-		}
-	}
+        background-repeat: no-repeat; /* 이미지 반복하지 않음 */
+        width: 105%; /* 모바일 화면 너비에 맞춤 */
+        overflow: hidden; /* 영역을 벗어나는 부분 숨김 */
+    }
+}
+
 
 
 
@@ -729,6 +722,7 @@
 		cursor: pointer;
 		padding: 15px 20px;
 		border-radius: 100%;
+
 	}
 
 	/*푸터 css 끝*/
@@ -812,18 +806,23 @@
 		/* 밑줄의 색상 설정 */
 
 	}
-/*상세페이지 배너 사진 모바일 사진 크기*/
-@media (max-width: 768px) {
-    #carouselExampleControls .carousel-item.active .page-header {
-        height: 18.4vh !important; /* 모바일 화면에서 배경 이미지 높이를 30%로 설정 */
-    }
 
-    #carouselExampleControls .carousel-item.active .page-header {
-        background-size: cover; /* 이미지가 배경으로 꽉 차게 */
-        background-position: center center; /* 배경 이미지가 중앙에 위치하도록 */
-    }
-}
-/*상세 페이지 배너 사진 모바일 사진 크기 끝*/
+	/*상세페이지 배너 사진 모바일 사진 크기*/
+	@media (max-width: 768px) {
+		#carouselExampleControls .carousel-item.active .page-header {
+			height: 18.4vh !important;
+			/* 모바일 화면에서 배경 이미지 높이를 30%로 설정 */
+		}
+
+		#carouselExampleControls .carousel-item.active .page-header {
+			background-size: cover;
+			/* 이미지가 배경으로 꽉 차게 */
+			background-position: center center;
+			/* 배경 이미지가 중앙에 위치하도록 */
+		}
+	}
+
+	/*상세 페이지 배너 사진 모바일 사진 크기 끝*/
 	@media (max-width: 768px) {
 		.container {
 			height: auto;
@@ -836,37 +835,78 @@
 		}
 	}
 
-/* 768px 이하 화면에서 적용 */
-/* 모바일 상단 버튼 5개  */
-@media (max-width: 768px) {
-    .mainbutton {
-        display: flex; /* Flexbox 사용 */
-        flex-direction: column; /* 세로 정렬 */
-        align-items: center; /* 버튼을 중앙 정렬 */
-    }
+	/* 768px 이하 화면에서 적용 */
+	/* 모바일 상단 버튼 5개  */
+	@media (max-width: 768px) {
+		.mainbutton {
+			display: flex;
+			/* Flexbox 사용 */
+			flex-direction: column;
+			/* 세로 정렬 */
+			align-items: center;
+			/* 버튼을 중앙 정렬 */
+		}
 
-    #btn-main-top-buttons {
-        width: 50%; /* 버튼이 부모 컨테이너의 너비를 차지하도록 */
-        font-size: 1rem; /* 텍스트 크기 */
-        padding: 0.5rem 0; /* 버튼 높이 줄이기 */
-        text-align: center; /* 텍스트 중앙 정렬 */
-        margin: 0; /* 버튼 간 마진 없애기 */
-        border-radius: 5px; /* 버튼 모서리 둥글게 */
-    }
-}
+		#btn-main-top-buttons {
+			width: 50%;
+			/* 버튼이 부모 컨테이너의 너비를 차지하도록 */
+			font-size: 1rem;
+			/* 텍스트 크기 */
+			padding: 0.5rem 0;
+			/* 버튼 높이 줄이기 */
+			text-align: center;
+			/* 텍스트 중앙 정렬 */
+			margin: 0;
+			/* 버튼 간 마진 없애기 */
+			border-radius: 5px;
+			/* 버튼 모서리 둥글게 */
+		}
+	}
+
 	/*푸터 css 끝*/
 	/*상단 5개 버튼 폰트 수정*/
 	#btn-main-top-buttons {
 		font-family: 'GmarketSansMedium';
 		font-weight: 500;
 	}
-	/* 모바일 화면에 맞는 스타일 */
-@media (max-width: 768px) {
-    .carousel-item .mid-title {
-        display: none;  /* "창의"와 "도전" 텍스트 숨기기 */
-    }
-}
 
+	/* 모바일 화면에 맞는 스타일 */
+	@media (max-width: 768px) {
+		.carousel-item .mid-title {
+			display: none;
+			/* "창의"와 "도전" 텍스트 숨기기 */
+		}
+	}
+
+	/*잡코리아 채용공고 바로가기 모바일 화면에서 스타일 수정 */
+	@media (max-width: 767px) {
+		.col-md-5 {
+			padding-left: 0;
+			/* 모바일에서는 padding-left를 제거 */
+			text-align: center;
+			/* 버튼을 중앙 정렬 */
+			margin-right: 120px;
+			
+		}
+/*채용공고 잡코리아 모바일 text css */
+		.mb-4 {
+			text-align: center;
+			/* 버튼을 중앙 정렬 */
+			font-size: 26px;
+			/* 텍스트 크기 조정 */
+			line-height: 1.5;
+			/* 줄 간격 조정 */
+		}
+
+		.recruitment-btn {
+			width: 100%;
+			/* 모바일에서는 버튼 너비를 100%로 설정 */
+			padding-top: 10px;
+			/* 버튼 상단 여백을 조금 줄임 */
+			font-size: 16px;
+			/* 버튼 텍스트 크기 조정 */
+		}
+	}
 </style>
 
 </html>
