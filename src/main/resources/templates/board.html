@@ -562,7 +562,7 @@ th, td {
 
 /* 모바일에서의 테이블 마진과 패딩을 줄여서 여백을 최적화 */
 @media (max-width: 767px) {
-    .table-responsive {
+     .table-responsive {
         padding-left: 0;
         padding-right: 0;
     }
@@ -581,14 +581,29 @@ th, td {
     /* 모바일에서 글 목록의 카드 스타일 최적화 */
     .list-group-item {
         padding: 10px;
+        margin-bottom: 15px; /* 항목 간 여백 추가 */
     }
 
     /* 페이징 버튼을 모바일에서 좀 더 작게, 다듬어줌 */
     .pagination .page-item {
         font-size: 0.8rem;
-        
+    }
+
+    /* 공지사항 가로길이 고정 */
+    .row {
+        width: 99% !important;  /* 가로 길이를 100%로 설정 */
+        margin-left: 0 !important;
+        padding: 10px;
+    }
+
+   
+    /*게시글 테두리 선 */
+	  .list-group-item {     
+         border: 1px solid #ddd !important;  /* 확실한 테두리 적용 */
+    
     }
 }
+
 
 
 </style>

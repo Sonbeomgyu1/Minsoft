@@ -54,8 +54,8 @@
 	<main>
 
 		<div class="mainbutton">
-			<a class="btn btn-light" data-scroll href="#welfareinfo1" id="btn-welfare">복지제도</button>
-				<a class="btn btn-light" data-scroll href="#welfareinfo2" id="btn-welfare">채용안내</a>
+			<a class="btn btn-light" data-scroll href="#welfareinfo1" id="btn-main-top-buttons">복지제도</button>
+				<a class="btn btn-light" data-scroll href="#welfareinfo2" id="btn-main-top-buttons">채용안내</a>
 		</div>
 
 
@@ -374,6 +374,39 @@
 	</script>
 </body>
 <style>
+	@media (max-width: 768px) {
+		.mainbutton {
+			display: flex;
+			/* Flexbox 사용 */
+			flex-direction: column;
+			/* 세로 정렬 */
+			align-items: center;
+			/* 버튼을 중앙 정렬 */
+			gap: 1rem;
+			/* 버튼 간격 없애기 */
+			margin: 0;
+			/* 부모의 마진 없애기 */
+			font-family: 'NanumBarunGothic';
+		}
+
+		#btn-main-top-buttons {
+			width: 50%;
+			/* 버튼이 부모 컨테이너의 너비를 차지하도록 */
+			font-size: 1rem;
+			/* 텍스트 크기 */
+			padding: 0.5rem 0;
+			/* 버튼 높이 줄이기 */
+			text-align: center;
+			/* 텍스트 중앙 정렬 */
+			margin: 0;
+			/* 버튼 간 마진 없애기 */
+			border-radius: 5px;
+			/* 버튼 모서리 둥글게 */
+		}
+		.py-5{
+			margin-top: 140px;
+		}
+	}
 	/*헤더 부분 css 시작*/
 	.text-white2 {
 		display: flex;
@@ -606,6 +639,7 @@
 	}
 
 	/* 채용공고 사진모바일 화면에서 높이 및 이미지 크기 조정 */
+	
 	/* 채용공고 사진 모바일 화면에서 높이 및 이미지 크기 조정 */
 @media (max-width: 768px) {
     .process .container .col-lg-12 .process {
@@ -615,8 +649,9 @@
         background-position: center center; /* 이미지가 가운데 정렬되도록 */
         background-repeat: no-repeat; /* 이미지 반복하지 않음 */
         width: 105%; /* 모바일 화면 너비에 맞춤 */
-        overflow: hidden; /* 영역을 벗어나는 부분 숨김 */
+       
     }
+ 
 }
 
 
@@ -626,6 +661,7 @@
 	#welfareinfo2 {
 		/*윗부분 버튼 클릭시 이동여백 설정*/
 		scroll-margin-top: 12rem;
+		
 	}
 
 	/*채용공고 버튼 폰트설정*/
@@ -773,7 +809,7 @@
 	}
 
 	/*복지제도,채용안내 버튼 폰트 수정*/
-	#btn-welfare {
+	#btn-main-top-buttons {
 		font-family: 'GmarketSansMedium';
 		font-weight: 500;
 
@@ -906,7 +942,16 @@
 			font-size: 16px;
 			/* 버튼 텍스트 크기 조정 */
 		}
+		/*컨설팅 아래 이미지 가로길이 줄이기*/
+    .Path-Copy-2{
+		width: 99% !important;
+		margin-left: 3px;
 	}
+}
+		
+	
+	
+	
 </style>
 
 </html>

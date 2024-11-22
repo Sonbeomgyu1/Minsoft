@@ -495,14 +495,16 @@
 					<div class="row">
 						<div class="col d-flex justify-content-center">
 							<a href="/certification">
-								<img src="images/main/tech/seoul.png" class="d-block mx-auto" alt="..."
-									style="max-height: 400px; width: 320px;">
+								<!--강소기업 이미지-->
+								<img src="images/main/tech/patent.png" class="d-block mx-auto" alt="..."
+									style="max-height: 500px; width: 580px;">
 							</a>
 						</div>
 						<div class="col d-flex justify-content-center">
 							<a href="/certification">
-								<img src="images/main/tech/sbc.png" class="d-block mx-auto" alt="..."
-									style="max-height: 400px; width: 320px;">
+									<!--강소기업 이미지 -->
+									<img src="images/main/tech/seoul.png" class="d-block mx-auto" alt="..."
+									style="max-height: 500px; width: 580px;">
 							</a>
 						</div>
 					</div>
@@ -511,14 +513,16 @@
 					<div class="row">
 						<div class="col d-flex justify-content-center">
 							<a href="/certification">
+									<!--메인비즈 확인서-->
+								<img src="images/main/tech/mainbiz1.png" class="d-block mx-auto" alt="..."
+									style="max-height: 500px; width: 580px;">
+							</a>
+						</div>
+						<div class="col d-flex justify-content-center">
+							<a href="/certification">								
+									<!--이노비즈 확인서-->
 								<img src="images/main/tech/lnnobiz.png" class="d-block mx-auto" alt="..."
-									style="max-height: 400px; width: 320px;">
-							</a>
-						</div>
-						<div class="col d-flex justify-content-center">
-							<a href="/certification">
-								<img src="images/main/tech/koita.png" class="d-block mx-auto" alt="..."
-									style="max-height: 400px; width: 320px;">
+									style="max-height: 500px; width: 580px;">
 							</a>
 						</div>
 					</div>
@@ -527,14 +531,16 @@
 					<div class="row">
 						<div class="col d-flex justify-content-center">
 							<a href="/certification">
-								<img src="images/main/tech/mainbiz.png" class="d-block mx-auto" alt="..."
-									style="max-height: 400px; width: 320px;">
+								<!--기업부설 연구소 인증서-->
+								<img src="images/main/tech/koita.png" class="d-block mx-auto" alt="..."
+									style="max-height: 500px; width: 580px;">
 							</a>
 						</div>
 						<div class="col d-flex justify-content-center">
 							<a href="/certification">
-								<img src="images/main/tech/seoul.png" class="d-block mx-auto" alt="..."
-									style="max-height: 400px; width: 320px;">
+								<!--벤처기업 확인서-->
+								<img src="images/main/tech/sbc.png" class="d-block mx-auto" alt="..."
+									style="max-height: 500px; width: 580px;">
 							</a>
 						</div>
 					</div>
@@ -1096,6 +1102,15 @@
 	.carousel-control-next {
 		padding-left: 130px;
 	}
+	
+	
+/* 기술인증 사진크기 모바일 전용 스타일 (화면 너비가 767px 이하일 때 적용) */
+@media (max-width: 767px) {
+    .col img {
+        max-height: 400px !important;   /* 모바일에서 이미지의 최대 높이 */
+        width: 320px !important;        /* 모바일에서 이미지의 너비 */
+    }
+}
 
 
 	/*새로운복지제도 페이지 아이콘*/

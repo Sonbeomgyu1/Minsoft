@@ -267,7 +267,20 @@ document.addEventListener('DOMContentLoaded', function() {
 	</script>
 </body>
 <style>
-	
+	@media (max-width: 768px) {
+    #text-contact {
+        top: 60px; /* 오시는 길 텍스트 위쪽 간격을 조금 더 좁힘 */
+    }
+
+    #map {
+        margin-top: 90px; /* 지도와 텍스트 사이의 간격을 더 좁힘 */
+        width: 90%; /* 모바일에서는 지도 크기를 더 크게 조정 */
+        height: 400px; /* 모바일에서는 지도 높이를 약간 줄임 */
+    }
+    #text-contact .contact1{
+		margin-bottom: 5px;
+	}
+}
 
 	.dropdown-header {
 		/*드롭다운 폰트설정*/

@@ -32,8 +32,8 @@
 		<div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
 			<div class="carousel-inner">
 				<div class="carousel-item active">
-					<div class="page-header min-vh-45  border-xl"
-						style="background-image: url('/images/company/history_banner1.jpg'); height: 450px;">
+					<div class="page-header min-vh-50  border-xl"
+						style="background-image: url('/images/company/history_banner1.jpg'); ">
 						<span class="mask bg-gradient-dark" style="opacity: 0.13;"></span>
 						<div class="container">
 							<div class="row">
@@ -2280,6 +2280,14 @@
 	</script>
 </body>
 <style>
+		/*상세페이지 배너 사진 모바일 사진 크기*/
+@media (max-width: 768px) {
+    #carouselExampleControls .carousel-item.active .page-header {
+        height: 60.6vh !important; /* 모바일 화면에서 배경 이미지 높이를 30%로 설정 */
+    }
+
+  
+}
 	/*연혁 텍스트 정리*/
 	.historycontents {
 		padding-left: -2rem;
