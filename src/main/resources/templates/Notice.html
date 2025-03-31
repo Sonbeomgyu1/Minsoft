@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" itemscope itemtype="http://schema.org/WebPage" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" itemscope itemtype="http://schema.org/WebPage">
 
 <head>
     <meta charset="utf-8" />
@@ -32,13 +32,13 @@
 		<div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
 			<div class="carousel-inner">
 				<div class="carousel-item active">
-					<div class="page-header min-vh-45 border-xl"
-						style="background-image: url('/images/board/board_banner1.jpg')">
+					<div class="page-header min-vh-45  border-xl"
+						style="background-image: url('/images/board/board_banner1.jpg');">
 						<span class="mask"></span>
 						<div class="container">
 							<div class="row">
 								<div class="col-lg-12 my-auto">
-									<h1 class="text-white fadeIn2">공지사항</h1>
+									<h1 class="text-white fadeIn2">게시판</h1>
 								</div>
 							</div>
 						</div>
@@ -48,40 +48,70 @@
 		</div>
 	</header>
 	<!-- -------- END HEADER 11 w/ carousel ------- -->
+
 	<main>
-    <div class="container2 shadow-xl" style="margin-top: 100px;">
-        <div class="post-title" th:text="${board.title}">게시물 제목</div>
+    <div class="row">
+        <div class="row justify-content-center">
+            <h2 class="gong">게시판</h2>
+            <div sec:authorize="isAuthenticated()" class="text-end" style="margin-right: 30px;">
+    <button type="button" class="btn custom-btn" id="writeButton">글 쓰기</button>
+</div>
 
-        <div class="post-meta">
-            작성자 : <span th:text="${board.author != null ? board.author.name : '관리자'}"></span>
-        </div>
-        <div class="title-meta-divider"></div>
-        <div class="post-content" style="white-space: pre-wrap;">
-            <p th:text="${board.content}" class="post-content-text">
-                여기에 게시물 내용이 들어갑니다. 이 게시판은 사용자가 작성한 글을
-                표시하는 페이지입니다.
-            </p>
-        </div>
-		<div class="title-meta-divider"></div>
-        <div th:if="${originalFileName != null}">
-            파일 : <span th:text="${originalFileName}"></span>
-            <div>
-                <a th:href="@{'/download/' + ${board.id}}" th:text="'다운로드'"></a>
-            </div>
-        </div>
-
-        <div class="action-buttons">
-            <a href="/board">목록</a>
-            <a th:href="@{/boardedit/{id}(id=${board.id})}" id="editButton" style="display: none">수정</a>
-            <form th:action="@{/boarddelete/{id}(id=${board.id})}" method="post" style="display: inline"
-                onsubmit="return confirmDelete();">
-                <button type="submit" id="deleteButton" class="delete-button" style="display: none">
-                    삭제
-                </button>
-            </form>
         </div>
     </div>
+
+    <div class="row">
+    <div class="col-12 col-md-10 offset-md-1">
+        <!-- 데스크톱 테이블 -->
+          <!-- 📌 데스크톱 테이블 -->
+            <div class="d-none d-md-block table-responsive">
+                <table class="table list-table table-hover text-center">
+    <thead style="background-color: gainsboro">
+        <tr>
+            <th style="width: 10%">번호</th>
+            <th style="width: 60%">제목</th>
+            <th style="width: 15%">작성일</th>
+            <th style="width: 5%;">작성자</th>
+            <th style="width: 15%">조회수</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr th:each="notice, stat : ${notices}" 
+            th:onclick="|location.href='@{/noticedetail/{id}(id=${notice.id})}'|">
+            <td th:text="${stat.index + 1}"></td>
+            <td>
+                <a th:href="@{/noticedetail/{id}(id=${notice.id})}" th:text="${notice.noticetitle}"></a>
+            </td>
+            <td th:text="${#temporals.format(notice.noticedate, 'yyyy-MM-dd HH:mm')}"></td>
+           <td th:text="${notice.createdBy != null ? notice.createdBy.name : '작성자 없음'}"></td>
+            <td th:text="${notice.viewCount}"></td>
+        </tr>
+    </tbody>
+</table>
+
+            </div>
+
+        <!-- 모바일 카드 리스트 -->
+        <!-- 📌 모바일 카드 리스트 -->
+            <div class="d-block d-md-none">
+                <div class="list-group">
+                    <div class="list-group-item" th:each="notice, stat : ${notices}">
+                        <h5 class="mb-1">
+                            <a th:href="@{/noticedetail/{id}(id=${notice.id})}" th:text="${notice.noticetitle}"></a>
+                        </h5>
+                        <small class="text-muted">
+                            작성일: <span th:text="${#temporals.format(notice.noticedate, 'yyyy-MM-dd HH:mm')}"></span> |
+                            조회수: <span th:text="${notice.viewCount}"></span>
+                        </small>
+                    </div>
+                </div>
+            </div>
+    </div>
+</div>
+
 </main>
+
+
 	<div th:include="footer :: footer"></div>
 	<!-- 나머지 플러그인 스크립트들 -->
 <script src="../../assets/js/soft-design-system-pro.min.js?v=1.1.0" type="text/javascript"></script>
@@ -96,52 +126,61 @@
 <script src="../../assets/js/plugins/chartjs.min.js"></script>
 	<script th:inline="javascript">
 		
-		if (document.getElementById("language-select")) {
-			var element = document.getElementById("language-select");
-			const example = new Choices(element, {
-				searchEnabled: false,
-			});
-		}
-		if (document.getElementById("currency-select")) {
-			var element = document.getElementById("currency-select");
-			const example = new Choices(element, {
-				searchEnabled: false,
-			});
-		}
+		document.addEventListener('DOMContentLoaded', function () {
+			if (document.getElementById('language-select')) {
+				var element = document.getElementById('language-select');
+				const example = new Choices(element, {
+					searchEnabled: false
+				});
+			}
 
-		/*헤더 네비바 따라 내려오게하는 스크립트*/
-		window.addEventListener("scroll", function () {
-			var navbar = document.querySelector(".navbar");
-			if (window.scrollY > 50) {
-				// 스크롤 위치가 50px 이상인 경우
-				navbar.classList.add("fixed-top"); // 고정된 위치로 설정
-			} else {
-				navbar.classList.remove("fixed-top"); // 일반 위치로 설정
+			if (document.getElementById('currency-select')) {
+				var element = document.getElementById('currency-select');
+				const example = new Choices(element, {
+					searchEnabled: false
+				});
+			}
+
+			/* 헤더 네비바 따라 내려오게하는 스크립트 */
+			window.addEventListener('scroll', function () {
+				var navbar = document.querySelector('.navbar');
+				if (window.scrollY > 50) {
+					navbar.classList.add('fixed-top');
+				} else {
+					navbar.classList.remove('fixed-top');
+				}
+			});
+
+			/* 글쓰기 버튼 클릭시 글쓰기 페이지 이동하는 스크립트 */
+			var writeButton = document.getElementById("writeButton");
+			if (writeButton) {
+				writeButton.addEventListener("click", function () {
+					window.location.href = "/noticewrite";
+				});
+			}
+
+			/* 로그인했을시 글쓰기 버튼 활성화 스크립트 */
+			var isLoggedIn = /*[[${#authorization.expression('isAuthenticated()')}]]*/ false;
+			updateButtonStatus();
+
+			function updateButtonStatus() {
+				var writeButton = document.getElementById('writeButton');
+				if (writeButton) {
+					writeButton.disabled = !isLoggedIn;
+				}
 			}
 		});
 
-	
-
-		/*<![CDATA[*/
-		var isLoggedIn = /*[[${#authorization.expression('isAuthenticated()')}]]*/ false;
-
-		window.onload = function () {
-			updateButtonStatus();
-		};
 
 		function updateButtonStatus() {
-			var editButton = document.getElementById("editButton");
-			var deleteButton = document.getElementById("deleteButton");
-
+			var writeButton = document.getElementById('writeButton');
 			if (isLoggedIn) {
-				editButton.style.display = "block";
-				deleteButton.style.display = "block";
+				writeButton.disabled = false;
 			} else {
-				editButton.style.display = "none";
-				deleteButton.style.display = "none";
+				writeButton.disabled = true;
 			}
 		}
-
+		
 		document.addEventListener('DOMContentLoaded', function () {
 			document.querySelectorAll('a[data-scroll]').forEach(anchor => {
 				anchor.addEventListener('click', function (event) {
@@ -156,12 +195,8 @@
 				});
 			});
 		});
-
-		/*삭제 경고창*/
-		function confirmDelete() {
-			return confirm("정말로 삭제하시겠습니까?");
-		}
 	</script>
+
 </body>
 <style>
 	/*헤더 부분 css 시작*/
@@ -172,7 +207,9 @@
 		height: 50vh;
 		/* Adjust as needed */
 		margin: 0;
+		
 		/* Remove any default margin */
+
 	}
 
 	.btn {
@@ -193,6 +230,7 @@
 		/*배너 아래 버튼 마진 css*/
 		text-align: center;
 		margin-bottom: 70px;
+
 	}
 
 	.btn-light:hover {
@@ -222,7 +260,7 @@
 
 	/*헤더 부분 css 끝*/
 
-	/*admin 버튼 css*/
+	/*main시작 css*/
 .button0{
 		position: absolute;
 		top: 50%;
@@ -317,6 +355,29 @@
 		src: url('//fastly.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWeb.eot?#iefix') format('embedded-opentype'), url('//fastly.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWeb.woff') format('woff'), url('//fastly.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWeb.ttf') format('truetype');
 	}
 
+	.custom-btn {
+		background-color: darkblue;
+		/* Change to desired background color */
+		color: white;
+		/* Set text color to white */
+		border: none;
+		/* Remove outline */
+		padding: 8px 16px;
+		/* Padding adjustment */
+		cursor: pointer;
+		/* Change mouse cursor */
+		margin-right: 10px;
+		/* 수정: 버튼 간격 조정 */
+
+	}
+
+	.custom-btn:disabled {
+		background-color: #cccccc;
+		/* 비활성화된 상태의 배경색 */
+		cursor: not-allowed;
+		/* 비활성화된 상태의 커서 */
+	}
+
 	.gong {
 		margin-right: auto;
 		/* 공지사항을 왼쪽으로 붙임 */
@@ -329,10 +390,20 @@
 
 	}
 
+	/* 테이블 내용 스타일 설정 */
+	tbody tr td {
+		font-size: 15px;
+		/* 원하는 폰트 크기로 설정 */
+		font-weight: 20px;
+		/* 원하는 폰트 두께로 설정 */
+	}
+
+
 	/*main css 끝*/
+	
+	
 	/*푸터 css 시작 */
 	
-
 	#footer {
 		/*푸터 위쪽 밑줄*/
 		border-top: 1px solid rgba(0, 0, 0, 0.2);
@@ -341,6 +412,7 @@
 		/* 원하는 간격 설정 */
 		margin-top: 50px;
 	}
+
 /*상단이동 버튼*/
 	.btn_gotop {
 		display: block;
@@ -358,6 +430,7 @@
 		padding: 15px 20px;
 		border-radius: 100%;
 	}
+
 	#fixedNav .nav-link {
 		font-weight: bold;
 		/* 글자를 굵게 설정합니다. */
@@ -374,211 +447,152 @@
 		/* 푸터 요소의 위쪽에 20px의 마진 추가 */
 	}
 
+	/*상단이동 버튼*/
+	.btn_gotop {
+		display: block;
+		position: fixed;
+		bottom: 30px;
+		/* 탑버튼을 화면의 가장 아래에서 몇 픽셀 떨어뜨릴 것인지 정하세요*/
+		right: 30px;
+		/* 탑버튼을 화면의 가장 오른쪽에서 몇 픽셀 떨어뜨릴 것인지 정하세요*/
+		z-index: 999;
+		border: 1px solid rgba(0, 0, 0, 0.25);
+		outline: none;
+		background-color: white;
+		color: rgba(0, 0, 0, 0.7);
+		cursor: pointer;
+		padding: 15px 20px;
+		border-radius: 100%;
+	}
+
 	/*푸터 css 끝*/
 
-	/*게시판 상세페이지css*/
-	body {
-		font-family: "Noto Sans KR", sans-serif;
-		/* 한국어 폰트 적용 */
-		margin: 0;
-	}
-
-	/* 게시물 컨테이너 스타일 */
-	.container2 {
-		max-width: 1000px;
-		/* 최대 너비 */
-		margin: 0 auto;
-		/* 중앙 정렬 */
-		background: #fff;
-		/* 흰색 배경 */
-		padding: 30px;
-		/* 패딩 추가 */
-		box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-		/* 그림자 효과 */
-		margin-top: 100px;
-		/* 상단 마진 */
-		border-radius: 10px;
-		/* 모서리 둥글게 */
-		border: 2px solid #e0e0e0;
-		/* 연한 회색 테두리 */
-	}
-
-	/* 게시물 제목 스타일 */
-	.post-title {
-		font-size: 1.8rem;
-		/* 글자 크기 */
-		margin-top: 20px;
-		/* 하단 마진 */
-		color: #333;
-		/* 글자 색상 */
-	}
-
-	.post-content-text {
-		font-size: 1.1em;
-	}
-
-	/* 게시물 메타 정보 스타일 */
-	.post-meta {
-		color: #666;
-		/* 글자 색상 */
-		margin-bottom: 15px;
-		/* 하단 마진 */
-	margin-top:30px;
-	}
-
-	/* 게시물 제목과 메타 정보 아래 테두리 스타일 */
-	.title-meta-divider {
-		border-bottom: 2px solid #007bff;
-		/* 하단 테두리 */
-		margin-top: 10px;
-		/* 상단 마진 */
-		margin-bottom: 25px;
-		/* 하단 마진 */
-	}
-
-	/* 게시물 내용 스타일 */
-	.post-content {
-		line-height: 1.8;
-		/* 줄 간격 */
-		color: #555;
-		/* 글자 색상 */
-		margin-bottom: 30px;
-		/* 하단 마진 */
-	}
-
-	/* 첨부파일 섹션 스타일 */
-	.attachments {
-		border-top: 1px solid #e0e0e0;
-		/* 상단 테두리 */
-		padding-top: 20px;
-		/* 상단 패딩 */
-	}
-
-	/* 첨부파일 제목 스타일 */
-	.attachments h3 {
-		margin-bottom: 15px;
-		/* 하단 마진 */
-		color: #007bff;
-		/* 글자 색상 */
-		font-size: 1.5em;
-		/* 글자 크기 */
-	}
-
-	/* 첨부파일 링크 스타일 */
-	.attachment {
-		margin-bottom: 10px;
-		/* 하단 마진 */
-	}
-
-	/* 첨부파일 링크 호버 효과 */
-	.attachment a:hover {
-		color: #0056b3;
-		/* 호버 시 링크 색상 */
-	}
-
-	/* 첨부파일 링크 호버 효과 */
-	.attachment a:hover {
-		color: #0056b3;
-		/* 호버 시 링크 색상 */
-	}
-
-	/* 수정 삭제 버튼 스타일 */
-	.action-buttons {
-		display: flex;
-		justify-content: flex-end;
-		/* 오른쪽 정렬 */
-		gap: 10px;
-		/* 버튼 사이 간격 */
-		margin-top: 20px;
-		/* 상단 마진 */
-	}
-
-	.action-buttons button,
-	.action-buttons a {
-		background-color: #007bff;
-		/* 버튼 배경색 */
+	/* styles.css 또는 해당 CSS 파일 */
+	.pagination .page-item.active .page-link {
+		background-color: darkgray;
+		/* 원하는 색상으로 변경 */
+		border-color: darkgray;
+		/* 원하는 색상으로 변경 */
 		color: white;
-		/* 버튼 글자색 */
-		border: none;
-		/* 테두리 제거 */
-		padding: 10px 20px;
-		/* 패딩 */
-		border-radius: 5px;
-		/* 둥근 모서리 */
-		cursor: pointer;
-		/* 커서 변경 */
-		transition: background-color 0.3s ease;
-		/* 배경색 전환 효과 */
-		text-decoration: none;
-		/* 링크 기본 스타일 제거 */
-		display: inline-block;
-		/* a 태그에 버튼 스타일 적용 */
-	}
-
-	.action-buttons button:hover {
-		background-color: #0056b3;
-		/* 호버 시 배경색 */
-	}
-
-	/* 첨부파일 링크 스타일 */
-	.attachment a {
-		color: #007bff;
-		/* 링크 색상 */
-		text-decoration: none;
-		/* 밑줄 제거 */
-		transition: color 0.3s ease;
-		/* 색상 전환 효과 */
-		font-size: 1.1em;
-		/* 글자 크기 */
-	}
-
-	/* 첨부파일 링크 호버 효과 */
-	.attachment a:hover {
-		color: #0056b3;
-		/* 호버 시 링크 색상 */
-	}
-
-	/*버튼 css*/
-	.action-buttons button:hover {
-		background-color: #0056b3;
-		/* 호버 시 배경색 *
-			
-        }
-
-        .action-buttons .delete-button {
-            background-color: #e0e0e0; /* 삭제 버튼 배경색 */
-	}
-
-	.action-buttons .delete-button:hover {
-		background-color: #c82333;
-		/* 호버 시 삭제 버튼 배경색 */
+		/* 텍스트 색상 변경 */
+		white-space: normal;
 	}
 	
-	 .post-meta {
-        word-break: break-word;
-        white-space: normal;
+	 /* 반응형 테이블 스타일 */
+@media (max-width: 768px) {
+    /* 데스크톱 테이블 숨김 */
+    .d-none.d-md-block {
+        display: none !important;
     }
 
-    @media (max-width: 768px) {
-        .post-title {
-            font-size: 1.5rem;
-        }
-
-        .post-meta {
-            font-size: 1rem;
-            word-break: break-word;
-            white-space: normal;
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: flex-start;
-        }
-
-        .container2 {
-            margin: 10px;
-            max-width: 100%;
-            padding: 0 15px;
-        }
+    /* 모바일 카드 리스트 표시 */
+    .d-block.d-md-none {
+        display: block !important;
     }
+
+    /* 카드 스타일 */
+    .list-group-item {
+        border: 1px solid #ddd;
+        margin-bottom: 1rem;
+        padding: 1rem;
+        border-radius: 0.5rem;
+        background-color: #fff;
+    }
+
+    .list-group-item h5 {
+        font-size: 1rem;
+        font-weight: bold;
+    }
+
+    .list-group-item small {
+        display: block;
+        font-size: 0.85rem;
+        margin-top: 0.5rem;
+    }
+
+    /* 페이징 버튼 스타일 */
+    .pagination .page-link {
+        padding: 0.4rem 0.8rem;
+        font-size: 0.85rem;
+    }
+    
+}
+
+/* 기본 테이블 스타일 */
+.table-responsive {
+    -webkit-overflow-scrolling: touch;
+    overflow-x: auto;
+}
+
+th, td {
+    word-wrap: break-word;
+    padding: 0.5rem;
+    font-size: 0.9rem;
+}
+
+.table {
+    width: 100%;
+    table-layout: auto;
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 0;
+}
+
+
+/* 모바일에서 테이블이 화면을 넘지 않도록 스크롤 추가 */
+.table-responsive {
+    overflow-x: auto;
+}
+
+/* 모바일에서의 테이블 마진과 패딩을 줄여서 여백을 최적화 */
+@media (max-width: 767px) {
+     .table-responsive {
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    /* '공지사항' 제목 글씨 크기 조정 */
+    .gong {
+        font-size: 2.5rem;
+        margin-bottom: 20px;
+    }
+
+    /* 버튼의 오른쪽 여백을 줄여서 화면에 맞게 조정 */
+    .custom-btn {
+        margin-right: 0;
+    }
+
+    /* 모바일에서 글 목록의 카드 스타일 최적화 */
+    .list-group-item {
+        padding: 10px;
+        margin-bottom: 15px; /* 항목 간 여백 추가 */
+    }
+
+    /* 페이징 버튼을 모바일에서 좀 더 작게, 다듬어줌 */
+    .pagination .page-item {
+        font-size: 0.8rem;
+    }
+
+    /* 공지사항 가로길이 고정 */
+    .row {
+        width: 99% !important;  /* 가로 길이를 100%로 설정 */
+        margin-left: 0 !important;
+        padding: 10px;
+    }
+
+   
+    /*게시글 테두리 선 */
+	  .list-group-item {     
+         border: 1px solid #ddd !important;  /* 확실한 테두리 적용 */
+    
+    }
+}
+
+
 
 </style>
 

@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en" itemscope itemtype="http://schema.org/WebPage">
+
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=yes" />
+	<link rel="apple-touch-icon" sizes="76x76" href="/images/Mn.png">
+	<link rel="icon" type="image/png" href="/images/Mn.png">
+
+	<title>
+		(주)민소프트
+	</title>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+	<!-- Fonts and icons -->
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
+	<!-- Nucleo Icons -->
+	<link href="../../assets/css/nucleo-icons.css" rel="stylesheet" />
+	<link href="../../assets/css/nucleo-svg.css" rel="stylesheet" />
+	<!-- Font Awesome Icons -->
+	<script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
+	<link href="../../assets/css/nucleo-svg.css" rel="stylesheet" />
+	<!-- CSS Files -->
+	<link id="pagestyle" href="../../assets/css/soft-design-system-pro.css?v=1.1.0" rel="stylesheet" />
+	<link href="https://fonts.googleapis.com/css?family=Nanum+Gothic&display=swap" rel="stylesheet">
+</head>
+
+<body class="blog-posts" style="overflow-x: hidden; overflow-y: auto;">
+	<div th:replace="~{header}"></div>
+	<!-- End Navbar -->
+	<!-- -------- START HEADER 11 w/ carousel ------- -->
+	<header>
+		<div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+			<div class="carousel-inner">
+				<div class="carousel-item active">
+					<div class="page-header min-vh-45  border-xl"
+						style="background-image: url('/images/board/board_banner1.jpg');">
+						<span class="mask"></span>
+						<div class="container">
+							<div class="row">
+								<div class="col-lg-12 my-auto">
+									<h1 class="text-white fadeIn2">게시판</h1>
+								</div>
+							</div>
+						</div>
+					</div>
+
+
+				</div>
+
+			</div>
+		</div>
+	</header>
+	<!-- -------- END HEADER 11 w/ carousel ------- -->
+	<main>
+		<section class="py-7 bg-gray-100 position-relative">
+			<div class="custom-container">
+				<div class="row">
+					<div class="col-lg-6 mx-auto text-center">
+						<h2>게시글 작성</h2>
+					</div>
+				</div>
+				<div class="row mt-5">
+					<div class="col-lg-10 mx-auto">
+						<div class="card custom-card shadow-xl">
+							<div class="row">
+								<div class="col-lg-12">
+									<form id="contact-form" method="post" action="/noticeAdd"
+										enctype="multipart/form-data" autocomplete="off">
+										<div class="card-body position-relative p-3 ps-0">
+											<div class="form-container mx-auto">
+												<div>
+													<label>제목</label>
+													<div class="input-group mb-4">
+														<input type="text" class="form-control" name="noticetitle"
+															placeholder="제목을 입력하세요 (최대 70글자)" maxlength="70">
+													</div>
+												</div>
+												<div class="form-group mt-4">
+    <label>작성자</label>
+    <input type="text" class="form-control" name="writer" th:value="${userName}" readonly>
+</div>
+
+												<div class="form-group mt-4">
+													<label>내용</label>
+													<textarea name="noticecontent" class="form-control" id="message"
+														placeholder="내용을 입력하세요" rows="6"
+														style="resize: none;"></textarea>
+												</div>
+										
+												<div class="text-end-btn mt-4">
+													<button type="submit" class="btn bg-gradient-dark mb-0">등록</button>
+												</div>
+												
+											</div>
+										</div>
+									</form>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+		</section>
+
+	</main>
+	<div th:include="footer :: footer"></div>
+	<!-- 나머지 플러그인 스크립트들 -->
+<script src="../../assets/js/soft-design-system-pro.min.js?v=1.1.0" type="text/javascript"></script>
+<script src="../../assets/js/plugins/perfect-scrollbar.min.js"></script>
+<script src="../../assets/js/plugins/typedjs.js"></script>
+<script src="../../assets/js/plugins/choices.min.js"></script>
+<script src="../../assets/js/plugins/flatpickr.min.js"></script>
+<script src="../../assets/js/plugins/parallax.min.js"></script>
+<script src="../../assets/js/plugins/nouislider.min.js"></script>
+<script src="../../assets/js/plugins/glidejs.min.js"></script>
+<script src="../../assets/js/plugins/anime.min.js"></script>
+<script src="../../assets/js/plugins/chartjs.min.js"></script>
+	<script>
+
+
+		if (document.getElementById('language-select')) {
+			var element = document.getElementById('language-select');
+			const example = new Choices(element, {
+				searchEnabled: false
+			});
+
+		}
+		if (document.getElementById('currency-select')) {
+			var element = document.getElementById('currency-select');
+			const example = new Choices(element, {
+				searchEnabled: false
+			});
+		}
+
+		/*헤더 네비바 따라 내려오게하는 스크립트*/
+		window.addEventListener('scroll', function () {
+			var navbar = document.querySelector('.navbar');
+			if (window.scrollY > 50) { // 스크롤 위치가 50px 이상인 경우
+				navbar.classList.add('fixed-top'); // 고정된 위치로 설정
+			} else {
+				navbar.classList.remove('fixed-top'); // 일반 위치로 설정
+			}
+		});
+
+
+		document.addEventListener('DOMContentLoaded', function () {
+			document.querySelectorAll('a[data-scroll]').forEach(anchor => {
+				anchor.addEventListener('click', function (event) {
+					event.preventDefault();
+					const targetId = this.getAttribute('href').substring(1);
+					const targetElement = document.getElementById(targetId);
+
+					window.scrollTo({
+						top: targetElement.offsetTop,
+						behavior: 'smooth'
+					});
+				});
+			});
+		});
+	</script>
+</body>
+<style>
+	/*헤더 부분 css 시작*/
+	.text-white {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		height: 50vh;
+		/* Adjust as needed */
+		margin: 0;
+		/* Remove any default margin */
+
+	}
+
+
+
+	/*헤더 부분 css 끝*/
+
+	/*main시작 css*/
+	/*admin 버튼 css*/
+	.button0 {
+		position: absolute;
+		top: 50%;
+		right: 110px;
+		transform: translateY(-50%);
+		background-color: black;
+		border: none;
+		color: white;
+		padding: 10px 20px;
+		text-align: center;
+		text-decoration: none;
+		display: inline-block;
+		font-size: 14px;
+		margin: 4px 2px;
+		cursor: pointer;
+		border-radius: 12px;
+		transition: background-color 0.3s, box-shadow 0.3s, color 0.3s;
+		font-family: 'GmarketSansMedium';
+	}
+
+	.button0:hover {
+		background-color: darkgray;
+		box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+	}
+
+	.button0:active {
+		background-color: white;
+		/* White background on click */
+		color: black;
+		/* Black text on click */
+		box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+		transform: translateY(-50%) translateY(2px);
+	}
+
+	/*admin 버튼 css*/
+
+	.styled-button {
+		position: absolute;
+		top: 50%;
+		right: 20px;
+		transform: translateY(-50%);
+
+		background-color: black;
+		border: none;
+		color: white;
+		padding: 10px 20px;
+		text-align: center;
+		text-decoration: none;
+		display: inline-block;
+		font-size: 14px;
+		margin: 4px 2px;
+		cursor: pointer;
+		border-radius: 12px;
+		transition: background-color 0.3s, box-shadow 0.3s, color 0.3s;
+		font-family: 'GmarketSansMedium';
+	}
+
+	.styled-button:hover {
+		background-color: darkgray;
+		box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+	}
+
+	.styled-button:active {
+		background-color: white;
+		/* White background on click */
+		color: black;
+		/* Black text on click */
+		box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+		transform: translateY(-50%) translateY(2px);
+	}
+
+	/*폰트추가*/
+	@font-face {
+		font-family: 'Pretendard-Regular';
+		src: url('https://fastly.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+		font-weight: 400;
+		font-style: normal;
+	}
+
+	@font-face {
+		font-family: 'GmarketSansMedium';
+		src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
+		font-weight: normal;
+		font-style: normal;
+	}
+
+	@font-face {
+		font-family: 'NanumBarunGothic';
+		font-style: normal;
+		font-weight: 400;
+		src: url('//fastly.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWeb.eot');
+		src: url('//fastly.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWeb.eot?#iefix') format('embedded-opentype'), url('//fastly.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWeb.woff') format('woff'), url('//fastly.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWeb.ttf') format('truetype');
+	}
+
+	/*글쓰기 상세페이지 css 시작*/
+	/*내용 가운데로 */
+	/* 기본 설정 */
+	body {
+		font-family: 'Noto Sans KR', sans-serif;
+		/* 한국어 폰트 적용 */
+		margin: 0;
+		padding: 0;
+		background-color: #fff !important;
+		/* 전체 배경색 */
+	}
+
+	/* 폼 컨테이너 스타일 */
+	.form-container {
+		display: flex;
+		flex-direction: column;
+
+		width: 100%;
+	}
+
+	.form-container .form-control,
+	.form-container textarea {
+		width: 100% !important;
+		/* 전체 너비 */
+		max-width: 100%;
+		/* 최대 너비 설정 */
+		font-size: 1.3rem;
+		/* 기본 글자 크기 */
+		box-sizing: border-box;
+		/* 테두리와 패딩 포함한 박스 크기 */
+		padding: 10px;
+	}
+
+	.form-container textarea {
+		height: 400px;
+		/* 텍스트 영역 높이 설정 */
+	}
+
+
+	.text-end-btn {
+		display: flex;
+		justify-content: center;
+		/* 중앙 정렬 */
+		gap: 20px;
+		margin-top: 20px;
+		/* 상단 마진 추가 */
+	}
+
+	.set-private {
+		gap: 25px;
+	}
+
+	.text-end-btn button {
+		background-color: #007BFF;
+		/* 버튼 배경색 */
+		color: white;
+		/* 버튼 글자색 */
+		border: none;
+		/* 테두리 제거 */
+		padding: 10px 20px;
+		/* 패딩 */
+		border-radius: 5px;
+		/* 둥근 모서리 */
+		cursor: pointer;
+		/* 커서 변경 */
+		transition: background-color 0.3s ease;
+		/* 배경색 전환 효과 */
+		font-size: 1rem;
+		/* 버튼 글자 크기 */
+	}
+
+	.text-end-btn button:hover {
+		background-color: #0056b3;
+		/* 호버 시 배경색 */
+	}
+
+	.text-end-btn .delete-button {
+		background-color: #dc3545;
+		/* 삭제 버튼 배경색 */
+	}
+
+	.text-end-btn .delete-button:hover {
+		background-color: #c82333;
+		/* 호버 시 삭제 버튼 배경색 */
+	}
+
+	.custom-container {
+		padding-bottom: 70px;
+	}
+
+	.custom-card {
+		padding: 20px;
+		max-width: 1000px;
+		/* 카드 최대 너비 */
+		margin: 0 auto;
+		/* 수평 중앙 정렬 */
+	}
+
+	.custom-card .card-body {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		width: 100%;
+		/* 전체 너비 사용 */
+	}
+
+	.custom-card .form-check-label,
+	.custom-card label {
+		font-size: 1.2rem;
+		/* 레이블 글자 크기 */
+	}
+
+	.file-upload {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		margin-bottom: 20px;
+	}
+
+	.file-upload input[type="file"] {
+		display: none;
+		/* 파일 입력 숨김 */
+	}
+
+	.file-upload label {
+		cursor: pointer;
+		padding: 10px 20px;
+		border-radius: 5px;
+		background-color: #007BFF;
+		color: white;
+		transition: background-color 0.3s ease;
+		font-size: 1rem;
+		/* 파일 업로드 버튼 글자 크기 */
+	}
+
+	.file-upload label:hover {
+		background-color: #0056b3;
+		/* 호버 시 배경색 */
+	}
+
+	/*글쓰기 상세페이지 css 끝*/
+	/*main css 끝*/
+	/*푸터 css 시작 */
+	
+	#footer {
+		/*푸터 위쪽 밑줄*/
+		border-top: 1px solid rgba(0, 0, 0, 0.2);
+		/* 투명도가 있는 연한 회색으로 변경 */
+		padding-top: 30px;
+		/* 원하는 간격 설정 */
+		margin-top: 50px;
+	}
+
+/*상단이동 버튼*/
+	.btn_gotop {
+		display: block;
+		position: fixed;
+		bottom: 30px;
+		/* 탑버튼을 화면의 가장 아래에서 몇 픽셀 떨어뜨릴 것인지 정하세요*/
+		right: 30px;
+		/* 탑버튼을 화면의 가장 오른쪽에서 몇 픽셀 떨어뜨릴 것인지 정하세요*/
+		z-index: 999;
+		border: 1px solid rgba(0, 0, 0, 0.25);
+		outline: none;
+		background-color: white;
+		color: rgba(0, 0, 0, 0.7);
+		cursor: pointer;
+		padding: 15px 20px;
+		border-radius: 100%;
+	}
+
+	#fixedNav .nav-link {
+		font-weight: bold;
+		/* 글자를 굵게 설정합니다. */
+		color: black;
+		/* 글자 색상을 검은색으로 설정합니다. */
+		font-size: 25px;
+		/* 원하는 크기로 설정하세요 */
+		margin-bottom: 90px;
+		/* 아래쪽으로 20px의 공간을 띄웁니다. */
+	}
+
+	.text-center {
+		margin-top: 50px;
+		/* 푸터 요소의 위쪽에 20px의 마진 추가 */
+	}
+
+	/*푸터 css 끝*/
+</style>
+
+</html>

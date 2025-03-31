@@ -33,7 +33,7 @@ public class SecurityConfig {
                 .antMatchers("/", "/certification", "/login", "/signup", "/greetingpage", "/history", "/downloadView","/error",
                         "/businessdetails", "/solutions", "/itoutsourcingpage",
                         "/consulting", "/sism", "/recruitmentinfomation", "/welfare", "/contact", "/board", "/boarddetail/**", "/presentation", "/boardedit/**",
-                        "/check-db-connection", "/layout","/header","/footer", "/images/**", "/assets/**",
+                        "/check-db-connection", "/layout","/notice","/noticewrite","/noticedetail/**","/header","/footer", "/images/**", "/assets/**",
                         "/docs/**", "/pages/**", "/sections/**", "/icon/**", "/public/**")
                 .permitAll() // 인증 없이 접근 가능한 경로 설정
                 .anyRequest().authenticated()) // 나머지 요청은 인증 필요
@@ -47,7 +47,7 @@ public class SecurityConfig {
                 .invalidateHttpSession(true)) // 세션 무효화
             .csrf(csrf -> csrf.disable()) // CSRF 보호 비활성화 (필요에 따라 설정)
             .sessionManagement(session -> session
-                .invalidSessionUrl("/")) // 세션 만료 시 메인 페이지로 리다이렉트 설정
+                .invalidSessionUrl("/")) // 세션 만료 시 메인 페이지로 리다이렉트 설정 // 세션 고정 보호 해제.sessionFixation().none())
             .requestCache(requestCache -> requestCache
                 .requestCache(new HttpSessionRequestCache())) // HttpSessionRequestCache 설정
             .exceptionHandling(exceptionHandling -> exceptionHandling

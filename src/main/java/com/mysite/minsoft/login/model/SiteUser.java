@@ -25,7 +25,8 @@ public class SiteUser  implements Serializable{
     @Column(name = "PASSWORD")
     private String password;
 
-    @Column(name = "NAME")
+    @Column(name = "NAME", unique = true)
     private String name;
+
 
 }
