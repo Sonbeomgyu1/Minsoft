@@ -1,17 +1,24 @@
 package com.mysite.minsoft.main;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
+
+import lombok.RequiredArgsConstructor;
+
 @Controller
+@RequiredArgsConstructor
 public class MainController {
+	
+	
 
 	@GetMapping("layout")  //상세페이지 틀 controller
     public String layout() {
         return "layout"; 
     }
 	@GetMapping("header")  //hreader 틀 controller
-    public String header() {
+    public String header(Model model) {
         return "header"; 
     }
 	@GetMapping("footer")  //footer 틀 controller

@@ -26,12 +26,12 @@ public class LoginController {
     private final UserService userService;
     private final AuthenticationManager authenticationManager;
 
-    @GetMapping("/signup")
+    @GetMapping("/minsignup")
     public String signup(UserCreateForm userCreateForm) {
         return "signup";
     }
 
-    @PostMapping("/signup")
+    @PostMapping("/minsignup")
     public String signup(@Valid UserCreateForm userCreateForm, BindingResult bindingResult) {
         if(bindingResult.hasErrors()) {
             return "signup";

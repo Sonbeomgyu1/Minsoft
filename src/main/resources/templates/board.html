@@ -53,9 +53,9 @@
     <div class="row">
         <div class="row justify-content-center">
             <h2 class="gong">공지사항</h2>
-            <div sec:authorize="isAuthenticated()" class="text-end" style="margin-right: 30px;">
-    <button type="button" class="btn custom-btn" id="writeButton">글 쓰기</button>
-</div>
+          <div class="d-flex justify-content-end mb-2" style="margin-right: 230px;">
+        <button sec:authorize="isAuthenticated()" type="button" class="btn custom-btn" id="writeButton">등록</button>
+    </div>
 
         </div>
     </div>
@@ -65,6 +65,7 @@
 
             <!-- 데스크톱 테이블 -->
             <div class="d-none d-md-block table-responsive">
+				
                 <table class="table list-table table-hover text-center" style="margin-top: 2%;">
                     <thead style="background-color: gainsboro">
                         <tr>
@@ -368,27 +369,47 @@
 	}
 
 	.custom-btn {
-		background-color: darkblue;
-		/* Change to desired background color */
-		color: white;
-		/* Set text color to white */
-		border: none;
-		/* Remove outline */
-		padding: 8px 16px;
-		/* Padding adjustment */
-		cursor: pointer;
-		/* Change mouse cursor */
-		margin-right: 10px;
-		/* 수정: 버튼 간격 조정 */
+    background-color: darkblue; /* 기본 배경색 */
+    color: white; /* 텍스트 색상 */
+    border: none; /* 테두리 제거 */
+    padding: 8px 16px; /* 기본 패딩 */
+    cursor: pointer; /* 마우스 커서 변경 */
+    font-size: 16px; /* 기본 글자 크기 */
+    border-radius: 5px; /* 버튼 모서리 둥글게 */
+    transition: all 0.3s ease-in-out; /* 부드러운 효과 */
+}
 
-	}
+/* 비활성화 상태 */
+.custom-btn:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+}
+/* ✅  폴더블폰 (갤럭시 Z 플립 5, 폴드 5, Z 폴드 4, 폴드 3 등) */
+@media (max-width: 400px) {
+    .custom-btn {
+        font-size: 14px; /* 버튼 크기 축소 */
+        padding: 3px 6px;
+        width: 100px; /* 버튼 너비 조정 */
+    }
+}
 
-	.custom-btn:disabled {
-		background-color: #cccccc;
-		/* 비활성화된 상태의 배경색 */
-		cursor: not-allowed;
-		/* 비활성화된 상태의 커서 */
-	}
+/* ✅  갤럭시 울트라 25, 아이폰 프로 맥스 등 (큰 화면) */
+@media (max-width: 600px) {
+    .custom-btn {
+        font-size: 15px;
+        padding: 4px 7px;
+        width: 100px; /* 버튼 크기 조금 줄이기 */
+    }
+}
+
+/* ✅  작은 태블릿, 아이패드 미니 등 */
+@media (max-width: 800px) {
+    .custom-btn {
+        font-size: 16px;
+        padding: 4px 8px;
+        width: 100px; /* 태블릿에서는 기본 사이즈 유지 */
+    }
+}
 
 	.gong {
 		margin-right: auto;
