@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" itemscope itemtype="http://schema.org/WebPage" xmlns:th="http://www.thymeleaf.org">
+<html lang="ko" itemscope itemtype="http://schema.org/WebPage" xmlns:th="http://www.thymeleaf.org">
 
 <head>
 	<meta charset="utf-8" />
@@ -16,8 +16,7 @@
 	<!-- Nucleo Icons -->
 	<link href="../../assets/css/nucleo-icons.css" rel="stylesheet" />
 	<link href="../../assets/css/nucleo-svg.css" rel="stylesheet" />
-	<!-- Font Awesome Icons -->
-	<script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
+
 	<link href="../../assets/css/nucleo-svg.css" rel="stylesheet" />
 	<!-- CSS Files -->
 	<link id="pagestyle" href="../../assets/css/soft-design-system-pro.css?v=1.1.0" rel="stylesheet" />
@@ -32,12 +31,12 @@
 			<div class="carousel-inner">
 				<div class="carousel-item active">
 					<div class="page-header min-vh-45 border-xl"
-						style="background-image: url('/images/board/board_banner1.jpg')">
+						style="background-image: url('/images/board/Hub.png')">
 						<span class="mask"></span>
 						<div class="container">
 							<div class="row">
 								<div class="col-lg-12 my-auto">
-									<h1 class="text-white fadeIn2">레이아웃</h1>
+									<h1 class="text-white fadeIn2">개인정보 정책</h1>
 								</div>
 							</div>
 						</div>
@@ -48,13 +47,18 @@
 	</header>
 	<!-- -------- 메인시작 ------- -->
 	<main>
-	<h2>레이아웃</h2>
-	<h2>레이아웃</h2>
-	<h2>레이아웃</h2>
-	<h2>레이아웃</h2>
-	<h2>레이아웃</h2>
-	<h2>레이아웃</h2>
-	<h2>레이아웃</h2>
+		<div class="mainbutton">
+			<a href="/esgcompliance" class="btn btn-light" id="btn-main-top-buttons">준법경영</a>
+			<a href="/esgethical" class="btn btn-light" id="btn-main-top-buttons">윤리헌장</a>
+			<a href="/esgprivacypolicy" class="btn btn-light" id="btn-main-top-buttons">개인정보정책</a>
+		</div>
+		<h2>레이아웃</h2>
+		<h2>레이아웃</h2>
+		<h2>레이아웃</h2>
+		<h2>레이아웃</h2>
+		<h2>레이아웃</h2>
+		<h2>레이아웃</h2>
+		<h2>레이아웃</h2>
 	</main>
 	<div th:include="footer :: footer"></div>
 	<!-- 나머지 플러그인 스크립트들 -->
@@ -94,9 +98,24 @@
 			}
 		});
 
+		/*<![CDATA[*/
+		function updateButtonStatus() {
+			var editButton = document.getElementById("editButton");
+			var deleteButton = document.getElementById("deleteButton");
+
+			if (!editButton || !deleteButton) return; // 요소가 없으면 실행 안 함
+
+			if (isLoggedIn) {
+				editButton.style.display = "block";
+				deleteButton.style.display = "block";
+			} else {
+				editButton.style.display = "none";
+				deleteButton.style.display = "none";
+			}
+		}
 
 
-		
+
 
 		document.addEventListener('DOMContentLoaded', function () {
 			document.querySelectorAll('a[data-scroll]').forEach(anchor => {
@@ -113,10 +132,50 @@
 			});
 		});
 
-	
+
 	</script>
 </body>
 <style>
+		/**/
+	/* 768px 이하 화면에서 적용 */
+@media (max-width: 768px) {
+    .mainbutton {
+        display: flex; /* Flexbox 사용 */
+        flex-direction: column; /* 세로 정렬 */
+        align-items: center; /* 버튼을 중앙 정렬 */
+        gap: 1rem; /* 버튼 간격 없애기 */
+        margin: 0; /* 부모의 마진 없애기 */
+    }
+
+    #btn-main-top-buttons {
+        width: 50%; /* 버튼이 부모 컨테이너의 너비를 차지하도록 */
+        font-size: 1rem; /* 텍스트 크기 */
+        padding: 0.5rem 0; /* 버튼 높이 줄이기 */
+        text-align: center; /* 텍스트 중앙 정렬 */
+        margin: 0; /* 버튼 간 마진 없애기 */
+        border-radius: 5px; /* 버튼 모서리 둥글게 */
+    }
+}
+#btn-main-top-buttons {
+		/*상단 3개 버튼 폰트 수정*/
+		font-family: 'GmarketSansMedium';
+		font-weight: 500;
+	}
+	.mainbutton .btn {
+		border: none;
+		/* 버튼 테두리를 없앱니다 */
+	}
+	.mainbutton .btn {
+		padding: 10px 16px;
+		/* Adjusted padding if needed */
+		font-size: 20px;
+		/* Font size adjustment if needed */
+		width: 150px;
+		/* Example width */
+		height: 40px;
+		/* Example height */
+	}
+	/**/
 	/*헤더 부분 css 시작*/
 	.text-white {
 		display: flex;
@@ -330,8 +389,6 @@
 	}
 
 	/*푸터 css 끝*/
-
-	
 </style>
 
 </html>
