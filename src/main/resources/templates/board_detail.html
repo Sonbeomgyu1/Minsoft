@@ -68,12 +68,6 @@
 				<a th:href="@{'/download/' + ${board.id}}" th:text="${originalFileName}"
 					style="font-weight: bold; "></a>
 			</div>
-			<!--<div th:if="${originalFileName != null}">
-    <strong style="font-size: 1.2em;">파일 :</strong> <span th:text="${originalFileName}" style="font-weight: bold; font-size: 1.2em;"></span>
-    <div>
-        <a th:href="@{'/download/' + ${board.id}}" th:text="'다운로드'" style="font-weight: bold; font-size: 1.2em;"></a>
-    </div>
-</div>-->
 
 			<div class="action-buttons">
 				<a href="/board">목록</a>

@@ -30,7 +30,7 @@ public class SecurityConfig {
         http
             .authorizeRequests(authorizeRequests -> authorizeRequests
                 .antMatchers("/boardwriting").authenticated() // 글쓰기 페이지는 인증된 사용자만 접근 가능
-                .antMatchers("/", "/certification", "/login", "/minsignup", "/greetingpage", "/history", "/downloadView",
+                .antMatchers("/", "/certification", "/login", "/minsignup", "/greetingpage", "/history", "/downloadView","/download/**",
                 		"/error","/esgcompliance","/esgethical","/esgprivacypolicy",
                         "/businessdetails", "/solutions", "/itoutsourcingpage",
                         "/consulting", "/sism", "/recruitmentinfomation", "/welfare", "/contact", "/board", "/boarddetail/**", "/presentation", "/boardedit/**",
