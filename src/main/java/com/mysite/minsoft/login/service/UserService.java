@@ -1,5 +1,6 @@
 package com.mysite.minsoft.login.service;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.security.core.Authentication;
@@ -43,4 +44,20 @@ public class UserService {
 
 		return user;
 	}
+	
+	 public List<SiteUser> getAllUsers() {
+	        return userRepository.findAll();
+	    }
+
+	    public void deleteUser(String username) {
+	    	userRepository.deleteById(username);
+	    }
+
+	    public Optional<SiteUser> getByUsername(String username) {
+	        return userRepository.findByUsername(username);
+	    }
+
+	    public Optional<SiteUser> getByName(String name) {
+	        return userRepository.findByName(name);
+	    }
 }

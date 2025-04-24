@@ -18,7 +18,7 @@ public class DatabaseController {
     public String checkDbConnection() {
         try {
             // Execute a query to fetch data from the ADMIN table
-            List<Map<String, Object>> adminData = jdbcTemplate.queryForList("SELECT * FROM ADMIN");
+            List<Map<String, Object>> adminData = jdbcTemplate.queryForList("SELECT * FROM admin");
 
             // Construct a string to display the fetched data
             StringBuilder result = new StringBuilder("Connected to the database!\n");

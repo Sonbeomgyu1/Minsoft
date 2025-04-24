@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+	itemscope itemtype="http://schema.org/WebPage">
+
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=yes" />
+	<link rel="apple-touch-icon" sizes="76x76" href="/images/Mn.png">
+	<link rel="icon" type="image/png" href="/images/Mn.png">
+
+	<title>(주)민소프트</title>
+
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
+	<link href="../../assets/css/nucleo-icons.css" rel="stylesheet" />
+	<link href="../../assets/css/nucleo-svg.css" rel="stylesheet" />
+	<script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
+	<link href="../../assets/css/soft-design-system-pro.css?v=1.1.0" rel="stylesheet" />
+	<link href="https://fonts.googleapis.com/css?family=Nanum+Gothic&display=swap" rel="stylesheet">
+
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.11.6/umd/popper.min.js"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+	<style>
+		.custom-title {
+			text-align: center;
+			margin-bottom: 40px;
+			font-size: 2.2rem;
+			color: #2c3e50;
+			font-weight: bold;
+			font-family: 'Nanum Gothic', sans-serif;
+		}
+
+		.custom-table {
+			width: 90%;
+			margin: 0 auto;
+			background-color: #fff;
+			border-collapse: collapse;
+			box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+			border-radius: 12px;
+			overflow: hidden;
+		}
+
+		.custom-table th,
+		.custom-table td {
+			padding: 16px;
+			text-align: center;
+			border-bottom: 1px solid #dee2e6;
+			vertical-align: top;
+		}
+
+		.custom-table thead {
+			background-color: #f1f3f5;
+			color: #495057;
+			font-weight: bold;
+		}
+
+		.custom-table input[type="text"] {
+			width: 40%;
+			padding: 6px 10px;
+			border: 1px solid #ced4da;
+			border-radius: 4px;
+			margin-bottom: 10px;
+			text-align: center;
+		}
+
+		.custom-table button {
+			padding: 6px 12px;
+			border: none;
+			border-radius: 4px;
+			background-color: #0d6efd;
+			color: white;
+			font-size: 0.9rem;
+			cursor: pointer;
+		}
+
+		.custom-table button:hover {
+			background-color: #0b5ed7;
+		}
+
+		.custom-table .delete-btn {
+			background-color: #dc3545;
+		}
+
+		.custom-table .delete-btn:hover {
+			background-color: #c82333;
+		}
+
+		.custom-table td>div {
+			background-color: #f8f9fa;
+			border: 1px solid #dee2e6;
+			border-radius: 8px;
+			padding: 12px;
+			margin: 4px;
+			box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+		}
+
+		.button-group {
+			display: flex;
+			justify-content: center;
+			gap: 10px;
+			flex-wrap: wrap;
+		}
+
+		@media (max-width: 768px) {
+			.custom-table input[type="text"] {
+				width: 100%;
+			}
+
+			.button-group {
+				flex-direction: column;
+				align-items: center;
+			}
+		}
+	</style>
+
+
+
+	<script>
+		window.addEventListener("DOMContentLoaded", function () {
+			const params = new URLSearchParams(window.location.search);
+			if (params.get("updated") === "true") {
+				alert("이름이 성공적으로 변경되었습니다!");
+			}
+		});
+	</script>
+</head>
+
+<body>
+	<header>
+		<div th:replace="~{header}"></div>
+	</header>
+
+	<h1 class="custom-title" style="margin-top: 50px;">회원 목록</h1>
+
+	<table class="custom-table">
+
+		<tbody>
+			<tr th:each="i : ${#numbers.sequence(0, users.size() - 1, 4)}">
+				<td th:each="j : ${#numbers.sequence(i, i + 3)}" th:if="${j < users.size()}">
+					<div>
+						<form th:action="@{'/admin/update/' + ${users[j].username}}" method="post">
+							<p><strong>ID:</strong> <span th:text="${users[j].username}"></span></p>
+							<input type="text" name="name" th:value="${users[j].name}" />
+							<div class="button-group">
+								<button type="submit">수정</button>
+						</form>
+						<form th:action="@{'/admin/delete/' + ${users[j].username}}" method="post"
+							onsubmit="return confirm('정말 삭제하시겠습니까?');">
+							<button type="submit" class="delete-btn">삭제</button>
+						</form>
+
+					</div>
+					</div>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</body>
+
+</html>
